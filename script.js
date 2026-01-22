@@ -1,5 +1,20 @@
 
 document.addEventListener('DOMContentLoaded', () => {
+    // --- 0. Active Navigation State (Auto-Highlight) ---
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('nav a');
+
+    navLinks.forEach(link => {
+        // Get the href filename
+        const linkPath = link.getAttribute('href');
+
+        // Check if it matches (handling root path case)
+        if (linkPath === currentPath || (currentPath === 'index.html' && linkPath === './') || (currentPath === '' && linkPath === 'index.html')) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
 
     // --- SNOW EFFECT SYSTEM (AI Studio Style) ---
     const initSnowSystem = () => {

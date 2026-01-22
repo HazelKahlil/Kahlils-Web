@@ -162,7 +162,7 @@ nav ul {
     display: flex;
     gap: 40px;
     align-items: center;
-    /* Align vertically */
+    border-bottom: none !important;
 }
 
 nav li {
@@ -183,7 +183,12 @@ nav a {
 
 nav a:hover,
 nav a.active {
-    opacity: 1;
+    opacity: 1 !important;
+}
+
+nav a.active {
+    border-bottom: 1px solid #1a1a1a;
+    padding-bottom: 4px;
 }
 
 /* Social Icons (Right Side) */

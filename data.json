@@ -1,0 +1,281 @@
+{
+    "site": {
+        "title": "Hazel Kahlil",
+        "description": "Photographer based in Somewhere.",
+        "bio": "Kahlil Gibran (1883\u20131931) was a titan of art and a philosopher of the soul who transcended the cultural boundaries between East and West. Born in 1883 to a destitute family in the mountainous reaches of Northern Lebanon, his early spirit was forged by the splendor of nature and the profound religious atmosphere of Maronite Catholicism.\n\nAt the age of twelve, he immigrated to Boston with his mother, where his extraordinary talent for painting began to blossom in the tension between the city\u2019s slums and the avant-garde art scene. Gibran\u2019s life was defined by hardship; as a young man, he returned to Lebanon to deepen his study of Arabic literature, only to lose his mother and two siblings in the span of a single year. This profound bereavement infused his later work with a foundation of melancholy and compassion. With the support of his lifelong patron, Mary Haskell, he traveled to Paris to study art, eventually earning the admiration of the master sculptor Auguste Rodin.\n\nAfter settling in New York, Gibran entered his creative prime. He founded \"The Pen League,\" spearheading a reform movement in Arabic literature that shattered traditional constraints. In 1923, he published his magnum opus, The Prophet, in English. Through its rhythmic, poetic prose, the book explores eternal themes of love, life, freedom, and death, achieving a seamless fusion of Eastern mystical wisdom and the modern Western spirit. In 1931, this \"Artistic Prophet\" who had long wandered between cultures passed away from liver disease in New York at age 48. In accordance with his final wishes, his body was returned to his homeland and laid to rest in the heart of Lebanon\u2019s cedar forests, leaving behind a literary legacy that has resonated globally for over a century.",
+        "copyright": "all photographs copyright hazelkahlil 2026",
+        "contact_items": [
+            {
+                "label": "Studio",
+                "value": "Shanghai,China"
+            },
+            {
+                "label": "Commercial",
+                "value": "kahlils@163.com",
+                "link": "mailto:kahlils@163.com"
+            },
+            {
+                "label": "Commercial Inquiries",
+                "value": "phyllisgibran@gmail.com",
+                "link": "mailto:booking@agency.com"
+            },
+            {
+                "label": "Instagram",
+                "value": "@hazelkahlil",
+                "link": "https://instagram.com/hazelkahlil"
+            }
+        ],
+        "void_messages": [
+            "Nothingness is not an absence, but a potential.",
+            "We find beauty not in the thing itself, but in the patterns of shadows.",
+            "Empty space allows the imagination to enter.",
+            "The page you seek has dissolved into light.",
+            "A blank sheet of paper is the most diverse object."
+        ],
+        "contact_fixed_images": [],
+        "studio": "Shanghai,China",
+        "commercial_email": "kahlils@163.com",
+        "contact_email": "kahlils@163.com",
+        "instagram": "kahlils@163.com",
+        "header_social_instagram": "https://instagram.com/hazelkahlil",
+        "header_social_link": " https://xhslink.com/m/4Ak0Z2X2rjx",
+        "header_social_email": "kahlils@163.com",
+        "home_images": [
+            "images/2025.7.19 38.jpg",
+            "images/2026.1.10- 35.jpg",
+            "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?q=80&w=1500&auto=format&fit=crop",
+            "images/2025.8.31 26.jpg",
+            "images/2026.1.10- 90.jpg"
+        ],
+        "bio_layout": {},
+        "contact_info_layout": {},
+        "contact_gallery_layout": {},
+        "contact_random_mode": true
+    },
+    "projects": [
+        {
+            "id": "new-1768987933974",
+            "title": "kyoto facades",
+            "year": "2025",
+            "description": "Every city has a face. Facades focuses on building fa\u00e7ades\u2014the city's most public yet most overlooked interface.I don't seek out landmarks\u2014only the silent, anonymous skins that line everyday streets. Under direct light, they shed narrative and emotion, leaving only geometry, texture, and traces of time.We pass countless fa\u00e7ades daily, yet never truly see them. This is a slowed gaze\u2014pushing background into foreground, granting the ordinary the weight of attention. No explanation. Just an invitation to look.Selected works featured in Quadro Magazine and Marika Magazine.",
+            "image": "images/2025.7.17 69.jpg",
+            "gallery": [
+                {
+                    "src": "images/2025.7.17 69.jpg",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.7.17 68.jpg",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.7.17 57.jpg",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.7.17 58.jpg",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.7.17 62.jpg",
+                    "caption": "Kyoto Japan"
+                }
+            ]
+        },
+        {
+            "id": "amagatsu",
+            "title": "A flock of birds",
+            "year": "2023-2026",
+            "image": "images/2026.1.10- 90.jpg",
+            "gallery": [
+                {
+                    "src": "images/2026.1.10- 90.jpg",
+                    "caption": "Jeju Island, South Korea,2026"
+                },
+                {
+                    "src": "images/2026.1.10- 96.jpg",
+                    "caption": "Jeju Island, South Korea,2026"
+                },
+                {
+                    "src": "images/2024-02-10 104550.jpg",
+                    "caption": "Nanjing China"
+                },
+                {
+                    "src": "images/2026.1.10- 89.jpg",
+                    "caption": "Jeju Island, South Korea,2026"
+                },
+                {
+                    "src": "images/2024-02-10 163658.jpg",
+                    "caption": "Nanjing China"
+                },
+                {
+                    "src": "images/2026.1.10- 92.jpg",
+                    "caption": "Jeju Island, South Korea,2026"
+                },
+                {
+                    "src": "images/2026.1.10- 122.jpg",
+                    "caption": "Jeju Island, South Korea,2026"
+                },
+                {
+                    "src": "images/2024-02-10 163654.jpg",
+                    "caption": "Nanjing China"
+                }
+            ],
+            "description": "Birds are the ancient inhabitants of the city, their presence predating any architecture. In this series, I focus on how these creatures reenact their timeless rituals of survival within these man-made spaces.Captured in these frames, they soar over heavy stone walls and tiled roofs, or rest upon the textured ground. This primitive vitality, contrasted against static architectural structures, creates a sense of \"Anachronism.\" Through high-contrast black and white imagery, I seek to erase the markers of the \"present,\" cultivating a timeless atmosphere of silence. Here, the flock is not merely a subject, but an eternal metaphor connecting the past and the future."
+        },
+        {
+            "id": "after-the-rain",
+            "title": "Lifestyle",
+            "year": "2025-2026",
+            "image": "images/2025.8.31 18.jpg",
+            "gallery": [
+                {
+                    "src": "images/2026.1.10- 46.jpg",
+                    "caption": "Jeju Island, South Korea,2026"
+                },
+                {
+                    "src": "images/2026.1.10- 56.jpg",
+                    "caption": "Jeju Island, South Korea,2026"
+                },
+                {
+                    "src": "images/2026.1.10- 28.jpg",
+                    "caption": "Jeju Island, South Korea,2026"
+                },
+                {
+                    "src": "images/2026.1.10- 35.jpg",
+                    "caption": "Jeju Island, South Korea,2026"
+                },
+                {
+                    "src": "images/2026.1.10- 34.jpg",
+                    "caption": "Jeju Island, South Korea,2026"
+                },
+                {
+                    "src": "images/2026.1.11-3.JPG",
+                    "caption": "Jeju Island, South Korea,2026"
+                },
+                {
+                    "src": "images/2026.1.10- 37.jpg",
+                    "caption": "Jeju Island, South Korea,2026"
+                },
+                {
+                    "src": "images/2026.1.10- 42.jpg",
+                    "caption": "Jeju Island, South Korea,2026"
+                },
+                {
+                    "src": "images/2026.1.10- 43.jpg",
+                    "caption": "Jeju Island, South Korea,2026"
+                },
+                {
+                    "src": "images/2026.1.10- 50.jpg",
+                    "caption": "Jeju Island, South Korea,2026"
+                },
+                {
+                    "src": "images/2026.1.10- 51.jpg",
+                    "caption": "Jeju Island, South Korea,2026"
+                }
+            ],
+            "description": "This series captures the silence and the beauty of the world after it rains."
+        },
+        {
+            "id": "quinault",
+            "title": "Kyoto",
+            "year": "2025-2026",
+            "image": "images/2025.07 227.jpg",
+            "gallery": [
+                {
+                    "src": "images/2025.07 227.jpg",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.7.20-42.JPG",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.07 28.jpg",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.07 69.jpg",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.07 98.jpg",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.07 243.jpg",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.7.16-14.JPG",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.7.20-11.JPG",
+                    "caption": "Test CaKyoto Japanption 123"
+                },
+                {
+                    "src": "images/2025.07 192.jpg",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.07 203.jpg",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.7.20-10.JPG",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.7.20-8.JPG",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.7.20-9.JPG",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.07 88.jpg",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.07 211.jpg",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.07 221.jpg",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.07 229.jpg",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.07 233.jpg",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.7.15-36.JPG",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.7.18 1.jpg",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.7.15-45.JPG",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.7.20-20.JPG",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.7.20-43.JPG",
+                    "caption": "Kyoto Japan"
+                }
+            ],
+            "description": "Once the clamour is stripped away, Kyoto\u2019s essential bones are laid bare. I find myself captivated by the inherent order within these frames: where the sharp white planes of modern architecture slice through the sky, held in a silent stalemate with the brooding eaves of antiquity. The geometric lines of a car park find a curious kinship with the rhythmic tiles of a distant roof, creating a strange parallel world. Even the mundane\u2014a bicycle or a drape of fabric in a garage\u2014assumes a sculptural presence. Here, light does not exist merely to illuminate; it serves to delineate the silent geometry of objects existing within the void."
+        }
+    ]
+}

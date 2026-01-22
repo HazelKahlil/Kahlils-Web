@@ -1,0 +1,1483 @@
+/* 
+   Theme: Ueda Pure V3 (Horizontal Layout)
+   Concept: Top Header, Irregular Gallery, Papyrus
+*/
+
+:root {
+    --bg-color: #ffffff;
+    --text-color: #1a1a1a;
+    --nav-color: #666666;
+    --nav-active: #000000;
+
+    --font-serif: "Papyrus", fantasy;
+    --font-sans: "Papyrus", fantasy;
+
+    /* Specific overrides for Project Titles (New Premium Look) */
+    --font-title-special: "Futura", "Trebuchet MS", Arial, sans-serif;
+
+    --header-height: 160px;
+    /* Increased slightly for better centering */
+    --spacing-base: 20px;
+
+    /* Layout Constraints */
+    --site-max-width: 1200px;
+    --site-padding: 60px;
+}
+
+/* Global Reset & Box Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    overflow-y: scroll;
+    /* Force scrollbar to prevent layout jump */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-sans);
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    line-height: 1.8;
+    /* overflow: hidden; Removed global lock */
+    height: 100%;
+}
+
+body.is-home {
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--nav-active);
+}
+
+/* Body & Wrapper Defaults (Flex Sticky Footer for most pages) */
+#site-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Homepage Overrides - Restore Original "Poster" Layout */
+body.is-home #site-wrapper {
+    display: block;
+    /* Ignore flex on home */
+    height: 100vh;
+}
+
+body.is-home main {
+    height: calc(100vh - var(--header-height));
+    /* Adjusted height */
+    /* margin-top: 0; Removed to allow default margin-top from 'main' to apply? 
+       Actually 'body.is-home main' has higher specificity. 
+       We need to explicitly set it or remove the property if we want inheritance, 
+       but since this block is ABOVE the generic 'main' block, purely removing it might not work 
+       if the generic block hasn't been defined yet? 
+       Wait, in CSS, order matters for same specificity, but specificity overrides order.
+       'body.is-home main' (specificity 0-1-2) > 'main' (0-0-1).
+       So we MUST set margin-top here or use 'unset' / 'revert', or simply set it to the variable.
+    */
+    margin-top: var(--header-height);
+    padding: 60px max(var(--site-padding), calc((100% - var(--site-max-width)) / 2)) 0;
+}
+
+body.is-home .copyright {
+    position: fixed;
+    bottom: 30px;
+    left: max(var(--site-padding), calc((100% - var(--site-max-width)) / 2));
+    width: auto;
+    padding: 0;
+    margin: 0;
+    z-index: 100;
+}
+
+/* 
+   Header Strategy: Top Fixed Block
+   Layout:
+   [Brand Name (Horizontal)]
+   [Nav Links (Horizontal)]
+*/
+header {
+    width: 100%;
+    height: var(--header-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    /* justify-content: space-between; Removed to use auto margins */
+    align-items: center;
+    /* Align items vertically center */
+    padding: 55px max(var(--site-padding), calc((100% - var(--site-max-width)) / 2)) 0;
+    /* Dynamic Centering */
+    height: auto;
+    /* Allow height to adapt */
+    min-height: var(--header-height);
+    background-color: rgba(255, 255, 255, 0.95);
+    /* Original background */
+    z-index: 100;
+}
+
+.brand {
+    margin-right: 60px;
+    /* Space between Brand and Nav */
+}
+
+.brand h1 {
+    font-family: var(--font-serif);
+    font-size: 2.8rem;
+    /* Restored size */
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: 0.02em;
+    /* Restored spacing */
+    line-height: 1;
+    text-transform: none;
+    /* Only first letter uppercase (as written in HTML) */
+    white-space: nowrap;
+    /* Force horizontal one line */
+}
+
+.brand a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    /* Align vertically */
+}
+
+nav li {
+    margin-bottom: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 11px;
+    /* Restored size */
+    letter-spacing: 0.15em;
+    /* Restored spacing */
+    opacity: 0.6;
+    transition: opacity 0.3s;
+    text-transform: uppercase;
+}
+
+nav a:hover,
+nav a.active {
+    opacity: 1;
+}
+
+/* Social Icons (Right Side) */
+.social-icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-left: auto;
+    /* Push to far right */
+    /* Removed translate as baseline alignment handles it */
+}
+
+.social-icons a {
+    color: var(--text-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.social-icons a:hover {
+    opacity: 1;
+}
+
+.social-icons a:hover {
+    opacity: 1;
+}
+
+/* Replaces SVG styling */
+.social-icons img {
+    height: 44px;
+    /* Doubled size */
+    width: auto;
+    display: block;
+    /* Removed translate for center alignment */
+}
+
+/* Copyright Default (for standard pages) */
+.copyright {
+    position: static;
+    padding: 30px max(var(--site-padding), calc((100% - var(--site-max-width)) / 2));
+    font-size: 10px;
+    color: #ccc;
+    background: transparent;
+    margin-top: auto;
+    width: 100%;
+}
+
+/* Main Content Area Default */
+main {
+    margin-top: var(--header-height);
+    /* Clear the fixed header */
+    padding: 60px max(var(--site-padding), calc((100% - var(--site-max-width)) / 2)) 0;
+    /* Dynamic Centering + 60px Top Spacing */
+    opacity: 0;
+    animation: fadeIn 1.2s ease-out forwards;
+    /* height: calc(100vh - var(--header-height)); */
+    flex-grow: 1;
+    /* Allow growing */
+    position: relative;
+    /* overflow: hidden; Removed to allow scrolling */
+}
+
+/* Fix for scrolling on non-home pages */
+body:not(.is-home) main {
+    height: auto;
+    min-height: calc(100vh - var(--header-height) - 100px);
+    /* Adjust for footer */
+    overflow: visible;
+    padding-bottom: 60px;
+}
+
+/* Homepage: Irregular Hero Gallery */
+.hero-container {
+    width: 100%;
+    position: relative;
+    /* We'll use a spacious grid/flex or absolute mix */
+    width: 100%;
+    position: relative;
+    height: 100%;
+
+}
+
+.hero-gallery {
+    position: relative;
+    width: 105.263%;
+    /* Scale horizontally to fill the 5% right gap */
+    height: 105.263%;
+    /* Scale vertically to maintain aspect ratio */
+    /* Start images closer to look like a composition */
+}
+
+.hero-img {
+    position: absolute;
+    object-fit: cover;
+    filter: grayscale(100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+    /* Performance optimizations */
+    will-change: transform, filter;
+    transform: translateZ(0);
+    /* Force GPU layer */
+    backface-visibility: hidden;
+
+    /* Precise transitions - avoid 'all' */
+    transition:
+        transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        filter 0.5s ease-out,
+        box-shadow 0.3s ease;
+}
+
+.hero-img:hover {
+    filter: grayscale(0%);
+    z-index: 10 !important;
+    transform: translateZ(0) scale(1.02);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Irregular Layout Positions - 5 Images */
+.img-1 {
+    width: 35%;
+    top: 2%;
+    left: 0;
+    /* Align with Logo */
+    z-index: 2;
+    aspect-ratio: 4/3;
+}
+
+.img-2 {
+    width: 22%;
+    top: 25%;
+    left: 38%;
+    z-index: 4;
+    aspect-ratio: 3/4;
+}
+
+.img-3 {
+    width: 32%;
+    top: 6%;
+    right: 5%;
+    z-index: 1;
+    aspect-ratio: 16/9;
+}
+
+.img-4 {
+    width: 20%;
+    top: 35%;
+    left: 12%;
+    z-index: 3;
+    aspect-ratio: 1/1;
+}
+
+.img-5 {
+    width: 26%;
+    top: 30%;
+    left: 65%;
+    z-index: 2;
+    aspect-ratio: 3/2;
+}
+
+/* Archive/Works Grid */
+.archive-grid {
+    display: grid;
+    /* Use minmax to ensure cards have a reasonable minimum width but fill space */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 60px 40px;
+    align-items: start;
+    /* Should align tops of cards */
+}
+
+.project-card {
+    display: block;
+}
+
+.project-thumb {
+    width: 100%;
+    /* Enforce a standard landscape aspect ratio for uniformity in the grid */
+    aspect-ratio: 3/2;
+    background-color: #f0f0f0;
+    /* Placeholder color */
+    overflow: hidden;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-thumb img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    /* or contain */
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.project-card:hover .project-thumb img {
+    transform: scale(1.03);
+}
+
+.project-info h2 {
+    font-family: var(--font-title-special);
+    font-size: 1.5rem;
+    /* Increased slightly for impact */
+    font-weight: 400;
+    margin-bottom: 5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    /* Opacity Logic: Subtle default, active on hover */
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-info h2 {
+    opacity: 1;
+}
+
+.project-info span {
+    font-family: var(--font-title-special);
+    font-size: 10px;
+    color: #999;
+    text-transform: uppercase;
+    /* Opacity Logic */
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-info span {
+    opacity: 1;
+}
+
+/* Biography Text */
+.bio-container {
+    padding-top: 0;
+    padding-left: 0;
+    /* Align with container edge */
+    width: 60%;
+    max-width: 600px;
+    margin: 0;
+    /* Left align - remove auto centering */
+    display: block;
+}
+
+.bio-text {
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 1.1em;
+    white-space: pre-wrap;
+    /* Respect backend newlines */
+    line-height: 1.8;
+}
+
+/* .bio-portrait removed */
+
+/* Contact */
+.contact-container {
+    padding-top: 0;
+    max-width: 800px;
+}
+
+.contact-row {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.contact-label {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #999;
+}
+
+.contact-link {
+    font-size: 1.1rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive - Mobile First Optimizations */
+@media (max-width: 768px) {
+
+    /* Base adjustments */
+    body {
+        font-size: 15px;
+    }
+
+    /* ======= MOBILE HEADER: Left-Aligned Layout using CSS Grid ======= */
+    header {
+        position: relative;
+        padding: 20px;
+        /* Consistent padding on all sides */
+        display: grid;
+        grid-template-columns: 1fr auto;
+        /* Brand full width, nav row takes space */
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            "brand brand"
+            "nav icons";
+        gap: 12px 0;
+        align-items: center;
+        height: auto;
+        background: var(--bg-color);
+    }
+
+    /* Brand: Full width, left aligned */
+    .brand {
+        grid-area: brand;
+        margin-right: 0;
+        margin-bottom: 0;
+        text-align: left;
+    }
+
+    .brand h1 {
+        font-size: 2rem;
+    }
+
+    /* Nav: Left aligned */
+    nav {
+        grid-area: nav;
+        justify-self: start;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        gap: 8px 16px;
+        justify-content: flex-start;
+    }
+
+    nav a {
+        font-size: 11px;
+        padding: 6px 0;
+    }
+
+    /* Social Icons: Right aligned */
+    .social-icons {
+        grid-area: icons;
+        justify-self: end;
+        margin-left: 0;
+        gap: 16px;
+    }
+
+    .social-icons img {
+        height: 24px;
+    }
+
+    /* Main content */
+    main {
+        margin-top: 0;
+        padding: 20px;
+        /* Match header padding */
+    }
+
+    /* Homepage Hero - Masonry layout using CSS Columns */
+    body.is-home {
+        overflow: auto;
+    }
+
+    body.is-home main {
+        height: auto;
+        min-height: auto;
+        padding: 0;
+        margin-top: 0;
+        /* Override the 160px margin from desktop */
+    }
+
+    .hero-container {
+        height: auto;
+        padding: 12px 20px 20px 20px;
+        /* Match side padding */
+    }
+
+    .hero-gallery {
+        columns: 2;
+        /* 2 column masonry */
+        column-gap: 6px;
+        padding: 0;
+    }
+
+    .hero-img {
+        position: relative;
+        width: 100%;
+        height: auto;
+        /* Natural height */
+        display: block;
+        margin-bottom: 6px;
+        break-inside: avoid;
+        /* Prevent image from splitting across columns */
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important;
+        border-radius: 2px;
+    }
+
+    /* ======= PROJECT DETAIL PAGE: Left-Aligned Text ======= */
+    .project-info-side {
+        padding: 0;
+        /* Let main handle outer padding */
+        text-align: left;
+        /* Force left alignment */
+        width: 100%;
+    }
+
+    .project-info-side h1 {
+        font-size: 1.3rem !important;
+        margin: 0 0 8px 0;
+        /* Reset margins, add bottom spacing */
+        letter-spacing: 0.05em;
+        text-align: left;
+        opacity: 1 !important;
+        /* Always visible on mobile */
+    }
+
+    .project-info-side .meta {
+        font-size: 10px;
+        margin: 0 0 20px 0;
+        /* Clear spacing rhythm */
+        text-align: left;
+        opacity: 1 !important;
+        /* Always visible on mobile */
+    }
+
+    .project-desc {
+        font-size: 14px;
+        line-height: 1.8;
+        text-align: left;
+        margin: 0 0 30px 0;
+        max-width: 100%;
+    }
+
+    /* Gallery side: Full width, no side padding */
+    .project-gallery-side {
+        padding: 0;
+        justify-content: flex-start;
+        /* Left align images */
+    }
+
+    /* ======= CRITICAL LAYOUT RESET FOR MOBILE ======= */
+
+    /* 1. Force Single Column Flow */
+    .project-split {
+        display: flex !important;
+        flex-direction: column !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    /* 2. Nuetralize Absolute Positioning & Coords */
+    /* Target all potential containers that might have inline styles */
+    .project-info-side,
+    .project-gallery-side,
+    .gallery-slide,
+    .image-wrapper,
+    .slide-figure,
+    .contact-img-wrapper,
+    .contact-random-img {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        transform: none !important;
+        /* Stop any translation hacks */
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        float: none !important;
+    }
+
+    /* 3. Layout Spacing (Vertical Rhythm) */
+    .project-info-side {
+        margin-bottom: 40px !important;
+        padding-bottom: 20px !important;
+        border-bottom: 1px solid #eee;
+        /* Optional separator */
+    }
+
+    .gallery-slide {
+        display: block !important;
+        /* Show all slides in a list */
+        margin-bottom: 60px !important;
+        /* Big gap between images */
+        opacity: 1 !important;
+        /* Force visible */
+        visibility: visible !important;
+    }
+
+    /* Disable the slider functionality visuals on mobile - show all images */
+    .gallery-slider-container {
+        display: block !important;
+        height: auto !important;
+    }
+
+    /* Hide desktop controls */
+    .slider-arrow,
+    .slider-counter {
+        display: none !important;
+    }
+
+    /* 4. Fix Image & Caption Stacking */
+    .slide-figure {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .slide-figure img {
+        width: 100% !important;
+        height: auto !important;
+        display: block;
+    }
+
+    .slide-figure figcaption {
+        position: static !important;
+        /* No floating captions */
+        display: block !important;
+        margin-top: 10px;
+        color: #999;
+        font-size: 10px;
+        text-align: left;
+    }
+
+    /* Copyright repositioning */
+    body.is-home .copyright {
+        position: static;
+        padding: 40px 20px;
+        text-align: center;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    /* ======= NUCLEAR HEIGHT RESET (Fix Collapse) ======= */
+    .project-split,
+    .project-gallery-side,
+    .gallery-slider-container,
+    .gallery-slide,
+    .image-wrapper,
+    .slide-figure {
+        height: auto !important;
+        min-height: auto !important;
+        max-height: none !important;
+        /* Critical for Portraits */
+        overflow: visible !important;
+        /* KILL GHOST SPACING */
+        line-height: 0 !important;
+        font-size: 0 !important;
+    }
+
+    /* Double-check Image Reset */
+    .gallery-slide img,
+    .image-wrapper img,
+    .slide-figure img {
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100% !important;
+        max-height: none !important;
+        /* Allow Portrait Full Height */
+        object-fit: contain !important;
+        transform: none !important;
+        display: block !important;
+        /* No inline gaps */
+        margin-bottom: 0 !important;
+        /* Tight to caption */
+    }
+
+    /* Caption Safety & Restore Typography */
+    figcaption {
+        position: static !important;
+        transform: none !important;
+        /* Spacing */
+        margin-top: 8px !important;
+        /* Tight spacing exactly as requested */
+        margin-bottom: 40px !important;
+        /* Push next image away */
+        /* Typography Restore */
+        display: block !important;
+        width: 100% !important;
+        font-size: 11px !important;
+        line-height: 1.4 !important;
+        color: #999;
+    }
+
+    /* Archive Grid - 2 columns side by side on mobile */
+    .archive-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px 8px;
+    }
+
+    .project-card {
+        width: 100%;
+    }
+
+    .project-thumb {
+        aspect-ratio: 3/2;
+    }
+
+    .project-info h2 {
+        font-size: 0.85rem;
+    }
+
+    .project-info span {
+        font-size: 9px;
+    }
+
+    .project-info h2 {
+        font-size: 1.1rem;
+        opacity: 1;
+        /* Always visible on mobile */
+    }
+
+    .project-info span {
+        opacity: 1;
+    }
+
+    /* Bio page - FORCE RESET */
+    .bio-container {
+        padding: 20px 0 0 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .bio-text {
+        font-size: 1em;
+        line-height: 1.9;
+    }
+
+    /* Contact Page - FORCE RESET */
+    .contact-info-side,
+    .contact-gallery-side {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .contact-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-gallery-side {
+        margin-top: 40px !important;
+    }
+
+    /* Project Detail - FORCE RESET */
+    .project-info-side {
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        top: auto !important;
+        left: auto !important;
+    }
+
+    .project-gallery-side {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        top: auto !important;
+        left: auto !important;
+    }
+
+    .project-gallery-side img {
+        width: 100% !important;
+        /* Ensure images inside slider also reset */
+    }
+
+    /* Copyright */
+    .copyright {
+        padding: 30px 28px;
+        text-align: center;
+    }
+}
+
+/* Extra small devices (phones < 480px) */
+@media (max-width: 480px) {
+    .brand h1 {
+        font-size: 1.5rem;
+    }
+
+    nav ul {
+        gap: 10px 16px;
+    }
+
+    .archive-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .hero-gallery {
+        gap: 6px;
+    }
+
+    /* Project title even smaller on phones */
+    .project-info-side h1 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Project Split Layout */
+.project-split {
+    position: relative;
+    /* Positioning context for counter */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* Ensure it fits in viewport mostly, but allow scroll if needed on small screens */
+    height: calc(100vh - var(--header-height));
+    overflow: hidden;
+    /* Lock main scroll for desktop if we want "click in see all" style */
+}
+
+@media (min-width: 900px) {
+    .project-split {
+        flex-direction: row;
+        align-items: flex-start;
+        align-items: flex-start;
+        /* Align top */
+        padding: 0;
+        /* Removed padding to align with global container */
+        gap: 40px;
+    }
+}
+
+/* Left Side: Info */
+.project-info-side {
+    width: 100%;
+    padding: 0 0 40px 0;
+    /* Bottom spacing for mobile only */
+}
+
+@media (min-width: 900px) {
+    .project-info-side {
+        width: 300px;
+        /* Fixed width for text column */
+        flex-shrink: 0;
+        /* Prevent shrinking */
+        position: relative;
+        top: 0;
+        height: auto;
+        padding: 0;
+        /* Align with image top visually */
+    }
+}
+
+.project-info-side h1 {
+    font-family: var(--font-title-special);
+    font-size: 3rem;
+    /* Make it BIG and elegant */
+    margin-bottom: 20px;
+    line-height: 1.1;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    /* GHOST MODE: Default low opacity */
+    opacity: 0.2;
+    transition: opacity 0.5s ease;
+    cursor: default;
+}
+
+.project-info-side:hover h1 {
+    opacity: 1;
+}
+
+.project-info-side .meta {
+    font-family: var(--font-title-special);
+    font-size: 11px;
+    color: #999;
+    letter-spacing: 0.1em;
+    margin-bottom: 40px;
+    display: block;
+    /* GHOST MODE */
+    opacity: 0.2;
+    transition: opacity 0.5s ease;
+}
+
+.project-info-side:hover .meta {
+    opacity: 1;
+}
+
+.project-desc {
+    font-size: 11px;
+    line-height: 2.2;
+    color: #333;
+    white-space: pre-wrap;
+    /* Wrap text naturally */
+    word-wrap: break-word;
+    /* Prevent long words breaking layout */
+    text-align: left;
+    max-width: 100%;
+    /* Use full available width of the side column */
+    font-family: var(--font-sans);
+    letter-spacing: 0.05em;
+    margin-top: 10px;
+}
+
+/* Right Side: Gallery Slider */
+.project-gallery-side {
+    position: relative;
+    /* Positioning context for arrows */
+    width: 100%;
+    /* Use flex to align top */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+@media (min-width: 900px) {
+    .project-gallery-side {
+        flex-grow: 1;
+        /* Take remaining space */
+        height: 100%;
+    }
+}
+
+.gallery-slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* Fill the side container */
+    max-height: 60vh;
+    /* REDUCED from 80vh to create more whitespace */
+    overflow: hidden;
+    /* background: #f9f9f9; Optional debug bg */
+    display: flex;
+    align-items: flex-start;
+    /* Align images to top */
+    justify-content: center;
+    /* transform removed for alignment */
+}
+
+.gallery-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    display: flex;
+    align-items: flex-start;
+    /* Top align for figure */
+    justify-content: center;
+}
+
+.gallery-slide.active {
+    opacity: 1;
+    z-index: 10;
+}
+
+/* Wrapper for Image + Metadata */
+.slide-figure {
+    position: relative;
+    /* Positioning context for counter overlay */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: max-content;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    margin: 0;
+    background: transparent !important;
+}
+
+/* Counter - Fixed to right margin, bottom aligned with gallery */
+.slider-counter {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    /* Flush with project-split right edge (which inherits site padding) */
+    font-family: var(--font-title-special);
+    /* Futura */
+    font-size: 11px;
+    font-weight: 300;
+    /* Light */
+    letter-spacing: 0.15em;
+    color: #999;
+    /* Light gray */
+    text-shadow: none;
+    /* No shadow */
+    z-index: 60;
+}
+
+/* Remove unused slide-counter-overlay */
+.slide-counter-overlay {
+    display: none;
+}
+
+/* Image Wrapper - Positioning context for precise alignment */
+.image-wrapper {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+    max-height: 55vh;
+}
+
+.image-wrapper img {
+    max-width: 100%;
+    max-height: 55vh;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain;
+    display: block;
+    background: transparent !important;
+    border: none;
+}
+
+.slide-figure figcaption {
+    margin-top: 5px;
+    font-size: 10px;
+    color: #999;
+    font-family: var(--font-sans);
+    text-align: left;
+    width: 100%;
+    line-height: 1.2;
+    display: block;
+    /* Ensure visibility */
+    position: relative;
+    z-index: 2;
+    /* Ensure on top if overlap happens */
+}
+
+/* Click Areas for Navigation (Invisible) */
+.slider-nav-area {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    z-index: 50;
+    cursor: pointer;
+}
+
+.nav-left {
+    left: 0;
+    cursor: w-resize;
+}
+
+.nav-right {
+    right: 0;
+    cursor: e-resize;
+}
+
+/* Visible Navigation Arrows - Centered on image, external placement */
+.slider-arrow {
+    position: absolute;
+    /* Center vertically on the gallery-slider-container (image area) */
+    top: calc(55vh / 2);
+    /* Half of max-height of image */
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-family: var(--font-title-special);
+    /* Futura */
+    font-size: 2.5rem;
+    font-weight: 100;
+    /* Ultra light */
+    color: #bbb;
+    cursor: pointer;
+    z-index: 60;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+/* Show arrows on hover */
+.project-gallery-side:hover .slider-arrow {
+    opacity: 1;
+}
+
+.slider-arrow:hover {
+    color: #333;
+}
+
+.arrow-left {
+    left: 0;
+    /* Align with left edge of gallery container */
+}
+
+.arrow-right {
+    right: 0;
+    /* Align with right edge of gallery container */
+}
+
+/* Counter - Aligned with image bottom, right margin */
+.slider-counter {
+    position: absolute;
+    /* Align bottom with image bottom (55vh from top) */
+    top: 55vh;
+    right: 0;
+    /* Ensure text bottom is perfectly flush with the 55vh line */
+    transform: translateY(-100%);
+    /* Move up so bottom edge aligns */
+    font-family: var(--font-title-special);
+    /* Futura */
+    font-size: 11px;
+    font-weight: 300;
+    /* Light */
+    letter-spacing: 0.15em;
+    color: #999;
+    /* Light gray */
+    text-shadow: none;
+    /* No shadow */
+    padding-bottom: 0;
+    /* Remove extra padding for true flush alignment */
+    line-height: 1;
+    /* Tight line height for precise alignment */
+    z-index: 60;
+}
+
+/* Contact Split Layout - Appended */
+.contact-split-layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 50vh;
+    padding: 0 0 60px 0;
+}
+
+@media (min-width: 900px) {
+    .contact-split-layout {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 60px;
+    }
+}
+
+.contact-info-side {
+    width: 100%;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 900px) {
+    .contact-info-side {
+        width: 45%;
+        max-width: 600px;
+    }
+}
+
+.contact-gallery-side {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding-top: 40px;
+    align-items: start;
+}
+
+@media (min-width: 900px) {
+    .contact-gallery-side {
+        width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-gallery-side {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 small images in a row */
+        gap: 8px;
+        padding-top: 24px;
+    }
+}
+
+.contact-random-img {
+    width: 100%;
+    height: auto;
+    background-color: #eee;
+    display: block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Mobile Adjustment for Ghost Mode */
+@media (max-width: 900px) {
+
+    .project-info-side h1,
+    .project-info-side .meta {
+        opacity: 1 !important;
+    }
+
+    .project-info-side {
+        padding: 0 28px;
+        /* Match new standard padding */
+        margin-bottom: 40px;
+    }
+
+    .gallery-slider-container {
+        transform: translateY(0);
+        height: 60vh;
+    }
+}
+
+/* 404 Void Page (Improvisation & Emptiness) */
+body.is-void {
+    background-color: var(--bg-color);
+    display: flex;
+    /* Centering at body level */
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+body.is-void #site-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.void-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0 !important;
+    padding: 0;
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards;
+    /* Slow, deliberate entry */
+}
+
+.void-content {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.void-number {
+    font-family: var(--font-title-special);
+    font-size: 10rem;
+    /* Massive but subtle */
+    font-weight: 100;
+    line-height: 1;
+    color: #f4f4f4;
+    /* Almost invisible - Ghost Mode */
+    margin-bottom: -40px;
+    /* Overlap with text */
+    letter-spacing: 0.05em;
+    user-select: none;
+    z-index: -1;
+    position: relative;
+}
+
+.void-text {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 50px;
+    font-style: italic;
+    min-height: 1.5em;
+    opacity: 0.8;
+}
+
+.void-return {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #999;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 4px;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.void-return:hover {
+    color: #000;
+    border-color: #000;
+    letter-spacing: 0.35em;
+    /* Haptic expansion */
+}
+
+/* =========================================
+   FIX: Mobile & Desktop Layout Consistency (Refined)
+   ========================================= */
+
+/* Desktop: Uniform Height for Project Images (80vh) */
+@media screen and (min-width: 769px) {
+    .slide-figure {
+        height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .slide-figure img {
+        height: 100%;
+        width: auto;
+        max-width: 100%;
+        object-fit: contain;
+    }
+}
+
+/* Mobile: Full Width & Vertical Stack (Disable Slider) */
+@media screen and (max-width: 768px) {
+
+    /* 1. Project Split Layout */
+    .project-split {
+        flex-direction: column;
+        height: auto !important;
+        /* CRITICAL: Allow content to expand */
+        overflow: visible !important;
+        /* CRITICAL: Don't clip images */
+    }
+
+    .project-gallery-side {
+        width: 100%;
+        height: auto !important;
+        /* CRITICAL: Override the 100% height from desktop */
+        margin-top: 20px;
+        justify-content: flex-start;
+        /* Left align */
+        align-items: flex-start;
+    }
+
+    /* 2. Project Images: Vertical Stack instead of Slider */
+    .gallery-slider-container {
+        width: 100%;
+        height: auto !important;
+        max-height: none !important;
+        /* CRITICAL FIX: Allow full height */
+        display: block !important;
+        /* Stack context */
+        overflow: visible !important;
+    }
+
+    /* Force all slides to be visible and stacked */
+    .gallery-slide {
+        position: relative !important;
+        /* Back to flow */
+        width: 100% !important;
+        height: auto !important;
+        opacity: 1 !important;
+        /* Force visible */
+        display: block !important;
+        margin-bottom: 40px;
+        /* Space between images */
+    }
+
+    /* Hide slider controls on mobile */
+    .slider-nav-area,
+    .slider-counter,
+    .slider-arrow,
+    .slide-counter-overlay {
+        display: none !important;
+    }
+
+    .slide-figure {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: 0;
+    }
+
+    .slide-figure img {
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        object-fit: contain;
+    }
+
+    /* 3. Homepage / Kyoto Facades: Single Column */
+    .hero-gallery {
+        columns: 1 !important;
+        column-gap: 0;
+    }
+
+    .hero-img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+}

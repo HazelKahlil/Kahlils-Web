@@ -1,0 +1,1049 @@
+127.0.0.1 - - [20/Jan/2026 22:57:25] "GET /admin.html HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 22:58:00] "GET /admin.html?t=12345 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 22:59:02] "GET /data.json?t=1768921142993 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 22:59:03] "GET /images/2025.7.19%2038.jpg?t=1768921143008 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 22:59:03] "GET /images/2026.1.10-%2035.jpg?t=1768921143008 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 22:59:03] "GET /images/2025.8.31%2026.jpg?t=1768921143008 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 22:59:03] "GET /images/2026.1.10-%2090.jpg?t=1768921143008 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:02:16] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:02:16] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:02:17] "GET /archive.html HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:02:17] "GET /style.css?v=22 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:02:17] "GET /images/icon_instagram.png HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:02:17] "GET /images/icon_link.png HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:02:17] "GET /images/icon_mail.png HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:02:17] "GET /script.js?v=30 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:02:17] "GET /data.json?v=1768921337703 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:02:17] "GET /assets/sounds/text_custom.mp3 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:02:17] "GET /assets/sounds/image_custom.mp3 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:02:18] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:02:18] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:02:21] "GET /project.html?id=quinault HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:02:21] "GET /data.json?v=1768921341676 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:02:21] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:02:21] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:02:27] "GET /index.html HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:02:27] "GET /data.json?v=1768921347647 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:02:27] "GET /images/2025.7.19%2038.jpg?t=1768921347690 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:02:27] "GET /images/2026.1.10-%2035.jpg?t=1768921347690 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:02:27] "GET /images/2025.8.31%2026.jpg?t=1768921347690 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:02:27] "GET /images/2026.1.10-%2090.jpg?t=1768921347690 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:02:27] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:02:27] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:02:57] "POST /api/save HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:02:59] "GET /data.json?v=1768921379786 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:03:00] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:03:00] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:03:00] "GET /data.json?v=1768921380970 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:03:01] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:03:01] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:04:41] "GET /admin.html?t=12345 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:04:46] "GET /data.json?t=1768921486131 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:04:46] "GET /images/2025.7.19%2038.jpg?t=1768921486137 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:04:46] "GET /images/2026.1.10-%2035.jpg?t=1768921486138 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:04:46] "GET /images/2025.8.31%2026.jpg?t=1768921486139 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:04:46] "GET /images/2026.1.10-%2090.jpg?t=1768921486139 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:06:51] "GET /admin.html?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:07:51] "GET /data.json?t=1768921671039 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:07:51] "GET /images/2025.7.19%2038.jpg?t=1768921671054 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:07:51] "GET /images/2026.1.10-%2035.jpg?t=1768921671054 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:07:51] "GET /images/2025.8.31%2026.jpg?t=1768921671054 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:07:51] "GET /images/2026.1.10-%2090.jpg?t=1768921671054 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:09:43] "GET /project.html?id=quinault HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:09:43] "GET /script.js?v=30 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:09:43] "GET /data.json?v=1768921783988 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:09:44] "GET /assets/sounds/text_custom.mp3 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:09:44] "GET /assets/sounds/image_custom.mp3 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:09:46] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:09:46] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:10:02] "GET /index.html HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:10:02] "GET /data.json?v=1768921802249 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:10:02] "GET /images/2025.7.19%2038.jpg?t=1768921802285 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:10:02] "GET /images/2026.1.10-%2035.jpg?t=1768921802285 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:10:02] "GET /images/2025.8.31%2026.jpg?t=1768921802285 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:10:02] "GET /images/2026.1.10-%2090.jpg?t=1768921802285 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:10:02] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:10:02] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:10:04] "GET /archive.html HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:10:04] "GET /data.json?v=1768921804327 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:10:04] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:10:04] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:10:07] "GET /data.json?v=1768921807550 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:10:07] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:10:07] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:12:41] "GET /archive.html HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:12:41] "GET /script.js?v=35 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:12:41] "GET /images/icon_instagram.png HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:12:41] "GET /images/icon_mail.png HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:12:41] "GET /style.css?v=22 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:12:41] "GET /images/icon_link.png HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:12:41] "GET /data.json?v=1768921961317 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:12:41] "GET /assets/sounds/text_custom.mp3 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:12:41] "GET /assets/sounds/image_custom.mp3 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:13:12] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:13:12] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:13:17] "GET /project.html?id=quinault HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:13:17] "GET /script.js?v=35 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:13:17] "GET /data.json?v=1768921997798 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:13:17] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:13:17] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:14:44] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:14:44] "GET /script.js?v=35 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:14:44] "GET /data.json?v=1768922084273 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:14:44] "GET /images/2025.7.19%2038.jpg?t=1768922084286 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:14:44] "GET /images/2026.1.10-%2035.jpg?t=1768922084286 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:14:44] "GET /images/2025.8.31%2026.jpg?t=1768922084286 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:14:44] "GET /images/2026.1.10-%2090.jpg?t=1768922084286 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:15:26] "GET /script.js HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:16:21] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:16:21] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:18:15] "GET /admin.html HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:20:37] "GET /index.html HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:20:37] "GET /script.js?v=35 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:20:37] "GET /data.json?v=1768922437046 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:20:37] "GET /assets/sounds/text_custom.mp3 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:20:37] "GET /assets/sounds/image_custom.mp3 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:20:37] "GET /images/2025.7.19%2038.jpg?t=1768922437049 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:20:37] "GET /images/2026.1.10-%2035.jpg?t=1768922437049 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:20:37] "GET /images/2025.8.31%2026.jpg?t=1768922437049 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:20:37] "GET /images/2026.1.10-%2090.jpg?t=1768922437049 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:20:42] "GET /data.json?t=1768922442387 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:20:42] "GET /images/2025.7.19%2038.jpg?t=1768922442400 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:20:42] "GET /images/2026.1.10-%2035.jpg?t=1768922442400 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:20:42] "GET /images/2025.8.31%2026.jpg?t=1768922442400 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:20:42] "GET /images/2026.1.10-%2090.jpg?t=1768922442400 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:20:58] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:20:58] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:21:02] "GET /archive.html HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:21:03] "GET /data.json?v=1768922463005 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:21:03] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:21:03] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:21:04] "GET /project.html?id=quinault HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:21:04] "GET /data.json?v=1768922464658 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:21:05] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:21:05] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:22:54] "GET /project.html?id=quinault HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:22:54] "GET /script.js?v=36 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:22:54] "GET /data.json?v=1768922574104 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:22:54] "GET /archive.html HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:22:54] "GET /data.json?v=1768922574944 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:22:55] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:22:55] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:22:55] "GET /project.html?id=quinault HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:22:55] "GET /data.json?v=1768922575948 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:22:56] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:22:56] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:23:04] "GET /archive.html HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:23:04] "GET /script.js?v=36 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:23:04] "GET /data.json?v=1768922584065 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:23:04] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:23:04] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:23:04] "GET /project.html?id=amagatsu HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:23:04] "GET /data.json?v=1768922584775 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:23:04] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:23:04] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:23:10] "GET /archive.html HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:23:10] "GET /data.json?v=1768922590957 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:23:11] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:23:11] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:23:12] "GET /project.html?id=after-the-rain HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:23:12] "GET /script.js?v=36 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:23:12] "GET /data.json?v=1768922592470 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:23:12] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:23:12] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:23:22] "GET /archive.html HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:23:22] "GET /script.js?v=36 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:23:22] "GET /data.json?v=1768922602223 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:23:22] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:23:22] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:23:23] "GET /project.html?id=portrait HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:23:23] "GET /data.json?v=1768922603156 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:23:23] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:23:23] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:25:00] "GET /archive.html HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:25:00] "GET /script.js?v=37 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:25:00] "GET /data.json?v=1768922700481 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:25:00] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:25:00] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:25:01] "GET /project.html?id=quinault HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:25:01] "GET /data.json?v=1768922701583 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:25:01] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:25:01] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:28:43] "POST /api/save HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:28:45] "GET /archive.html HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:28:45] "GET /style.css?v=22 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:28:45] "GET /script.js?v=37 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:28:45] "GET /data.json?v=1768922925716 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:28:45] "GET /assets/sounds/image_custom.mp3 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:28:45] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:28:45] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:29:06] "POST /api/save HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:29:09] "GET /archive.html HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:29:09] "GET /data.json?v=1768922949450 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:29:09] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:29:09] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:29:09] "GET /data.json?v=1768922949653 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:29:09] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:29:09] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:29:39] "GET /project.html?id=quinault HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:29:39] "GET /script.js?v=37 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:29:39] "GET /data.json?v=1768922979030 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:29:39] "GET /assets/sounds/text_custom.mp3 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:29:39] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:29:39] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:31:56] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:31:56] "GET /images/2025.07%20227.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:32:04] "POST /api/save HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:32:06] "GET /archive.html HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:32:06] "GET /script.js?v=37 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:32:06] "GET /data.json?v=1768923126659 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:32:06] "GET /images/2025.07%20227.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:32:06] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:32:06] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:33:00] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:33:00] "GET /script.js?v=37 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:33:00] "GET /data.json?v=1768923180431 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:33:00] "GET /images/2025.7.19%2038.jpg?t=1768923180444 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:33:00] "GET /images/2026.1.10-%2035.jpg?t=1768923180444 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:33:00] "GET /images/2025.8.31%2026.jpg?t=1768923180444 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:33:00] "GET /images/2026.1.10-%2090.jpg?t=1768923180444 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:33:01] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:33:01] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:33:01] "GET /archive.html HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:33:01] "GET /data.json?v=1768923181280 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:33:01] "GET /images/2025.07%20227.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:33:01] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:33:01] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:33:05] "GET /project.html?id=quinault HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:33:05] "GET /data.json?v=1768923185081 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:33:05] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:33:05] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:33:08] "GET /data.json?v=1768923188643 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:33:08] "GET /images/2025.07%20227.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:33:08] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:33:08] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:35] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:35] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:35] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:35] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:35] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:35] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:35] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:35] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:35] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:35] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:35] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:35] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:35] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:35] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:35] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:35] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:35] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:35] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:35] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:35] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:35] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:35] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:35] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:35] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:35] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:35] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:35] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:35] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:35] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:35] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:35] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:35] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:35] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:35] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:35] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:35] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:35] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:35] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:35] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:35] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:35] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:35] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:35] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:35] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:35] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:35] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:35] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:35] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:35] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:35] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:35] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:35] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:35:50] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:35:50] "POST /upload HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:40:10] "POST /api/save HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:40:13] "GET /project.html?id=quinault HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:40:13] "GET /images/icon_instagram.png HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:40:13] "GET /images/icon_mail.png HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:40:13] "GET /images/icon_link.png HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:40:13] "GET /script.js?v=37 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:40:13] "GET /data.json?v=1768923613489 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:40:13] "GET /assets/sounds/text_custom.mp3 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:40:13] "GET /assets/sounds/image_custom.mp3 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:40:13] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:40:13] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:40:21] "GET /archive.html HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:40:21] "GET /data.json?v=1768923621736 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:40:21] "GET /images/2025.07%20227.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:40:21] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:40:21] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:40:31] "GET /admin.html HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:40:38] "GET /data.json?t=1768923638109 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:40:38] "GET /images/2025.07%20227.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:40:38] "GET /images/2025.7.19%2038.jpg?t=1768923638125 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:40:38] "GET /images/2026.1.10-%2035.jpg?t=1768923638125 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:40:38] "GET /images/2025.8.31%2026.jpg?t=1768923638126 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:40:38] "GET /images/2026.1.10-%2090.jpg?t=1768923638126 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:40:44] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:40:44] "GET /images/2.2%20%E4%BA%91%E4%B8%8A%E8%8D%89%E5%8E%9F%2014.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:23] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:23] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:23] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:23] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:23] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:23] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:23] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:23] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:23] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:23] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:23] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:23] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:23] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:23] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:23] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:23] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:23] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:23] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:23] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:23] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:23] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:24] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:24] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:24] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:24] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:24] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:24] "GET /images/2025.07%2028.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:24] "GET /images/2025.07%2068.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:24] "GET /images/2025.07%2069.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:24] "GET /images/2025.07%2088.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:24] "GET /images/2025.07%2098.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:25] "GET /images/2025.07%20103.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:25] "GET /images/2025.07%20207.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:25] "GET /images/2025.07%20192.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:25] "GET /images/2025.7.16-14.JPG HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:25] "GET /images/2025.7.20-42.JPG HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:25] "GET /images/2025.7.15-36.JPG HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:25] "GET /images/2025.7.15-45.JPG HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:25] "GET /images/2025.07%20233.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:25] "GET /images/2025.7.18%201.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:25] "GET /images/2025.7.20-68.JPG HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:25] "GET /images/2025.07%20229.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:25] "GET /images/2025.7.20-43.JPG HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:25] "GET /images/2025.07%20211.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:25] "GET /images/2025.07%20221.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:25] "GET /images/2025.07%20203.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:25] "GET /images/2025.07%20243.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:25] "GET /images/2025.7.20-20.JPG HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:41:57] "POST /api/save HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /project.html?id=quinault HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /script.js?v=37 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /data.json?v=1768923760123 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /images/2025.07%20227.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /images/2025.07%2028.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /images/2025.07%2068.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /images/2025.07%2069.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /images/2025.07%2088.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /images/2025.07%2098.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /images/2025.7.20-20.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /images/2025.07%20233.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /images/2025.7.20-68.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /images/2025.07%20229.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /images/2025.7.20-43.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /images/2025.07%20192.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /images/2025.07%20221.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /images/2025.7.20-42.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /images/2025.07%20243.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /images/2025.7.16-14.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /images/2025.7.15-36.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /images/2025.07%20103.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /images/2025.7.18%201.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /images/2025.07%20207.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /images/2025.7.15-45.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /images/2025.07%20203.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /images/2025.07%20211.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:42:40] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:42:40] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:43:04] "GET /archive.html HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:43:04] "GET /data.json?v=1768923784694 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:43:04] "GET /images/2025.07%20227.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:43:04] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:43:04] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:43:05] "GET /data.json?v=1768923785464 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:43:05] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:43:05] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:43:05] "GET /data.json?v=1768923785946 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:43:05] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:43:05] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:43:06] "GET /data.json?v=1768923786163 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:43:06] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:43:06] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:43:06] "GET /data.json?v=1768923786350 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:43:06] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:43:06] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:43:07] "GET /data.json?v=1768923787003 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:43:07] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:43:07] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:43:07] "GET /index.html HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:43:07] "GET /data.json?v=1768923787448 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:43:07] "GET /images/2025.7.19%2038.jpg?t=1768923787454 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:43:07] "GET /images/2026.1.10-%2035.jpg?t=1768923787454 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:43:07] "GET /images/2025.8.31%2026.jpg?t=1768923787454 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:43:07] "GET /images/2026.1.10-%2090.jpg?t=1768923787454 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:43:07] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:43:07] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:43:09] "GET /data.json?v=1768923789195 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:43:09] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:43:09] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:43:10] "GET /data.json?v=1768923790255 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:43:10] "GET /images/2025.07%2028.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:43:10] "GET /images/2025.07%2068.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:43:10] "GET /images/2025.07%2069.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:43:10] "GET /images/2025.07%2088.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:43:10] "GET /images/2025.07%2098.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:43:10] "GET /images/2025.07%20103.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:43:10] "GET /images/2025.07%20192.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:43:10] "GET /images/2025.07%20203.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:43:10] "GET /images/2025.07%20207.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:43:10] "GET /images/2025.07%20211.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:43:10] "GET /images/2025.07%20221.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:43:10] "GET /images/2025.07%20229.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:43:10] "GET /images/2025.07%20233.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:43:10] "GET /images/2025.07%20243.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:43:10] "GET /images/2025.7.15-36.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:43:10] "GET /images/2025.7.15-45.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:43:10] "GET /images/2025.7.16-14.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:43:10] "GET /images/2025.7.20-68.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:43:10] "GET /images/2025.7.20-20.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:43:10] "GET /images/2025.7.20-43.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:43:10] "GET /images/2025.7.18%201.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:43:10] "GET /images/2025.7.20-42.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:43:10] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:43:10] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:44:11] "GET /admin.html HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /data.json?t=1768923857453 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2025.07%20227.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2025.07%2028.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2025.07%2068.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2025.07%2069.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2025.07%2088.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2025.07%2098.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2026.1.10-%2035.jpg?t=1768923857460 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2025.8.31%2026.jpg?t=1768923857461 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2025.7.19%2038.jpg?t=1768923857460 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2025.07%20103.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2025.07%20192.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2025.07%20207.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2025.07%20203.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2025.07%20211.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2025.07%20221.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2025.07%20229.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2025.07%20243.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2025.07%20233.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2025.7.15-45.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2025.7.15-36.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2025.7.16-14.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2025.7.18%201.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2025.7.20-20.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2025.7.20-42.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2025.7.20-43.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2026.1.10-%2090.jpg?t=1768923857461 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:44:17] "GET /images/2025.7.20-68.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:06] "POST /api/save HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:46:07] "POST /api/save HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:46:09] "GET /archive.html HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:09] "GET /style.css?v=22 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:09] "GET /script.js?v=37 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:09] "GET /data.json?v=1768923969700 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:46:09] "GET /images/2025.07%20227.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:09] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:46:09] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:46:10] "GET /project.html?id=quinault HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:10] "GET /data.json?v=1768923970711 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:46:10] "GET /images/2025.7.20-42.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:10] "GET /images/2025.07%2028.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:10] "GET /images/2025.07%2069.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:10] "GET /images/2025.07%2098.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:10] "GET /images/2025.07%20192.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:10] "GET /images/2025.07%20203.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:10] "GET /images/2025.07%2068.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:10] "GET /images/2025.07%2088.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:10] "GET /images/2025.07%20207.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:10] "GET /images/2025.07%20211.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:10] "GET /images/2025.07%20221.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:10] "GET /images/2025.07%20229.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:10] "GET /images/2025.07%20233.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:10] "GET /images/2025.07%20243.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:10] "GET /images/2025.7.15-36.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:10] "GET /images/2025.7.15-45.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:10] "GET /images/2025.7.16-14.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:10] "GET /images/2025.7.20-43.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:10] "GET /images/2025.7.20-20.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:10] "GET /images/2025.7.18%201.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:11] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:46:11] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:46:46] "GET /admin.html HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:46:56] "GET /data.json?t=1768924016031 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:46:56] "GET /images/2025.07%20227.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:56] "GET /images/2025.7.20-42.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:56] "GET /images/2025.07%2028.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:56] "GET /images/2025.07%2069.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:56] "GET /images/2025.07%2098.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:56] "GET /images/2025.07%20192.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:56] "GET /images/2025.07%20203.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:56] "GET /images/2025.07%2068.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:56] "GET /images/2025.07%2088.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:56] "GET /images/2025.07%20207.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:56] "GET /images/2025.07%20211.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:56] "GET /images/2025.07%20221.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:56] "GET /images/2025.07%20229.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:56] "GET /images/2025.07%20233.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:56] "GET /images/2025.07%20243.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:56] "GET /images/2025.7.15-36.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:56] "GET /images/2025.7.15-45.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:56] "GET /images/2025.7.16-14.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:56] "GET /images/2025.7.18%201.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:56] "GET /images/2025.7.20-20.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:56] "GET /images/2025.7.20-43.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:46:56] "GET /images/2025.7.19%2038.jpg?t=1768924016048 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:46:56] "GET /images/2026.1.10-%2035.jpg?t=1768924016049 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:46:56] "GET /images/2025.8.31%2026.jpg?t=1768924016050 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:46:56] "GET /images/2026.1.10-%2090.jpg?t=1768924016050 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:47:50] "POST /api/save HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:47:50] "POST /api/save HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:47:51] "POST /api/save HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:50:24] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:50:24] "GET /images/2026.1.10-%2090.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:51:21] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:51:21] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:51:21] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:51:21] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:51:21] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:51:21] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:51:21] "GET /images/2026.1.10-%2089.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:51:21] "GET /images/2026.1.10-%2092.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:51:21] "GET /images/2026.1.10-%2095.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:51:22] "GET /images/2026.1.10-%2096.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:51:22] "GET /images/2026.1.10-%20122.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:54:03] "POST /api/save HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:54:05] "GET /archive.html HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:54:05] "GET /script.js?v=37 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:54:05] "GET /data.json?v=1768924445803 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:54:05] "GET /assets/sounds/text_custom.mp3 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:54:05] "GET /assets/sounds/image_custom.mp3 HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:54:05] "GET /images/2025.07%20227.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:54:05] "GET /images/2026.1.10-%2090.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:54:05] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:54:05] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:54:10] "GET /project.html?id=amagatsu HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:54:10] "GET /data.json?v=1768924450492 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:54:10] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:54:10] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:54:10] "GET /images/2026.1.10-%2089.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:54:10] "GET /images/2026.1.10-%2092.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:54:10] "GET /images/2026.1.10-%20122.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:54:10] "GET /images/2026.1.10-%2096.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:55:20] "GET /data.json?v=1768924520695 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:55:20] "GET /images/2026.1.10-%2090.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:55:20] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:55:20] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:56:15] "POST /api/save HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:56:17] "GET /data.json?v=1768924577066 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:56:17] "GET /images/2025.07%20227.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:56:17] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:56:17] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:56:17] "GET /images/2026.1.10-%2090.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:56:37] "GET /data.json?v=1768924597570 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:56:37] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:56:37] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:57:51] "POST /api/save HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:59:01] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:59:01] "GET /images/2025.8.31%2018.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:59:02] "POST /api/save HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:59:04] "GET /archive.html HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:59:04] "GET /script.js?v=40 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:59:04] "GET /data.json?v=1768924744528 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:59:04] "GET /images/2026.1.10-%2090.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:59:04] "GET /images/2025.07%20227.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:59:04] "GET /images/2025.8.31%2018.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:59:05] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:59:05] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:59:14] "GET /archive.html HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:59:14] "GET /data.json?v=1768924754100 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:59:14] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:59:14] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jan/2026 23:59:14] "GET /images/2025.8.31%2018.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:59:14] "GET /project.html?id=amagatsu HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:59:14] "GET /data.json?v=1768924754973 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jan/2026 23:59:14] "GET /images/2026.1.10-%2089.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:59:14] "GET /images/2026.1.10-%2096.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:59:14] "GET /images/2026.1.10-%2092.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:59:14] "GET /images/2026.1.10-%20122.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2026 23:59:15] code 404, message File not found
+127.0.0.1 - - [20/Jan/2026 23:59:15] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:01:19] "GET /archive.html HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:01:19] "GET /script.js?v=41 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:01:19] "GET /data.json?v=1768924879360 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:01:19] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:01:19] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:01:19] "GET /images/2025.07%20227.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:01:19] "GET /images/2026.1.10-%2090.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:01:19] "GET /images/2025.8.31%2018.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:01:24] "GET /archive.html HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:01:24] "GET /script.js?v=41 HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:01:24] "GET /data.json?v=1768924884840 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:01:24] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:01:24] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:01:25] "GET /project.html?id=amagatsu HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:01:25] "GET /data.json?v=1768924885976 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:01:25] "GET /images/2026.1.10-%2089.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:01:25] "GET /images/2026.1.10-%2092.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:01:25] "GET /images/2026.1.10-%2096.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:01:25] "GET /images/2026.1.10-%20122.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:01:26] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:01:26] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:01:33] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:01:33] "GET /script.js?v=41 HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:01:33] "GET /data.json?v=1768924893178 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:01:33] "GET /images/2025.7.19%2038.jpg?t=1768924893186 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:01:33] "GET /images/2026.1.10-%2035.jpg?t=1768924893186 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:01:33] "GET /images/2025.8.31%2026.jpg?t=1768924893186 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:01:33] "GET /images/2026.1.10-%2090.jpg?t=1768924893186 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:01:33] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:01:33] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:01:34] "GET /archive.html HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:01:34] "GET /data.json?v=1768924894882 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:01:34] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:01:34] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:01:34] "GET /images/2025.8.31%2018.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:01:35] "GET /project.html?id=amagatsu HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:01:35] "GET /data.json?v=1768924895767 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:01:35] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:01:35] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:02:43] "GET /archive.html HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:02:43] "GET /style.css?v=22 HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:02:43] "GET /script.js?v=41 HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:02:43] "GET /data.json?v=1768924963311 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:02:43] "GET /images/2025.8.31%2018.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:02:43] "GET /images/2026.1.10-%2090.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:02:43] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:02:43] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:03:50] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:03:50] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:03:50] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:03:50] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:03:50] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:03:50] "GET /images/2026.1.10-%2027.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:03:50] "GET /images/2026.1.10-%2028.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:03:51] "GET /images/2026.1.10-%2034.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:03:51] "GET /images/2026.1.10-%2036.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:05:10] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:05:10] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:05:10] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:05:10] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:05:10] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:05:11] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:05:11] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:05:11] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:05:11] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:05:11] "GET /images/2026.1.10-%2037.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:05:11] "GET /images/2026.1.10-%2042.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:05:11] "GET /images/2026.1.10-%2043.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:05:11] "GET /images/2026.1.10-%2044.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:05:11] "GET /images/2026.1.10-%2046.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:05:11] "GET /images/2026.1.10-%2048.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:05:12] "GET /images/2026.1.10-%2051.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:05:12] "GET /images/2026.1.10-%2050.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:05:12] "GET /images/2026.1.10-%2056.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:05:52] "POST /api/save HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:05:53] "POST /api/save HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:05:57] "GET /archive.html HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:05:57] "GET /script.js?v=42 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:05:57] "GET /images/icon_mail.png HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:05:57] "GET /images/icon_instagram.png HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:05:57] "GET /images/icon_link.png HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:05:57] "GET /data.json?v=1768925157085 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:05:57] "GET /assets/sounds/text_custom.mp3 HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:05:57] "GET /assets/sounds/image_custom.mp3 HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:05:57] "GET /images/2025.07%20227.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:05:57] "GET /images/2026.1.10-%2090.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:05:57] "GET /images/2025.8.31%2018.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:05:59] "GET /project.html?id=quinault HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:05:59] "GET /data.json?v=1768925159799 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:05:59] "GET /images/2025.07%2028.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:05:59] "GET /images/2025.07%2069.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:05:59] "GET /images/2025.7.20-42.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:05:59] "GET /images/2025.07%2098.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:05:59] "GET /images/2025.7.16-14.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:05:59] "GET /images/2025.07%20243.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:05:59] "GET /images/2025.07%20207.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:05:59] "GET /images/2025.07%20229.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:05:59] "GET /images/2025.7.15-45.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:05:59] "GET /images/2025.7.15-36.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:05:59] "GET /images/2025.07%20203.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:05:59] "GET /images/2025.07%20192.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:05:59] "GET /images/2025.7.20-43.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:05:59] "GET /images/2025.7.20-20.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:05:59] "GET /images/2025.07%2088.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:05:59] "GET /images/2025.7.18%201.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:05:59] "GET /images/2025.07%20233.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:05:59] "GET /images/2025.07%20211.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:05:59] "GET /images/2025.07%20221.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:06:01] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:06:01] "GET /data.json?v=1768925161515 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:06:01] "GET /images/2025.7.19%2038.jpg?t=1768925161522 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:06:01] "GET /images/2026.1.10-%2035.jpg?t=1768925161522 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:06:01] "GET /images/2025.8.31%2026.jpg?t=1768925161522 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:06:01] "GET /images/2026.1.10-%2090.jpg?t=1768925161522 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:06:01] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:06:01] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:06:03] "GET /data.json?v=1768925163537 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:06:03] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:06:03] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:06:09] "GET /project.html?id=amagatsu HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:06:09] "GET /data.json?v=1768925169516 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:06:09] "GET /images/2026.1.10-%2089.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:06:09] "GET /images/2026.1.10-%2092.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:06:09] "GET /images/2026.1.10-%2096.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:06:09] "GET /images/2026.1.10-%20122.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:06:10] "GET /data.json?v=1768925170442 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:06:10] "GET /images/2025.7.19%2038.jpg?t=1768925170450 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:06:10] "GET /images/2026.1.10-%2035.jpg?t=1768925170450 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:06:10] "GET /images/2025.8.31%2026.jpg?t=1768925170450 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:06:10] "GET /images/2026.1.10-%2090.jpg?t=1768925170450 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:06:11] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:06:11] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:06:16] "GET /archive.html HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:06:16] "GET /script.js?v=42 HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:06:16] "GET /data.json?v=1768925176374 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:06:16] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:06:16] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:06:19] "GET /data.json?v=1768925179662 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:06:20] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:06:20] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:07:36] "GET /admin.html HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:08:07] "GET /data.json?t=1768925287573 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:08:07] "GET /images/2025.7.19%2038.jpg?t=1768925287580 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:08:07] "GET /images/2026.1.10-%2035.jpg?t=1768925287581 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:08:07] "GET /images/2025.7.19%2038.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:08:07] "GET /images/2026.1.10-%2035.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:08:07] "GET /images/2025.8.31%2026.jpg?t=1768925287581 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:08:07] "GET /images/2026.1.10-%2090.jpg?t=1768925287581 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:08:07] "GET /images/2026.1.10-%2090.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:08:07] "GET /images/2026.1.10-%2089.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:08:07] "GET /images/2026.1.10-%2092.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:08:07] "GET /images/2026.1.10-%2096.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:08:07] "GET /images/2026.1.10-%20122.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:08:07] "GET /images/2025.8.31%2018.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:08:07] "GET /images/2026.1.10-%2046.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:08:07] "GET /images/2026.1.10-%2034.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:08:07] "GET /images/2026.1.10-%2028.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:08:07] "GET /images/2026.1.10-%2037.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:08:07] "GET /images/2026.1.10-%2042.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:08:07] "GET /images/2026.1.10-%2043.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:08:07] "GET /images/2026.1.10-%2044.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:08:07] "GET /images/2026.1.10-%2048.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:08:07] "GET /images/2026.1.10-%2050.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:08:07] "GET /images/2026.1.10-%2051.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:08:07] "GET /images/2026.1.10-%2056.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:14:57] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:14:57] "GET /images/placeholder.jpg HTTP/1.1" 404 -
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 62994)
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 316, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 347, in process_request
+    self.finish_request(request, client_address)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 660, in __init__
+    super().__init__(*args, **kwargs)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 747, in __init__
+    self.handle()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 434, in handle
+    self.handle_one_request()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 422, in handle_one_request
+    method()
+  File "/Users/kahlilhazel/.gemini/antigravity/scratch/ueda-style-portfolio/server.py", line 46, in do_POST
+    fileitem = form['file']
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/cgi.py", line 525, in __getitem__
+    raise KeyError(key)
+KeyError: 'file'
+----------------------------------------
+127.0.0.1 - - [21/Jan/2026 00:19:13] "GET /admin.html HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /data.json?t=1768925966249 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2025.7.19%2038.jpg?t=1768925966266 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2026.1.10-%2035.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2026.1.10-%2035.jpg?t=1768925966266 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2025.8.31%2026.jpg?t=1768925966266 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2026.1.10-%2090.jpg?t=1768925966266 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2025.07%20227.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2025.07%2028.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2025.7.20-42.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2025.07%2069.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2025.07%2098.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2025.7.16-14.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2025.07%20243.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2025.07%20192.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2025.07%20203.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2025.07%2088.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2025.07%20207.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2025.07%20211.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2025.07%20221.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2025.07%20229.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2025.07%20233.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2025.7.15-36.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2025.7.15-45.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2025.7.18%201.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2025.7.20-20.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2025.7.20-43.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2026.1.10-%2090.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2026.1.10-%2092.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2026.1.10-%2089.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2026.1.10-%2096.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2026.1.10-%20122.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2025.8.31%2018.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2026.1.10-%2046.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2026.1.10-%2034.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2026.1.10-%2028.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2026.1.10-%2037.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2026.1.10-%2042.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2026.1.10-%2043.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2026.1.10-%2044.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2026.1.10-%2048.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2026.1.10-%2050.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2026.1.10-%2051.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:26] "GET /images/2026.1.10-%2056.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:19:57] "POST /api/save HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:19:59] "POST /api/save HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:20:04] "GET /archive.html HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:20:04] "GET /script.js?v=42 HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:20:04] "GET /data.json?v=1768926004355 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:20:04] "GET /assets/sounds/text_custom.mp3 HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:20:04] "GET /assets/sounds/image_custom.mp3 HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:20:04] "GET /images/2026.1.10-%2090.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:20:04] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:20:04] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:20:20] "POST /api/save HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:21:28] "POST /api/save HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:21:31] "GET /style.css?v=22 HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:21:31] "GET /data.json?v=1768926091710 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:21:31] "GET /images/2025.8.31%2018.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:21:31] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:21:31] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:21:32] "GET /project.html?id=quinault HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:21:32] "GET /data.json?v=1768926092343 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:21:32] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:21:32] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:21:36] "GET /biography.html HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:21:36] "GET /data.json?v=1768926096424 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:21:36] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:21:36] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:21:36] "GET /data.json?v=1768926096783 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:21:36] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:21:36] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:21:57] "GET /contact.html HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:21:57] "GET /script.js?v=42 HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:21:57] "GET /data.json?v=1768926117837 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:21:57] "GET /images/2026.1.10-%2035.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:21:57] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:21:57] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:21:59] "GET /data.json?v=1768926119054 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:21:59] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:21:59] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:23:00] "GET /archive.html HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:23:00] "GET /data.json?v=1768926180923 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:23:00] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:23:00] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:23:00] "GET /images/2026.1.10-%2090.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:23:03] "GET /project.html?id=amagatsu HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:23:03] "GET /data.json?v=1768926183811 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:23:03] "GET /images/2026.1.10-%2092.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:23:03] "GET /images/2026.1.10-%2089.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:23:03] "GET /images/2026.1.10-%2096.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:23:03] "GET /images/2026.1.10-%20122.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:23:04] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:23:04] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:23:05] "GET /data.json?v=1768926185412 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:23:05] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:23:05] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:23:06] "GET /data.json?v=1768926186143 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:23:07] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:23:07] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:23:08] "GET /data.json?v=1768926188594 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:23:08] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:23:08] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:23:09] "GET /data.json?v=1768926189510 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:23:09] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:23:09] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:23:39] "POST /api/save HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:24:44] "GET /contact.html HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:24:44] "GET /script.js?v=42 HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:24:44] "GET /data.json?v=1768926284883 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:24:44] "GET /images/2026.1.10-%2035.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:24:44] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:24:44] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:24:46] "GET /data.json?v=1768926286318 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:24:46] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:24:46] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:24:47] "GET /data.json?v=1768926287276 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:24:47] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:24:47] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:24:47] "GET /data.json?v=1768926287950 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:24:47] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:24:47] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:24:48] "GET /data.json?v=1768926288638 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:24:48] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:24:48] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:25:23] "POST /api/save HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:25:29] "GET /data.json?v=1768926329404 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:25:29] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:25:29] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:25:40] "GET /data.json?v=1768926340686 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:25:40] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:25:40] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:25:43] "GET /data.json?v=1768926343470 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:25:43] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:25:43] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:25:53] "GET /data.json?v=1768926353628 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:25:54] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:25:54] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:26:31] "GET /index.html HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:26:31] "GET /data.json?v=1768926391443 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:26:31] "GET /images/2025.7.19%2038.jpg?t=1768926391448 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:26:31] "GET /images/2026.1.10-%2035.jpg?t=1768926391448 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:26:31] "GET /images/2025.8.31%2026.jpg?t=1768926391448 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:26:31] "GET /images/2026.1.10-%2090.jpg?t=1768926391448 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:26:32] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:26:32] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:26:39] "GET /archive.html HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:26:39] "GET /data.json?v=1768926399875 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:26:39] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:26:39] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:26:39] "GET /images/2025.8.31%2018.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:26:44] "GET /data.json?v=1768926404315 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:26:44] "GET /images/2025.7.19%2038.jpg?t=1768926404322 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:26:44] "GET /images/2026.1.10-%2035.jpg?t=1768926404322 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:26:44] "GET /images/2025.8.31%2026.jpg?t=1768926404322 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:26:44] "GET /images/2026.1.10-%2090.jpg?t=1768926404322 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:26:44] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:26:44] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:26:45] "GET /data.json?v=1768926405113 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:26:45] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:26:45] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:26:45] "GET /data.json?v=1768926405858 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:26:45] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:26:45] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:26:46] "GET /data.json?v=1768926406617 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:26:46] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:26:46] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:26:47] "GET /data.json?v=1768926407270 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:26:47] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:26:47] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:26:47] "GET /data.json?v=1768926407853 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:26:47] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:26:47] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:26:49] "GET /data.json?v=1768926409205 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:26:49] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:26:49] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:27:07] "POST /api/save HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:27:08] "GET /admin.html HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /data.json?t=1768926433805 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2026.1.10-%2035.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2025.07%20227.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2025.7.20-42.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2025.07%2028.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2025.07%2069.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2025.07%2098.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2025.7.16-14.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2025.07%20243.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2025.07%20192.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2025.07%20203.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2025.07%2088.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2025.07%20207.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2026.1.10-%2035.jpg?t=1768926433817 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2025.8.31%2026.jpg?t=1768926433818 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2025.7.19%2038.jpg?t=1768926433817 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2025.07%20211.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2025.07%20221.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2025.07%20233.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2025.07%20229.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2025.7.15-36.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2025.7.15-45.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2025.7.18%201.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2025.7.20-20.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2025.7.20-43.JPG HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2026.1.10-%2090.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2026.1.10-%2089.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2026.1.10-%2092.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2026.1.10-%2096.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2026.1.10-%20122.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2025.8.31%2018.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2026.1.10-%2046.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2026.1.10-%2034.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2026.1.10-%2028.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2026.1.10-%2037.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2026.1.10-%2042.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2026.1.10-%2043.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2026.1.10-%2044.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2026.1.10-%2048.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:13] "GET /images/2026.1.10-%2090.jpg?t=1768926433818 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:27:14] "GET /images/2026.1.10-%2050.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:14] "GET /images/2026.1.10-%2056.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:14] "GET /images/2026.1.10-%2051.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:29] "POST /api/save HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:27:36] "POST /api/save HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:27:38] "GET /archive.html HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:38] "GET /script.js?v=42 HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:27:38] "GET /data.json?v=1768926458260 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:27:47] "GET /data.json?v=1768926467786 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:27:47] "GET /images/2025.7.19%2038.jpg?t=1768926467791 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:27:47] "GET /images/2026.1.10-%2035.jpg?t=1768926467791 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:27:47] "GET /images/2025.8.31%2026.jpg?t=1768926467791 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:27:47] "GET /images/2026.1.10-%2090.jpg?t=1768926467791 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:27:48] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:27:48] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:28:16] "GET /data.json?v=1768926496001 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:28:16] "GET /images/2025.7.19%2038.jpg?t=1768926496007 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:28:16] "GET /images/2026.1.10-%2035.jpg?t=1768926496007 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:28:16] "GET /images/2025.8.31%2026.jpg?t=1768926496007 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:28:16] "GET /images/2026.1.10-%2090.jpg?t=1768926496007 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:28:16] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:28:16] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:28:24] "GET /data.json?v=1768926504513 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:28:24] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:28:24] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:28:27] "GET /project.html?id=quinault HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:28:27] "GET /data.json?v=1768926507645 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:28:28] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:28:28] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:28:40] "GET /biography.html HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:28:40] "GET /data.json?v=1768926520409 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:28:40] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:28:40] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:28:42] "GET /contact.html HTTP/1.1" 304 -
+127.0.0.1 - - [21/Jan/2026 00:28:42] "GET /data.json?v=1768926522692 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:28:42] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:28:42] "GET /%5Bobject%20Object%5D HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:28:42] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:28:42] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:28:45] "GET /data.json?v=1768926525818 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jan/2026 00:28:45] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:28:45] "GET /%5Bobject%20Object%5D HTTP/1.1" 404 -
+127.0.0.1 - - [21/Jan/2026 00:28:45] code 404, message File not found
+127.0.0.1 - - [21/Jan/2026 00:28:45] "GET /favicon.ico HTTP/1.1" 404 -

@@ -1154,23 +1154,8 @@ body:not(.is-home) main {
 }
 
 /* Counter - Fixed to right margin, bottom aligned with gallery */
-.slider-counter {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    /* Flush with project-split right edge (which inherits site padding) */
-    font-family: var(--font-title-special);
-    /* Futura */
-    font-size: 11px;
-    font-weight: 300;
-    /* Light */
-    letter-spacing: 0.15em;
-    color: #999;
-    /* Light gray */
-    text-shadow: none;
-    /* No shadow */
-    z-index: 60;
-}
+/* Counter - Aligned with image bottom, right margin (MOVED BELOW) */
+
 
 /* Remove unused slide-counter-overlay */
 .slide-counter-overlay {
@@ -1275,27 +1260,25 @@ body:not(.is-home) main {
 /* Counter - Aligned with image bottom, right margin */
 .slider-counter {
     position: absolute;
-    /* Align bottom with image bottom (55vh from top) */
+    /* Align bottom with image bottom (55vh from top of split container) */
     top: 55vh;
     right: 0;
+    bottom: auto;
+    /* CRITICAL: Prevent stretching from top: 55vh to bottom: 0 */
     /* Ensure text bottom is perfectly flush with the 55vh line */
     transform: translateY(-100%);
     /* Move up so bottom edge aligns */
     font-family: var(--font-title-special);
-    /* Futura */
     font-size: 11px;
     font-weight: 300;
-    /* Light */
     letter-spacing: 0.15em;
     color: #999;
-    /* Light gray */
     text-shadow: none;
-    /* No shadow */
     padding-bottom: 0;
-    /* Remove extra padding for true flush alignment */
     line-height: 1;
-    /* Tight line height for precise alignment */
     z-index: 60;
+    height: auto;
+    /* Ensure no fixed height */
 }
 
 /* Contact Split Layout - Appended */

@@ -575,15 +575,13 @@ document.addEventListener('DOMContentLoaded', () => {
                             img.alt = "";
                             img.className = 'contact-random-img';
                             img.style.opacity = '0';
-                            img.style.transform = 'translateY(10px)';
-                            img.style.transition = `opacity 0.8s ease ${idx * 0.2}s, transform 0.8s ease ${idx * 0.2}s`;
+                            img.style.transition = `opacity 0.8s ease ${idx * 0.2}s`;
 
                             wrapper.appendChild(img);
                             contactGallerySide.appendChild(wrapper);
 
                             setTimeout(() => {
                                 img.style.opacity = '1';
-                                img.style.transform = 'translateY(0)';
                             }, 100);
                         });
                     };

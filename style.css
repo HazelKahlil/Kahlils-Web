@@ -213,6 +213,88 @@ nav a.active {
     opacity: 1;
 }
 
+/* ======= Snow Button Optimized: Minimalist Style ======= */
+#snow-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent !important;
+    border: none !important;
+    padding: 6px 10px;
+    margin-left: 20px;
+    margin-right: auto;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    outline: none;
+    height: 32px;
+    z-index: 99999;
+    align-self: center;
+    visibility: visible;
+    /* Vertical alignment fix */
+}
+
+/* Hover: Subtle background hint */
+#snow-toggle:hover {
+    background: rgba(0, 0, 0, 0.05) !important;
+    color: #1a1a1a;
+}
+
+/* Active: Change text/icon color to Light Blue, no border */
+#snow-toggle.active {
+    color: #add8e6 !important;
+}
+
+#snow-toggle svg {
+    width: 13px;
+    height: 13px;
+    margin-top: -1px;
+}
+
+@media screen and (min-width: 769px) {
+    .social-icons {
+        margin-left: 20px !important;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        grid-template-columns: auto auto 1fr;
+        grid-template-areas:
+            "brand brand brand"
+            "nav snow icons";
+        gap: 12px 0;
+    }
+
+    #snow-toggle {
+        grid-area: snow;
+        display: flex !important;
+        margin-left: 8px;
+        padding: 6px;
+        margin-right: 0;
+        justify-self: start;
+    }
+
+    #snow-toggle span {
+        display: none;
+    }
+
+    .social-icons {
+        grid-area: icons;
+        justify-self: end;
+        margin-left: 0;
+        gap: 16px;
+    }
+
+    nav {
+        grid-area: nav;
+    }
+}
+
 /* Replaces SVG styling */
 .social-icons img {
     height: 44px;

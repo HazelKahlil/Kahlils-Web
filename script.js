@@ -1,6 +1,108 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- SNOW EFFECT SYSTEM (AI Studio Style) ---
+    const initSnowSystem = () => {
+        const btn = document.getElementById('snow-toggle');
+        if (!btn) return;
+
+        let isSnowing = false;
+        let snowCanvas = null;
+        let ctx = null;
+        let flakes = [];
+        let animationFrame = null;
+
+        function createFlake() {
+            return {
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                radius: Math.random() * 2 + 1,
+                speed: Math.random() * 1 + 0.5,
+                wind: Math.random() * 0.5 - 0.25
+            };
+        }
+
+        function drawSnow() {
+            if (!ctx) return;
+            ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+            ctx.fillStyle = 'rgba(173, 216, 230, 0.7)'; // Light Blue Snow
+            ctx.beginPath();
+            flakes.forEach(f => {
+                ctx.moveTo(f.x, f.y);
+                ctx.arc(f.x, f.y, f.radius, 0, Math.PI * 2);
+            });
+            ctx.fill();
+            updateSnow();
+            animationFrame = requestAnimationFrame(drawSnow);
+        }
+
+        function updateSnow() {
+            flakes.forEach(f => {
+                f.y += f.speed;
+                f.x += f.wind;
+                if (f.y > window.innerHeight) f.y = 0;
+                if (f.x > window.innerWidth) f.x = 0;
+                if (f.x < 0) f.x = window.innerWidth;
+            });
+        }
+
+        function startSnowing() {
+            isSnowing = true;
+            if (btn) btn.classList.add('active');
+
+            if (!snowCanvas) {
+                snowCanvas = document.createElement('canvas');
+                snowCanvas.id = 'snow-canvas';
+                snowCanvas.style.position = 'fixed';
+                snowCanvas.style.top = '0';
+                snowCanvas.style.left = '0';
+                snowCanvas.style.width = '100%';
+                snowCanvas.style.height = '100%';
+                snowCanvas.style.pointerEvents = 'none';
+                snowCanvas.style.zIndex = '99999';
+                document.body.appendChild(snowCanvas);
+
+                snowCanvas.width = window.innerWidth;
+                snowCanvas.height = window.innerHeight;
+                window.addEventListener('resize', () => {
+                    snowCanvas.width = window.innerWidth;
+                    snowCanvas.height = window.innerHeight;
+                });
+            }
+
+            ctx = snowCanvas.getContext('2d');
+            snowCanvas.style.display = 'block';
+            flakes = Array.from({ length: 190 }, createFlake);
+            drawSnow();
+        }
+
+        function stopSnowing() {
+            isSnowing = false;
+            if (btn) btn.classList.remove('active');
+            if (snowCanvas) snowCanvas.style.display = 'none';
+            if (animationFrame) cancelAnimationFrame(animationFrame);
+        }
+
+        const handleToggle = () => {
+            if (isSnowing) {
+                stopSnowing();
+                localStorage.setItem('isSnowing', 'false');
+            } else {
+                startSnowing();
+                localStorage.setItem('isSnowing', 'true');
+            }
+        };
+
+        btn.onclick = handleToggle;
+
+        const savedState = localStorage.getItem('isSnowing');
+        if (savedState === 'true') {
+            startSnowing();
+        }
+    };
+
+    initSnowSystem();
+
     // --- SOUND FX SYSTEM ---
     const soundAssets = {
         click: new Audio('assets/sounds/text_custom.mp3'),

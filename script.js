@@ -631,6 +631,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             preloader.style.position = 'fixed';
                             preloader.style.left = '-9999px';
                             preloader.style.top = '0';
+                            preloader.style.display = 'none';
                             document.body.appendChild(preloader);
                         }
                         preloader.innerHTML = '';

@@ -1347,6 +1347,10 @@ body:not(.is-home) main {
     transition: opacity 1s ease;
 }
 
+#image-preloader {
+    display: none !important;
+}
+
 /* Mobile Adjustment for Ghost Mode */
 @media (max-width: 900px) {
 

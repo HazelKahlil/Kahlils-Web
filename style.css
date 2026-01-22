@@ -654,6 +654,7 @@ body:not(.is-home) main {
     }
 
     .hero-gallery {
+        width: 100%;
         columns: 2;
         /* 2 column masonry */
         column-gap: 6px;
@@ -1553,6 +1554,7 @@ body.is-void #site-wrapper {
 
     /* 3. Homepage / Kyoto Facades: Single Column */
     .hero-gallery {
+        width: 100% !important;
         columns: 1 !important;
         column-gap: 0;
     }

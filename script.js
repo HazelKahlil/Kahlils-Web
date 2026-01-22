@@ -570,19 +570,17 @@ document.addEventListener('DOMContentLoaded', () => {
                             const img = document.createElement('img');
                             // Determine finalized src
                             let src = item.finalSrc || item.src;
-
                             img.src = src;
                             img.alt = "";
                             img.className = 'contact-random-img';
-                            img.style.opacity = '0';
-                            img.style.transition = `opacity 0.8s ease ${idx * 0.2}s`;
+                            img.style.transitionDelay = `${idx * 0.2}s`;
 
                             wrapper.appendChild(img);
                             contactGallerySide.appendChild(wrapper);
 
                             setTimeout(() => {
                                 img.style.opacity = '1';
-                            }, 100);
+                            }, 50);
                         });
                     };
 

@@ -1342,6 +1342,9 @@ body:not(.is-home) main {
     background-color: #eee;
     display: block;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    /* Hidden initially, JS will fade in */
+    transition: opacity 1s ease;
 }
 
 /* Mobile Adjustment for Ghost Mode */

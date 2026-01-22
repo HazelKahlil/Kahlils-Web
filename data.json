@@ -41,10 +41,19 @@
         "header_social_link": " https://xhslink.com/m/4Ak0Z2X2rjx",
         "header_social_email": "kahlils@163.com",
         "home_images": [
-            "images/2025.7.19 38.jpg",
+            {
+                "src": "images/2025.7.19 54.jpg",
+                "style": {}
+            },
             "images/2026.1.10- 35.jpg",
-            "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?q=80&w=1500&auto=format&fit=crop",
-            "images/2025.8.31 26.jpg",
+            {
+                "src": "images/2025.12.8- 14.jpg",
+                "style": {}
+            },
+            {
+                "src": "images/2025.12.8- 19.jpg",
+                "style": {}
+            },
             "images/2026.1.10- 90.jpg"
         ],
         "bio_layout": {},

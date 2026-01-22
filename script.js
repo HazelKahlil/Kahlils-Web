@@ -611,7 +611,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
                             if (p.image) add(p.image, p.id);
                             if (p.gallery && Array.isArray(p.gallery)) {
-                                p.gallery.forEach(gImg => add(gImg, p.id));
+                                p.gallery.forEach(gImg => {
+                                    const src = typeof gImg === 'string' ? gImg : gImg.src;
+                                    add(src, p.id);
+                                });
                             }
                         });
 
@@ -622,7 +625,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
 
                         // Use a larger buffer to guarantee good selection
-                        let initialCandidates = allImages.slice(0, 12);
+                        let initialCandidates = allImages.slice(0, 30);
 
                         // Create hidden container for reliable loading
                         let preloader = document.getElementById('image-preloader');
@@ -649,16 +652,14 @@ document.addEventListener('DOMContentLoaded', () => {
                                 tempImg.style.maxHeight = 'none';
 
                                 tempImg.onload = () => {
-                                    setTimeout(() => {
-                                        if (tempImg.naturalWidth > 0 && tempImg.naturalHeight > 0) {
-                                            item.isPortrait = tempImg.naturalHeight >= tempImg.naturalWidth;
-                                            item.finalSrc = finalSrc;
-                                            item.isValid = true;
-                                        } else {
-                                            item.isValid = false;
-                                        }
-                                        resolve(item);
-                                    }, 10);
+                                    if (tempImg.naturalWidth > 0 && tempImg.naturalHeight > 0) {
+                                        item.isPortrait = tempImg.naturalHeight >= tempImg.naturalWidth;
+                                        item.finalSrc = finalSrc;
+                                        item.isValid = true;
+                                    } else {
+                                        item.isValid = false;
+                                    }
+                                    resolve(item);
                                 };
                                 tempImg.onerror = () => {
                                     item.isValid = false;

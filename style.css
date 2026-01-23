@@ -155,7 +155,6 @@ header {
     color: var(--text-color);
 }
 
-/* Nav 容器需要相对定位，作为 nav-indicator 的定位参照 */
 nav {
     position: relative;
 }
@@ -183,8 +182,8 @@ nav a {
     transition: opacity 0.3s;
     text-transform: uppercase;
     padding-bottom: 4px;
-    /* 移除每个链接的下划线 */
-    border-bottom: none;
+    /* Reserve space for active state to prevent layout shift */
+    border-bottom: 1px solid transparent;
     position: relative;
 }
 
@@ -193,15 +192,9 @@ nav a.active {
     opacity: 1 !important;
 }
 
-/* 滑动下划线指示器 */
-.nav-indicator {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 1px;
-    background-color: #1a1a1a;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    pointer-events: none;
+/* Active state underline */
+nav a.active {
+    border-bottom-color: #1a1a1a;
 }
 
 /* Social Icons (Right Side) */

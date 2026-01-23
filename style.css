@@ -302,12 +302,15 @@ nav a.active {
 
 /* Replaces SVG styling */
 .social-icons img {
-    height: 44px;
-    /* Doubled size */
+    height: 18px;
+    /* Scaled to 0.8x based on user request */
     width: auto;
-    display: block;
-    /* Removed translate for center alignment */
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
 }
+
+/* Standard alignment for all icons now that assets are cropped/square */
 
 /* Copyright Default (for standard pages) */
 .copyright {

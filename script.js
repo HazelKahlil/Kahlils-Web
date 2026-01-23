@@ -1,4 +1,5 @@
 
+
 document.addEventListener('DOMContentLoaded', () => {
     // --- 0. Active Navigation State (Auto-Highlight) ---
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
@@ -15,6 +16,54 @@ document.addEventListener('DOMContentLoaded', () => {
             link.classList.remove('active');
         }
     });
+
+    // --- 滑动下划线指示器 (Sliding Underline Indicator) ---
+    const nav = document.querySelector('nav');
+    const activeLink = document.querySelector('nav a.active');
+
+    if (nav && activeLink) {
+        // 创建指示器元素
+        const indicator = document.createElement('div');
+        indicator.className = 'nav-indicator';
+        nav.appendChild(indicator);
+
+        // 更新指示器位置和宽度的函数
+        const updateIndicator = (target) => {
+            const navRect = nav.getBoundingClientRect();
+            const targetRect = target.getBoundingClientRect();
+            const offsetLeft = targetRect.left - navRect.left;
+
+            indicator.style.width = `${targetRect.width}px`;
+            indicator.style.transform = `translateX(${offsetLeft}px)`;
+        };
+
+        // 初始化指示器位置
+        setTimeout(() => updateIndicator(activeLink), 100);
+
+        // 为所有导航链接添加悬停效果
+        navLinks.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                updateIndicator(link);
+            });
+        });
+
+        // 鼠标离开导航时恢复到激活项
+        nav.addEventListener('mouseleave', () => {
+            const currentActive = document.querySelector('nav a.active');
+            if (currentActive) {
+                updateIndicator(currentActive);
+            }
+        });
+
+        // 窗口调整大小时更新指示器
+        window.addEventListener('resize', () => {
+            const currentActive = document.querySelector('nav a.active');
+            if (currentActive) {
+                updateIndicator(currentActive);
+            }
+        });
+    }
+
 
     // --- SNOW EFFECT SYSTEM (AI Studio Style) ---
     const initSnowSystem = () => {

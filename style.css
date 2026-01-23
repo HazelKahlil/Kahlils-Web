@@ -155,6 +155,11 @@ header {
     color: var(--text-color);
 }
 
+/* Nav 容器需要相对定位，作为 nav-indicator 的定位参照 */
+nav {
+    position: relative;
+}
+
 nav ul {
     list-style: none;
     margin: 0;
@@ -177,9 +182,10 @@ nav a {
     opacity: 0.6;
     transition: opacity 0.3s;
     text-transform: uppercase;
-    /* Reserve space for active state to prevent layout shift */
-    border-bottom: 1px solid transparent;
     padding-bottom: 4px;
+    /* 移除每个链接的下划线 */
+    border-bottom: none;
+    position: relative;
 }
 
 nav a:hover,
@@ -187,8 +193,15 @@ nav a.active {
     opacity: 1 !important;
 }
 
-nav a.active {
-    border-bottom-color: #1a1a1a;
+/* 滑动下划线指示器 */
+.nav-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    background-color: #1a1a1a;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
 }
 
 /* Social Icons (Right Side) */
@@ -590,33 +603,31 @@ body:not(.is-home) main {
         padding: 0;
     }
 
-    /* Snow Button: Right aligned, below Nav */
+    /* Snow Button: Fixed Absolute Position Top-Right */
     #snow-toggle {
-        order: 3;
-        align-self: flex-end;
-        /* Move to right */
-        margin-left: auto;
-        margin-right: 0 !important;
-        padding-right: 0;
-        /* Align icon flush with right edge */
-        display: flex !important;
+        order: unset;
+        align-self: unset;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        margin: 0 !important;
+        padding: 0;
         width: auto;
+        height: auto;
     }
 
-    #snow-toggle span {
-        display: none;
-    }
-
-    /* Social Icons: Right aligned, below Snow */
+    /* Social Icons: Fixed Absolute Position below Snow Button */
     .social-icons {
-        order: 4;
-        align-self: flex-end;
-        /* Move to right */
+        order: unset;
+        align-self: unset;
+        position: absolute;
+        top: 55px;
+        /* 20px top + ~20px icon + 15px gap */
+        right: 20px;
         justify-content: flex-end;
-        margin-left: auto !important;
-        margin-right: 0 !important;
+        margin: 0 !important;
+        width: auto;
         gap: 16px;
-        width: 100%;
     }
 
     .social-icons img {

@@ -173,12 +173,13 @@ nav a {
     text-decoration: none;
     color: var(--text-color);
     font-size: 11px;
-    /* Restored size */
     letter-spacing: 0.15em;
-    /* Restored spacing */
     opacity: 0.6;
     transition: opacity 0.3s;
     text-transform: uppercase;
+    /* Reserve space for active state to prevent layout shift */
+    border-bottom: 1px solid transparent;
+    padding-bottom: 4px;
 }
 
 nav a:hover,
@@ -187,8 +188,7 @@ nav a.active {
 }
 
 nav a.active {
-    border-bottom: 1px solid #1a1a1a;
-    padding-bottom: 4px;
+    border-bottom-color: #1a1a1a;
 }
 
 /* Social Icons (Right Side) */
@@ -266,39 +266,7 @@ nav a.active {
     }
 }
 
-@media screen and (max-width: 768px) {
-    header {
-        grid-template-columns: auto auto 1fr;
-        grid-template-areas:
-            "brand brand brand"
-            "nav snow icons";
-        gap: 12px 0;
-    }
 
-    #snow-toggle {
-        grid-area: snow;
-        display: flex !important;
-        margin-left: 8px;
-        padding: 6px;
-        margin-right: 0;
-        justify-self: start;
-    }
-
-    #snow-toggle span {
-        display: none;
-    }
-
-    .social-icons {
-        grid-area: icons;
-        justify-self: end;
-        margin-left: 0;
-        gap: 16px;
-    }
-
-    nav {
-        grid-area: nav;
-    }
-}
 
 /* Replaces SVG styling */
 .social-icons img {
@@ -308,6 +276,8 @@ nav a.active {
     display: inline-block;
     vertical-align: middle;
     position: relative;
+    top: 2px;
+    /* Optical alignment with text */
 }
 
 /* Standard alignment for all icons now that assets are cropped/square */
@@ -576,27 +546,24 @@ body:not(.is-home) main {
         font-size: 15px;
     }
 
-    /* ======= MOBILE HEADER: Left-Aligned Layout using CSS Grid ======= */
+    /* ======= MOBILE HEADER: Left-Aligned Layout (Stacking) ======= */
     header {
         position: relative;
         padding: 20px;
         /* Consistent padding on all sides */
-        display: grid;
-        grid-template-columns: 1fr auto;
-        /* Brand full width, nav row takes space */
-        grid-template-rows: auto auto;
-        grid-template-areas:
-            "brand brand"
-            "nav icons";
-        gap: 12px 0;
-        align-items: center;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        /* Force Left Alignment */
+        gap: 15px;
+        /* Vertical spacing between rows */
         height: auto;
         background: var(--bg-color);
     }
 
     /* Brand: Full width, left aligned */
     .brand {
-        grid-area: brand;
+        width: 100%;
         margin-right: 0;
         margin-bottom: 0;
         text-align: left;
@@ -608,31 +575,54 @@ body:not(.is-home) main {
 
     /* Nav: Left aligned */
     nav {
-        grid-area: nav;
-        justify-self: start;
+        width: 100%;
+        margin: 0;
     }
 
     nav ul {
         flex-wrap: wrap;
-        gap: 8px 16px;
+        gap: 15px 20px;
         justify-content: flex-start;
     }
 
     nav a {
         font-size: 11px;
-        padding: 6px 0;
+        padding: 0;
     }
 
-    /* Social Icons: Right aligned */
+    /* Snow Button: Right aligned, below Nav */
+    #snow-toggle {
+        order: 3;
+        align-self: flex-end;
+        /* Move to right */
+        margin-left: auto;
+        margin-right: 0 !important;
+        padding-right: 0;
+        /* Align icon flush with right edge */
+        display: flex !important;
+        width: auto;
+    }
+
+    #snow-toggle span {
+        display: none;
+    }
+
+    /* Social Icons: Right aligned, below Snow */
     .social-icons {
-        grid-area: icons;
-        justify-self: end;
-        margin-left: 0;
+        order: 4;
+        align-self: flex-end;
+        /* Move to right */
+        justify-content: flex-end;
+        margin-left: auto !important;
+        margin-right: 0 !important;
         gap: 16px;
+        width: 100%;
     }
 
     .social-icons img {
-        height: 24px;
+        height: 16px;
+        /* Smaller as requested (was 24px) */
+        width: auto;
     }
 
     /* Main content */

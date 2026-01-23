@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             ctx = snowCanvas.getContext('2d');
             snowCanvas.style.display = 'block';
-            flakes = Array.from({ length: 190 }, createFlake);
+            flakes = Array.from({ length: 150 }, createFlake); // 优化：从 190 降至 150
             drawSnow();
         }
 
@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    fetch('data.json?v=' + new Date().getTime())
+    fetch('data.json?v=1.0') // 使用版本号而非时间戳，需要更新时手动改版本号
         .then(response => response.json())
         .then(data => {
             const projects = data.projects;
@@ -608,7 +608,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         });
                         renderImages(fixedImages);
                     } else {
-                        // RANDOM MODE
+                        // RANDOM MODE - 收集所有项目的所有照片
                         let allImages = [];
                         const seenSrcs = new Set();
 
@@ -635,8 +635,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             [allImages[i], allImages[j]] = [allImages[j], allImages[i]];
                         }
 
-                        // Use a larger buffer to guarantee good selection
-                        let initialCandidates = allImages.slice(0, 30);
+                        // 优化：从 30 降至 15 张预加载
+                        let initialCandidates = allImages.slice(0, 15);
 
                         // Create hidden container for reliable loading
                         let preloader = document.getElementById('image-preloader');

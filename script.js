@@ -385,7 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const project = projects.find(p => p.id === projectId);
 
                 if (project) {
-                    if (document.title) document.title = `${project.title} | HAZEL KAHLIL`;
+                    if (document.title) document.title = `${project.title.toLowerCase()} | hazelkahlil`;
 
                     // Generate Split Layout HTML
                     // 1. Info Side

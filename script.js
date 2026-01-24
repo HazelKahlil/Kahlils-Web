@@ -65,6 +65,51 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
+    // --- THEME SYSTEM (Dark/Light) ---
+    const initTheme = () => {
+        const toggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = toggleBtn ? toggleBtn.querySelector('svg path') : null;
+
+        // Icons
+        const iconMoon = "M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"; // Moon
+        const iconSun = "M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42M12 5a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"; // Sun
+
+        const applyTheme = (isDark) => {
+            const theme = isDark ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            if (themeIcon) themeIcon.setAttribute('d', isDark ? iconSun : iconMoon);
+        };
+
+        // Load saved
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            applyTheme(true);
+        }
+
+        // Expose to window for button click
+        window.toggleTheme = () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            applyTheme(current !== 'dark');
+            // Refresh snow color if active
+            updateSnowColor();
+        };
+
+        if (toggleBtn) {
+            toggleBtn.onclick = window.toggleTheme;
+        }
+    };
+    initTheme();
+
+    let snowColor = 'rgba(173, 216, 230, 0.7)'; // Default Light Blue
+    const updateSnowColor = () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        snowColor = isDark ? 'rgba(255, 255, 255, 0.8)' : 'rgba(173, 216, 230, 0.7)';
+    };
+    // Initial check
+    updateSnowColor();
+
+
     // --- SNOW EFFECT SYSTEM (AI Studio Style) ---
     const initSnowSystem = () => {
         const btn = document.getElementById('snow-toggle');
@@ -89,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function drawSnow() {
             if (!ctx) return;
             ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-            ctx.fillStyle = 'rgba(173, 216, 230, 0.7)'; // Light Blue Snow
+            ctx.fillStyle = snowColor; // Dynamic Color
             ctx.beginPath();
             flakes.forEach(f => {
                 ctx.moveTo(f.x, f.y);

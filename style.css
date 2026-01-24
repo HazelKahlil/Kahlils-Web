@@ -21,7 +21,52 @@
 
     /* Layout Constraints */
     --site-max-width: 1200px;
+    --site-max-width: 1200px;
     --site-padding: 60px;
+}
+
+[data-theme="dark"] {
+    --bg-color: #050505;
+    --text-color: #f0f0f0;
+    --nav-color: #aaaaaa;
+    --nav-active: #ffffff;
+}
+
+/* Dark Mode Overrides */
+[data-theme="dark"] .social-icons img,
+[data-theme="dark"] #snow-toggle svg {
+    filter: invert(1);
+}
+
+[data-theme="dark"] .nav-indicator {
+    background-color: #f0f0f0;
+}
+
+[data-theme="dark"] .project-card .project-thumb {
+    background-color: #222;
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    transition: transform 0.3s ease;
+}
+
+#theme-toggle:hover {
+    transform: rotate(15deg);
+}
+
+#theme-toggle svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
 }
 
 /* Global Reset & Box Sizing */

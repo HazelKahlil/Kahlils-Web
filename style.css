@@ -62,6 +62,13 @@
     justify-content: center;
     color: var(--text-color);
     transition: transform 0.3s ease;
+    /* FIX: Lock dimensions to prevent layout shift during image swap */
+    width: 24px;
+    height: 24px;
+    box-sizing: content-box;
+    /* If padding is added later, size grows outwards */
+    border-radius: 50%;
+    /* Clean rotation */
 }
 
 #theme-toggle:hover {

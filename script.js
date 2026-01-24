@@ -75,6 +75,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const imgLight = "images/icon_theme_light.png?v=" + timestamp;
         const imgDark = "images/icon_theme_dark.png?v=" + timestamp;
 
+        // Preload Images to prevent flicker
+        const preloadL = new Image(); preloadL.src = imgLight;
+        const preloadD = new Image(); preloadD.src = imgDark;
+
         const applyTheme = (isDark) => {
             const theme = isDark ? 'dark' : 'light';
             document.documentElement.setAttribute('data-theme', theme);

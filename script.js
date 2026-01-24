@@ -68,23 +68,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- THEME SYSTEM (Dark/Light) ---
     const initTheme = () => {
         const toggleBtn = document.getElementById('theme-toggle');
-        const themeIcon = toggleBtn ? toggleBtn.querySelector('svg path') : null;
+        const themeIcon = document.getElementById('theme-icon');
 
-        // Icons
-        const iconMoon = "M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"; // Moon
-        const iconSun = "M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42M12 5a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"; // Sun
+        // Image Paths with Cache Busting
+        const timestamp = new Date().getTime();
+        const imgLight = "images/icon_theme_light.png?v=" + timestamp;
+        const imgDark = "images/icon_theme_dark.png?v=" + timestamp;
 
         const applyTheme = (isDark) => {
             const theme = isDark ? 'dark' : 'light';
             document.documentElement.setAttribute('data-theme', theme);
             localStorage.setItem('theme', theme);
-            if (themeIcon) themeIcon.setAttribute('d', isDark ? iconSun : iconMoon);
+
+            if (themeIcon) {
+                // Logic: Dark Theme -> Dark Icon (Inverted); Light Theme -> Light Icon (Original)
+                themeIcon.src = isDark ? imgDark : imgLight;
+            }
         };
 
         // Load saved
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark') {
             applyTheme(true);
+        } else {
+            // Ensure correct icon on load if light (default)
+            if (themeIcon) themeIcon.src = imgLight;
         }
 
         // Expose to window for button click
@@ -93,6 +101,20 @@ document.addEventListener('DOMContentLoaded', () => {
             applyTheme(current !== 'dark');
             // Refresh snow color if active
             updateSnowColor();
+
+            // Trigger Icon Spin
+            if (themeIcon) {
+                // Remove class if it exists to reset animation
+                themeIcon.classList.remove('icon-spin');
+                // Force reflow to allow re-triggering animation immediately
+                void themeIcon.offsetWidth;
+                themeIcon.classList.add('icon-spin');
+
+                // Optional: Remove after animation completes (clean up)
+                setTimeout(() => {
+                    themeIcon.classList.remove('icon-spin');
+                }, 600); // Match animation duration
+            }
         };
 
         if (toggleBtn) {

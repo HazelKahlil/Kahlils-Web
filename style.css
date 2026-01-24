@@ -26,14 +26,19 @@
 }
 
 [data-theme="dark"] {
-    --bg-color: #050505;
-    --text-color: #f0f0f0;
-    --nav-color: #aaaaaa;
+    --bg-color: #1F1F1F;
+    --text-color: #CCCCCC;
+    --nav-color: #cccccc;
     --nav-active: #ffffff;
 }
 
 /* Dark Mode Overrides */
-[data-theme="dark"] .social-icons img,
+[data-theme="dark"] header {
+    background-color: rgba(31, 31, 31, 0.95);
+    /* Matches #1F1F1F with opacity */
+}
+
+[data-theme="dark"] .social-icons img:not(#theme-icon),
 [data-theme="dark"] #snow-toggle svg {
     filter: invert(1);
 }
@@ -43,7 +48,7 @@
 }
 
 [data-theme="dark"] .project-card .project-thumb {
-    background-color: #222;
+    background-color: #333;
 }
 
 /* Theme Toggle Button */
@@ -63,10 +68,28 @@
     transform: rotate(15deg);
 }
 
-#theme-toggle svg {
-    width: 18px;
-    height: 18px;
+#theme-toggle svg,
+#theme-toggle img {
+    width: 24px;
+    height: 24px;
     fill: currentColor;
+    display: block;
+    /* Ensure icon itself handles transform smoothly if needed, but we used keyframes */
+}
+
+/* Icon Rotation Animation */
+@keyframes spinIcon {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.icon-spin {
+    animation: spinIcon 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Global Reset & Box Sizing */
@@ -92,6 +115,8 @@ body {
     line-height: 1.8;
     /* overflow: hidden; Removed global lock */
     height: 100%;
+    /* Smooth Theme Transition: Background and Text */
+    transition: background-color 0.6s ease, color 0.6s ease;
 }
 
 body.is-home {
@@ -173,6 +198,8 @@ header {
     background-color: rgba(255, 255, 255, 0.95);
     /* Original background */
     z-index: 100;
+    /* Smooth Theme Transition for Header BG */
+    transition: background-color 0.6s ease;
 }
 
 .brand {
@@ -669,8 +696,8 @@ body:not(.is-home) main {
         order: unset;
         align-self: unset;
         position: absolute;
-        top: 98px;
-        /* +30px shift */
+        top: 93px;
+        /* Adjusted up from 98px for better alignment */
         right: 20px;
         justify-content: flex-end;
         margin: 0 !important;
@@ -1426,6 +1453,17 @@ body:not(.is-home) main {
         transform: translateY(0);
         height: 60vh;
     }
+}
+
+/* Specific Dark Mode Overrides for Project Text */
+[data-theme="dark"] .project-desc {
+    color: #CCCCCC !important;
+    opacity: 1 !important;
+}
+
+[data-theme="dark"] .project-info-side h1,
+[data-theme="dark"] .project-info-side .meta {
+    color: #CCCCCC;
 }
 
 /* 404 Void Page (Improvisation & Emptiness) */

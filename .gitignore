@@ -1,2 +1,7 @@
 archive_v1/
-archive_v1/
+images_backup/
+__pycache__/
+.DS_Store
+*.pyc
+.venv
+*.log

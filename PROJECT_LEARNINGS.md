@@ -57,3 +57,31 @@ This document serves as a "memory bank" for the project, capturing key lessons a
     *   *Adjustment*: Compact thumbnails (~60px) are superior for "Task-Oriented" interfaces (sorting, deleting, overviewing).
 *   **Logic Visualization**:
     *   *Feature*: For complex logic like "Random vs Fixed Images", the Admin UI should make the override relationship clear (e.g., explicit "Upload Fixed to Override Random" section), rather than hiding the logic in documentation.
+
+## 6. Theme System & Visual Polish (Dark/Light Mode)
+
+### **Custom Iconography & Color Precision**
+*   **Avoid Generic Filters**:
+    *   *Problem*: Using `filter: invert(1)` globally for Dark Mode is a quick hack but fails for premium designs. It distorts specific brand colors (e.g., turning a custom `#CCCCCC` gray into a muddy dark color).
+    *   *Solution*: Create dedicated assets for both modes (e.g., `icon_theme_light.png` and `icon_theme_dark.png`). Use explicit JS logic to swap the `src` attribute.
+    *   *CSS Fix*: When using global filters for other elements, *always* exclude your custom theme icons: `img:not(#theme-icon) { filter: invert(1); }`.
+
+### **Micro-Interactions & Animation**
+*   **The "Delight" Factor**:
+    *   *Experience*: A simple color switch feels functional but mechanical.
+    *   *Feature*: Adding a **360° spin animation** (`transform: rotate(360deg)`) to the toggle button masks the transition and adds a playful, tactile feel to the interaction.
+    *   *Smoothness*: Apply `transition: background-color 0.6s ease, color 0.6s ease` to the `body` and `header`. This turns a jarring "flash" into a smooth, premium fade effect.
+
+### **Asset Pipeline (Code-Driven Design)**
+*   **Python for Design Assets**:
+    *   *Technique*: Instead of manually editing icons in design software, use Python (`Pillow`) scripts to process user uploads.
+    *   *Capabilities*: Automated center-cropping, circular masking (to remove background grids/edges), thresholding (extracting shapes), and precise recoloring (e.g., enforcing `#1F1F1F` vs `#CCCCCC`).
+    *   *Benefit*: Allows for rapid iteration on exact hex values and sizes without re-doing manual work.
+*   **Cache Busting**:
+    *   *Rule*: When programmatically regenerating assets with the same filename, browsers *will* stubbornly cache the old version.
+    *   *Fix*: Always append a dynamic timestamp to the image source in JS: `img.src = "icon.png?v=" + new Date().getTime()`.
+
+### **Mobile Optical Alignment**
+*   **Visual vs Mathematical Center**:
+    *   *Observation*: Mathematical centering (50%) often looks "off" when mixing text (which has baselines/descenders) with geometric icons.
+    *   *Adjustment*: Mobile layouts often require manual pixel-tweaking (e.g., shifting icons up by 5px) to achieve *visual* alignment with navigation text. Trust the eye over the grid.

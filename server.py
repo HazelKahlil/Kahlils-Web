@@ -66,8 +66,8 @@ class PortfolioHandler(http.server.SimpleHTTPRequestHandler):
             self.send_error(404, "File not found")
 
     def do_GET(self):
-        if self.path == '/' or self.path == '/index.html':
-            self.path = '/hazelkahlil.html'
+        if self.path == '/' or self.path == '/hazelkahlil.html':
+            self.path = '/index.html'
         super().do_GET()
 
     def send_error(self, code, message=None, explain=None):

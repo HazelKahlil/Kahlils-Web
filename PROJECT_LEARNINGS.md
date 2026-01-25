@@ -94,3 +94,34 @@ This document serves as a "memory bank" for the project, capturing key lessons a
     *   *Issue*: Dynamic icon swaps (e.g., Light sun to Dark moon) cause layout shifts and flickering if the new image isn't in memory.
     *   *Container Fix*: Lock the dimensions of the icon container in CSS (`width/height: 24px`) to prevent surrounding elements from "jerking" during the swap.
     *   *JS Fix*: Use `new Image().src = ...` to **preload** the alternative theme icon as soon as the page loads. Switching then becomes instantaneous.
+
+---
+
+## 7. AI-Human Collaboration & Engineering Logic (Universal Principles)
+
+*This section captures the "Engineering Mindset" established to prevent repetitive errors and improve AI's diagnostic depth.*
+
+### **1. Diagnosis First Principle (诊断前置)**
+*   **Rule**: When UI layout or visibility fails, **NEVER** guess the code change immediately.
+*   **Action**: Use browser subagents to fetch the **computed styles** (e.g., `window.getComputedStyle`) and **bounding boxes** (`getBoundingClientRect`) of the problematic element AND its parent.
+*   **Why**: Surface-level code changes (like adjusting `top`) are useless if the parent container's height has collapsed to 0. Data-driven diagnosis prevents "trial and error cycles."
+
+### **2. Professional Advisory vs. Blind Obedience (顺从但不盲从)**
+*   **Rule**: AI must act as a Senior Engineer, not just a command executor.
+*   **Action**: If a request involves changing a core system convention (e.g., renaming `index.html` to something else, modifying a critical `.env` key, or deleting a root-level entry point), the AI **must** first provide a **Risk Warning**.
+*   **Example**: Renaming `index.html` causes 404 errors on almost all web servers/hosting platforms.
+
+### **3. Logical Cleanup Chain (关联清理)**
+*   **Rule**: Changes are never isolated.
+*   **Action**: If an animation or a JS-driven feature is removed, always audit the **Initial CSS State**. 
+*   **Example**: Removing a "Fade-In" animation requires removing the `opacity: 0` that was intended as its starting frame. Failure to do so results in a "Permanent White Screen."
+
+### **4. Extreme Verification (极致验证)**
+*   **Rule**: "It looks right in a screenshot" is not enough.
+*   **Action**: After a critical push or fix, force a **Cache-Cleared Reload** and inspect the **Browser Console** for new errors (404s, JS ReferenceErrors). 
+*   **Verification**: A successful fix means no new errors in the logs and stable layout across multiple page navigations.
+
+### **5. Holistic Debugging (全系统思维)**
+*   **Rule**: Avoid "Headache medicine for headache" (symptom-only fixes).
+*   **Action**: If an element is misbehaving, trace the logic up to the parent container and out to the global state (SPA namespaces, data fetching logic). 
+*   **Goal**: Find the **Root Cause** (e.g., height collapse, namespace mismatch) rather than adding "Band-aid" code (like `!important` overrides or redundant inline styles).

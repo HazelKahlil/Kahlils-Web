@@ -65,10 +65,14 @@
     /* FIX: Lock dimensions to prevent layout shift during image swap */
     width: 24px;
     height: 24px;
+    flex-shrink: 0;
+    /* Stabilize in flex layouts */
     box-sizing: content-box;
     /* If padding is added later, size grows outwards */
     border-radius: 50%;
     /* Clean rotation */
+    will-change: transform;
+    /* Hint GPU */
 }
 
 #theme-toggle:hover {
@@ -84,6 +88,13 @@
     /* Ensure icon itself handles transform smoothly if needed, but we used keyframes */
 }
 
+/* Instant check: Dark theme inverts these original-light assets */
+[data-theme='dark'] #theme-icon,
+[data-theme='dark'] .social-icons img,
+[data-theme='dark'] #snow-toggle svg {
+    filter: invert(1);
+}
+
 /* Icon Rotation Animation */
 @keyframes spinIcon {
     from {
@@ -96,7 +107,7 @@
 }
 
 .icon-spin {
-    animation: spinIcon 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: spinIcon 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Global Reset & Box Sizing */
@@ -371,6 +382,8 @@ nav a.active {
     position: relative;
     top: 2px;
     /* Optical alignment with text */
+    transition: filter 0.6s ease;
+    will-change: filter;
 }
 
 /* Standard alignment for all icons now that assets are cropped/square */

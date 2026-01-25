@@ -85,3 +85,12 @@ This document serves as a "memory bank" for the project, capturing key lessons a
 *   **Visual vs Mathematical Center**:
     *   *Observation*: Mathematical centering (50%) often looks "off" when mixing text (which has baselines/descenders) with geometric icons.
     *   *Adjustment*: Mobile layouts often require manual pixel-tweaking (e.g., shifting icons up by 5px) to achieve *visual* alignment with navigation text. Trust the eye over the grid.
+### **Theme Stability & Performance**
+*   **Preventing "White Flash" (FOUT/FOIT for Themes)**:
+    *   *Problem*: Loading theme preferences via `DOMContentLoaded` or external scripts is too slow; the browser renders the default (light) background for the first frame before switching.
+    *   *Solution*: Inject a **blocking script** directly in the `<head>` of every HTML file *before* any CSS or Body content. This script reads `localStorage` and applies the `data-theme` attribute to `<html>` immediately.
+    *   *Effect*: Zero flash. The page is born in the correct color.
+*   **Icon Swap Stability**:
+    *   *Issue*: Dynamic icon swaps (e.g., Light sun to Dark moon) cause layout shifts and flickering if the new image isn't in memory.
+    *   *Container Fix*: Lock the dimensions of the icon container in CSS (`width/height: 24px`) to prevent surrounding elements from "jerking" during the swap.
+    *   *JS Fix*: Use `new Image().src = ...` to **preload** the alternative theme icon as soon as the page loads. Switching then becomes instantaneous.

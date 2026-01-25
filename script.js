@@ -28,22 +28,64 @@ document.addEventListener('DOMContentLoaded', () => {
         nav.appendChild(indicator);
 
         // 更新指示器位置和宽度的函数
-        const updateIndicator = (target) => {
+        const updateIndicator = (target, immediate = false) => {
             const navRect = nav.getBoundingClientRect();
             const targetRect = target.getBoundingClientRect();
             const offsetLeft = targetRect.left - navRect.left;
+            const width = targetRect.width;
 
-            indicator.style.width = `${targetRect.width}px`;
+            if (immediate) {
+                indicator.style.transition = 'none';
+            } else {
+                indicator.style.transition = ''; // Restore CSS default transition
+            }
+
+            indicator.style.width = `${width}px`;
             indicator.style.transform = `translateX(${offsetLeft}px)`;
+
+            // Force reflow
+            if (immediate) void indicator.offsetWidth;
         };
 
-        // 初始化指示器位置
-        setTimeout(() => updateIndicator(activeLink), 100);
+        // 尝试从 sessionStorage 恢复位置 (Try to restore position)
+        const savedPos = sessionStorage.getItem('navPos');
+        if (savedPos) {
+            const { width, offsetLeft } = JSON.parse(savedPos);
+            indicator.style.transition = 'none';
+            indicator.style.width = `${width}px`;
+            indicator.style.transform = `translateX(${offsetLeft}px)`;
+            void indicator.offsetWidth; // Force reflow
 
-        // 为所有导航链接添加悬停效果
+            // Allow a tiny delay before sliding to the new active position
+            setTimeout(() => {
+                updateIndicator(activeLink);
+                // Clear after used once to avoid "ghost" slides on refresh
+                sessionStorage.removeItem('navPos');
+            }, 50);
+        } else {
+            // First visit or no saved pos: snap to active link immediately
+            updateIndicator(activeLink, true);
+        }
+
+        // 保存位置的函数 (Helper to save state)
+        const saveNavPosition = (target) => {
+            const navRect = nav.getBoundingClientRect();
+            const targetRect = target.getBoundingClientRect();
+            const pos = {
+                width: targetRect.width,
+                offsetLeft: targetRect.left - navRect.left
+            };
+            sessionStorage.setItem('navPos', JSON.stringify(pos));
+        };
+
+        // 为所有导航链接添加点击和悬停效果
         navLinks.forEach(link => {
             link.addEventListener('mouseenter', () => {
                 updateIndicator(link);
+            });
+
+            link.addEventListener('click', () => {
+                saveNavPosition(link);
             });
         });
 
@@ -59,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('resize', () => {
             const currentActive = document.querySelector('nav a.active');
             if (currentActive) {
-                updateIndicator(currentActive);
+                updateIndicator(currentActive, true);
             }
         });
     }
@@ -70,10 +112,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const toggleBtn = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
 
-        // Image Paths with Cache Busting
-        const timestamp = new Date().getTime();
-        const imgLight = "images/icon_theme_light.png?v=" + timestamp;
-        const imgDark = "images/icon_theme_dark.png?v=" + timestamp;
+        // Image Paths (Removed Cache Busting to prevent flicker)
+        const imgLight = "images/icon_theme_light.png";
+        const imgDark = "images/icon_theme_dark.png";
 
         // Preload Images to prevent flicker
         const preloadL = new Image(); preloadL.src = imgLight;
@@ -83,20 +124,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const theme = isDark ? 'dark' : 'light';
             document.documentElement.setAttribute('data-theme', theme);
             localStorage.setItem('theme', theme);
-
-            if (themeIcon) {
-                // Logic: Dark Theme -> Dark Icon (Inverted); Light Theme -> Light Icon (Original)
-                themeIcon.src = isDark ? imgDark : imgLight;
-            }
         };
 
         // Load saved
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark') {
             applyTheme(true);
-        } else {
-            // Ensure correct icon on load if light (default)
-            if (themeIcon) themeIcon.src = imgLight;
         }
 
         // Expose to window for button click

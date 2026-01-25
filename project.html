@@ -87,17 +87,18 @@
 </head>
 
 <body>
-    <div id="site-wrapper">
+    <div id="site-wrapper" data-barba="wrapper">
         <header>
             <div class="brand">
-                <h1><a href="index.html">Hazel Kahlil</a></h1>
+                <h1><a href="hazelkahlil.html">Hazel Kahlil</a></h1>
             </div>
             <nav>
                 <ul>
-                    <li><a href="archive.html" class="active">Portfolios</a></li>
-                    <li><a href="biography.html">Info</a></li>
+                    <li><a href="portfolios.html">Portfolios</a></li>
+                    <li><a href="info.html">Info</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
+                <span class="nav-indicator"></span>
             </nav>
             <button id="snow-toggle">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -109,27 +110,28 @@
 
             <div class="social-icons">
                 <button id="theme-toggle" aria-label="Toggle Dark Mode">
-                    <img src="images/icon_theme_light.png" alt="Toggle Theme" id="theme-icon">
+                    <img src="images/icon_theme_light.png" alt="Toggle Theme" id="theme-icon" width="24" height="24">
                 </button>
                 <a href="https://instagram.com/hazelkahlil" target="_blank" aria-label="Instagram">
-                    <img src="images/icon_instagram.png?v=4" alt="Instagram">
+                    <img src="images/icon_instagram.png?v=4" alt="Instagram" width="24" height="24">
                 </a>
                 <a href="#" target="_blank" aria-label="Link">
-                    <img src="images/icon_link.png?v=4" alt="Link">
+                    <img src="images/icon_link.png?v=4" alt="Link" width="24" height="24">
                 </a>
                 <a href="mailto:kahlils@163.com" aria-label="Email">
-                    <img src="images/icon_mail.png?v=4" alt="Email">
+                    <img src="images/icon_mail.png?v=4" alt="Email" width="24" height="24">
                 </a>
             </div>
         </header>
 
-        <main>
+        <main data-barba="container" data-barba-namespace="project">
             <div id="project-content">
                 <!-- Content injected via JS -->
             </div>
         </main>
         <div class="copyright"></div>
     </div>
+    <script src="https://unpkg.com/@barba/core"></script>
     <script src="script.js?v=4.0"></script>
 </body>
 

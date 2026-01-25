@@ -138,7 +138,8 @@ body {
 }
 
 body.is-home {
-    overflow: hidden;
+    overflow: auto;
+    /* Allow scrolling on home if content exceeds viewport */
 }
 
 a {
@@ -151,45 +152,39 @@ a:hover {
     color: var(--nav-active);
 }
 
-/* Body & Wrapper Defaults (Flex Sticky Footer for most pages) */
-#site-wrapper {
+body {
     display: flex;
     flex-direction: column;
-    width: 100%;
     min-height: 100vh;
 }
 
-/* Homepage Overrides - Restore Original "Poster" Layout */
+#site-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
+}
+
 body.is-home #site-wrapper {
-    display: block;
-    /* Ignore flex on home */
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 body.is-home main {
     height: calc(100vh - var(--header-height));
-    /* Adjusted height */
-    /* margin-top: 0; Removed to allow default margin-top from 'main' to apply? 
-       Actually 'body.is-home main' has higher specificity. 
-       We need to explicitly set it or remove the property if we want inheritance, 
-       but since this block is ABOVE the generic 'main' block, purely removing it might not work 
-       if the generic block hasn't been defined yet? 
-       Wait, in CSS, order matters for same specificity, but specificity overrides order.
-       'body.is-home main' (specificity 0-1-2) > 'main' (0-0-1).
-       So we MUST set margin-top here or use 'unset' / 'revert', or simply set it to the variable.
-    */
+    min-height: 600px;
     margin-top: var(--header-height);
     padding: 60px max(var(--site-padding), calc((100% - var(--site-max-width)) / 2)) 0;
+    overflow: hidden;
+    /* Lock scroll for the immersive feel */
 }
 
 body.is-home .copyright {
-    position: fixed;
-    bottom: 30px;
-    left: max(var(--site-padding), calc((100% - var(--site-max-width)) / 2));
-    width: auto;
-    padding: 0;
-    margin: 0;
-    z-index: 100;
+    position: static;
+    margin-top: auto;
+    padding: 30px max(var(--site-padding), calc((100% - var(--site-max-width)) / 2));
+    width: 100%;
 }
 
 /* 
@@ -397,6 +392,8 @@ nav a.active {
     background: transparent;
     margin-top: auto;
     width: 100%;
+    clear: both;
+    z-index: 10;
 }
 
 /* Main Content Area Default */
@@ -405,9 +402,8 @@ main {
     /* Clear the fixed header */
     padding: 60px max(var(--site-padding), calc((100% - var(--site-max-width)) / 2)) 0;
     /* Dynamic Centering + 60px Top Spacing */
-    opacity: 0;
-    animation: fadeIn 1.2s ease-out forwards;
-    /* height: calc(100vh - var(--header-height)); */
+    /* opacity: 0; REMOVED to fix initial load white screen */
+    /* animation: fadeIn 1.2s ease-out forwards; REMOVED to prevent conflict with Barba.js transitions */
     flex-grow: 1;
     /* Allow growing */
     position: relative;
@@ -460,6 +456,11 @@ body:not(.is-home) main {
         transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
         filter 0.5s ease-out,
         box-shadow 0.3s ease;
+
+    /* Ensure visibility is forced */
+    opacity: 1 !important;
+    display: block !important;
+    visibility: visible !important;
 }
 
 .hero-img:hover {
@@ -471,7 +472,7 @@ body:not(.is-home) main {
 
 /* Irregular Layout Positions - 5 Images */
 .img-1 {
-    width: 35%;
+    width: 30%;
     top: 2%;
     left: 0;
     /* Align with Logo */
@@ -488,11 +489,11 @@ body:not(.is-home) main {
 }
 
 .img-3 {
-    width: 32%;
-    top: 6%;
-    right: 5%;
-    z-index: 1;
-    aspect-ratio: 16/9;
+    width: 26%;
+    top: 30%;
+    left: 65%;
+    z-index: 2;
+    aspect-ratio: 3/2;
 }
 
 .img-4 {
@@ -504,11 +505,11 @@ body:not(.is-home) main {
 }
 
 .img-5 {
-    width: 26%;
-    top: 30%;
-    left: 65%;
-    z-index: 2;
-    aspect-ratio: 3/2;
+    width: 32%;
+    top: 6%;
+    right: 5%;
+    z-index: 1;
+    aspect-ratio: 16/9;
 }
 
 /* Archive/Works Grid */
@@ -1448,7 +1449,16 @@ body:not(.is-home) main {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     opacity: 0;
     /* Hidden initially, JS will fade in */
-    transition: opacity 1s ease;
+    transition: opacity 1s ease, transform 0.6s ease;
+}
+
+.contact-img-wrapper {
+    /* overflow: hidden; Removed to allow zoom effect to pop out */
+    display: block;
+}
+
+.contact-img-wrapper:hover .contact-random-img {
+    transform: scale(1.03);
 }
 
 #image-preloader {

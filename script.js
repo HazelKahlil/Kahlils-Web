@@ -150,7 +150,7 @@ function loadPageContent(container) {
         } else if (namespace === 'contact') {
             populateContact(container, siteInfo, projects);
         } else {
-            if (window.location.pathname.includes('project')) {
+            if (window.location.pathname.includes('project.html')) {
                 populateProjectDetail(container, projects);
             }
         }
@@ -207,7 +207,7 @@ function populateArchive(container, projects, observer) {
 
     projects.forEach((project, index) => {
         const card = document.createElement('a');
-        card.href = `project?id=${project.id}`;
+        card.href = `project.html?id=${project.id}`;
         card.className = 'project-card';
         const imagePath = encodeURI(project.image.trim());
 
@@ -283,7 +283,7 @@ function populateContact(container, siteInfo, projects) {
 
         selected.forEach((item, idx) => {
             const wrapper = document.createElement(item.id ? 'a' : 'div');
-            if (item.id) wrapper.href = `project?id=${item.id}`;
+            if (item.id) wrapper.href = `project.html?id=${item.id}`;
             wrapper.className = 'contact-img-wrapper';
             wrapper.style.display = 'block';
             wrapper.style.width = '100%';

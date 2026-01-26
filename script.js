@@ -150,7 +150,7 @@ function loadPageContent(container) {
         } else if (namespace === 'contact') {
             populateContact(container, siteInfo, projects);
         } else {
-            if (window.location.pathname.includes('project.html')) {
+            if (window.location.pathname.includes('project')) {
                 populateProjectDetail(container, projects);
             }
         }
@@ -207,7 +207,7 @@ function populateArchive(container, projects, observer) {
 
     projects.forEach((project, index) => {
         const card = document.createElement('a');
-        card.href = `project.html?id=${project.id}`;
+        card.href = `project?id=${project.id}`;
         card.className = 'project-card';
         const imagePath = encodeURI(project.image.trim());
 
@@ -283,7 +283,7 @@ function populateContact(container, siteInfo, projects) {
 
         selected.forEach((item, idx) => {
             const wrapper = document.createElement(item.id ? 'a' : 'div');
-            if (item.id) wrapper.href = `project.html?id=${item.id}`;
+            if (item.id) wrapper.href = `project?id=${item.id}`;
             wrapper.className = 'contact-img-wrapper';
             wrapper.style.display = 'block';
             wrapper.style.width = '100%';
@@ -459,11 +459,12 @@ function populateProjectDetail(container, projects) {
 // --- 5. INITIALIZATION HELPERS ---
 
 function updateActiveNavLink(path) {
-    // Determine active file from path string
-    const filename = path.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('nav a');
+    // 1. Normalize current filename (remove .html and treat root as index)
+    let currentRaw = path.split('/').pop() || 'index';
+    let currentName = currentRaw.replace('.html', '');
+    if (currentName === '') currentName = 'index';
 
-    // Persistent Indicator Logic
+    const navLinks = document.querySelectorAll('nav a');
     const nav = document.querySelector('nav');
     const indicator = document.querySelector('.nav-indicator');
 
@@ -471,11 +472,14 @@ function updateActiveNavLink(path) {
 
     navLinks.forEach(link => {
         const linkHref = link.getAttribute('href');
+        if (!linkHref) return;
 
-        // Match Logic
-        const isActive = (linkHref === filename) ||
-            (filename === 'index.html' && linkHref === './') ||
-            (filename === '' && linkHref === './');
+        // 2. Normalize link href for comparison
+        let linkName = linkHref.split('/').pop().replace('.html', '');
+        if (linkHref === './' || linkHref === 'index.html' || linkHref === 'index') linkName = 'index';
+
+        // 3. Match Logic
+        const isActive = (linkName === currentName);
 
         if (isActive) {
             link.classList.add('active');

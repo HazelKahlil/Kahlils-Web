@@ -150,7 +150,7 @@ function loadPageContent(container) {
         } else if (namespace === 'contact') {
             populateContact(container, siteInfo, projects);
         } else {
-            if (window.location.pathname.includes('project.html')) {
+            if (window.location.pathname.includes('/project/')) {
                 populateProjectDetail(container, projects);
             }
         }
@@ -161,7 +161,7 @@ function loadPageContent(container) {
     if (cachedData) {
         processData(cachedData);
     } else {
-        fetch('data.json?v=' + new Date().getTime()) // Keep timestamp for First Load only
+        fetch('/data.json?v=' + new Date().getTime()) // Keep timestamp for First Load only
             .then(response => response.json())
             .then(data => {
                 cachedData = data; // Store in RAM
@@ -207,7 +207,7 @@ function populateArchive(container, projects, observer) {
 
     projects.forEach((project, index) => {
         const card = document.createElement('a');
-        card.href = `project.html?id=${project.id}`;
+        card.href = `/project/?id=${project.id}`;
         card.className = 'project-card';
         const imagePath = encodeURI(project.image.trim());
 
@@ -283,7 +283,7 @@ function populateContact(container, siteInfo, projects) {
 
         selected.forEach((item, idx) => {
             const wrapper = document.createElement(item.id ? 'a' : 'div');
-            if (item.id) wrapper.href = `project.html?id=${item.id}`;
+            if (item.id) wrapper.href = `/project/?id=${item.id}`;
             wrapper.className = 'contact-img-wrapper';
             wrapper.style.display = 'block';
             wrapper.style.width = '100%';
@@ -459,10 +459,9 @@ function populateProjectDetail(container, projects) {
 // --- 5. INITIALIZATION HELPERS ---
 
 function updateActiveNavLink(path) {
-    // 1. Normalize current filename (remove .html and treat root as index)
-    let currentRaw = path.split('/').pop() || 'index';
-    let currentName = currentRaw.replace('.html', '');
-    if (currentName === '') currentName = 'index';
+    // 1. Normalize current path (remove leading/trailing slashes and .html)
+    let normalizedPath = path.split('?')[0].replace(/\/$/, '').replace('.html', '');
+    if (normalizedPath === '' || normalizedPath === '/index') normalizedPath = '/';
 
     const navLinks = document.querySelectorAll('nav a');
     const nav = document.querySelector('nav');
@@ -474,12 +473,12 @@ function updateActiveNavLink(path) {
         const linkHref = link.getAttribute('href');
         if (!linkHref) return;
 
-        // 2. Normalize link href for comparison
-        let linkName = linkHref.split('/').pop().replace('.html', '');
-        if (linkHref === './' || linkHref === 'index.html' || linkHref === 'index') linkName = 'index';
+        // 2. Normalize link href
+        let normalizedLink = linkHref.replace(/\/$/, '').replace('.html', '');
+        if (normalizedLink === '' || normalizedLink === '/index') normalizedLink = '/';
 
-        // 3. Match Logic
-        const isActive = (linkName === currentName);
+        // 3. Match Logic (Exact or Parent)
+        const isActive = (normalizedLink === normalizedPath);
 
         if (isActive) {
             link.classList.add('active');

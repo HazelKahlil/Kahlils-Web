@@ -66,22 +66,9 @@ class PortfolioHandler(http.server.SimpleHTTPRequestHandler):
             self.send_error(404, "File not found")
 
     def do_GET(self):
-        # 1. Normalize path: remove query params and treat root as index.html
-        base_path = self.path.split('?')[0]
-        if base_path == '/' or base_path == '/index.html':
+        # Treat / as index.html
+        if self.path == '/':
             self.path = '/index.html'
-        
-        # 2. Support extension-less URLs (e.g., /info -> info.html)
-        else:
-            # Check if path has no extension and if a .html file exists
-            filename = base_path.lstrip('/')
-            if not os.path.splitext(filename)[1]: # No extension
-                potential_file = filename + '.html'
-                if os.path.exists(potential_file):
-                    # Preserving query string if any
-                    query = self.path.split('?')[1] if '?' in self.path else ''
-                    self.path = '/' + potential_file + (('?' + query) if query else '')
-
         super().do_GET()
 
     def send_error(self, code, message=None, explain=None):

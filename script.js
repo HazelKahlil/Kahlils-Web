@@ -1,6 +1,7 @@
 
 // --- 1. GLOBAL INITIALIZATION (Runs Once) ---
 document.addEventListener('DOMContentLoaded', () => {
+    beautifyURL(); // Clean up trailing slashes
     initTheme();
     initSnowSystem();
     initSoundSystem();
@@ -10,6 +11,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial Page Load
     loadPageContent(document.querySelector('main'));
 });
+
+// --- URL BEAUTIFICATION (Pretty URLs) ---
+function beautifyURL() {
+    const path = window.location.pathname;
+    if (path.length > 1 && path.endsWith('/')) {
+        const cleanPath = path.slice(0, -1);
+        history.replaceState(null, '', cleanPath + window.location.search);
+    }
+}
 
 // --- 2. BARBA.JS CONFIGURATION (SPA Logic) ---
 function initBarba() {
@@ -93,6 +103,7 @@ if (typeof gsap === 'undefined') {
 
         barba.hooks.after((data) => {
             loadPageContent(data.next.container);
+            beautifyURL(); // Clean up URL after transition
         });
     };
 }
@@ -209,7 +220,7 @@ function populateArchive(container, projects, observer) {
 
     projects.forEach((project, index) => {
         const card = document.createElement('a');
-        card.href = `/project/?id=${project.id}`;
+        card.href = `/project?id=${project.id}`;
         card.className = 'project-card';
         let rawPath = project.image.trim();
         if (!rawPath.startsWith('http') && !rawPath.startsWith('/')) rawPath = '/' + rawPath;
@@ -287,7 +298,7 @@ function populateContact(container, siteInfo, projects) {
 
         selected.forEach((item, idx) => {
             const wrapper = document.createElement(item.id ? 'a' : 'div');
-            if (item.id) wrapper.href = `/project/?id=${item.id}`;
+            if (item.id) wrapper.href = `/project?id=${item.id}`;
             wrapper.className = 'contact-img-wrapper';
             wrapper.style.display = 'block';
             wrapper.style.width = '100%';

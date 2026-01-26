@@ -66,9 +66,24 @@ class PortfolioHandler(http.server.SimpleHTTPRequestHandler):
             self.send_error(404, "File not found")
 
     def do_GET(self):
-        # Treat / as index.html
-        if self.path == '/':
+        # 1. Normalize root
+        if self.path == '/' or self.path == '':
             self.path = '/index.html'
+        
+        # 2. Handle Directory requests without trailing slash (e.g., /info -> /info/index.html)
+        else:
+            # Remove query strings for file checking
+            path_no_query = self.path.split('?')[0].rstrip('/')
+            # Local file system path
+            local_path = path_no_query.lstrip('/')
+            
+            if os.path.isdir(local_path):
+                index_path = os.path.join(local_path, 'index.html')
+                if os.path.exists(index_path):
+                    # Rewrite internal path for the handler
+                    query = '?' + self.path.split('?')[1] if '?' in self.path else ''
+                    self.path = '/' + index_path + query
+
         super().do_GET()
 
     def send_error(self, code, message=None, explain=None):

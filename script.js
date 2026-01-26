@@ -160,10 +160,8 @@ function loadPageContent(container) {
             populateBio(container, siteInfo);
         } else if (namespace === 'contact') {
             populateContact(container, siteInfo, projects);
-        } else {
-            if (window.location.pathname.includes('/project/')) {
-                populateProjectDetail(container, projects);
-            }
+        } else if (namespace === 'project' || window.location.pathname.includes('/project')) {
+            populateProjectDetail(container, projects);
         }
         refreshGlobalSounds();
     };

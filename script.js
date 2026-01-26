@@ -179,7 +179,9 @@ function populateHome(container, images) {
         heroGallery.innerHTML = '';
         images.forEach((item, idx) => {
             const img = document.createElement('img');
-            let src = typeof item === 'string' ? item : item.src;
+            let rawSrc = typeof item === 'string' ? item : item.src;
+            let src = rawSrc;
+            if (src && !src.startsWith('http') && !src.startsWith('/')) src = '/' + src;
             // Cache bust local
             if (src && !src.startsWith('http')) src = encodeURI(src) + '?t=' + new Date().getTime();
 
@@ -209,7 +211,9 @@ function populateArchive(container, projects, observer) {
         const card = document.createElement('a');
         card.href = `/project/?id=${project.id}`;
         card.className = 'project-card';
-        const imagePath = encodeURI(project.image.trim());
+        let rawPath = project.image.trim();
+        if (!rawPath.startsWith('http') && !rawPath.startsWith('/')) rawPath = '/' + rawPath;
+        const imagePath = encodeURI(rawPath);
 
         card.innerHTML = `
             <div class="project-thumb">
@@ -289,7 +293,9 @@ function populateContact(container, siteInfo, projects) {
             wrapper.style.width = '100%';
 
             const img = document.createElement('img');
-            img.src = item.src;
+            let src = item.src;
+            if (src && !src.startsWith('http') && !src.startsWith('/')) src = '/' + src;
+            img.src = src;
             img.className = 'contact-random-img';
             img.style.transitionDelay = `${idx * 0.2}s`;
 
@@ -332,6 +338,7 @@ function populateProjectDetail(container, projects) {
         images.forEach((imgItem, idx) => {
             let src = typeof imgItem === 'string' ? imgItem : imgItem.src;
             if (!src) return;
+            if (!src.startsWith('http') && !src.startsWith('/')) src = '/' + src;
             let slideSrc = encodeURI(src);
             let metaText = (typeof imgItem === 'object' && imgItem.caption) ? imgItem.caption : "Location, Year, Subject";
 

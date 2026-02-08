@@ -641,6 +641,7 @@ function initSnowSystem() {
 
     let isSnowing = localStorage.getItem('isSnowing') === 'true';
     let canvas, ctx, flakes, raf;
+    let time = 0; // Global time for animation
 
     function start() {
         if (!canvas) {
@@ -654,14 +655,25 @@ function initSnowSystem() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             window.onresize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
-            flakes = Array.from({ length: 150 }, () => ({
-                x: Math.random() * canvas.width, y: Math.random() * canvas.height,
-                r: Math.random() * 2 + 1, s: Math.random() * 1 + 0.5
+
+            // Enhanced flakes with sway properties
+            flakes = Array.from({ length: 350 }, () => ({
+                x: Math.random() * canvas.width,           // Initial X position
+                y: Math.random() * canvas.height,          // Initial Y position
+                r: Math.random() * 1 + 0.5,                // Radius (size): 0.5-1.5px (smaller)
+                s: Math.random() * 0.8 + 0.3,              // Fall speed: slightly slower
+                // === Sway properties for realistic movement ===
+                swayAmplitude: Math.random() * 0.5 + 0.3,  // How far it swings left-right (0.3-0.8px, reduced)
+                swayFrequency: Math.random() * 0.015 + 0.008,// How fast it oscillates (slightly slower)
+                swayPhase: Math.random() * Math.PI * 2,    // Random starting phase (0-2π)
+                drift: (Math.random() - 0.5) * 0.2,        // Constant wind drift (-0.1 to 0.1, reduced)
+                wobble: Math.random() * 0.4 + 0.4          // Wobble intensity multiplier (reduced)
             }));
         }
         canvas.style.display = 'block';
         ctx = canvas.getContext('2d');
         btn.classList.add('active');
+        time = 0;
         loop();
     }
 
@@ -675,12 +687,31 @@ function initSnowSystem() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = snowColor;
         ctx.beginPath();
+
+        time += 1; // Increment global time
+
         flakes.forEach(f => {
+            // === NEW: Calculate horizontal sway using sine wave ===
+            const sway = Math.sin(time * f.swayFrequency + f.swayPhase) * f.swayAmplitude * f.wobble;
+
+            // Update position with sway and drift
+            f.x += sway + f.drift;
+            f.y += f.s;
+
+            // Wrap around horizontally (so flakes don't disappear off screen)
+            if (f.x > canvas.width + 10) f.x = -10;
+            if (f.x < -10) f.x = canvas.width + 10;
+
+            // Reset to top when reaching bottom
+            if (f.y > canvas.height) {
+                f.y = -10;
+                f.x = Math.random() * canvas.width; // Randomize X on reset
+            }
+
             ctx.moveTo(f.x, f.y);
             ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
-            f.y += f.s;
-            if (f.y > canvas.height) f.y = 0;
         });
+
         ctx.fill();
         raf = requestAnimationFrame(loop);
     }

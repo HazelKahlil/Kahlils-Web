@@ -661,17 +661,13 @@ body:not(.is-home) main {
     }
 
     /* ======= MOBILE HEADER: Left-Aligned Layout (Stacking) ======= */
-    /* ======= MOBILE HEADER: Left-Aligned Layout (Stacking) ======= */
     header {
         position: relative;
         padding: 50px 20px 60px 20px;
-        /* Increased top padding by 30px */
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        /* Force Left Alignment */
         gap: 15px;
-        /* Vertical spacing between rows */
         height: auto;
         background: var(--bg-color);
     }
@@ -705,13 +701,12 @@ body:not(.is-home) main {
         padding: 0;
     }
 
-    /* Snow Button: Fixed Absolute Position Top-Right (Moved Bottom) */
+    /* Snow Button: Fixed Absolute Position Top-Right */
     #snow-toggle {
         order: unset;
         align-self: unset;
         position: absolute;
         top: 130px;
-        /* +30px shift */
         right: 20px;
         margin: 0 !important;
         padding: 0;
@@ -725,7 +720,6 @@ body:not(.is-home) main {
         align-self: unset;
         position: absolute;
         top: 93px;
-        /* Adjusted up from 98px for better alignment */
         right: 20px;
         justify-content: flex-end;
         margin: 0 !important;
@@ -735,7 +729,6 @@ body:not(.is-home) main {
 
     .social-icons img {
         height: 16px;
-        /* Smaller as requested (was 24px) */
         width: auto;
     }
 

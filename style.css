@@ -660,7 +660,7 @@ body:not(.is-home) main {
         font-size: 15px;
     }
 
-    /* ======= MOBILE HEADER: Left-Aligned Layout (Stacking) ======= */
+    /* ======= MOBILE HEADER: Left-Right Layout with Vertical Alignment ======= */
     header {
         position: relative;
         padding: 50px 20px 60px 20px;
@@ -701,7 +701,7 @@ body:not(.is-home) main {
         padding: 0;
     }
 
-    /* Snow Button: Fixed Absolute Position Top-Right */
+    /* Snow Button: Absolute position, below social icons */
     #snow-toggle {
         order: unset;
         align-self: unset;
@@ -714,22 +714,33 @@ body:not(.is-home) main {
         height: auto;
     }
 
-    /* Social Icons: Fixed Absolute Position (Aligned with Nav) */
+    /* Social Icons: Aligned vertically with nav text (same baseline) */
     .social-icons {
         order: unset;
         align-self: unset;
         position: absolute;
-        top: 93px;
+        top: 98px;
         right: 20px;
         justify-content: flex-end;
         margin: 0 !important;
         width: auto;
-        gap: 16px;
+        gap: 14px;
     }
 
     .social-icons img {
-        height: 16px;
+        height: 14px;
         width: auto;
+    }
+
+    /* Theme toggle button: same size as social icons */
+    #theme-toggle {
+        width: 14px !important;
+        height: 14px !important;
+    }
+
+    #theme-toggle img {
+        width: 14px !important;
+        height: 14px !important;
     }
 
     /* Main content */

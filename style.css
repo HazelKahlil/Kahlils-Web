@@ -66,8 +66,8 @@
     color: var(--text-color);
     transition: transform 0.3s ease;
     /* FIX: Lock dimensions to prevent layout shift during image swap */
-    width: 24px;
-    height: 24px;
+    width: 18px;
+    height: 18px;
     flex-shrink: 0;
     /* Stabilize in flex layouts */
     box-sizing: content-box;
@@ -84,8 +84,8 @@
 
 #theme-toggle svg,
 #theme-toggle img {
-    width: 24px;
-    height: 24px;
+    width: 18px;
+    height: 18px;
     fill: currentColor;
     display: block;
     /* Ensure icon itself handles transform smoothly if needed, but we used keyframes */
@@ -360,9 +360,9 @@ nav a.active {
     height: 10px;
     flex-shrink: 0;
     stroke: currentColor;
-    /* 微调：将图标向上移动以对准大写字母 L 的中心线 */
+    /* Align with text center line - move up to match L */
     position: relative;
-    top: -1px;
+    top: -2px;
 }
 
 @media screen and (min-width: 769px) {

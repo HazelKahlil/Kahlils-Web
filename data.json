@@ -130,9 +130,18 @@
                     "src": "images/2024-02-10 163654.webp",
                     "caption": "Nanjing China"
                 },
-                "images/2026.1.25- 1.jpg",
-                "images/2026.1.25- 4.jpg",
-                "images/2026.1.25- 11.jpg"
+                {
+                    "src": "images/2026.1.25- 1.jpg",
+                    "caption": ""
+                },
+                {
+                    "src": "images/2026.1.25- 4.jpg",
+                    "caption": ""
+                },
+                {
+                    "src": "images/2026.1.25- 11.jpg",
+                    "caption": ""
+                }
             ],
             "description": "Birds are the ancient inhabitants of the city, their presence predating any architecture. In this series, I focus on how these creatures reenact their timeless rituals of survival within these man-made spaces.Captured in these frames, they soar over heavy stone walls and tiled roofs, or rest upon the textured ground. This primitive vitality, contrasted against static architectural structures, creates a sense of \"Anachronism.\" Through high-contrast black and white imagery, I seek to erase the markers of the \"present,\" cultivating a timeless atmosphere of silence. Here, the flock is not merely a subject, but an eternal metaphor connecting the past and the future."
         },

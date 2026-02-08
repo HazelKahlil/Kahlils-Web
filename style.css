@@ -21,7 +21,6 @@
 
     /* Layout Constraints */
     --site-max-width: 1200px;
-    --site-max-width: 1200px;
     --site-padding: 60px;
 }
 
@@ -38,8 +37,12 @@
     /* Matches #1F1F1F with opacity */
 }
 
-[data-theme="dark"] .social-icons img:not(#theme-icon),
-[data-theme="dark"] #snow-toggle svg {
+[data-theme="dark"] .social-icons img:not(#theme-icon) {
+    filter: invert(1);
+}
+
+/* 暗色模式下雪花图标：非激活状态使用 invert，激活状态使用 inherit 保持颜色一致 */
+[data-theme="dark"] #snow-toggle:not(.active) svg {
     filter: invert(1);
 }
 
@@ -90,8 +93,12 @@
 
 /* Instant check: Dark theme inverts these original-light assets */
 [data-theme='dark'] #theme-icon,
-[data-theme='dark'] .social-icons img,
-[data-theme='dark'] #snow-toggle svg {
+[data-theme='dark'] .social-icons img {
+    filter: invert(1);
+}
+
+/* 暗色模式下雪花图标（非激活）也需要 invert */
+[data-theme='dark'] #snow-toggle:not(.active) svg {
     filter: invert(1);
 }
 
@@ -313,10 +320,6 @@ nav a.active {
     opacity: 1;
 }
 
-.social-icons a:hover {
-    opacity: 1;
-}
-
 /* ======= Snow Button Optimized: Minimalist Style ======= */
 #snow-toggle {
     display: flex;
@@ -353,9 +356,13 @@ nav a.active {
 }
 
 #snow-toggle svg {
-    width: 13px;
-    height: 13px;
-    margin-top: -1px;
+    width: 10px;
+    height: 10px;
+    flex-shrink: 0;
+    stroke: currentColor;
+    /* 微调：将图标向上移动以对准大写字母 L 的中心线 */
+    position: relative;
+    top: -1px;
 }
 
 @media screen and (min-width: 769px) {
@@ -1106,7 +1113,6 @@ body:not(.is-home) main {
 @media (min-width: 900px) {
     .project-split {
         flex-direction: row;
-        align-items: flex-start;
         align-items: flex-start;
         /* Align top */
         padding: 0;

@@ -8,280 +8,264 @@
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <style>
+        /* ========== Swiss Editorial CMS Theme - Premium Design ========== */
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;700&display=swap');
+
         :root {
-            --bg: #1a1a1a;
-            --panel: #252525;
-            --text: #eee;
-            --border: #333;
-            --accent: #4a90e2;
-            --danger: #e74c3c;
+            --bg: #ffffff;
+            --sidebar-bg: #fcfcfc;
+            --text: #000000;
+            --text-muted: #999999;
+            --border: #eeeeee;
+            --border-heavy: #000000;
+            --accent: #000000;
+            --danger: #ff0000;
+            --panel: #fdfdfd;
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Space Grotesk', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
         }
 
         body {
             background-color: var(--bg);
             color: var(--text);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: var(--font-sans);
             margin: 0;
-            padding-bottom: 80px;
+            padding: 0;
+            line-height: 1.4;
         }
 
-        /* Header / Nav */
-        header {
-            background: #000;
-            padding: 20px;
-            border-bottom: 1px solid var(--border);
+        /* ===== Layout: Management Portal ===== */
+        #app {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: relative;
-            /* Ensure proper stacking */
-            z-index: 10;
+            min-height: 100vh;
         }
 
-        h1 {
+        /* ===== Sidebar (Swiss Style) ===== */
+        aside {
+            width: 300px;
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--border);
+            padding: 60px 40px;
+            position: fixed;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .side-logo {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1;
             margin: 0;
-            font-size: 18px;
-            letter-spacing: 2px;
+        }
+
+        .side-logo span {
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--text-muted);
+            margin-top: 10px;
+            font-family: var(--font-sans);
             font-weight: 400;
         }
 
-        /* Tabs as Navigation */
-        .nav-tabs {
-            display: flex !important;
-            gap: 10px;
-            background: #080808;
-            /* Slightly lighter than header for contrast */
-            padding: 15px 20px;
-            overflow-x: auto;
-            border-bottom: 1px solid var(--border);
-            min-height: 40px;
-            /* Force height */
-            align-items: center;
-            position: relative;
-            z-index: 5;
+        .nav-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
         .tab-btn {
-            background: #222;
-            border: 1px solid #444;
-            color: #aaa;
-            padding: 10px 20px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-family: var(--font-serif);
+            font-size: 24px;
+            text-align: left;
             cursor: pointer;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 4px;
-            white-space: nowrap;
-            transition: all 0.2s;
+            padding: 0;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         .tab-btn:hover {
-            border-color: #666;
-            color: #bbb;
+            color: var(--text);
+            transform: translateX(5px);
         }
 
         .tab-btn.active {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: white;
+            color: var(--text);
+            font-style: italic;
             font-weight: 600;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 30px 20px;
+        .tab-btn.active::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            width: 10px;
+            height: 1px;
+            background: var(--text);
         }
 
-        .tab-content {
-            display: none;
-            animation: fadeIn 0.3s ease;
+        /* ===== Main Content Area ===== */
+        main {
+            flex: 1;
+            margin-left: 300px;
+            padding: 80px 10%;
+            background: #ffffff;
         }
 
-        .tab-content.active {
-            display: block;
+        .page-title {
+            font-family: var(--font-serif);
+            font-size: 64px;
+            font-weight: 400;
+            margin-bottom: 60px;
+            border-bottom: 2px solid var(--text);
+            padding-bottom: 20px;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(5px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Sections */
         .section-title {
-            font-size: 14px;
-            color: var(--accent);
+            font-family: var(--font-serif);
+            font-size: 32px;
+            font-weight: 600;
+            margin: 60px 0 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .section-title span {
+            font-family: var(--font-sans);
+            font-size: 11px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #333;
-            padding-bottom: 5px;
-            margin-top: 30px;
+            letter-spacing: 2px;
+            color: var(--text-muted);
         }
 
-        .section-title:first-child {
-            margin-top: 0;
-        }
-
-        /* Forms */
+        /* ===== Forms (Swiss Minimalist) ===== */
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 40px;
             background: var(--panel);
-            padding: 20px;
-            border-radius: 8px;
+            padding: 0px 0px 40px;
+            border-bottom: 1px solid var(--border);
         }
 
         label {
             display: block;
             font-size: 11px;
             text-transform: uppercase;
-            color: #888;
-            margin-bottom: 8px;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 15px;
         }
 
         input[type="text"],
         input[type="number"],
+        input[type="password"],
         textarea {
             width: 100%;
-            background: #333;
-            border: 1px solid #444;
-            color: white;
-            padding: 12px;
-            border-radius: 4px;
-            font-size: 14px;
-            box-sizing: border-box;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 15px 0;
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            font-size: 18px;
+            font-family: var(--font-serif);
+            transition: all 0.3s ease;
         }
 
-        .row-inputs {
-            display: flex;
-            gap: 20px;
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-bottom-color: var(--text);
         }
 
-        .row-inputs>div {
-            flex: 1;
-        }
-
-        textarea {
-            min-height: 150px;
-            line-height: 1.5;
-            white-space: pre-wrap;
-        }
-
-        /* Buttons */
+        /* ===== Buttons ===== */
         .btn {
-            background: #fff;
-            color: #000;
+            background: var(--text);
+            color: #fff;
             border: none;
-            padding: 10px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 12px;
+            padding: 18px 30px;
+            font-family: var(--font-sans);
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 2px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .btn-primary {
-            background: var(--accent);
-            color: white;
+        .btn:hover {
+            background: #333;
+            letter-spacing: 4px;
         }
 
         .btn-danger {
+            background: transparent;
+            color: var(--danger);
+            border: 1px solid var(--danger);
+        }
+
+        .btn-danger:hover {
             background: var(--danger);
-            color: white;
+            color: #fff;
+            letter-spacing: 2px;
         }
 
-        .btn-block {
-            width: 100%;
-            display: block;
-            text-align: center;
-        }
-
-        /* Project List */
+        /* ===== Project List / Gallery ===== */
         .project-item {
-            background: var(--panel);
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
+            border-bottom: 1px solid var(--text);
+            padding: 60px 0;
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            border-left: 4px solid transparent;
+            gap: 40px;
         }
 
-        .project-item:hover {
-            border-left-color: var(--accent);
-        }
-
-        /* Images */
         .img-thumb-container {
+            border: 1px solid var(--border);
+            padding: 15px;
+            transition: all 0.3s ease;
             position: relative;
-            background: #1a1a1a;
-            border-radius: 6px;
-            padding: 8px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+        }
+
+        .img-thumb-container:hover {
+            border-color: var(--text);
         }
 
         .img-thumb-container img {
             width: 100%;
-            height: 80px;
+            height: 180px;
             object-fit: cover;
-            border-radius: 4px;
-            opacity: 0.9;
+            filter: grayscale(100%);
+            transition: all 0.5s ease;
+        }
+
+        .img-thumb-container:hover img {
+            filter: grayscale(0%);
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            gap: 12px;
-            margin-top: 10px;
-            margin-bottom: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 30px;
         }
 
-        .img-remove {
-            position: absolute;
-            top: 4px;
-            right: 4px;
-            background: rgba(231, 76, 60, 0.9);
-            color: white;
-            border: none;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 12px;
-            line-height: 16px;
-            z-index: 10;
-        }
-
-        .image-caption-input {
-            width: 100%;
-            background: #111;
-            color: #ccc;
-            border: 1px solid #333;
-            font-size: 9px;
-            padding: 4px 6px;
-            border-radius: 3px;
-            box-sizing: border-box;
-        }
-
-        .image-caption-input::placeholder {
-            color: #666;
-        }
-
-        /* Drag and Drop Styles */
+        /* Drag & Drop States */
         .img-thumb-container {
             cursor: grab;
-            transition: transform 0.2s, opacity 0.2s, box-shadow 0.2s;
         }
 
         .img-thumb-container:active {
@@ -289,48 +273,149 @@
         }
 
         .img-thumb-container.dragging {
-            opacity: 0.5;
+            opacity: 0.4;
             transform: scale(0.95);
+            border-style: dashed;
         }
 
         .img-thumb-container.drag-over {
-            box-shadow: 0 0 0 2px var(--accent);
+            border-color: var(--text);
             transform: scale(1.02);
+            box-shadow: 0 0 0 2px var(--text);
         }
 
+        /* Image Remove Button */
+        .img-remove {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: var(--danger);
+            color: #fff;
+            border: none;
+            width: 24px;
+            height: 24px;
+            font-size: 14px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .img-thumb-container:hover .img-remove {
+            opacity: 1;
+        }
+
+        /* Image Caption Input */
+        .image-caption-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--border);
+            font-size: 12px;
+            padding: 8px 0;
+            margin-top: 10px;
+            font-family: var(--font-sans);
+        }
+
+        .image-caption-input:focus {
+            outline: none;
+            border-bottom-color: var(--text);
+        }
+
+        /* Drag Hint */
         .drag-hint {
-            font-size: 9px;
-            color: #666;
-            margin-top: 5px;
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 10px;
             font-style: italic;
         }
 
-        /* Sticky Footer */
-        .sticky-actions {
+        /* Language Toggle */
+        .lang-toggle {
             position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(26, 26, 26, 0.95);
-            padding: 15px;
+            top: 20px;
+            right: 20px;
+            z-index: 200;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid #333;
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border);
+            overflow: hidden;
         }
 
-        /* Login */
+        .lang-toggle button {
+            background: transparent;
+            border: none;
+            padding: 8px 16px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: var(--font-sans);
+        }
+
+        .lang-toggle button.active {
+            background: var(--text);
+            color: #fff;
+        }
+
+        .lang-toggle button:not(.active) {
+            color: var(--text-muted);
+        }
+
+        .lang-toggle button:not(.active):hover {
+            background: var(--border);
+        }
+
+        /* ===== Sticky Footer Action ===== */
+        .sticky-actions {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            z-index: 100;
+        }
+
+        .btn-save-all {
+            box-shadow: 20px 20px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ===== Login Overlay (Swiss Minimal) ===== */
         #login-overlay {
             position: fixed;
             inset: 0;
-            background: #111;
+            background: #fff;
             z-index: 1000;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            gap: 40px;
+        }
+
+        #login-overlay h2 {
+            font-family: var(--font-serif);
+            font-size: 80px;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        #login-overlay input {
+            width: 300px;
+            text-align: center;
+            font-size: 24px;
+            border-bottom: 2px solid #000;
+        }
+
+        /* ===== Scrollbar ===== */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #fff;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #000;
         }
     </style>
 </head>
@@ -339,201 +424,364 @@
 
     <!-- LOGIN -->
     <div id="login-overlay">
-        <div style="text-align:center;">
-            <h2 style="letter-spacing:2px; margin-bottom:20px;">ACCESS</h2>
-            <input type="password" id="password-input" placeholder="Password"
-                style="text-align:center; margin-bottom:15px; padding:10px;">
-            <br>
-            <button class="btn btn-primary" onclick="checkAuth()">ENTER</button>
-            <p id="login-error" style="color:red; display:none; margin-top:10px;">Incorrect</p>
-        </div>
+        <h2>ACCESS</h2>
+        <input type="password" id="password-input" placeholder="Password"
+            onkeypress="if(event.key==='Enter')checkAuth()">
+        <button class="btn" onclick="checkAuth()">Enter Portal</button>
+        <p id="login-error" style="display:none; color: red; font-size: 14px;">Access Denied</p>
     </div>
 
     <!-- MAIN APP -->
     <div id="app" style="display:none;">
-        <header>
-            <h1>HAZEL KAHLIL | CMS</h1>
-            <a href="index.html" target="_blank" style="color:#666; font-size:12px; text-decoration:none;">VIEW LIVE
-                SITE ↗</a>
-        </header>
 
-        <!-- NAVIGATION -->
-        <div class="nav-tabs">
-            <button class="tab-btn active" onclick="switchTab('home')">PAGE: HOME</button>
-            <button class="tab-btn" onclick="switchTab('portfolios')">PAGE: PORTFOLIOS</button>
-            <button class="tab-btn" onclick="switchTab('info')">PAGE: INFO</button>
-            <button class="tab-btn" onclick="switchTab('contact')">PAGE: CONTACT</button>
+        <!-- Language Toggle -->
+        <div class="lang-toggle">
+            <button class="active" onclick="setLang('en')">EN</button>
+            <button onclick="setLang('zh')">中</button>
         </div>
 
-        <div class="container">
-
-            <!-- TAB: HOME -->
-            <div id="tab-home" class="tab-content active">
-                <div class="section-title">Global Settings</div>
-                <div class="form-group">
-                    <div class="row-inputs">
-                        <div>
-                            <label>Site Main Title</label>
-                            <input type="text" id="site-title" oninput="updateSiteData('title', this.value)">
-                        </div>
-                        <div>
-                            <label>Footer Copyright</label>
-                            <input type="text" id="site-copyright" oninput="updateSiteData('copyright', this.value)">
-                        </div>
-                    </div>
-
-                    <!-- New Header Socials -->
-                    <div class="row-inputs" style="margin-top:10px;">
-                        <div>
-                            <label>Header: Instagram URL</label>
-                            <input type="text" id="header-ig"
-                                oninput="updateSiteData('header_social_instagram', this.value)">
-                        </div>
-                    </div>
-                    <div class="row-inputs" style="margin-top:10px;">
-                        <div>
-                            <label>Header: Link URL (Chain)</label>
-                            <input type="text" id="header-link"
-                                oninput="updateSiteData('header_social_link', this.value)">
-                        </div>
-                        <div>
-                            <label>Header: Email Address</label>
-                            <input type="text" id="header-email"
-                                oninput="updateSiteData('header_social_email', this.value)">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section-title">Home Hero Images</div>
-                <div class="form-group">
-                    <label style="margin-bottom:20px;">Use the inputs below to fine-tune position (Top/Left) and Size
-                        (Width)</label>
-                    <div id="home-images-list"
-                        style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:20px;">
-                    </div>
-                </div>
+        <aside>
+            <div class="side-logo">
+                Hazel.
+                <span>Management Suite</span>
             </div>
 
-            <!-- TAB: PORTFOLIOS -->
-            <div id="tab-portfolios" class="tab-content">
-                <button class="btn btn-block"
-                    style="margin-bottom:20px; border:1px dashed #666; background:transparent; color:#888;"
-                    onclick="addNewProject()">+ NEW PROJECT</button>
-                <div id="projects-list"></div>
+            <nav class="nav-vertical">
+                <button class="tab-btn active" onclick="switchTab('home')">Index</button>
+                <button class="tab-btn" onclick="switchTab('portfolios')">Collections</button>
+                <button class="tab-btn" onclick="switchTab('info')">Biography</button>
+                <button class="tab-btn" onclick="switchTab('contact')">Dialogue</button>
+            </nav>
+
+            <div style="margin-top: auto;">
+                <a href="index.html" target="_blank"
+                    style="text-decoration: none; color: #000; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">View
+                    Live Site ↗</a>
+            </div>
+        </aside>
+
+        <main>
+            <div class="page-title">Index</div>
+            <div class="container">
+
+                <!-- TAB: HOME -->
+                <div id="tab-home" class="tab-content active">
+                    <div class="section-title"><span>Global Settings</span></div>
+                    <div class="form-group">
+                        <div class="row-inputs">
+                            <div>
+                                <label>Site Main Title</label>
+                                <input type="text" id="site-title" oninput="updateSiteData('title', this.value)">
+                            </div>
+                            <div>
+                                <label>Footer Copyright</label>
+                                <input type="text" id="site-copyright"
+                                    oninput="updateSiteData('copyright', this.value)">
+                            </div>
+                        </div>
+
+                        <!-- New Header Socials -->
+                        <div class="row-inputs" style="margin-top:10px;">
+                            <div>
+                                <label>Header: Instagram URL</label>
+                                <input type="text" id="header-ig"
+                                    oninput="updateSiteData('header_social_instagram', this.value)">
+                            </div>
+                        </div>
+                        <div class="row-inputs" style="margin-top:10px;">
+                            <div>
+                                <label>Header: Link URL (Chain)</label>
+                                <input type="text" id="header-link"
+                                    oninput="updateSiteData('header_social_link', this.value)">
+                            </div>
+                            <div>
+                                <label>Header: Email Address</label>
+                                <input type="text" id="header-email"
+                                    oninput="updateSiteData('header_social_email', this.value)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-title"><span>Home Hero Images</span></div>
+                    <div class="form-group">
+                        <label style="margin-bottom:20px;">Use the inputs below to fine-tune position (Top/Left) and
+                            Size
+                            (Width)</label>
+                        <div id="home-images-list"
+                            style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:20px;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB: PORTFOLIOS -->
+                <div id="tab-portfolios" class="tab-content">
+                    <button class="btn btn-block"
+                        style="margin-bottom:20px; border:1px dashed #666; background:transparent; color:#888;"
+                        onclick="addNewProject()">+ NEW PROJECT</button>
+                    <div id="projects-list"></div>
+                </div>
+
+                <!-- TAB: INFO (BIO) -->
+                <div id="tab-info" class="tab-content">
+                    <div class="section-title"><span>Biography Content</span></div>
+                    <div class="form-group">
+                        <label>Main Text (Paragraphs are preserved)</label>
+                        <textarea id="site-bio" oninput="updateSiteData('bio', this.value)"></textarea>
+                    </div>
+
+                    <div class="section-title"><span>Layout Control</span></div>
+                    <div class="form-group">
+                        <div class="row-inputs">
+                            <div>
+                                <label>Padding Top (px)</label>
+                                <input type="number" id="bio-top" placeholder="Default: 40"
+                                    oninput="updateBioLayout('top', this.value)">
+                            </div>
+                            <div>
+                                <label>Padding Left (px)</label>
+                                <input type="number" id="bio-left" placeholder="Default: 60"
+                                    oninput="updateBioLayout('padding_left', this.value)">
+                            </div>
+                            <div>
+                                <label>Width (%)</label>
+                                <input type="number" id="bio-width" placeholder="Default: 60"
+                                    oninput="updateBioLayout('width', this.value)">
+                            </div>
+                            <div>
+                                <label>Max Width (px)</label>
+                                <input type="number" id="bio-max-width" placeholder="Default: 600"
+                                    oninput="updateBioLayout('max_width', this.value)">
+                            </div>
+                        </div>
+                        <p style="font-size:10px; color:#666; margin-top:10px;">Adjust these values to position the text
+                            block exactly where you want it. Clear to reset to defaults.</p>
+                    </div>
+                </div>
+
+                <!-- TAB: CONTACT -->
+                <div id="tab-contact" class="tab-content">
+                    <div class="section-title"><span>Contact Details</span></div>
+                    <div class="form-group">
+                        <div id="contact-list-container" style="display:flex; flex-direction:column; gap:10px;"></div>
+                        <button class="btn" onclick="addContactItem()" style="margin-top:10px;">+ Add Contact
+                            Row</button>
+                    </div>
+
+                    <div class="section-title"><span>Layout Control</span></div>
+                    <div class="form-group" style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+                        <div>
+                            <label style="color:#aaa;">Info Side (Left)</label>
+                            <div class="row-inputs" style="flex-direction:column; gap:5px;">
+                                <div><label style="font-size:9px;">Top px</label><input type="number" id="c-info-top"
+                                        placeholder="Def: 40" oninput="updateContactLayout('info', 'top', this.value)"
+                                        style="padding:4px; font-size:11px;"></div>
+                                <div><label style="font-size:9px;">Left px</label><input type="number" id="c-info-left"
+                                        placeholder="Def: 0" oninput="updateContactLayout('info', 'left', this.value)"
+                                        style="padding:4px; font-size:11px;"></div>
+                                <div><label style="font-size:9px;">Width %</label><input type="number" id="c-info-width"
+                                        placeholder="Def: 45" oninput="updateContactLayout('info', 'width', this.value)"
+                                        style="padding:4px; font-size:11px;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <label style="color:#aaa;">Gallery Side (Right)</label>
+                            <div class="row-inputs" style="flex-direction:column; gap:5px;">
+                                <div><label style="font-size:9px;">Top px</label><input type="number" id="c-gal-top"
+                                        placeholder="Def: 40"
+                                        oninput="updateContactLayout('gallery', 'top', this.value)"
+                                        style="padding:4px; font-size:11px;"></div>
+                                <div><label style="font-size:9px;">Margin Left px</label><input type="number"
+                                        id="c-gal-left" placeholder="Def: 0"
+                                        oninput="updateContactLayout('gallery', 'left', this.value)"
+                                        style="padding:4px; font-size:11px;"></div>
+                                <div><label style="font-size:9px;">Width %</label><input type="number" id="c-gal-width"
+                                        placeholder="Def: 50"
+                                        oninput="updateContactLayout('gallery', 'width', this.value)"
+                                        style="padding:4px; font-size:11px;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-title">Contact Images (Right Side)</div>
+                    <div class="form-group">
+                        <!-- Mode Toggle -->
+                        <div style="margin-bottom:15px; padding:15px; background:#fff; border:1px solid #eee;">
+                            <label style="display:flex; align-items:center; cursor:pointer;">
+                                <input type="checkbox" id="contact-random-toggle"
+                                    onchange="toggleContactImageMode(this.checked)"
+                                    style="width:18px; height:18px; margin-right:12px; cursor:pointer; accent-color:#000;">
+                                <span id="contact-mode-label" style="font-size:12px; font-weight:500;">📷 随机刷新模式</span>
+                            </label>
+                            <div id="contact-mode-hint" style="font-size:10px; color:#999; margin-top:8px;">
+                                开启后每次刷新页面显示随机图片；关闭后使用下方指定的固定图片
+                            </div>
+                        </div>
+
+                        <!-- Fixed Images Section (shown when random is off) -->
+                        <div id="contact-fixed-section">
+                            <label style="margin-bottom:10px; font-size:10px; color:#888;">固定图片设置（仅在关闭随机模式时生效）</label>
+                            <div id="contact-images-list" style="display:flex; gap:10px;"></div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
-            <!-- TAB: INFO (BIO) -->
-            <div id="tab-info" class="tab-content">
-                <div class="section-title">Biography Content</div>
-                <div class="form-group">
-                    <label>Main Text (Paragraphs are preserved)</label>
-                    <textarea id="site-bio" oninput="updateSiteData('bio', this.value)"></textarea>
-                </div>
-
-                <div class="section-title">Layout Control (Desktop Only)</div>
-                <div class="form-group">
-                    <div class="row-inputs">
-                        <div>
-                            <label>Padding Top (px)</label>
-                            <input type="number" id="bio-top" placeholder="Default: 40"
-                                oninput="updateBioLayout('top', this.value)">
-                        </div>
-                        <div>
-                            <label>Padding Left (px)</label>
-                            <input type="number" id="bio-left" placeholder="Default: 60"
-                                oninput="updateBioLayout('padding_left', this.value)">
-                        </div>
-                        <div>
-                            <label>Width (%)</label>
-                            <input type="number" id="bio-width" placeholder="Default: 60"
-                                oninput="updateBioLayout('width', this.value)">
-                        </div>
-                        <div>
-                            <label>Max Width (px)</label>
-                            <input type="number" id="bio-max-width" placeholder="Default: 600"
-                                oninput="updateBioLayout('max_width', this.value)">
-                        </div>
-                    </div>
-                    <p style="font-size:10px; color:#666; margin-top:10px;">Adjust these values to position the text
-                        block exactly where you want it. Clear to reset to defaults.</p>
-                </div>
-            </div>
-
-            <!-- TAB: CONTACT -->
-            <div id="tab-contact" class="tab-content">
-                <div class="section-title">Contact Details</div>
-                <div class="form-group">
-                    <div id="contact-list-container" style="display:flex; flex-direction:column; gap:10px;"></div>
-                    <button class="btn" onclick="addContactItem()" style="margin-top:10px;">+ Add Contact Row</button>
-                </div>
-
-                <div class="section-title">Layout Control (Desktop Only)</div>
-                <div class="form-group" style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
-                    <div>
-                        <label style="color:#aaa;">Info Side (Left)</label>
-                        <div class="row-inputs" style="flex-direction:column; gap:5px;">
-                            <div><label style="font-size:9px;">Top px</label><input type="number" id="c-info-top"
-                                    placeholder="Def: 40" oninput="updateContactLayout('info', 'top', this.value)"
-                                    style="padding:4px; font-size:11px;"></div>
-                            <div><label style="font-size:9px;">Left px</label><input type="number" id="c-info-left"
-                                    placeholder="Def: 0" oninput="updateContactLayout('info', 'left', this.value)"
-                                    style="padding:4px; font-size:11px;"></div>
-                            <div><label style="font-size:9px;">Width %</label><input type="number" id="c-info-width"
-                                    placeholder="Def: 45" oninput="updateContactLayout('info', 'width', this.value)"
-                                    style="padding:4px; font-size:11px;"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <label style="color:#aaa;">Gallery Side (Right)</label>
-                        <div class="row-inputs" style="flex-direction:column; gap:5px;">
-                            <div><label style="font-size:9px;">Top px</label><input type="number" id="c-gal-top"
-                                    placeholder="Def: 40" oninput="updateContactLayout('gallery', 'top', this.value)"
-                                    style="padding:4px; font-size:11px;"></div>
-                            <div><label style="font-size:9px;">Margin Left px</label><input type="number"
-                                    id="c-gal-left" placeholder="Def: 0"
-                                    oninput="updateContactLayout('gallery', 'left', this.value)"
-                                    style="padding:4px; font-size:11px;"></div>
-                            <div><label style="font-size:9px;">Width %</label><input type="number" id="c-gal-width"
-                                    placeholder="Def: 50" oninput="updateContactLayout('gallery', 'width', this.value)"
-                                    style="padding:4px; font-size:11px;"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section-title">Contact Images (Right Side)</div>
-                <div class="form-group">
-                    <!-- Mode Toggle -->
-                    <div style="margin-bottom:15px; padding:10px; background:#1a1a1a; border-radius:6px;">
-                        <label style="display:flex; align-items:center; cursor:pointer;">
-                            <input type="checkbox" id="contact-random-toggle"
-                                onchange="toggleContactImageMode(this.checked)"
-                                style="width:18px; height:18px; margin-right:10px; cursor:pointer;">
-                            <span id="contact-mode-label" style="font-size:12px;">📷 随机刷新模式</span>
-                        </label>
-                        <div id="contact-mode-hint" style="font-size:9px; color:#888; margin-top:5px;">
-                            开启后每次刷新页面显示随机图片；关闭后使用下方指定的固定图片
-                        </div>
-                    </div>
-
-                    <!-- Fixed Images Section (shown when random is off) -->
-                    <div id="contact-fixed-section">
-                        <label style="margin-bottom:10px; font-size:10px; color:#888;">固定图片设置（仅在关闭随机模式时生效）</label>
-                        <div id="contact-images-list" style="display:flex; gap:10px;"></div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+        </main>
 
         <!-- FOOTER -->
         <div class="sticky-actions">
-            <div style="font-size:10px; color:#666;">UNSAVED CHANGES ARE LOCAL</div>
-            <button class="btn btn-primary" onclick="saveData()">SAVE ALL CHANGES</button>
+            <button class="btn btn-save-all" onclick="saveData()">SAVE CHANGES</button>
         </div>
     </div>
 
     <script>
         let data = { site: {}, projects: [] };
+        let currentLang = 'en';
+
+        // i18n Translations
+        const i18n = {
+            en: {
+                // Sidebar
+                'nav.index': 'Index',
+                'nav.collections': 'Collections',
+                'nav.biography': 'Biography',
+                'nav.dialogue': 'Dialogue',
+                'nav.viewSite': 'View Live Site ↗',
+                'logo.subtitle': 'Management Suite',
+                // Page Titles
+                'page.index': 'Index',
+                'page.collections': 'Collections',
+                'page.biography': 'Biography',
+                'page.dialogue': 'Dialogue',
+                // Section Titles
+                'section.globalSettings': 'Global Settings',
+                'section.heroImages': 'Home Hero Images',
+                'section.bioContent': 'Biography Content',
+                'section.layoutControl': 'Layout Control',
+                'section.contactDetails': 'Contact Details',
+                'section.contactImages': 'Contact Images',
+                // Labels
+                'label.siteTitle': 'Site Main Title',
+                'label.copyright': 'Footer Copyright',
+                'label.instagram': 'Header: Instagram URL',
+                'label.linkUrl': 'Header: Link URL (Chain)',
+                'label.email': 'Header: Email Address',
+                'label.bioText': 'Main Text (Paragraphs are preserved)',
+                'label.paddingTop': 'Padding Top (px)',
+                'label.paddingLeft': 'Padding Left (px)',
+                'label.width': 'Width (%)',
+                'label.maxWidth': 'Max Width (px)',
+                // Buttons
+                'btn.save': 'SAVE CHANGES',
+                'btn.newProject': '+ NEW PROJECT',
+                'btn.addContact': '+ Add Contact Row',
+                'btn.enter': 'Enter Portal',
+                // Misc
+                'hint.dragReorder': 'Drag to reorder images',
+                'login.title': 'ACCESS',
+                'login.error': 'Access Denied'
+            },
+            zh: {
+                // Sidebar
+                'nav.index': '首页',
+                'nav.collections': '作品集',
+                'nav.biography': '简介',
+                'nav.dialogue': '联系',
+                'nav.viewSite': '查看网站 ↗',
+                'logo.subtitle': '内容管理系统',
+                // Page Titles
+                'page.index': '首页设置',
+                'page.collections': '作品集管理',
+                'page.biography': '个人简介',
+                'page.dialogue': '联系方式',
+                // Section Titles
+                'section.globalSettings': '全局设置',
+                'section.heroImages': '首页大图',
+                'section.bioContent': '简介内容',
+                'section.layoutControl': '布局控制',
+                'section.contactDetails': '联系信息',
+                'section.contactImages': '联系页图片',
+                // Labels
+                'label.siteTitle': '网站标题',
+                'label.copyright': '底部版权',
+                'label.instagram': 'Instagram 链接',
+                'label.linkUrl': '链接地址',
+                'label.email': '邮箱地址',
+                'label.bioText': '简介正文（保留段落格式）',
+                'label.paddingTop': '顶部间距 (px)',
+                'label.paddingLeft': '左侧间距 (px)',
+                'label.width': '宽度 (%)',
+                'label.maxWidth': '最大宽度 (px)',
+                // Buttons
+                'btn.save': '保存更改',
+                'btn.newProject': '+ 新建项目',
+                'btn.addContact': '+ 添加联系方式',
+                'btn.enter': '进入系统',
+                // Misc
+                'hint.dragReorder': '拖拽调整顺序',
+                'login.title': '访问验证',
+                'login.error': '密码错误'
+            }
+        };
+
+        function setLang(lang) {
+            currentLang = lang;
+            // Update toggle buttons
+            document.querySelectorAll('.lang-toggle button').forEach(btn => {
+                btn.classList.toggle('active', btn.textContent.includes(lang === 'en' ? 'EN' : '中'));
+            });
+            // Apply translations
+            applyTranslations();
+            localStorage.setItem('adminLang', lang);
+        }
+
+        function t(key) {
+            return i18n[currentLang][key] || key;
+        }
+
+        function applyTranslations() {
+            // Sidebar Nav
+            const navBtns = document.querySelectorAll('.nav-vertical .tab-btn');
+            if (navBtns[0]) navBtns[0].textContent = t('nav.index');
+            if (navBtns[1]) navBtns[1].textContent = t('nav.collections');
+            if (navBtns[2]) navBtns[2].textContent = t('nav.biography');
+            if (navBtns[3]) navBtns[3].textContent = t('nav.dialogue');
+
+            // Sidebar Logo Subtitle
+            const logoSubtitle = document.querySelector('.side-logo span');
+            if (logoSubtitle) logoSubtitle.textContent = t('logo.subtitle');
+
+            // View Site Link
+            const viewSiteLink = document.querySelector('aside a[href="index.html"]');
+            if (viewSiteLink) viewSiteLink.textContent = t('nav.viewSite');
+
+            // Page Title
+            const pageTitle = document.querySelector('.page-title');
+            if (pageTitle) {
+                const activeTab = document.querySelector('.tab-content.active');
+                if (activeTab) {
+                    const tabId = activeTab.id.replace('tab-', '');
+                    const titles = { 'home': 'page.index', 'portfolios': 'page.collections', 'info': 'page.biography', 'contact': 'page.dialogue' };
+                    pageTitle.textContent = t(titles[tabId] || 'page.index');
+                }
+            }
+
+            // Save Button
+            const saveBtn = document.querySelector('.btn-save-all');
+            if (saveBtn) saveBtn.textContent = t('btn.save');
+
+            // New Project Button
+            const newProjectBtn = document.querySelector('#tab-portfolios .btn-block');
+            if (newProjectBtn) newProjectBtn.textContent = t('btn.newProject');
+
+            // Login
+            const loginTitle = document.querySelector('#login-overlay h2');
+            if (loginTitle) loginTitle.textContent = t('login.title');
+            const loginBtn = document.querySelector('#login-overlay .btn');
+            if (loginBtn) loginBtn.textContent = t('btn.enter');
+        }
+
 
         // Performance: Debounce for input handlers
         function debounce(func, wait = 300) {
@@ -551,7 +799,12 @@
         async function checkAuth() {
             if (document.getElementById('password-input').value === 'hazel2026') {
                 document.getElementById('login-overlay').style.display = 'none';
-                document.getElementById('app').style.display = 'block';
+                document.getElementById('app').style.display = 'flex';
+
+                // Restore saved language
+                const savedLang = localStorage.getItem('adminLang') || 'en';
+                setLang(savedLang);
+
                 await loadData();
             } else {
                 document.getElementById('login-error').style.display = 'block';
@@ -644,34 +897,34 @@
                 const def = defaults[i] || { t: '', l: '', w: '' };
 
                 const div = document.createElement('div');
-                div.style.background = '#333';
-                div.style.padding = '10px';
-                div.style.borderRadius = '8px';
+                div.style.background = '#fff';
+                div.style.padding = '15px';
+                div.style.border = '1px solid #eee';
                 div.style.textAlign = 'center';
 
                 let previewSrc = src;
                 if (src && !src.startsWith('http')) previewSrc = src + '?t=' + Date.now();
 
                 div.innerHTML = `
-                    <div style="font-size:11px; color:#aaa; margin-bottom:5px;">SLOT ${i + 1}</div>
-                    <div style="width:100%; aspect-ratio:1/1; background:#000; margin-bottom:10px; border-radius:4px; overflow:hidden;">
+                    <div style="font-size:11px; color:#999; margin-bottom:8px; font-weight:700; letter-spacing:1px;">SLOT ${i + 1}</div>
+                    <div style="width:100%; aspect-ratio:1/1; background:#f5f5f5; margin-bottom:10px; overflow:hidden; border:1px solid #eee;">
                         <img src="${previewSrc}" style="width:100%; height:100%; object-fit:cover; opacity:${src ? 1 : 0.3}">
                     </div>
                     <button class="btn" style="font-size:10px; width:100%; margin-bottom:10px;" onclick="document.getElementById('home-upload-${i}').click()">REPLACE</button>
                     <input type="file" id="home-upload-${i}" style="display:none" onchange="uploadFile(this, (path) => updateHomeImage(${i}, path))">
                     
-                    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:5px; border-top:1px solid #444; padding-top:10px;">
+                    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; border-top:1px solid #eee; padding-top:10px;">
                         <div>
-                            <label style="font-size:9px;">TOP %</label>
-                            <input type="number" placeholder="Def: ${def.t}" value="${style.top || ''}" oninput="updateHomeStyle(${i}, 'top', this.value)" style="padding:4px; font-size:11px; width:100%; background:#222; border:1px solid #444; color:#fff;">
+                            <label style="font-size:9px; color:#999;">TOP %</label>
+                            <input type="number" placeholder="Def: ${def.t}" value="${style.top || ''}" oninput="updateHomeStyle(${i}, 'top', this.value)" style="padding:8px 0; font-size:12px; width:100%;">
                         </div>
                         <div>
-                            <label style="font-size:9px;">LEFT %</label>
-                            <input type="${i === 2 ? 'text' : 'number'}" placeholder="Def: ${def.l}" value="${style.left || ''}" oninput="updateHomeStyle(${i}, 'left', this.value)" style="padding:4px; font-size:11px; width:100%; background:#222; border:1px solid #444; color:#fff;">
+                            <label style="font-size:9px; color:#999;">LEFT %</label>
+                            <input type="${i === 2 ? 'text' : 'number'}" placeholder="Def: ${def.l}" value="${style.left || ''}" oninput="updateHomeStyle(${i}, 'left', this.value)" style="padding:8px 0; font-size:12px; width:100%;">
                         </div>
                         <div>
-                            <label style="font-size:9px;">WIDTH %</label>
-                            <input type="number" placeholder="Def: ${def.w}" value="${style.width || ''}" oninput="updateHomeStyle(${i}, 'width', this.value)" style="padding:4px; font-size:11px; width:100%; background:#222; border:1px solid #444; color:#fff;">
+                            <label style="font-size:9px; color:#999;">WIDTH %</label>
+                            <input type="number" placeholder="Def: ${def.w}" value="${style.width || ''}" oninput="updateHomeStyle(${i}, 'width', this.value)" style="padding:8px 0; font-size:12px; width:100%;">
                         </div>
                     </div>
                 `;
@@ -706,25 +959,25 @@
             container.innerHTML = '';
             data.site.contact_items.forEach((item, i) => {
                 const div = document.createElement('div');
-                div.style.background = '#333';
-                div.style.padding = '10px';
-                div.style.borderRadius = '4px';
+                div.style.background = '#fff';
+                div.style.padding = '20px';
+                div.style.border = '1px solid #eee';
                 div.style.display = 'flex';
-                div.style.gap = '10px';
+                div.style.gap = '20px';
                 div.style.alignItems = 'center';
                 div.innerHTML = `
                     <div style="flex:1;">
-                        <input type="text" placeholder="Label" value="${item.label}" oninput="updateContactItem(${i}, 'label', this.value)" style="margin-bottom:5px;">
+                        <input type="text" placeholder="Label" value="${item.label}" oninput="updateContactItem(${i}, 'label', this.value)" style="margin-bottom:10px;">
                         <input type="text" placeholder="Value" value="${item.value}" oninput="updateContactItem(${i}, 'value', this.value)">
                     </div>
                     <div style="flex:1;">
                         <input type="text" placeholder="Link (Optional)" value="${item.link || ''}" oninput="updateContactItem(${i}, 'link', this.value)">
                     </div>
-                     <div style="display:flex; flex-direction:column; gap:2px;">
-                        <button class="btn" style="padding:2px 5px;" onclick="moveContactItem(${i}, -1)">▲</button>
-                        <button class="btn" style="padding:2px 5px;" onclick="moveContactItem(${i}, 1)">▼</button>
+                     <div style="display:flex; flex-direction:column; gap:4px;">
+                        <button class="btn" style="padding:4px 8px; background:#fff; border:1px solid #000;" onclick="moveContactItem(${i}, -1)">▲</button>
+                        <button class="btn" style="padding:4px 8px; background:#fff; border:1px solid #000;" onclick="moveContactItem(${i}, 1)">▼</button>
                     </div>
-                    <button class="btn btn-danger" style="padding:5px 10px;" onclick="removeContactItem(${i})">X</button>
+                    <button class="btn btn-danger" style="padding:8px 12px;" onclick="removeContactItem(${i})">X</button>
                 `;
                 container.appendChild(div);
             });
@@ -763,34 +1016,34 @@
                 const div = document.createElement('div');
                 div.className = 'project-item';
                 div.innerHTML = `
-                    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #333; padding-bottom:10px;">
-                        <strong style="color:var(--accent);">${proj.title || 'Untitled'}</strong>
-                        <div>
-                            <button class="btn" onclick="moveProject(${i}, -1)">▲</button>
-                            <button class="btn" onclick="moveProject(${i}, 1)">▼</button>
-                            <button class="btn btn-danger" onclick="deleteProject(${i})">X</button>
+                    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #000; padding-bottom:15px;">
+                        <strong style="font-family:var(--font-serif); font-size:24px;">${proj.title || 'Untitled'}</strong>
+                        <div style="display:flex; gap:8px;">
+                            <button class="btn" style="background:#fff; border:1px solid #000; padding:6px 10px;" onclick="moveProject(${i}, -1)">▲</button>
+                            <button class="btn" style="background:#fff; border:1px solid #000; padding:6px 10px;" onclick="moveProject(${i}, 1)">▼</button>
+                            <button class="btn btn-danger" style="padding:6px 10px;" onclick="deleteProject(${i})">X</button>
                         </div>
                     </div>
-                    <div class="row-inputs" style="margin-top:10px;">
+                    <div class="row-inputs" style="margin-top:15px;">
                         <div><label>Title</label><input type="text" value="${proj.title}" oninput="updateProject(${i}, 'title', this.value)"></div>
                         <div><label>Year / Meta</label><input type="text" value="${proj.year}" oninput="updateProject(${i}, 'year', this.value)"></div>
                     </div>
                     
                     <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:20px;">
-                        <div style="background:#222; padding:10px; border-radius:4px; border:1px solid #333;">
-                            <label style="color:#aaa;">Layout Control (Info Text)</label>
-                            <div class="row-inputs" style="gap:5px;">
-                                <div><label style="font-size:9px;">Top (px)</label><input type="number" placeholder="Def: 40" value="${layout.top || ''}" oninput="updateProjectLayout(${i}, 'top', this.value)" style="padding:4px; font-size:11px; width:100%;"></div>
-                                <div><label style="font-size:9px;">Left (px)</label><input type="number" placeholder="Def: 0" value="${layout.left || ''}" oninput="updateProjectLayout(${i}, 'left', this.value)" style="padding:4px; font-size:11px; width:100%;"></div>
-                                <div><label style="font-size:9px;">Width (%)</label><input type="number" placeholder="Def: 300px (Fixed)" value="${layout.width || ''}" oninput="updateProjectLayout(${i}, 'width', this.value)" style="padding:4px; font-size:11px; width:100%;"></div>
+                        <div style="background:#fff; padding:15px; border:1px solid #eee;">
+                            <label style="color:#999; font-size:10px;">Layout Control (Info Text)</label>
+                            <div class="row-inputs" style="gap:8px; margin-top:10px;">
+                                <div><label style="font-size:9px; color:#999;">Top (px)</label><input type="number" placeholder="Def: 40" value="${layout.top || ''}" oninput="updateProjectLayout(${i}, 'top', this.value)" style="padding:8px 0; font-size:12px; width:100%;"></div>
+                                <div><label style="font-size:9px; color:#999;">Left (px)</label><input type="number" placeholder="Def: 0" value="${layout.left || ''}" oninput="updateProjectLayout(${i}, 'left', this.value)" style="padding:8px 0; font-size:12px; width:100%;"></div>
+                                <div><label style="font-size:9px; color:#999;">Width (%)</label><input type="number" placeholder="Def: 300px" value="${layout.width || ''}" oninput="updateProjectLayout(${i}, 'width', this.value)" style="padding:8px 0; font-size:12px; width:100%;"></div>
                             </div>
                         </div>
-                        <div style="background:#222; padding:10px; border-radius:4px; border:1px solid #333;">
-                            <label style="color:#aaa;">Layout Control (Gallery Images Unified)</label>
-                            <div class="row-inputs" style="gap:5px;">
-                                <div><label style="font-size:9px;">Top %</label><input type="number" placeholder="Def: 0" value="${galleryLayout.top || ''}" oninput="updateProjectGalleryLayout(${i}, 'top', this.value)" style="padding:4px; font-size:11px; width:100%;"></div>
-                                <div><label style="font-size:9px;">Left %</label><input type="number" placeholder="Def: 0" value="${galleryLayout.left || ''}" oninput="updateProjectGalleryLayout(${i}, 'left', this.value)" style="padding:4px; font-size:11px; width:100%;"></div>
-                                <div><label style="font-size:9px;">Width %</label><input type="number" placeholder="Def: 100" value="${galleryLayout.width || ''}" oninput="updateProjectGalleryLayout(${i}, 'width', this.value)" style="padding:4px; font-size:11px; width:100%;"></div>
+                        <div style="background:#fff; padding:15px; border:1px solid #eee;">
+                            <label style="color:#999; font-size:10px;">Layout Control (Gallery Images)</label>
+                            <div class="row-inputs" style="gap:8px; margin-top:10px;">
+                                <div><label style="font-size:9px; color:#999;">Top %</label><input type="number" placeholder="Def: 0" value="${galleryLayout.top || ''}" oninput="updateProjectGalleryLayout(${i}, 'top', this.value)" style="padding:8px 0; font-size:12px; width:100%;"></div>
+                                <div><label style="font-size:9px; color:#999;">Left %</label><input type="number" placeholder="Def: 0" value="${galleryLayout.left || ''}" oninput="updateProjectGalleryLayout(${i}, 'left', this.value)" style="padding:8px 0; font-size:12px; width:100%;"></div>
+                                <div><label style="font-size:9px; color:#999;">Width %</label><input type="number" placeholder="Def: 100" value="${galleryLayout.width || ''}" oninput="updateProjectGalleryLayout(${i}, 'width', this.value)" style="padding:8px 0; font-size:12px; width:100%;"></div>
                             </div>
                         </div>
                     </div>
@@ -1049,11 +1302,20 @@
 
         // --- UTILS ---
 
-        function switchTab(tab) {
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-            document.querySelector(`.tab-btn[onclick="switchTab('${tab}')"]`).classList.add('active');
-            document.getElementById(`tab-${tab}`).classList.add('active');
+
+            document.getElementById('tab-' + tabId).classList.add('active');
+
+            // Sync Sidebar Button State
+            const btn = document.querySelector(`.tab-btn[onclick="switchTab('${tabId}')"]`);
+            if (btn) btn.classList.add('active');
+
+            // Update Page Title with translation
+            const titles = { 'home': 'page.index', 'portfolios': 'page.collections', 'info': 'page.biography', 'contact': 'page.dialogue' };
+            const pageTitle = document.querySelector('.page-title');
+            if (pageTitle) pageTitle.innerText = t(titles[tabId] || 'page.index');
         }
 
 
@@ -1106,11 +1368,11 @@
                 const div = document.createElement('div');
                 div.style.flex = '1';
                 div.innerHTML = `
-                    <div style="background:#000; height:100px; margin-bottom:5px; overflow:hidden; border-radius:4px;">
+                    <div style="background:#f5f5f5; height:100px; margin-bottom:8px; overflow:hidden; border:1px solid #eee;">
                         <img src="${src}" style="width:100%; height:100%; object-fit:cover; opacity:${src ? 1 : 0.3}">
                     </div>
-                    ${src ? `<button class="btn btn-danger" style="width:100%; font-size:9px; padding:2px; margin-bottom:2px;" onclick="updateContactImage(${i}, '')">CLEAR (RANDOM)</button>` : ''}
-                    <button class="btn" style="width:100%; font-size:10px; padding:5px;" onclick="document.getElementById('c-upload-${i}').click()">${src ? 'REPLACE' : 'SELECT FIXED'}</button>
+                    ${src ? `<button class="btn btn-danger" style="width:100%; font-size:9px; padding:4px; margin-bottom:4px;" onclick="updateContactImage(${i}, '')">CLEAR</button>` : ''}
+                    <button class="btn" style="width:100%; font-size:10px; padding:6px;" onclick="document.getElementById('c-upload-${i}').click()">${src ? 'REPLACE' : 'SELECT'}</button>
                     <input type="file" id="c-upload-${i}" style="display:none" onchange="uploadFile(this, (path) => updateContactImage(${i}, path))">
                  `;
                 container.appendChild(div);

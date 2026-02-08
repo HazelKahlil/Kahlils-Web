@@ -31,20 +31,20 @@ function initBarba() {
 
     barba.init({
         transitions: [{
-            name: 'fade',
+            name: 'default-transition',
             leave(data) {
-                return gsap.to(data.current.container, {
-                    opacity: 0,
-                    duration: 0.3
+                return new Promise(resolve => {
+                    data.current.container.style.opacity = 0;
+                    data.current.container.style.transition = 'opacity 0.25s ease';
+                    setTimeout(resolve, 250);
                 });
             },
             enter(data) {
-                // Prepare new container
                 data.next.container.style.opacity = 0;
-                return gsap.to(data.next.container, {
-                    opacity: 1,
-                    duration: 0.3
-                });
+                data.next.container.style.transition = 'opacity 0.3s ease';
+                void data.next.container.offsetWidth;
+                data.next.container.style.opacity = 1;
+                return new Promise(resolve => setTimeout(resolve, 300));
             }
         }],
         views: []
@@ -69,45 +69,7 @@ function initBarba() {
 }
 
 // Fallback for simple fading if GSAP isn't available (Barba has no default anims)
-// Since we didn't add GSAP, let's use simple CSS class toggling or standard Barba promise
-// Fallback for simple fading if GSAP isn't available (Barba has no default anims)
-if (typeof gsap === 'undefined') {
-    initBarba = function () {
-        if (typeof barba === 'undefined') return;
-
-        barba.init({
-            transitions: [{
-                name: 'default-transition',
-                leave(data) {
-                    return new Promise(resolve => {
-                        data.current.container.style.opacity = 0;
-                        data.current.container.style.transition = 'opacity 0.25s ease'; // Faster leave (250ms)
-                        setTimeout(resolve, 250);
-                    });
-                },
-                enter(data) {
-                    data.next.container.style.opacity = 0;
-                    data.next.container.style.transition = 'opacity 0.3s ease'; // Smooth enter
-                    // Force reflow
-                    void data.next.container.offsetWidth;
-                    data.next.container.style.opacity = 1;
-                    return new Promise(resolve => setTimeout(resolve, 300));
-                }
-            }]
-        });
-
-        barba.hooks.before((data) => {
-            updateActiveNavLink(data.next.url.path);
-            window.scrollTo(0, 0);
-        });
-
-        barba.hooks.after((data) => {
-            loadPageContent(data.next.container);
-            beautifyURL(); // Clean up URL after transition
-        });
-    };
-}
-
+// Since we didn't add GSAP, let's use simple CSS
 
 // --- 3. PAGE CONTENT LOADER (Runs Every Transition) ---
 let cachedData = null; // Memory Cache
@@ -142,6 +104,32 @@ function loadPageContent(container) {
         if (copyrightEl && siteInfo.copyright) {
             const text = siteInfo.copyright;
             copyrightEl.innerHTML = text.toLowerCase().includes('copyright') ? text : `&copy; ${text}`;
+        }
+
+        // Update Header Social Links
+        const igLink = document.querySelector('header a[aria-label="Instagram"]');
+        if (igLink && siteInfo.header_social_instagram) {
+            let url = siteInfo.header_social_instagram;
+            if (!url.startsWith('http') && !url.startsWith('//')) url = 'https://' + url;
+            igLink.href = url;
+        }
+
+        const chainLink = document.querySelector('header a[aria-label="Link"]');
+        if (chainLink) {
+            if (siteInfo.header_social_link) {
+                let url = siteInfo.header_social_link;
+                if (!url.startsWith('http') && !url.startsWith('//')) url = 'https://' + url;
+                chainLink.href = url;
+                chainLink.style.display = ''; // Visible
+            } else {
+                chainLink.style.display = 'none'; // Hide if empty
+            }
+        }
+
+        const emailLink = document.querySelector('header a[aria-label="Email"]');
+        if (emailLink && siteInfo.header_social_email) {
+            let url = siteInfo.header_social_email;
+            emailLink.href = url.startsWith('mailto:') ? url : 'mailto:' + url;
         }
 
         // Update Body Class
@@ -207,7 +195,6 @@ function populateHome(container, images) {
             }
             heroGallery.appendChild(img);
         });
-        refreshGlobalSounds();
     }
 }
 
@@ -247,7 +234,6 @@ function populateArchive(container, projects, observer) {
             card.style.transform = 'translateY(0)';
         }, 200 + (index * 100));
     });
-    refreshGlobalSounds();
 }
 
 function populateBio(container, siteInfo) {
@@ -306,14 +292,23 @@ function populateContact(container, siteInfo, projects) {
             if (src && !src.startsWith('http') && !src.startsWith('/')) src = '/' + src;
             img.src = src;
             img.className = 'contact-random-img';
+
+            // 入场动画：设置延迟
             img.style.transitionDelay = `${idx * 0.2}s`;
 
             wrapper.appendChild(img);
             gallerySide.appendChild(wrapper);
 
-            setTimeout(() => img.style.opacity = '1', 50);
+            // 入场动画完成后清除延迟，确保 hover 即时响应
+            const entranceDelay = 50 + (idx * 200) + 1000; // 50ms + stagger + 1s transition
+            setTimeout(() => {
+                img.style.opacity = '1';
+            }, 50);
+
+            setTimeout(() => {
+                img.style.transitionDelay = '0s'; // 清除延迟
+            }, entranceDelay);
         });
-        refreshGlobalSounds();
     }
 }
 
@@ -474,6 +469,9 @@ function populateProjectDetail(container, projects) {
 
 // --- 5. INITIALIZATION HELPERS ---
 
+// 防止事件监听器重复绑定（修复 Bug #3, #4）
+let navEventsInitialized = false;
+
 function updateActiveNavLink(path) {
     // 1. Normalize current path (remove leading/trailing slashes and .html)
     let normalizedPath = path.split('?')[0].replace(/\/$/, '').replace('.html', '');
@@ -502,28 +500,46 @@ function updateActiveNavLink(path) {
         } else {
             link.classList.remove('active');
         }
+    });
 
-        // Hover Logic for Sliding Indicator
-        if (nav && indicator) {
+    // 只在第一次调用时绑定事件（修复 Bug #3, #4, #5）
+    if (!navEventsInitialized && nav && indicator) {
+        navLinks.forEach(link => {
             link.addEventListener('mouseenter', () => {
                 moveIndicator(link, nav, indicator);
             });
-        }
-    });
-
-    // Reset on Nav Leave
-    if (nav && indicator) {
-        nav.addEventListener('mouseleave', () => {
-            if (activeLink) moveIndicator(activeLink, nav, indicator);
         });
 
-        // Initial Position
-        if (activeLink) {
-            // Small delay to ensure layout is ready or if fonts are loading
-            setTimeout(() => moveIndicator(activeLink, nav, indicator), 50);
+        nav.addEventListener('mouseleave', () => {
+            // 动态获取当前活动链接，而不是使用闭包中的旧值（修复 Bug #5）
+            const currentActive = document.querySelector('nav a.active');
+            if (currentActive) {
+                moveIndicator(currentActive, nav, indicator);
+            } else {
+                // 首页时隐藏指示器
+                indicator.style.width = '0';
+            }
+        });
 
-            // Re-calculate on resize
-            window.addEventListener('resize', () => moveIndicator(activeLink, nav, indicator));
+        // 只添加一次 resize 监听器
+        window.addEventListener('resize', () => {
+            const currentActive = document.querySelector('nav a.active');
+            if (currentActive) {
+                moveIndicator(currentActive, nav, indicator);
+            }
+        });
+
+        navEventsInitialized = true;
+    }
+
+    // 更新指示器位置
+    if (nav && indicator) {
+        if (activeLink) {
+            setTimeout(() => moveIndicator(activeLink, nav, indicator), 50);
+        } else {
+            // 首页时隐藏指示器（修复 Bug #1）
+            indicator.style.width = '0';
+            indicator.style.transform = 'translateX(0)';
         }
     }
 }
@@ -588,6 +604,9 @@ function initTheme() {
     const toggleBtn = document.getElementById('theme-toggle');
     const stored = localStorage.getItem('theme');
     if (stored === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+
+    // 初始化时同步雪花颜色（修复 Bug #2）
+    updateSnowColor();
 
     if (toggleBtn) {
         toggleBtn.onclick = () => {

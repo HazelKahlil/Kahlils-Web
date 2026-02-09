@@ -1101,10 +1101,10 @@
                     <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #000; padding-bottom:15px;">
                         <strong style="font-family:var(--font-serif); font-size:24px;">${proj.title || 'Untitled'}</strong>
                         <div style="display:flex; gap:8px;">
-                            <button class="btn" style="background:#fff; border:1px solid #000; padding:6px 12px; display:flex; align-items:center; justify-content:center;" onclick="moveProject(${i}, -1)" title="Move Up">
+                            <button class="btn" style="background:#fff; color:#000; border:1px solid #000; padding:6px 12px; display:flex; align-items:center; justify-content:center;" onclick="moveProject(${i}, -1)" title="Move Up">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
                             </button>
-                            <button class="btn" style="background:#fff; border:1px solid #000; padding:6px 12px; display:flex; align-items:center; justify-content:center;" onclick="moveProject(${i}, 1)" title="Move Down">
+                            <button class="btn" style="background:#fff; color:#000; border:1px solid #000; padding:6px 12px; display:flex; align-items:center; justify-content:center;" onclick="moveProject(${i}, 1)" title="Move Down">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
                             </button>
                             <button class="btn btn-danger" style="padding:6px 12px; font-family:Arial, sans-serif; font-weight:bold;" onclick="deleteProject(${i})" title="Delete Project">DEL</button>

@@ -652,14 +652,30 @@ function initSnowSystem() {
             canvas.style.pointerEvents = 'none';
             canvas.style.zIndex = '99999';
             document.body.appendChild(canvas);
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            window.onresize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
+
+            // === High-DPI (Retina) Fix ===
+            const dpr = window.devicePixelRatio || 1;
+            // Force at least 2x density for sharpness as requested, or more if device supports it
+            const scale = Math.max(dpr, 2);
+
+            canvas.width = window.innerWidth * scale;
+            canvas.height = window.innerHeight * scale;
+
+            // Determine size based on CSS dimensions (keep visual size same)
+            canvas.style.width = '100%';
+            canvas.style.height = '100%';
+
+            window.onresize = () => {
+                canvas.width = window.innerWidth * scale;
+                canvas.height = window.innerHeight * scale;
+                // Important: Context state is reset on resize, so we must re-scale
+                ctx.scale(scale, scale);
+            };
 
             // Enhanced flakes with sway properties
             flakes = Array.from({ length: 650 }, () => ({
-                x: Math.random() * canvas.width,           // Initial X position
-                y: Math.random() * canvas.height,          // Initial Y position
+                x: Math.random() * window.innerWidth,      // FIX: Use window width (logical)
+                y: Math.random() * window.innerHeight,     // FIX: Use window height (logical)
                 r: Math.random() * 1 + 0.5,                // Radius (size): 0.5-1.5px (smaller)
                 s: Math.random() * 0.8 + 0.3,              // Fall speed: slightly slower
                 // === Sway properties for realistic movement ===
@@ -672,6 +688,15 @@ function initSnowSystem() {
         }
         canvas.style.display = 'block';
         ctx = canvas.getContext('2d');
+
+        // === Apply Scale for High-DPI ===
+        const dpr = window.devicePixelRatio || 1;
+        const scale = Math.max(dpr, 2);
+
+        // Reset transform to identity before applying new scale to avoid compounding
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.scale(scale, scale);
+
         btn.classList.add('active');
         time = 0;
         loop();
@@ -684,7 +709,11 @@ function initSnowSystem() {
     }
 
     function loop() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // Clear rect uses LOGICAL coordinates because of scale? 
+        // No, clearRect is affected by transformation matrix. 
+        // So we clear 0,0 to logical width,height.
+        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
         ctx.fillStyle = snowColor;
         ctx.beginPath();
 
@@ -698,14 +727,14 @@ function initSnowSystem() {
             f.x += sway + f.drift;
             f.y += f.s;
 
-            // Wrap around horizontally (so flakes don't disappear off screen)
-            if (f.x > canvas.width + 10) f.x = -10;
-            if (f.x < -10) f.x = canvas.width + 10;
+            // FIX: Wrap around using window dimensions (logical), not canvas
+            if (f.x > window.innerWidth + 10) f.x = -10;
+            if (f.x < -10) f.x = window.innerWidth + 10;
 
             // Reset to top when reaching bottom
-            if (f.y > canvas.height) {
+            if (f.y > window.innerHeight) {
                 f.y = -10;
-                f.x = Math.random() * canvas.width; // Randomize X on reset
+                f.x = Math.random() * window.innerWidth; // Randomize X on reset
             }
 
             ctx.moveTo(f.x, f.y);

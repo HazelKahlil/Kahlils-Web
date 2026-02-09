@@ -423,6 +423,32 @@
         ::-webkit-scrollbar-thumb {
             background: #000;
         }
+
+        /* FORCE SCROLL LAYOUT */
+        .tab-content {
+            display: block !important;
+            padding-top: 60px;
+            padding-bottom: 60px;
+            scroll-margin-top: 40px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Override specific active tab logic since all are visible */
+        .tab-content:first-of-type {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Fix scroll container if there is one */
+        main {
+            height: 100vh;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 
@@ -453,10 +479,14 @@
             </div>
 
             <nav class="nav-vertical">
-                <button class="tab-btn active" onclick="switchTab('home')">Index</button>
-                <button class="tab-btn" onclick="switchTab('portfolios')">Collections</button>
-                <button class="tab-btn" onclick="switchTab('info')">Biography</button>
-                <button class="tab-btn" onclick="switchTab('contact')">Dialogue</button>
+                <button class="tab-btn"
+                    onclick="document.getElementById('tab-home').scrollIntoView({behavior: 'smooth', block: 'start'})">Index</button>
+                <button class="tab-btn"
+                    onclick="document.getElementById('tab-portfolios').scrollIntoView({behavior: 'smooth', block: 'start'})">Portfolios</button>
+                <button class="tab-btn"
+                    onclick="document.getElementById('tab-info').scrollIntoView({behavior: 'smooth', block: 'start'})">Info</button>
+                <button class="tab-btn"
+                    onclick="document.getElementById('tab-contact').scrollIntoView({behavior: 'smooth', block: 'start'})">Contact</button>
             </nav>
 
             <div style="margin-top: auto;">

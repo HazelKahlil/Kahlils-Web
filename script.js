@@ -657,7 +657,7 @@ function initSnowSystem() {
             window.onresize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
 
             // Enhanced flakes with sway properties
-            flakes = Array.from({ length: 350 }, () => ({
+            flakes = Array.from({ length: 650 }, () => ({
                 x: Math.random() * canvas.width,           // Initial X position
                 y: Math.random() * canvas.height,          // Initial Y position
                 r: Math.random() * 1 + 0.5,                // Radius (size): 0.5-1.5px (smaller)

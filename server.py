@@ -50,14 +50,53 @@ class PortfolioHandler(http.server.SimpleHTTPRequestHandler):
                 fn = os.path.basename(fileitem.filename)
                 save_path = os.path.join(IMAGES_DIR, fn)
                 
+                # Save original file first
                 with open(save_path, 'wb') as f:
                     shutil.copyfileobj(fileitem.file, f)
+                
+                # OPTIMIZATION STEP
+                final_filename = fn
+                try:
+                    from PIL import Image
                     
+                    with Image.open(save_path) as img:
+                        # 1. Convert to RGB if necessary (e.g., from RGBA png to jpg, though webp handles RGBA)
+                        if img.mode in ("RGBA", "P"):
+                            img = img.convert("RGBA")
+                        else:
+                            img = img.convert("RGB")
+                            
+                        # 2. Resize if too large
+                        MAX_WIDTH = 1920
+                        w, h = img.size
+                        if w > MAX_WIDTH:
+                            ratio = MAX_WIDTH / w
+                            new_h = int(h * ratio)
+                            img = img.resize((MAX_WIDTH, new_h), Image.Resampling.LANCZOS)
+                            print(f"[Server] Resized {fn}: {w}x{h} -> {MAX_WIDTH}x{new_h}")
+                        
+                        # 3. Save as WebP
+                        name_without_ext = os.path.splitext(fn)[0]
+                        webp_filename = f"{name_without_ext}.webp"
+                        webp_path = os.path.join(IMAGES_DIR, webp_filename)
+                        
+                        img.save(webp_path, 'WEBP', quality=80)
+                        print(f"[Server] Optimized: {fn} -> {webp_filename}")
+                        
+                        # Use the optimized filename for the response
+                        final_filename = webp_filename
+                        
+                except ImportError:
+                    print("[Server] PIL not installed. Skipping optimization.")
+                except Exception as e:
+                    print(f"[Server] Error optimizing image: {e}")
+                    # Fallback to original if optimization fails
+                
                 self.send_response(200)
                 self.send_header('Content-type', 'application/json')
                 self.end_headers()
-                # Return the relative path to the image
-                self.wfile.write(json.dumps({'status': 'success', 'filepath': f'{IMAGES_DIR}/{fn}'}).encode())
+                # Return the relative path to the image (optimized if successful)
+                self.wfile.write(json.dumps({'status': 'success', 'filepath': f'{IMAGES_DIR}/{final_filename}'}).encode())
             else:
                 self.send_response(400)
                 self.end_headers()

@@ -632,10 +632,45 @@
         <!-- FOOTER -->
         <div class="sticky-actions">
             <button class="btn btn-save-all" onclick="saveData()">SAVE CHANGES</button>
+            <button class="btn btn-save-all" onclick="publishData()"
+                style="background: #fff; color: #000; border: 1px solid #000; margin-left:10px;">
+                PUBLISH TO LIVE
+            </button>
         </div>
     </div>
 
     <script>
+        // ... (data init)
+
+        async function publishData() {
+            const btn = document.querySelectorAll('.btn-save-all')[1]; // The second button
+            const originalText = btn.textContent;
+
+            if (!confirm('This will push all changes to the live website (GitHub). Continue?')) return;
+
+            btn.textContent = 'PUBLISHING...';
+            btn.disabled = true;
+
+            try {
+                const response = await fetch('/api/publish', {
+                    method: 'POST'
+                });
+
+                const result = await response.json();
+
+                if (result.status === 'success') {
+                    alert('✅ ' + result.message);
+                } else {
+                    alert('❌ Publish Failed: ' + result.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('❌ Error publishing: ' + error.message);
+            } finally {
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }
+        }
         let data = { site: {}, projects: [] };
         let currentLang = 'en';
 
@@ -674,6 +709,7 @@
                 'label.maxWidth': 'Max Width (px)',
                 // Buttons
                 'btn.save': 'SAVE CHANGES',
+                'btn.publish': 'PUBLISH TO LIVE',
                 'btn.newProject': '+ NEW PROJECT',
                 'btn.addContact': '+ Add Contact Row',
                 'btn.enter': 'Enter Portal',
@@ -715,6 +751,7 @@
                 'label.maxWidth': '最大宽度 (px)',
                 // Buttons
                 'btn.save': '保存更改',
+                'btn.publish': '发布到线上',
                 'btn.newProject': '+ 新建项目',
                 'btn.addContact': '+ 添加联系方式',
                 'btn.enter': '进入系统',
@@ -767,9 +804,10 @@
                 }
             }
 
-            // Save Button
-            const saveBtn = document.querySelector('.btn-save-all');
-            if (saveBtn) saveBtn.textContent = t('btn.save');
+            // Save & Publish Buttons
+            const footerBtns = document.querySelectorAll('.btn-save-all');
+            if (footerBtns[0]) footerBtns[0].textContent = t('btn.save');
+            if (footerBtns[1]) footerBtns[1].textContent = t('btn.publish');
 
             // New Project Button
             const newProjectBtn = document.querySelector('#tab-portfolios .btn-block');

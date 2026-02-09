@@ -673,18 +673,27 @@ function initSnowSystem() {
             };
 
             // Enhanced flakes with sway properties
-            flakes = Array.from({ length: 650 }, () => ({
-                x: Math.random() * window.innerWidth,      // FIX: Use window width (logical)
-                y: Math.random() * window.innerHeight,     // FIX: Use window height (logical)
-                r: Math.random() * 1 + 0.5,                // Radius (size): 0.5-1.5px (smaller)
-                s: Math.random() * 0.8 + 0.3,              // Fall speed: slightly slower
-                // === Sway properties for realistic movement ===
-                swayAmplitude: Math.random() * 0.5 + 0.3,  // How far it swings left-right (0.3-0.8px, reduced)
-                swayFrequency: Math.random() * 0.015 + 0.008,// How fast it oscillates (slightly slower)
-                swayPhase: Math.random() * Math.PI * 2,    // Random starting phase (0-2π)
-                drift: (Math.random() - 0.5) * 0.2,        // Constant wind drift (-0.1 to 0.1, reduced)
-                wobble: Math.random() * 0.4 + 0.4          // Wobble intensity multiplier (reduced)
-            }));
+            flakes = Array.from({ length: 650 }, () => {
+                const r = Math.random() * 1 + 0.5; // Radius 0.5 - 1.5
+                // Logic: 50% of smaller flakes (r < 1.0) get original speed (1.0), others get 0.75
+                let speedFactor = 0.75;
+                if (r < 1.0 && Math.random() < 0.5) {
+                    speedFactor = 1.25;
+                }
+
+                return {
+                    x: Math.random() * window.innerWidth,
+                    y: Math.random() * window.innerHeight,
+                    r: r,
+                    s: (Math.random() * 0.8 + 0.3) * speedFactor,
+                    // Sway timed with speed
+                    swayAmplitude: Math.random() * 0.5 + 0.3,
+                    swayFrequency: (Math.random() * 0.015 + 0.008) * speedFactor,
+                    swayPhase: Math.random() * Math.PI * 2,
+                    drift: ((Math.random() - 0.5) * 0.2) * speedFactor,
+                    wobble: Math.random() * 0.4 + 0.4
+                };
+            });
         }
         canvas.style.display = 'block';
         ctx = canvas.getContext('2d');

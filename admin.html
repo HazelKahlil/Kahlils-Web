@@ -565,33 +565,36 @@
                         <textarea id="site-bio" oninput="updateSiteData('bio', this.value)"></textarea>
                     </div>
 
-                    <div class="section-title"><span>Layout Control</span></div>
-                    <div class="form-group">
-                        <div class="row-inputs">
-                            <div>
-                                <label>Padding Top (px)</label>
-                                <input type="number" id="bio-top" placeholder="Default: 40"
-                                    oninput="updateBioLayout('top', this.value)">
+                    <details>
+                        <summary class="section-title" style="cursor:pointer; user-select:none;">Layout Control ▼
+                        </summary>
+                        <div class="form-group">
+                            <div class="row-inputs">
+                                <div>
+                                    <label>Padding Top (px)</label>
+                                    <input type="number" id="bio-top" placeholder="Default: 40"
+                                        oninput="updateBioLayout('top', this.value)">
+                                </div>
+                                <div>
+                                    <label>Padding Left (px)</label>
+                                    <input type="number" id="bio-left" placeholder="Default: 60"
+                                        oninput="updateBioLayout('padding_left', this.value)">
+                                </div>
+                                <div>
+                                    <label>Width (%)</label>
+                                    <input type="number" id="bio-width" placeholder="Default: 60"
+                                        oninput="updateBioLayout('width', this.value)">
+                                </div>
+                                <div>
+                                    <label>Max Width (px)</label>
+                                    <input type="number" id="bio-max-width" placeholder="Default: 600"
+                                        oninput="updateBioLayout('max_width', this.value)">
+                                </div>
                             </div>
-                            <div>
-                                <label>Padding Left (px)</label>
-                                <input type="number" id="bio-left" placeholder="Default: 60"
-                                    oninput="updateBioLayout('padding_left', this.value)">
-                            </div>
-                            <div>
-                                <label>Width (%)</label>
-                                <input type="number" id="bio-width" placeholder="Default: 60"
-                                    oninput="updateBioLayout('width', this.value)">
-                            </div>
-                            <div>
-                                <label>Max Width (px)</label>
-                                <input type="number" id="bio-max-width" placeholder="Default: 600"
-                                    oninput="updateBioLayout('max_width', this.value)">
-                            </div>
+                            <p style="font-size:10px; color:#666; margin-top:10px;">Adjust these values to position the
+                                text block exactly where you want it. Clear to reset to defaults.</p>
                         </div>
-                        <p style="font-size:10px; color:#666; margin-top:10px;">Adjust these values to position the text
-                            block exactly where you want it. Clear to reset to defaults.</p>
-                    </div>
+                    </details>
                 </div>
 
                 <!-- TAB: CONTACT -->
@@ -603,40 +606,46 @@
                             Row</button>
                     </div>
 
-                    <div class="section-title"><span>Layout Control</span></div>
-                    <div class="form-group" style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
-                        <div>
-                            <label style="color:#aaa;">Info Side (Left)</label>
-                            <div class="row-inputs" style="flex-direction:column; gap:5px;">
-                                <div><label style="font-size:9px;">Top px</label><input type="number" id="c-info-top"
-                                        placeholder="Def: 40" oninput="updateContactLayout('info', 'top', this.value)"
-                                        style="padding:4px; font-size:11px;"></div>
-                                <div><label style="font-size:9px;">Left px</label><input type="number" id="c-info-left"
-                                        placeholder="Def: 0" oninput="updateContactLayout('info', 'left', this.value)"
-                                        style="padding:4px; font-size:11px;"></div>
-                                <div><label style="font-size:9px;">Width %</label><input type="number" id="c-info-width"
-                                        placeholder="Def: 45" oninput="updateContactLayout('info', 'width', this.value)"
-                                        style="padding:4px; font-size:11px;"></div>
+                    <details>
+                        <summary class="section-title" style="cursor:pointer; user-select:none;">Layout Control ▼
+                        </summary>
+                        <div class="form-group" style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+                            <div>
+                                <label style="color:#aaa;">Info Side (Left)</label>
+                                <div class="row-inputs" style="flex-direction:column; gap:5px;">
+                                    <div><label style="font-size:9px;">Top px</label><input type="number"
+                                            id="c-info-top" placeholder="Def: 40"
+                                            oninput="updateContactLayout('info', 'top', this.value)"
+                                            style="padding:4px; font-size:11px;"></div>
+                                    <div><label style="font-size:9px;">Left px</label><input type="number"
+                                            id="c-info-left" placeholder="Def: 0"
+                                            oninput="updateContactLayout('info', 'left', this.value)"
+                                            style="padding:4px; font-size:11px;"></div>
+                                    <div><label style="font-size:9px;">Width %</label><input type="number"
+                                            id="c-info-width" placeholder="Def: 45"
+                                            oninput="updateContactLayout('info', 'width', this.value)"
+                                            style="padding:4px; font-size:11px;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <label style="color:#aaa;">Gallery Side (Right)</label>
+                                <div class="row-inputs" style="flex-direction:column; gap:5px;">
+                                    <div><label style="font-size:9px;">Top px</label><input type="number" id="c-gal-top"
+                                            placeholder="Def: 40"
+                                            oninput="updateContactLayout('gallery', 'top', this.value)"
+                                            style="padding:4px; font-size:11px;"></div>
+                                    <div><label style="font-size:9px;">Margin Left px</label><input type="number"
+                                            id="c-gal-left" placeholder="Def: 0"
+                                            oninput="updateContactLayout('gallery', 'left', this.value)"
+                                            style="padding:4px; font-size:11px;"></div>
+                                    <div><label style="font-size:9px;">Width %</label><input type="number"
+                                            id="c-gal-width" placeholder="Def: 50"
+                                            oninput="updateContactLayout('gallery', 'width', this.value)"
+                                            style="padding:4px; font-size:11px;"></div>
+                                </div>
                             </div>
                         </div>
-                        <div>
-                            <label style="color:#aaa;">Gallery Side (Right)</label>
-                            <div class="row-inputs" style="flex-direction:column; gap:5px;">
-                                <div><label style="font-size:9px;">Top px</label><input type="number" id="c-gal-top"
-                                        placeholder="Def: 40"
-                                        oninput="updateContactLayout('gallery', 'top', this.value)"
-                                        style="padding:4px; font-size:11px;"></div>
-                                <div><label style="font-size:9px;">Margin Left px</label><input type="number"
-                                        id="c-gal-left" placeholder="Def: 0"
-                                        oninput="updateContactLayout('gallery', 'left', this.value)"
-                                        style="padding:4px; font-size:11px;"></div>
-                                <div><label style="font-size:9px;">Width %</label><input type="number" id="c-gal-width"
-                                        placeholder="Def: 50"
-                                        oninput="updateContactLayout('gallery', 'width', this.value)"
-                                        style="padding:4px; font-size:11px;"></div>
-                            </div>
-                        </div>
-                    </div>
+                    </details>
 
                     <div class="section-title">Contact Images (Right Side)</div>
                     <div class="form-group">
@@ -715,16 +724,16 @@
             en: {
                 // Sidebar
                 'nav.index': 'Index',
-                'nav.collections': 'Collections',
-                'nav.biography': 'Biography',
-                'nav.dialogue': 'Dialogue',
+                'nav.collections': 'Portfolios',
+                'nav.biography': 'Info',
+                'nav.dialogue': 'Contact',
                 'nav.viewSite': 'View Live Site ↗',
                 'logo.subtitle': 'Management Suite',
                 // Page Titles
                 'page.index': 'Index',
-                'page.collections': 'Collections',
-                'page.biography': 'Biography',
-                'page.dialogue': 'Dialogue',
+                'page.collections': 'Portfolios',
+                'page.biography': 'Info',
+                'page.dialogue': 'Contact',
                 // Section Titles
                 'section.globalSettings': 'Global Settings',
                 'section.heroImages': 'Home Hero Images',
@@ -1162,24 +1171,27 @@
                             <div><label>Year / Meta</label><input type="text" value="${proj.year}" oninput="updateProject(${i}, 'year', this.value)"></div>
                         </div>
                         
-                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:20px;">
-                            <div style="background:#fff; padding:15px; border:1px solid #eee;">
-                                <label style="color:#999; font-size:10px;">Layout Control (Info Text)</label>
-                                <div class="row-inputs" style="gap:8px; margin-top:10px;">
-                                    <div><label style="font-size:9px; color:#999;">Top (px)</label><input type="number" placeholder="Def: 40" value="${layout.top || ''}" oninput="updateProjectLayout(${i}, 'top', this.value)" style="padding:8px 0; font-size:12px; width:100%;"></div>
-                                    <div><label style="font-size:9px; color:#999;">Left (px)</label><input type="number" placeholder="Def: 0" value="${layout.left || ''}" oninput="updateProjectLayout(${i}, 'left', this.value)" style="padding:8px 0; font-size:12px; width:100%;"></div>
-                                    <div><label style="font-size:9px; color:#999;">Width (%)</label><input type="number" placeholder="Def: 300px" value="${layout.width || ''}" oninput="updateProjectLayout(${i}, 'width', this.value)" style="padding:8px 0; font-size:12px; width:100%;"></div>
+                        <details style="margin-top:20px;">
+                            <summary style="font-size:11px; font-weight:700; color:#999; cursor:pointer; list-style:none; margin-bottom:10px; user-select:none;">PROJECT LAYOUT ▼</summary>
+                            <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+                                <div style="background:#fff; padding:15px; border:1px solid #eee;">
+                                    <label style="color:#999; font-size:10px;">Layout Control (Info Text)</label>
+                                    <div class="row-inputs" style="gap:8px; margin-top:10px;">
+                                        <div><label style="font-size:9px; color:#999;">Top (px)</label><input type="number" placeholder="Def: 40" value="${layout.top || ''}" oninput="updateProjectLayout(${i}, 'top', this.value)" style="padding:8px 0; font-size:12px; width:100%;"></div>
+                                        <div><label style="font-size:9px; color:#999;">Left (px)</label><input type="number" placeholder="Def: 0" value="${layout.left || ''}" oninput="updateProjectLayout(${i}, 'left', this.value)" style="padding:8px 0; font-size:12px; width:100%;"></div>
+                                        <div><label style="font-size:9px; color:#999;">Width (%)</label><input type="number" placeholder="Def: 300px" value="${layout.width || ''}" oninput="updateProjectLayout(${i}, 'width', this.value)" style="padding:8px 0; font-size:12px; width:100%;"></div>
+                                    </div>
+                                </div>
+                                <div style="background:#fff; padding:15px; border:1px solid #eee;">
+                                    <label style="color:#999; font-size:10px;">Layout Control (Gallery Images)</label>
+                                    <div class="row-inputs" style="gap:8px; margin-top:10px;">
+                                        <div><label style="font-size:9px; color:#999;">Top %</label><input type="number" placeholder="Def: 0" value="${galleryLayout.top || ''}" oninput="updateProjectGalleryLayout(${i}, 'top', this.value)" style="padding:8px 0; font-size:12px; width:100%;"></div>
+                                        <div><label style="font-size:9px; color:#999;">Left %</label><input type="number" placeholder="Def: 0" value="${galleryLayout.left || ''}" oninput="updateProjectGalleryLayout(${i}, 'left', this.value)" style="padding:8px 0; font-size:12px; width:100%;"></div>
+                                        <div><label style="font-size:9px; color:#999;">Width %</label><input type="number" placeholder="Def: 100" value="${galleryLayout.width || ''}" oninput="updateProjectGalleryLayout(${i}, 'width', this.value)" style="padding:8px 0; font-size:12px; width:100%;"></div>
+                                    </div>
                                 </div>
                             </div>
-                            <div style="background:#fff; padding:15px; border:1px solid #eee;">
-                                <label style="color:#999; font-size:10px;">Layout Control (Gallery Images)</label>
-                                <div class="row-inputs" style="gap:8px; margin-top:10px;">
-                                    <div><label style="font-size:9px; color:#999;">Top %</label><input type="number" placeholder="Def: 0" value="${galleryLayout.top || ''}" oninput="updateProjectGalleryLayout(${i}, 'top', this.value)" style="padding:8px 0; font-size:12px; width:100%;"></div>
-                                    <div><label style="font-size:9px; color:#999;">Left %</label><input type="number" placeholder="Def: 0" value="${galleryLayout.left || ''}" oninput="updateProjectGalleryLayout(${i}, 'left', this.value)" style="padding:8px 0; font-size:12px; width:100%;"></div>
-                                    <div><label style="font-size:9px; color:#999;">Width %</label><input type="number" placeholder="Def: 100" value="${galleryLayout.width || ''}" oninput="updateProjectGalleryLayout(${i}, 'width', this.value)" style="padding:8px 0; font-size:12px; width:100%;"></div>
-                                </div>
-                            </div>
-                        </div>
+                        </details>
 
                         <div style="margin-top:15px;"><label>Description</label><textarea style="min-height:80px;" oninput="updateProject(${i}, 'description', this.value)">${proj.description || ''}</textarea></div>
                         <div style="margin-top:15px;"><label>Cover Image (List View)</label>

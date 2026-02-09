@@ -5,7 +5,7 @@ import os
 import cgi
 import shutil
 
-PORT = 5001
+PORT = 5002
 DIRECTORY = "."
 IMAGES_DIR = "images"
 

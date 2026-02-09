@@ -44,3 +44,25 @@ This file serves as a persistent "memory" of shared principles and retrospective
   2. Create a simple `t(key)` function.
   3. Persist preference in `localStorage`.
   4. Apply translations immediately on load to prevent content flashing.
+
+## 🔄 2026-02-09 Session Retrospective (Admin Navigation & Physics)
+
+### 1. The "Single-Scroll" Admin Principle (管理后台单页滚动原则)
+- **Problem**: Traditional tab-based UIs can feel "disconnected" for content-heavy admin panels where users want a holistic view.
+- **Rule**: **Content-First Scroll**. For configuration-heavy panels, use a **Single Page Scroll** layout with a fixed sidebar anchor. This provides better context and faster navigation than switching tabs.
+- **Implementation**: Instead of `display: none` for tabs, force `display: block` and use `scrollIntoView({ behavior: 'smooth' })` for navigation.
+
+### 2. Naming Parity (命名完全对齐原则)
+- **Problem**: Discrepancies between Admin labels ("Collections") and Frontend labels ("Portfolios") cause cognitive friction.
+- **Rule**: **Admin Terms == Public Terms**. Do not invent developer-centric names. If the public sees "Portfolios", the admin must say "Portfolios".
+- **i18n Pitfall**: When renaming, check **both** HTML static text AND JavaScript i18n dictionaries. JS often overwrites HTML on load.
+
+### 3. "Default-Collapsed" Complexity (默认折叠原则)
+- **Problem**: Advanced settings (like Layout Controls) clutter the UI and distract from primary content entry.
+- **Rule**: **Hide Complexity**. Wrap low-frequency controls in **`<details>`/`<summary>`** tags. This native HTML element is robust, requires no JS, and keeps the UI clean by default.
+
+### 4. Natural Animation Physics (自然运动物理原则)
+- **Problem**: Uniform movement speed feels artificial and robotic.
+- **Rule**: **Variance Creates Depth**.
+  - **Size-Speed Correlation**: Assign different speeds based on object size (e.g., small flakes = fast/light, large flakes = slow/heavy).
+  - **Layering**: Mixing fast and slow elements creates a parallax effect, enhancing realism.

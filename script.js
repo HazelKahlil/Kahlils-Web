@@ -675,10 +675,11 @@ function initSnowSystem() {
             // Enhanced flakes with sway properties
             flakes = Array.from({ length: 650 }, () => {
                 const r = Math.random() * 1 + 0.5; // Radius 0.5 - 1.5
-                // Logic: 50% of smaller flakes (r < 1.0) get original speed (1.0), others get 0.75
-                let speedFactor = 0.75;
+                // Simple size-based speed: small = fast, large = slow
+                // Logic: Large flakes = 0.5x (slow). 50% of small flakes = 0.75x (relatively faster).
+                let speedFactor = 0.5; // Base: slow for large flakes
                 if (r < 1.0 && Math.random() < 0.5) {
-                    speedFactor = 1.25;
+                    speedFactor = 0.75; // 50% of small flakes are faster
                 }
 
                 return {

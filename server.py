@@ -26,10 +26,40 @@ class PortfolioHandler(http.server.SimpleHTTPRequestHandler):
                 with open('data.json', 'w') as f:
                     json.dump(data, f, indent=4)
                 
+                # === AUTOMATIC PUBLISH (GIT PUSH) ===
+                # Executing git commands to sync changes to GitHub
+                try:
+                    import subprocess
+                    print("[Server] Auto-publishing changes...")
+                    
+                    # 1. Add all changes (data.json and any new images)
+                    subprocess.check_call(['git', 'add', '.', 'images/*.webp']) 
+                    
+                    # 2. Commit
+                    # Check if there are changes first to avoid empty commit error
+                    status = subprocess.run(['git', 'status', '--porcelain'], capture_output=True, text=True)
+                    if status.stdout.strip():
+                        subprocess.check_call(['git', 'commit', '-m', 'Content Update: Auto-published from Admin Panel'])
+                        
+                        # 3. Push
+                        subprocess.check_call(['git', 'push'])
+                        print("[Server] ✅ Successfully published to GitHub.")
+                        message = "Saved and published to website!"
+                    else:
+                        print("[Server] No changes to publish.")
+                        message = "Saved (No changes to publish)."
+                        
+                except subprocess.CalledProcessError as e:
+                    print(f"[Server] ❌ Git publish failed: {e}")
+                    message = f"Saved, but publish failed: {e}"
+                except Exception as e:
+                    print(f"[Server] ❌ Publish error: {e}")
+                    message = f"Saved, but publish error: {e}"
+
                 self.send_response(200)
                 self.send_header('Content-type', 'application/json')
                 self.end_headers()
-                self.wfile.write(json.dumps({'status': 'success', 'message': 'Saved successfully'}).encode())
+                self.wfile.write(json.dumps({'status': 'success', 'message': message}).encode())
             except Exception as e:
                 self.send_response(500)
                 self.end_headers()

@@ -36,28 +36,36 @@ class PortfolioHandler(http.server.SimpleHTTPRequestHandler):
                 self.wfile.write(json.dumps({'status': 'error', 'message': str(e)}).encode())
 
         # Endpoint: Publish (Git Push)
+        # Endpoint: Publish (Git Push)
         elif self.path == '/api/publish':
             try:
                 import subprocess
                 print("[Server] Publishing changes to GitHub...")
                 
-                # 1. Add all changes (data.json and any new images)
-                subprocess.check_call(['git', 'add', '.', 'images/*.webp']) 
+                # 1. Add all changes (universally)
+                # Using shell=False is safer, so we split args. 
+                # "git add ." will stage all modifications and new files including images.
+                subprocess.check_call(['git', 'add', '.']) 
                 
-                # 2. Commit
+                # 2. Check status
                 status = subprocess.run(['git', 'status', '--porcelain'], capture_output=True, text=True)
+                
                 if status.stdout.strip():
+                    print("[Server] Changes detected, committing...")
+                    # 3. Commit
                     subprocess.check_call(['git', 'commit', '-m', 'Content Update: Manual publish from Admin Panel'])
                     
-                    # 3. Push
+                    # 4. Push
+                    print("[Server] Pushing to remote...")
                     subprocess.check_call(['git', 'push'])
+                    
                     print("[Server] ✅ Successfully published to GitHub.")
                     message = "Successfully published to live website!"
                 else:
-                    # Even if no local changes, try to push any unpushed commits
+                    # Even if no local changes, ensure we are synced with push
+                    print("[Server] No local changes to commit. Checking push status...")
                     subprocess.check_call(['git', 'push'])
-                    print("[Server] No new local changes, but ensured sync.")
-                    message = "No new changes to commit, but synchronized with GitHub."
+                    message = "No new local changes, but synchronized with GitHub."
                     
                 self.send_response(200)
                 self.send_header('Content-type', 'application/json')
@@ -65,15 +73,20 @@ class PortfolioHandler(http.server.SimpleHTTPRequestHandler):
                 self.wfile.write(json.dumps({'status': 'success', 'message': message}).encode())
                 
             except subprocess.CalledProcessError as e:
-                print(f"[Server] ❌ Git publish failed: {e}")
+                error_msg = f"Git Error (Exit Code {e.returncode})"
+                if e.output:
+                    error_msg += f": {e.output}"
+                print(f"[Server] ❌ {error_msg}")
+                
                 self.send_response(500)
                 self.end_headers()
-                self.wfile.write(json.dumps({'status': 'error', 'message': f"Publish failed: {e}"}).encode())
+                self.wfile.write(json.dumps({'status': 'error', 'message': error_msg}).encode())
+                
             except Exception as e:
-                print(f"[Server] ❌ Publish error: {e}")
+                print(f"[Server] ❌ Unexpected Error: {e}")
                 self.send_response(500)
                 self.end_headers()
-                self.wfile.write(json.dumps({'status': 'error', 'message': f"Publish error: {e}"}).encode())
+                self.wfile.write(json.dumps({'status': 'error', 'message': str(e)}).encode())
                 
         # Endpoint: Upload Image
         elif self.path == '/api/upload':

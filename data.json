@@ -119,10 +119,6 @@
                     "caption": "Shanghai\uff0cChina"
                 },
                 {
-                    "src": "images/2025.6.10-7.webp",
-                    "caption": "Shanghai\uff0cChina"
-                },
-                {
                     "src": "images/2025.10 13.webp",
                     "caption": "Shanghai\uff0cChina"
                 },
@@ -219,7 +215,7 @@
                     "caption": "Shanghai\uff0cChina"
                 }
             ],
-            "_collapsed": true
+            "_collapsed": false
         },
         {
             "id": "new-1768987933974",

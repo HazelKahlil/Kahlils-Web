@@ -139,6 +139,14 @@ class PortfolioHandler(http.server.SimpleHTTPRequestHandler):
                         # Use the optimized filename for the response
                         final_filename = webp_filename
                         
+                        # Remove original file to save space
+                        try:
+                            os.remove(save_path)
+                            print(f"[Server] Removed original: {fn}")
+                        except Exception as e:
+                            print(f"[Server] Warning: Could not remove original {fn}: {e}")
+
+                        
                 except ImportError:
                     print("[Server] PIL not installed. Skipping optimization.")
                 except Exception as e:

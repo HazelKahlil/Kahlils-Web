@@ -844,7 +844,8 @@ function initSnowSystem() {
             };
 
             // Enhanced flakes with sway properties
-            flakes = Array.from({ length: 650 }, () => {
+            const flakeCount = window.innerWidth <= 768 ? 450 : 650;
+            flakes = Array.from({ length: flakeCount }, () => {
                 const r = Math.random() * 1 + 0.5; // Radius 0.5 - 1.5
                 // Simple size-based speed: small = fast, large = slow
                 // Logic: Large flakes = 0.5x (slow). 50% of small flakes = 0.75x (relatively faster).

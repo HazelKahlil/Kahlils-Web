@@ -830,21 +830,6 @@ body:not(.is-home) main {
         gap: 0;
     }
 
-    /* 🔴 DEBUG: 红色基准线 — 对齐 HAZEL 字母底端，完成后删除 */
-    header::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: red;
-        z-index: 9999;
-        pointer-events: none;
-        /* 调整中: 字母 H/A/Z/E/L 最底端像素 */
-        top: 84px;
-    }
-
-
     /* Brand: Left side */
     .brand {
         width: auto;

@@ -1,16 +1,93 @@
-
 // --- 1. GLOBAL INITIALIZATION (Runs Once) ---
 document.addEventListener('DOMContentLoaded', () => {
     beautifyURL(); // Clean up trailing slashes
     initTheme();
     initSnowSystem();
     initSoundSystem();
+    initMobileMenu(); // Hamburger menu
     refreshGlobalSounds(); // Initial Global Bind
     initBarba(); // Initialize SPA
 
     // Initial Page Load
     loadPageContent(document.querySelector('main'));
 });
+
+// --- MOBILE HAMBURGER MENU ---
+function initMobileMenu() {
+    const hamburger = document.getElementById('hamburger-menu');
+    const overlay = document.getElementById('mobile-menu-overlay');
+    const closeBtn = document.getElementById('menu-close');
+    if (!hamburger || !overlay) return;
+
+    let scrollY = 0;
+    let isOpen = false;
+    const label = hamburger.querySelector('.hamburger-label');
+
+    const lockScroll = () => {
+        scrollY = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollY}px`;
+        document.body.style.left = '0';
+        document.body.style.right = '0';
+        document.body.style.overflow = 'hidden';
+    };
+
+    const unlockScroll = () => {
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        document.body.style.overflow = '';
+        window.scrollTo(0, scrollY);
+    };
+
+    const openMenu = () => {
+        isOpen = true;
+        lockScroll();
+        overlay.classList.add('is-open');
+        hamburger.classList.add('is-active');
+        if (label) label.textContent = 'Close';
+    };
+
+    const closeMenu = () => {
+        isOpen = false;
+        overlay.classList.remove('is-open');
+        hamburger.classList.remove('is-active');
+        if (label) label.textContent = 'Menu';
+        // 等动画结束后再解锁滚动
+        setTimeout(() => {
+            unlockScroll();
+        }, 400);
+    };
+
+    const toggleMenu = () => {
+        if (isOpen) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    };
+
+    hamburger.addEventListener('click', toggleMenu);
+    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
+    // Close on nav link click
+    overlay.querySelectorAll('.mobile-menu-nav a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && isOpen) {
+            closeMenu();
+        }
+    });
+
+    // Prevent touch scroll on overlay
+    overlay.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+    }, { passive: false });
+}
 
 // --- URL BEAUTIFICATION (Pretty URLs) ---
 function beautifyURL() {
@@ -106,16 +183,17 @@ function loadPageContent(container) {
             copyrightEl.innerHTML = text.toLowerCase().includes('copyright') ? text : `&copy; ${text}`;
         }
 
-        // Update Header Social Links
-        const igLink = document.querySelector('header a[aria-label="Instagram"]');
-        if (igLink && siteInfo.header_social_instagram) {
-            let url = siteInfo.header_social_instagram;
-            if (!url.startsWith('http') && !url.startsWith('//')) url = 'https://' + url;
-            igLink.href = url;
-        }
+        // Update Header + Mobile Social Links
+        document.querySelectorAll('a[aria-label="Instagram"]').forEach(igLink => {
+            if (siteInfo.header_social_instagram) {
+                let url = siteInfo.header_social_instagram;
+                if (!url.startsWith('http') && !url.startsWith('//')) url = 'https://' + url;
+                igLink.href = url;
+            }
+        });
 
-        const chainLink = document.querySelector('header a[aria-label="Link"]');
-        if (chainLink) {
+        // Update ALL link icons (header + mobile overlay)
+        document.querySelectorAll('a[aria-label="Link"]').forEach(chainLink => {
             if (siteInfo.header_social_link) {
                 let url = siteInfo.header_social_link;
                 if (!url.startsWith('http') && !url.startsWith('//')) url = 'https://' + url;
@@ -124,13 +202,14 @@ function loadPageContent(container) {
             } else {
                 chainLink.style.display = 'none'; // Hide if empty
             }
-        }
+        });
 
-        const emailLink = document.querySelector('header a[aria-label="Email"]');
-        if (emailLink && siteInfo.header_social_email) {
-            let url = siteInfo.header_social_email;
-            emailLink.href = url.startsWith('mailto:') ? url : 'mailto:' + url;
-        }
+        document.querySelectorAll('a[aria-label="Email"]').forEach(emailLink => {
+            if (siteInfo.header_social_email) {
+                let url = siteInfo.header_social_email;
+                emailLink.href = url.startsWith('mailto:') ? url : 'mailto:' + url;
+            }
+        });
 
         // Update Body Class
         if (namespace === 'home') {
@@ -141,7 +220,7 @@ function loadPageContent(container) {
 
         // Route Logic
         if (namespace === 'home') {
-            populateHome(container, siteInfo.home_images);
+            populateHome(container, siteInfo.home_images, projects);
         } else if (namespace === 'portfolios') { // Renamed from archive
             populateArchive(container, projects, observer);
         } else if (namespace === 'info') {
@@ -170,7 +249,8 @@ function loadPageContent(container) {
 
 // --- 4. DATA POPULATION HELPER FUNCTIONS ---
 
-function populateHome(container, images) {
+function populateHome(container, images, projects) {
+    // Desktop: existing hero gallery
     const heroGallery = container.querySelector('.hero-gallery');
     if (heroGallery && images && images.length > 0) {
         heroGallery.innerHTML = '';
@@ -184,16 +264,55 @@ function populateHome(container, images) {
 
             img.src = src;
             img.className = `hero-img img-${idx + 1}`;
-            // img.loading = "lazy"; // REMOVED: Prefer eager load for hero content
 
             if (typeof item === 'object' && item.style) {
-                Object.assign(img.style, item.style); // Simplified style assignment
-                // Ensure percent units
+                Object.assign(img.style, item.style);
                 if (item.style.top && !String(item.style.top).includes('%')) img.style.top += '%';
                 if (item.style.left && !String(item.style.left).includes('%')) img.style.left += '%';
                 if (item.style.width && !String(item.style.width).includes('%')) img.style.width += '%';
             }
             heroGallery.appendChild(img);
+        });
+    }
+
+    // Mobile: Single-column curated images (CSS controls visibility via media query)
+    if (images && images.length > 0) {
+        let mobileContainer = container.querySelector('.mobile-home-projects');
+        if (!mobileContainer) {
+            mobileContainer = document.createElement('div');
+            mobileContainer.className = 'mobile-home-projects';
+            container.querySelector('.hero-container').after(mobileContainer);
+        }
+        mobileContainer.innerHTML = '';
+
+        images.forEach((item) => {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'mobile-home-card';
+
+            let rawSrc = typeof item === 'string' ? item : item.src;
+            let src = rawSrc;
+            if (src && !src.startsWith('http') && !src.startsWith('/')) src = '/' + src;
+            if (src && !src.startsWith('http')) src = encodeURI(src) + '?t=' + new Date().getTime();
+
+            // Try to extract date from filename (e.g. "2025.7.19 54.webp" → "2025.7.19")
+            const filename = rawSrc ? rawSrc.split('/').pop() : '';
+            const dateMatch = filename.match(/(\d{4}\.\d{1,2}\.\d{1,2})/);
+            const dateStr = (item && item.date) || (dateMatch ? dateMatch[1] : '');
+            const location = (item && item.location) || '';
+
+            let captionHTML = '';
+            if (dateStr || location) {
+                captionHTML = `<div class="mobile-home-caption">`;
+                if (location) captionHTML += `<span class="caption-location">${location}</span>`;
+                if (dateStr) captionHTML += `<span class="caption-date">${dateStr}</span>`;
+                captionHTML += `</div>`;
+            }
+
+            wrapper.innerHTML = `
+                <img src="${src}" alt="" loading="lazy">
+                ${captionHTML}
+            `;
+            mobileContainer.appendChild(wrapper);
         });
     }
 }
@@ -384,6 +503,14 @@ function populateProjectDetail(container, projects) {
                     <button class="slider-arrow arrow-left" aria-label="Previous">‹</button>
                     <button class="slider-arrow arrow-right" aria-label="Next">›</button>
                 </div>
+                <div class="mobile-swipe-hints" aria-hidden="true">
+                    <span class="swipe-hint-arrow swipe-hint-left" style="visibility: hidden;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </span>
+                    <span class="swipe-hint-arrow swipe-hint-right">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </span>
+                </div>
                 <div class="slider-counter">1 / ${images.length}</div>
             </div>
         `;
@@ -439,23 +566,110 @@ function populateProjectDetail(container, projects) {
             }
         });
 
-        // Touch Swipe
+        // Touch Swipe & Scroll-Snap Counter Update
         const sliderContainer = content.querySelector('.gallery-slider-container');
         if (sliderContainer) {
-            let touchStartX = 0;
-            let touchEndX = 0;
-            sliderContainer.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-            }, { passive: true });
+            const isMobile = window.innerWidth <= 768;
 
-            sliderContainer.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                const dist = touchEndX - touchStartX;
-                if (Math.abs(dist) > 50) {
-                    currentSlide = dist > 0 ? (currentSlide - 1 + totalSlides) % totalSlides : (currentSlide + 1) % totalSlides;
-                    updateSlider(currentSlide);
+            if (isMobile) {
+                // Mobile: CSS scroll-snap handles movement natively.
+                let scrollTimeout;
+                let hasScrolled = false;
+                const hintsContainer = content.querySelector('.mobile-swipe-hints');
+                const hintLeft = content.querySelector('.swipe-hint-left');
+                const hintRight = content.querySelector('.swipe-hint-right');
+
+                // Update arrow visibility based on current slide
+                const updateHintArrows = (idx) => {
+                    if (!hintLeft || !hintRight) return;
+                    hintLeft.style.visibility = idx <= 0 ? 'hidden' : 'visible';
+                    hintRight.style.visibility = idx >= totalSlides - 1 ? 'hidden' : 'visible';
+                };
+
+                sliderContainer.addEventListener('scroll', () => {
+                    // Fade out hints after first scroll
+                    if (!hasScrolled && hintsContainer) {
+                        hasScrolled = true;
+                        hintsContainer.classList.add('fade-out');
+                    }
+
+                    clearTimeout(scrollTimeout);
+                    scrollTimeout = setTimeout(() => {
+                        const slideWidth = sliderContainer.offsetWidth;
+                        if (slideWidth > 0) {
+                            const idx = Math.round(sliderContainer.scrollLeft / slideWidth);
+                            currentSlide = Math.min(idx, totalSlides - 1);
+                            if (counter) counter.innerText = `${currentSlide + 1} / ${totalSlides}`;
+                            updateHintArrows(currentSlide);
+                        }
+                    }, 50);
+                }, { passive: true });
+
+                // --- Infinite Loop: Touch-based boundary detection ---
+                let touchStartX = 0;
+                let touchStartScrollLeft = 0;
+                let isLooping = false;
+
+                sliderContainer.addEventListener('touchstart', (e) => {
+                    touchStartX = e.touches[0].clientX;
+                    touchStartScrollLeft = sliderContainer.scrollLeft;
+                }, { passive: true });
+
+                sliderContainer.addEventListener('touchend', (e) => {
+                    if (isLooping) return;
+                    const touchEndX = e.changedTouches[0].clientX;
+                    const diff = touchStartX - touchEndX; // positive = swipe left (next), negative = swipe right (prev)
+                    const slideWidth = sliderContainer.offsetWidth;
+                    const threshold = 40; // minimum swipe distance
+
+                    if (Math.abs(diff) < threshold) return;
+
+                    // Swipe LEFT (trying to go to next) while on LAST slide → jump to first
+                    if (diff > 0 && currentSlide >= totalSlides - 1) {
+                        isLooping = true;
+                        sliderContainer.scrollTo({ left: 0, behavior: 'smooth' });
+                        currentSlide = 0;
+                        if (counter) counter.innerText = `1 / ${totalSlides}`;
+                        updateHintArrows(0);
+                        setTimeout(() => { isLooping = false; }, 600);
+                    }
+                    // Swipe RIGHT (trying to go to prev) while on FIRST slide → jump to last
+                    else if (diff < 0 && currentSlide <= 0 && touchStartScrollLeft <= 0) {
+                        isLooping = true;
+                        const targetScroll = slideWidth * (totalSlides - 1);
+                        sliderContainer.scrollTo({ left: targetScroll, behavior: 'smooth' });
+                        currentSlide = totalSlides - 1;
+                        if (counter) counter.innerText = `${totalSlides} / ${totalSlides}`;
+                        updateHintArrows(totalSlides - 1);
+                        setTimeout(() => { isLooping = false; }, 600);
+                    }
+                }, { passive: true });
+
+                // Auto-fade hints after 4 seconds
+                if (hintsContainer) {
+                    setTimeout(() => {
+                        if (!hasScrolled) {
+                            hintsContainer.classList.add('fade-out');
+                        }
+                    }, 4000);
                 }
-            }, { passive: true });
+            } else {
+                // Desktop: Original touch swipe (click-to-advance)
+                let touchStartX = 0;
+                let touchEndX = 0;
+                sliderContainer.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                }, { passive: true });
+
+                sliderContainer.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    const dist = touchEndX - touchStartX;
+                    if (Math.abs(dist) > 50) {
+                        currentSlide = dist > 0 ? (currentSlide - 1 + totalSlides) % totalSlides : (currentSlide + 1) % totalSlides;
+                        updateSlider(currentSlide);
+                    }
+                }, { passive: true });
+            }
         }
 
         // Re-bind sounds for the new content
@@ -502,56 +716,18 @@ function updateActiveNavLink(path) {
         }
     });
 
-    // 只在第一次调用时绑定事件（修复 Bug #3, #4, #5）
-    if (!navEventsInitialized && nav && indicator) {
+    // 只在第一次调用时绑定事件（CSS ::after 方案仅需管理 .active class）
+    if (!navEventsInitialized && nav) {
         navLinks.forEach(link => {
-            link.addEventListener('mouseenter', () => {
-                moveIndicator(link, nav, indicator);
+            // Click: immediately mark as active (CSS ::after handles the underline)
+            link.addEventListener('click', () => {
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
             });
-        });
-
-        nav.addEventListener('mouseleave', () => {
-            // 动态获取当前活动链接，而不是使用闭包中的旧值（修复 Bug #5）
-            const currentActive = document.querySelector('nav a.active');
-            if (currentActive) {
-                moveIndicator(currentActive, nav, indicator);
-            } else {
-                // 首页时隐藏指示器
-                indicator.style.width = '0';
-            }
-        });
-
-        // 只添加一次 resize 监听器
-        window.addEventListener('resize', () => {
-            const currentActive = document.querySelector('nav a.active');
-            if (currentActive) {
-                moveIndicator(currentActive, nav, indicator);
-            }
         });
 
         navEventsInitialized = true;
     }
-
-    // 更新指示器位置
-    if (nav && indicator) {
-        if (activeLink) {
-            setTimeout(() => moveIndicator(activeLink, nav, indicator), 50);
-        } else {
-            // 首页时隐藏指示器（修复 Bug #1）
-            indicator.style.width = '0';
-            indicator.style.transform = 'translateX(0)';
-        }
-    }
-}
-
-function moveIndicator(targetLink, navContainer, indicatorLine) {
-    if (!targetLink || !navContainer || !indicatorLine) return;
-
-    const navRect = navContainer.getBoundingClientRect();
-    const targetRect = targetLink.getBoundingClientRect();
-
-    indicatorLine.style.width = `${targetRect.width}px`;
-    indicatorLine.style.transform = `translateX(${targetRect.left - navRect.left}px)`;
 }
 
 // Global Sound Re-binding (Nav, Socials, etc)
@@ -615,13 +791,8 @@ function initTheme() {
             document.documentElement.setAttribute('data-theme', next);
             localStorage.setItem('theme', next);
 
-            // Spin Icon
-            const icon = document.getElementById('theme-icon');
-            if (icon) {
-                icon.classList.remove('icon-spin');
-                void icon.offsetWidth;
-                icon.classList.add('icon-spin');
-            }
+            // CSS handles all sun↔moon animation transitions automatically
+            // No need for icon-spin or image swap
 
             // Update Snow Color
             updateSnowColor();

@@ -46,15 +46,12 @@
     filter: invert(1);
 }
 
-[data-theme="dark"] .nav-indicator {
-    background-color: #f0f0f0;
-}
-
 [data-theme="dark"] .project-card .project-thumb {
     background-color: #333;
 }
 
-/* Theme Toggle Button */
+/* ======= Apple-Style Theme Toggle: circle.lefthalf.filled ======= */
+/* Replicates Apple iOS Control Center appearance toggle */
 #theme-toggle {
     background: transparent;
     border: none;
@@ -63,58 +60,48 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-color);
-    transition: transform 0.3s ease;
-    /* FIX: Lock dimensions to prevent layout shift during image swap */
-    width: 18px;
-    height: 18px;
+    color: var(--nav-color);
+    width: 19px;
+    height: 19px;
     flex-shrink: 0;
-    /* Stabilize in flex layouts */
     box-sizing: content-box;
-    /* If padding is added later, size grows outwards */
     border-radius: 50%;
-    /* Clean rotation */
     will-change: transform;
-    /* Hint GPU */
+    transition: transform 0.3s ease, color 0.6s ease;
+    /* Optical alignment with nav links on desktop */
+    position: relative;
+    top: 2px;
 }
 
 #theme-toggle:hover {
-    transform: rotate(15deg);
+    transform: scale(1.2);
+    color: var(--nav-active);
 }
 
-#theme-toggle svg,
-#theme-toggle img {
-    width: 18px;
-    height: 18px;
-    fill: currentColor;
+#theme-toggle:active {
+    transform: scale(0.85);
+}
+
+/* SVG container: the rotation happens here */
+#theme-toggle .theme-icon-svg {
+    width: 19px;
+    height: 19px;
     display: block;
-    /* Ensure icon itself handles transform smoothly if needed, but we used keyframes */
+    overflow: visible;
+    color: inherit;
+    /* Apple-style spring transition: 0.5s with overshoot cubic-bezier */
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+        color 0.6s ease;
 }
 
-/* Instant check: Dark theme inverts these original-light assets */
-[data-theme='dark'] #theme-icon,
-[data-theme='dark'] .social-icons img {
-    filter: invert(1);
+/* ---- Light Mode (Default): Left half filled, 0° ---- */
+#theme-toggle .theme-icon-svg {
+    transform: rotate(0deg);
 }
 
-/* 暗色模式下雪花图标（非激活）也需要 invert */
-[data-theme='dark'] #snow-toggle:not(.active) svg {
-    filter: invert(1);
-}
-
-/* Icon Rotation Animation */
-@keyframes spinIcon {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.icon-spin {
-    animation: spinIcon 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+/* ---- Dark Mode: Rotate 180° so filled half flips ---- */
+[data-theme="dark"] #theme-toggle .theme-icon-svg {
+    transform: rotate(180deg);
 }
 
 /* Global Reset & Box Sizing */
@@ -275,9 +262,27 @@ nav a {
     transition: opacity 0.3s;
     text-transform: uppercase;
     padding-bottom: 4px;
-    /* 移除静态下划线，使用滑动指示器 */
     border-bottom: none;
     position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--text-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    will-change: transform;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    transform: scaleX(1);
 }
 
 nav a:hover,
@@ -285,16 +290,9 @@ nav a.active {
     opacity: 1 !important;
 }
 
-/* 滑动下划线指示器 */
+/* 旧滑动指示器 — 隐藏但保留 DOM 兼容性 */
 .nav-indicator {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 1px;
-    background-color: #1a1a1a;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    pointer-events: none;
-    z-index: 1;
+    display: none;
 }
 
 /* Social Icons (Right Side) */
@@ -394,8 +392,12 @@ nav a.active {
 .copyright {
     position: static;
     padding: 30px max(var(--site-padding), calc((100% - var(--site-max-width)) / 2));
+    font-family: var(--font-title-special);
     font-size: 10px;
-    color: #ccc;
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    color: #999;
     background: transparent;
     margin-top: auto;
     width: 100%;
@@ -652,6 +654,157 @@ body:not(.is-home) main {
     }
 }
 
+/* Mobile swipe hints: GLOBAL HIDE - only shown in mobile media query */
+.mobile-swipe-hints {
+    display: none;
+}
+
+/* ======= HAMBURGER MENU & MOBILE OVERLAY (Desktop: Hidden) ======= */
+.hamburger-btn {
+    display: none;
+    /* Hidden on desktop */
+}
+
+.mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.35s ease;
+    will-change: opacity;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    touch-action: none;
+}
+
+.mobile-menu-overlay.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Staggered animation for nav links */
+.mobile-menu-nav a,
+.mobile-menu-social a {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.mobile-menu-overlay.is-open .mobile-menu-nav a:nth-child(1) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.08s;
+}
+
+.mobile-menu-overlay.is-open .mobile-menu-nav a:nth-child(2) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.16s;
+}
+
+.mobile-menu-overlay.is-open .mobile-menu-nav a:nth-child(3) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.24s;
+}
+
+.mobile-menu-overlay.is-open .mobile-menu-social a:nth-child(1) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.32s;
+}
+
+.mobile-menu-overlay.is-open .mobile-menu-social a:nth-child(2) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.38s;
+}
+
+.mobile-menu-overlay.is-open .mobile-menu-social a:nth-child(3) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.44s;
+}
+
+.menu-close-btn {
+    position: absolute;
+    top: 24px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+    padding: 8px;
+    -webkit-tap-highlight-color: transparent;
+    opacity: 0;
+    transform: rotate(-90deg);
+    transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
+}
+
+.mobile-menu-overlay.is-open .menu-close-btn {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+.mobile-menu-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.mobile-menu-nav a {
+    font-family: var(--font-title-special);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: opacity 0.35s ease, transform 0.35s ease, letter-spacing 0.3s ease;
+}
+
+.mobile-menu-nav a:hover {
+    opacity: 0.6;
+    letter-spacing: 0.35em;
+}
+
+.mobile-menu-social {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.mobile-menu-social img {
+    width: 18px;
+    height: 18px;
+    opacity: 0.7;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+[data-theme="dark"] .mobile-menu-social img {
+    filter: invert(1);
+}
+
+.mobile-menu-social a:hover img {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+/* Mobile Home Projects: Hidden on desktop */
+.mobile-home-projects {
+    display: none;
+}
+
 /* Responsive - Mobile First Optimizations */
 @media (max-width: 768px) {
 
@@ -660,94 +813,176 @@ body:not(.is-home) main {
         font-size: 15px;
     }
 
-    /* ======= MOBILE HEADER: Left-Right Layout with Vertical Alignment ======= */
     header {
         position: relative;
-        padding: 50px 20px 60px 20px;
+        padding: 20px 20px;
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
         height: auto;
         background: var(--bg-color);
+        gap: 0;
     }
 
-    /* Brand: Full width, left aligned */
+
+    /* Brand: Left side */
     .brand {
-        width: 100%;
-        margin-right: 0;
+        width: auto;
+        margin-right: 8px;
         margin-bottom: 0;
         text-align: left;
+        flex-shrink: 0;
     }
 
     .brand h1 {
-        font-size: 2rem;
+        font-size: 1.6rem;
+        line-height: 1;
     }
 
-    /* Nav: Left aligned */
-    nav {
-        width: 100%;
-        margin: 0;
+    /* Hide desktop nav on mobile (only header's direct nav, not overlay nav) */
+    header>nav {
+        display: none !important;
     }
 
-    nav ul {
-        flex-wrap: wrap;
-        gap: 15px 20px;
-        justify-content: flex-start;
-    }
+    /* === UNIFIED HEIGHT: All interactive elements = 26px (same as brand h1) === */
 
-    nav a {
-        font-size: 11px;
-        padding: 0;
-    }
-
-    /* Snow Button: Absolute position, below social icons */
+    /* Snow toggle: next to brand, compact */
     #snow-toggle {
         order: unset;
-        align-self: unset;
-        position: absolute;
-        top: 130px;
-        right: 20px;
-        margin: 0 !important;
-        padding: 0;
+        align-self: center;
+        position: static;
+        margin: 3px 4px 0 0 !important;
+        /* 下移3px对齐brand底边 */
+        padding: 0 6px;
         width: auto;
-        height: auto;
+        height: 20px;
+        flex-shrink: 0;
+        font-size: 10px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        line-height: 1;
     }
 
-    /* Social Icons: Aligned vertically with nav text (same baseline) */
+    #snow-toggle span {
+        font-size: 10px;
+        letter-spacing: 0.05em;
+    }
+
+    /* Social icons: hide links, keep theme toggle */
     .social-icons {
-        order: unset;
-        align-self: unset;
-        position: absolute;
-        top: 98px;
-        right: 20px;
-        justify-content: flex-end;
-        margin: 0 !important;
-        width: auto;
-        gap: 14px;
+        position: static !important;
+        width: auto !important;
+        margin: 0 0 0 auto !important;
+        gap: 0 !important;
+        flex-shrink: 0;
+        display: flex !important;
+        align-items: center !important;
+        height: 20px;
     }
 
-    .social-icons img {
+    .social-icons>a {
+        display: none !important;
+    }
+
+    /* Theme toggle: same height, right side near Menu */
+    .social-icons #theme-toggle {
+        width: 20px !important;
+        height: 20px !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        padding: 0 !important;
+        margin: 0 8px 0 0;
+        box-sizing: border-box !important;
+        border: none !important;
+        border-radius: 0;
+        outline: none;
+        -webkit-appearance: none;
+        appearance: none;
+        line-height: 1;
+        /* Reset desktop offset */
+        top: 0;
+    }
+
+    .social-icons #theme-toggle .theme-icon-svg {
+        width: 14px !important;
+        height: 14px !important;
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Hamburger Button — animated ≡ → × */
+    .hamburger-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        color: var(--text-color);
+        padding: 0;
+        height: 20px;
+        margin-top: 0;
+        flex-shrink: 0;
+        -webkit-tap-highlight-color: transparent;
+        z-index: 10001;
+        /* 保持在 overlay 之上 */
+        position: relative;
+    }
+
+    .hamburger-lines {
+        width: 18px;
         height: 14px;
-        width: auto;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
-    /* Theme toggle button: same size as social icons */
-    #theme-toggle {
-        width: 14px !important;
-        height: 14px !important;
+    .hamburger-lines .line {
+        display: block;
+        width: 100%;
+        height: 1.5px;
+        background: var(--text-color);
+        border-radius: 1px;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+            opacity 0.2s ease;
+        transform-origin: center;
     }
 
-    #theme-toggle img {
-        width: 14px !important;
-        height: 14px !important;
+    /* Active state: ≡ → × */
+    .hamburger-btn.is-active .line-1 {
+        transform: translateY(6px) rotate(45deg);
     }
+
+    .hamburger-btn.is-active .line-2 {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+
+    .hamburger-btn.is-active .line-3 {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .hamburger-label {
+        font-family: var(--font-title-special);
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        line-height: 1;
+        transition: opacity 0.2s ease;
+    }
+
+
 
     /* Main content */
     main {
         margin-top: 0;
-        padding: 20px;
-        /* Match header padding */
+        padding: 12px 20px;
     }
 
     /* Homepage Hero - Masonry layout using CSS Columns */
@@ -765,32 +1000,48 @@ body:not(.is-home) main {
 
     .hero-container {
         height: auto;
-        padding: 12px 20px 20px 20px;
-        /* Match side padding */
+        padding: 0 20px 8px 20px;
     }
 
+    /* Hide desktop hero gallery on mobile */
     .hero-gallery {
-        width: 100%;
-        columns: 2;
-        /* 2 column masonry */
-        column-gap: 6px;
-        padding: 0;
+        display: none !important;
     }
 
-    .hero-img {
-        position: relative;
+    /* ======= MOBILE HOME: Single-Column Curated Images ======= */
+    .mobile-home-projects {
+        display: block !important;
+        padding: 0 20px 40px 20px;
+    }
+
+    .mobile-home-card {
+        margin-bottom: 32px;
+    }
+
+    .mobile-home-card img {
         width: 100%;
         height: auto;
-        /* Natural height */
         display: block;
-        margin-bottom: 6px;
-        break-inside: avoid;
-        /* Prevent image from splitting across columns */
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-        transform: none !important;
         border-radius: 2px;
+    }
+
+    .mobile-home-caption {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 8px 0 0 0;
+        font-family: var(--font-title-special);
+        font-size: 11px;
+        color: var(--nav-color);
+        letter-spacing: 0.05em;
+    }
+
+    .mobile-home-caption .caption-location {
+        font-weight: 500;
+    }
+
+    .mobile-home-caption .caption-date {
+        opacity: 0.7;
     }
 
     /* ======= PROJECT DETAIL PAGE: Left-Aligned Text ======= */
@@ -833,7 +1084,6 @@ body:not(.is-home) main {
     .project-gallery-side {
         padding: 0;
         justify-content: flex-start;
-        /* Left align images */
     }
 
     /* ======= CRITICAL LAYOUT RESET FOR MOBILE ======= */
@@ -869,34 +1119,123 @@ body:not(.is-home) main {
         float: none !important;
     }
 
-    /* 3. Layout Spacing (Vertical Rhythm) */
+    /* 3. Layout Spacing: Gallery FIRST, Info BELOW on mobile */
+    .project-gallery-side {
+        order: 1 !important;
+    }
+
     .project-info-side {
-        margin-bottom: 40px !important;
+        order: 3 !important;
+        margin-bottom: 0 !important;
+        margin-top: 20px !important;
+        padding-top: 20px !important;
         padding-bottom: 20px !important;
-        border-bottom: 1px solid #eee;
-        /* Optional separator */
+        border-top: none !important;
+        /* MOBILE FIX: Remove divider line */
+        border-bottom: none;
     }
 
     .gallery-slide {
-        display: block !important;
-        /* Show all slides in a list */
-        margin-bottom: 60px !important;
-        /* Big gap between images */
+        width: 100vw !important;
+        height: auto !important;
+        flex-shrink: 0 !important;
+        scroll-snap-align: start !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        /* MOBILE FIX: Align images to top */
+        padding: 0 16px !important;
+        margin-bottom: 0 !important;
         opacity: 1 !important;
-        /* Force visible */
         visibility: visible !important;
     }
 
-    /* Disable the slider functionality visuals on mobile - show all images */
+    /* Mobile: Horizontal scroll-snap gallery */
     .gallery-slider-container {
-        display: block !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+        /* MOBILE FIX: Images align to top */
+        overflow-x: scroll !important;
+        overflow-y: hidden !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
         height: auto !important;
+        /* MOBILE FIX: Let content determine height, no vertical centering */
+        max-height: none !important;
+        width: 100vw !important;
+        margin-left: -20px !important;
+        padding-top: 10px !important;
+        /* Small gap after header */
     }
 
-    /* Hide desktop controls */
+    /* Hide desktop arrow controls AND counter on mobile */
     .slider-arrow,
+    .slider-nav-area {
+        display: none !important;
+    }
+
     .slider-counter {
         display: none !important;
+    }
+
+    /* Mobile swipe hints: left & right arrows */
+    .mobile-swipe-hints {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0 20px;
+        order: 0 !important;
+        /* Before gallery (order 1) and info (order 3) */
+        color: #aaa;
+        opacity: 0.6;
+        transition: opacity 0.8s ease;
+    }
+
+    .swipe-hint-arrow {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .swipe-hint-left {
+        animation: nudge-left 1.8s ease-in-out infinite;
+    }
+
+    .swipe-hint-right {
+        animation: nudge-right 1.8s ease-in-out infinite;
+    }
+
+    .mobile-swipe-hints.fade-out {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    @keyframes nudge-left {
+
+        0%,
+        100% {
+            transform: translateX(0);
+        }
+
+        50% {
+            transform: translateX(-5px);
+        }
+    }
+
+    @keyframes nudge-right {
+
+        0%,
+        100% {
+            transform: translateX(0);
+        }
+
+        50% {
+            transform: translateX(5px);
+        }
     }
 
     /* 4. Fix Image & Caption Stacking */
@@ -926,61 +1265,80 @@ body:not(.is-home) main {
     body.is-home .copyright {
         position: static;
         padding: 40px 20px;
-        text-align: center;
+        text-align: right;
         width: 100%;
         margin-top: 20px;
     }
 
-    /* ======= NUCLEAR HEIGHT RESET (Fix Collapse) ======= */
+    /* ======= MOBILE GALLERY: Scroll-Snap Image Sizing ======= */
     .project-split,
-    .project-gallery-side,
-    .gallery-slider-container,
-    .gallery-slide,
-    .image-wrapper,
-    .slide-figure {
+    .project-gallery-side {
         height: auto !important;
         min-height: auto !important;
-        max-height: none !important;
-        /* Critical for Portraits */
         overflow: visible !important;
-        /* KILL GHOST SPACING */
         line-height: 0 !important;
         font-size: 0 !important;
     }
 
-    /* Double-check Image Reset */
+    .gallery-slider-container {
+        /* height set above - do not override */
+        line-height: 0 !important;
+        font-size: 0 !important;
+    }
+
+    .image-wrapper {
+        position: relative !important;
+        /* Context for caption overlay */
+        height: auto !important;
+        min-height: auto !important;
+        max-height: calc(100vh - 200px) !important;
+        /* MOBILE FIX: More space for image */
+        overflow: hidden !important;
+        /* Clip caption within image bounds */
+        line-height: 0 !important;
+        font-size: 0 !important;
+    }
+
+    .slide-figure {
+        height: auto !important;
+        min-height: auto !important;
+        max-height: calc(100vh - 200px) !important;
+        overflow: visible !important;
+        line-height: 0 !important;
+        font-size: 0 !important;
+    }
+
+    /* Images in scroll-snap: contain within viewport */
     .gallery-slide img,
     .image-wrapper img,
     .slide-figure img {
         position: static !important;
-        width: 100% !important;
+        width: auto !important;
         height: auto !important;
-        max-width: 100% !important;
-        max-height: none !important;
-        /* Allow Portrait Full Height */
+        max-width: calc(100vw - 32px) !important;
+        max-height: calc(100vh - 200px) !important;
+        /* MOBILE FIX: Taller image area */
         object-fit: contain !important;
         transform: none !important;
         display: block !important;
-        /* No inline gaps */
-        margin-bottom: 0 !important;
-        /* Tight to caption */
+        margin: 0 auto !important;
     }
 
-    /* Caption Safety & Restore Typography */
+    /* Caption: below image, centered - matches reference site */
     figcaption {
         position: static !important;
         transform: none !important;
-        /* Spacing */
-        margin-top: 8px !important;
-        /* Tight spacing exactly as requested */
-        margin-bottom: 40px !important;
-        /* Push next image away */
-        /* Typography Restore */
+        margin: 16px 0 0 0 !important;
+        padding: 0 !important;
         display: block !important;
         width: 100% !important;
         font-size: 11px !important;
         line-height: 1.4 !important;
-        color: #999;
+        color: #999 !important;
+        text-align: center !important;
+        background: none !important;
+        pointer-events: auto !important;
+        z-index: auto !important;
     }
 
     /* Archive Grid - 2 columns side by side on mobile */
@@ -1072,7 +1430,7 @@ body:not(.is-home) main {
     /* Copyright */
     .copyright {
         padding: 30px 28px;
-        text-align: center;
+        text-align: right;
     }
 }
 
@@ -1485,13 +1843,14 @@ body:not(.is-home) main {
 
     .project-info-side {
         padding: 0 28px;
-        /* Match new standard padding */
-        margin-bottom: 40px;
+        margin-bottom: 0;
+        margin-top: 20px;
     }
 
     .gallery-slider-container {
         transform: translateY(0);
-        height: 60vh;
+        height: auto;
+        /* Consistent with mobile fix above */
     }
 }
 
@@ -1608,75 +1967,119 @@ body.is-void #site-wrapper {
     }
 }
 
-/* Mobile: Full Width & Vertical Stack (Disable Slider) */
+/* Mobile: Horizontal Scroll-Snap Gallery (Replaces Vertical Stack) */
 @media screen and (max-width: 768px) {
 
-    /* 1. Project Split Layout */
+    /* 1. Project Split Layout - Full viewport slideshow */
     .project-split {
         flex-direction: column;
         height: auto !important;
-        /* CRITICAL: Allow content to expand */
         overflow: visible !important;
-        /* CRITICAL: Don't clip images */
     }
 
     .project-gallery-side {
         width: 100%;
         height: auto !important;
-        /* CRITICAL: Override the 100% height from desktop */
-        margin-top: 20px;
+        margin-top: 0;
         justify-content: flex-start;
-        /* Left align */
         align-items: flex-start;
+        order: 1 !important;
     }
 
-    /* 2. Project Images: Vertical Stack instead of Slider */
+    /* 2. Gallery Container: Full viewport horizontal scroll */
     .gallery-slider-container {
-        width: 100%;
-        height: auto !important;
+        width: 100vw !important;
+        margin-left: -20px !important;
+        height: calc(100vh - 160px) !important;
+        /* Full viewport minus header */
         max-height: none !important;
-        /* CRITICAL FIX: Allow full height */
-        display: block !important;
-        /* Stack context */
-        overflow: visible !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        /* Vertically center images like reference site */
+        overflow-x: scroll !important;
+        overflow-y: hidden !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding: 0 !important;
     }
 
-    /* Force all slides to be visible and stacked */
+    /* Each slide = one full viewport width */
     .gallery-slide {
         position: relative !important;
-        /* Back to flow */
-        width: 100% !important;
-        height: auto !important;
+        width: 100vw !important;
+        height: 100% !important;
+        flex-shrink: 0 !important;
+        scroll-snap-align: start !important;
         opacity: 1 !important;
-        /* Force visible */
-        display: block !important;
-        margin-bottom: 40px;
-        /* Space between images */
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        /* Align to top */
+        padding: 20px 20px 0 20px !important;
+        /* Small top gap, side padding */
+        margin-bottom: 0 !important;
     }
 
-    /* Hide slider controls on mobile */
+    /* Hide ALL desktop slider controls AND counter on mobile */
     .slider-nav-area,
-    .slider-counter,
     .slider-arrow,
     .slide-counter-overlay {
         display: none !important;
     }
 
+    .slider-counter {
+        display: none !important;
+        /* No page counter - matches reference site */
+    }
+
+    /* Figure container: centered with caption below */
     .slide-figure {
         width: 100%;
         height: auto;
-        display: block;
+        max-height: calc(100vh - 240px);
+        /* Leave room for caption below */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         margin: 0;
     }
 
+    /* Image sizing: fit within viewport */
     .slide-figure img {
-        width: 100% !important;
+        width: auto !important;
         height: auto !important;
-        max-height: none !important;
-        object-fit: contain;
+        max-width: calc(100vw - 40px) !important;
+        /* 20px padding each side */
+        max-height: calc(100vh - 280px) !important;
+        /* Room for header + caption */
+        object-fit: contain !important;
     }
 
-    /* 3. Homepage / Kyoto Facades: Single Column */
+    /* Caption: below image, centered, clean - matches reference site style */
+    .slide-figure figcaption {
+        position: static !important;
+        font-size: 11px !important;
+        line-height: 1.4 !important;
+        margin-top: 16px !important;
+        /* Clean spacing below image */
+        margin-bottom: 0 !important;
+        text-align: center !important;
+        color: #999 !important;
+        background: none !important;
+        padding: 0 !important;
+        pointer-events: auto !important;
+    }
+
+    /* Remove divider line between gallery and info */
+    .project-info-side {
+        border-top: none !important;
+    }
+
+    /* 3. Homepage: Single Column */
     .hero-gallery {
         width: 100% !important;
         columns: 1 !important;

@@ -66,3 +66,24 @@ This file serves as a persistent "memory" of shared principles and retrospective
 - **Rule**: **Variance Creates Depth**.
   - **Size-Speed Correlation**: Assign different speeds based on object size (e.g., small flakes = fast/light, large flakes = slow/heavy).
   - **Layering**: Mixing fast and slow elements creates a parallax effect, enhancing realism.
+
+## 🔄 2026-02-10 Session Retrospective (Admin UX & Performance)
+
+### 1. Interaction Physics Principle (物理交互不造轮子)
+- **Problem**: Native HTML5 Drag & Drop is fragile, index-unaware, and lacks touch support, making list reordering a nightmare.
+- **Rule**: **Outsource Physics**. Use established micro-libraries (like `SortableJS`) for physical interactions like drag-sort, inertia scroll, or gestures. They handle edge cases (touch, animation, ghosting) better than custom code.
+- **Implementation**: Replaced 100+ lines of buggy native D&D code with 20 lines of SortableJS config. Immediate win on stability and mobile support.
+
+### 2. Instant Digital Hygiene (入口处极致瘦身)
+- **Problem**: Server kept "backup" copies of uploaded images, inflating the repo to 1.5GB with unused raw JPGs. Git operations became painfully slow.
+- **Rule**: **Aggressive Optimization at Ingest**. The upload handler must implement a `Raw -> WebP -> Delete Original` pipeline. Never use the repo for backups; use external storage if needed.
+- **Action**: Cleaned 1.1GB of redundant images. Updated server to auto-convert and auto-delete originals.
+
+### 3. Live State Anchoring (实时状态锚定)
+- **Problem**: Deleting an item after reordering deleted the wrong item because the event listener held a stale closure index.
+- **Rule**: **Trust Live DOM Dataset**. For mutable lists, never rely on closure variables created at render time. Always read `element.dataset.index` at the moment of interaction to get the current truth.
+
+### 4. Backend Transparency (后端透明反馈)
+- **Problem**: Git publish failed silently or with generic errors because `stderr` was swallowed. Front-end users had no clue it was a permission issue.
+- **Rule**: **Echo the Crash**. When executing shell commands (Git, FFmpeg), capture `stderr` and return it raw to the frontend. A specific error ("Permission denied") is actionable; a generic error ("Failed") is not.
+

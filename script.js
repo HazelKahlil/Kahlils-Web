@@ -259,11 +259,11 @@ function populateHome(container, images, projects) {
             let rawSrc = typeof item === 'string' ? item : item.src;
             let src = rawSrc;
             if (src && !src.startsWith('http') && !src.startsWith('/')) src = '/' + src;
-            // Cache bust local
-            if (src && !src.startsWith('http')) src = encodeURI(src) + '?t=' + new Date().getTime();
+            if (src && !src.startsWith('http')) src = encodeURI(src);
 
             img.src = src;
             img.className = `hero-img img-${idx + 1}`;
+            img.decoding = 'async';
 
             if (typeof item === 'object' && item.style) {
                 Object.assign(img.style, item.style);
@@ -292,7 +292,7 @@ function populateHome(container, images, projects) {
             let rawSrc = typeof item === 'string' ? item : item.src;
             let src = rawSrc;
             if (src && !src.startsWith('http') && !src.startsWith('/')) src = '/' + src;
-            if (src && !src.startsWith('http')) src = encodeURI(src) + '?t=' + new Date().getTime();
+            if (src && !src.startsWith('http')) src = encodeURI(src);
 
             // Try to extract date from filename (e.g. "2025.7.19 54.webp" → "2025.7.19")
             const filename = rawSrc ? rawSrc.split('/').pop() : '';
@@ -309,7 +309,7 @@ function populateHome(container, images, projects) {
             }
 
             wrapper.innerHTML = `
-                <img src="${src}" alt="" loading="lazy">
+                <img src="${src}" alt="" loading="lazy" decoding="async">
                 ${captionHTML}
             `;
             mobileContainer.appendChild(wrapper);
@@ -465,11 +465,14 @@ function populateProjectDetail(container, projects) {
             let slideSrc = encodeURI(src);
             let metaText = (typeof imgItem === 'object' && imgItem.caption) ? imgItem.caption : "Location, Year, Subject";
 
+            // First image: eager load for instant display; rest: lazy
+            const loadAttr = idx === 0 ? '' : 'loading="lazy"';
+
             slidesHtml += `
                 <div class="gallery-slide ${idx === 0 ? 'active' : ''}" data-index="${idx}">
                     <figure class="slide-figure">
                         <div class="image-wrapper">
-                            <img src="${slideSrc}" alt="${project.title} ${idx + 1}" style="${slideStyle}" loading="lazy">
+                            <img src="${slideSrc}" alt="${project.title} ${idx + 1}" style="${slideStyle}" ${loadAttr} decoding="async">
                         </div>
                         <figcaption>${metaText}</figcaption>
                     </figure>
@@ -602,7 +605,7 @@ function populateProjectDetail(container, projects) {
                             if (counter) counter.innerText = `${currentSlide + 1} / ${totalSlides}`;
                             updateHintArrows(currentSlide);
                         }
-                    }, 50);
+                    }, 150);
                 }, { passive: true });
 
                 // --- Infinite Loop: Touch-based boundary detection ---
@@ -627,21 +630,25 @@ function populateProjectDetail(container, projects) {
                     // Swipe LEFT (trying to go to next) while on LAST slide → jump to first
                     if (diff > 0 && currentSlide >= totalSlides - 1) {
                         isLooping = true;
-                        sliderContainer.scrollTo({ left: 0, behavior: 'smooth' });
+                        sliderContainer.style.scrollBehavior = 'auto';
+                        sliderContainer.scrollLeft = 0;
+                        sliderContainer.style.scrollBehavior = '';
                         currentSlide = 0;
                         if (counter) counter.innerText = `1 / ${totalSlides}`;
                         updateHintArrows(0);
-                        setTimeout(() => { isLooping = false; }, 600);
+                        setTimeout(() => { isLooping = false; }, 300);
                     }
                     // Swipe RIGHT (trying to go to prev) while on FIRST slide → jump to last
                     else if (diff < 0 && currentSlide <= 0 && touchStartScrollLeft <= 0) {
                         isLooping = true;
                         const targetScroll = slideWidth * (totalSlides - 1);
-                        sliderContainer.scrollTo({ left: targetScroll, behavior: 'smooth' });
+                        sliderContainer.style.scrollBehavior = 'auto';
+                        sliderContainer.scrollLeft = targetScroll;
+                        sliderContainer.style.scrollBehavior = '';
                         currentSlide = totalSlides - 1;
                         if (counter) counter.innerText = `${totalSlides} / ${totalSlides}`;
                         updateHintArrows(totalSlides - 1);
-                        setTimeout(() => { isLooping = false; }, 600);
+                        setTimeout(() => { isLooping = false; }, 300);
                     }
                 }, { passive: true });
 

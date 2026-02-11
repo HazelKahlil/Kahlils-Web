@@ -778,6 +778,11 @@ body:not(.is-home) main {
     letter-spacing: 0.35em;
 }
 
+/* 移动端菜单链接不需要下划线 */
+.mobile-menu-nav a::after {
+    display: none;
+}
+
 .mobile-menu-social {
     display: flex;
     gap: 28px;
@@ -825,6 +830,20 @@ body:not(.is-home) main {
         gap: 0;
     }
 
+    /* 🔴 DEBUG: 红色基准线 — 对齐 HAZEL 字母底端，完成后删除 */
+    header::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: red;
+        z-index: 9999;
+        pointer-events: none;
+        /* 调整中: 字母 H/A/Z/E/L 最底端像素 */
+        top: 84px;
+    }
+
 
     /* Brand: Left side */
     .brand {
@@ -870,9 +889,10 @@ body:not(.is-home) main {
         letter-spacing: 0.05em;
     }
 
-    /* Social icons: hide links, keep theme toggle */
+    /* Social icons: hide links, keep theme toggle — 下移对齐 brand baseline */
     .social-icons {
-        position: static !important;
+        position: relative !important;
+        top: -3px;
         width: auto !important;
         margin: 0 0 0 auto !important;
         gap: 0 !important;
@@ -914,7 +934,7 @@ body:not(.is-home) main {
         padding: 0;
     }
 
-    /* Hamburger Button — animated ≡ → × */
+    /* Hamburger Button — animated ≡ → × ，下移对齐 brand baseline */
     .hamburger-btn {
         display: flex;
         align-items: center;
@@ -929,8 +949,8 @@ body:not(.is-home) main {
         flex-shrink: 0;
         -webkit-tap-highlight-color: transparent;
         z-index: 10001;
-        /* 保持在 overlay 之上 */
         position: relative;
+        top: -3px;
     }
 
     .hamburger-lines {

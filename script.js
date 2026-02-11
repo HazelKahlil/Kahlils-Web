@@ -762,7 +762,7 @@ function playSound(type) {
 }
 
 const soundSelectors = [
-    { sel: 'nav a, .social-icons a, .contact-link, .tab-btn, #p-title, .project-info-side h1, .brand h1, #snow-toggle', type: 'click' },
+    { sel: 'nav a, .social-icons a, .contact-link, .tab-btn, #p-title, .project-info-side h1, .brand h1', type: 'click' },
     { sel: '.hero-img, .project-card, .contact-img-wrapper, .contact-random-img, .project-thumb img', type: 'shutter' }
 ];
 

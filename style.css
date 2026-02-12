@@ -1162,7 +1162,7 @@ body:not(.is-home) main {
         flex-direction: column !important;
         height: auto !important;
         overflow: visible !important;
-        margin-top: -6px !important;
+        margin-top: -11px !important;
     }
 
     /* 2. Nuetralize Absolute Positioning & Coords */
@@ -1214,7 +1214,7 @@ body:not(.is-home) main {
         align-items: center !important;
         justify-content: flex-start !important;
         /* MOBILE FIX: Align images to top */
-        padding: 0 16px !important;
+        padding: 0 26px !important;
         margin-bottom: 0 !important;
         opacity: 1 !important;
         visibility: visible !important;
@@ -1258,7 +1258,7 @@ body:not(.is-home) main {
         align-items: center;
         width: 100vw;
         margin-left: -20px;
-        padding: 0 16px;
+        padding: 0 26px;
         order: 0 !important;
         /* Before gallery (order 1) and info (order 3) */
         color: #aaa;
@@ -1386,7 +1386,7 @@ body:not(.is-home) main {
         position: static !important;
         width: auto !important;
         height: auto !important;
-        max-width: calc(100vw - 32px) !important;
+        max-width: calc(100vw - 52px) !important;
         max-height: calc(100vh - 200px) !important;
         /* MOBILE FIX: Taller image area */
         object-fit: contain !important;

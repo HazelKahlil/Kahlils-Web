@@ -127,6 +127,11 @@ function initBarba() {
         views: []
     });
 
+    // Fix: Barba.js sets inline `overflow: hidden` on wrapper during transitions.
+    // This persists after transition, blocking scroll on the homepage.
+    const wrapper = document.querySelector('[data-barba="wrapper"]');
+    if (wrapper) wrapper.style.overflow = '';
+
     // Hooks
     barba.hooks.beforeEnter((data) => {
         // Update Navigation Active State
@@ -140,6 +145,9 @@ function initBarba() {
         // Re-run page logic for the new container
         loadPageContent(data.next.container);
         refreshGlobalSounds(); // Re-bind for new content
+
+        // Fix: Clear Barba's inline overflow:hidden on wrapper after transitions
+        if (wrapper) wrapper.style.overflow = '';
 
         // Google Analytics / Scripts re-trigger if needed
     });
@@ -819,120 +827,121 @@ function initSnowSystem() {
 
     let isSnowing = localStorage.getItem('isSnowing') === 'true';
     let canvas, ctx, flakes, raf;
-    let time = 0; // Global time for animation
+    let time = 0;
 
-    function start() {
-        if (!canvas) {
-            canvas = document.createElement('canvas');
-            canvas.style.position = 'fixed';
-            canvas.style.top = '0'; canvas.style.left = '0';
-            canvas.style.width = '100%'; canvas.style.height = '100%';
-            canvas.style.pointerEvents = 'none';
-            canvas.style.zIndex = '99999';
-            document.body.appendChild(canvas);
+    // === PRE-INITIALIZE: Create canvas + particles at page load (hidden) ===
+    function preInit() {
+        canvas = document.createElement('canvas');
+        canvas.id = 'snow-canvas';
+        canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999;display:none;opacity:0;';
+        document.body.appendChild(canvas);
 
-            // === High-DPI (Retina) Fix ===
-            const dpr = window.devicePixelRatio || 1;
-            // Force at least 2x density for sharpness as requested, or more if device supports it
-            const scale = Math.max(dpr, 2);
-
-            canvas.width = window.innerWidth * scale;
-            canvas.height = window.innerHeight * scale;
-
-            // Determine size based on CSS dimensions (keep visual size same)
-            canvas.style.width = '100%';
-            canvas.style.height = '100%';
-
-            window.onresize = () => {
-                canvas.width = window.innerWidth * scale;
-                canvas.height = window.innerHeight * scale;
-                // Important: Context state is reset on resize, so we must re-scale
-                ctx.scale(scale, scale);
-            };
-
-            // Enhanced flakes with sway properties
-            const flakeCount = window.innerWidth <= 768 ? 450 : 650;
-            flakes = Array.from({ length: flakeCount }, () => {
-                const r = Math.random() * 1 + 0.5; // Radius 0.5 - 1.5
-                // Simple size-based speed: small = fast, large = slow
-                // Logic: Large flakes = 0.5x (slow). 50% of small flakes = 0.75x (relatively faster).
-                let speedFactor = 0.5; // Base: slow for large flakes
-                if (r < 1.0 && Math.random() < 0.5) {
-                    speedFactor = 0.75; // 50% of small flakes are faster
-                }
-
-                return {
-                    x: Math.random() * window.innerWidth,
-                    y: Math.random() * window.innerHeight,
-                    r: r,
-                    s: (Math.random() * 0.8 + 0.3) * speedFactor,
-                    // Sway timed with speed
-                    swayAmplitude: Math.random() * 0.5 + 0.3,
-                    swayFrequency: (Math.random() * 0.015 + 0.008) * speedFactor,
-                    swayPhase: Math.random() * Math.PI * 2,
-                    drift: ((Math.random() - 0.5) * 0.2) * speedFactor,
-                    wobble: Math.random() * 0.4 + 0.4
-                };
-            });
-        }
-        canvas.style.display = 'block';
-        ctx = canvas.getContext('2d');
-
-        // === Apply Scale for High-DPI ===
         const dpr = window.devicePixelRatio || 1;
         const scale = Math.max(dpr, 2);
 
-        // Reset transform to identity before applying new scale to avoid compounding
+        canvas.width = window.innerWidth * scale;
+        canvas.height = window.innerHeight * scale;
+
+        ctx = canvas.getContext('2d');
+        ctx.scale(scale, scale);
+
+        window.addEventListener('resize', () => {
+            const s = Math.max(window.devicePixelRatio || 1, 2);
+            canvas.width = window.innerWidth * s;
+            canvas.height = window.innerHeight * s;
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
+            ctx.scale(s, s);
+        });
+
+        // Pre-generate all particles
+        const flakeCount = window.innerWidth <= 768 ? 450 : 650;
+        flakes = Array.from({ length: flakeCount }, () => {
+            const r = Math.random() * 1 + 0.5;
+            let speedFactor = 0.5;
+            if (r < 1.0 && Math.random() < 0.5) {
+                speedFactor = 0.75;
+            }
+            return {
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                r, s: (Math.random() * 0.8 + 0.3) * speedFactor,
+                swayAmplitude: Math.random() * 0.5 + 0.3,
+                swayFrequency: (Math.random() * 0.015 + 0.008) * speedFactor,
+                swayPhase: Math.random() * Math.PI * 2,
+                drift: ((Math.random() - 0.5) * 0.2) * speedFactor,
+                wobble: Math.random() * 0.4 + 0.4
+            };
+        });
+    }
+
+    // === START: Just show canvas + begin loop (everything already exists) ===
+    function start() {
+        // Clear any pending fade-out
+        canvas.classList.remove('fading-out');
+        canvas.style.display = 'block';
+
+        // Re-apply scale (context resets when canvas resizes)
+        const dpr = window.devicePixelRatio || 1;
+        const scale = Math.max(dpr, 2);
         ctx.setTransform(1, 0, 0, 1, 0, 0);
         ctx.scale(scale, scale);
 
+        // Mark button active immediately
         btn.classList.add('active');
         time = 0;
+
+        // Start animation loop FIRST so flakes are drawn when visible
         loop();
+
+        // Force reflow then trigger fade-in — no rAF delay
+        void canvas.offsetWidth;
+        canvas.style.opacity = '1';
+        canvas.classList.add('fading-in');
     }
 
+    // === STOP: Fade out then hide ===
     function stop() {
-        if (canvas) canvas.style.display = 'none';
         btn.classList.remove('active');
-        cancelAnimationFrame(raf);
+        canvas.classList.remove('fading-in');
+        canvas.classList.add('fading-out');
+        canvas.style.opacity = '0';
+
+        setTimeout(() => {
+            cancelAnimationFrame(raf);
+            canvas.style.display = 'none';
+            canvas.classList.remove('fading-out');
+        }, 350); // Match CSS transition duration
     }
 
     function loop() {
-        // Clear rect uses LOGICAL coordinates because of scale? 
-        // No, clearRect is affected by transformation matrix. 
-        // So we clear 0,0 to logical width,height.
         ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-
         ctx.fillStyle = snowColor;
         ctx.beginPath();
+        time += 1;
 
-        time += 1; // Increment global time
-
-        flakes.forEach(f => {
-            // === NEW: Calculate horizontal sway using sine wave ===
+        for (let i = 0, len = flakes.length; i < len; i++) {
+            const f = flakes[i];
             const sway = Math.sin(time * f.swayFrequency + f.swayPhase) * f.swayAmplitude * f.wobble;
-
-            // Update position with sway and drift
             f.x += sway + f.drift;
             f.y += f.s;
 
-            // FIX: Wrap around using window dimensions (logical), not canvas
             if (f.x > window.innerWidth + 10) f.x = -10;
             if (f.x < -10) f.x = window.innerWidth + 10;
-
-            // Reset to top when reaching bottom
             if (f.y > window.innerHeight) {
                 f.y = -10;
-                f.x = Math.random() * window.innerWidth; // Randomize X on reset
+                f.x = Math.random() * window.innerWidth;
             }
 
             ctx.moveTo(f.x, f.y);
             ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
-        });
+        }
 
         ctx.fill();
         raf = requestAnimationFrame(loop);
     }
+
+    // Initialize everything immediately
+    preInit();
 
     btn.onclick = () => {
         isSnowing = !isSnowing;
@@ -940,5 +949,6 @@ function initSnowSystem() {
         isSnowing ? start() : stop();
     };
 
+    // Auto-start if was snowing
     if (isSnowing) start();
 }

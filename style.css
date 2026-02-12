@@ -325,32 +325,48 @@ nav a.active {
     gap: 6px;
     background: transparent !important;
     border: none !important;
-    padding: 6px 10px;
+    padding: 4px 2px;
     margin-left: 20px;
     margin-right: auto;
-    font-family: var(--font-sans);
+    font-family: var(--font-serif);
     font-size: 11px;
-    color: #666;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: #999;
     cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 4px;
+    transition: color 0.2s ease;
     outline: none;
-    height: 32px;
+    height: 28px;
     z-index: 99999;
     align-self: center;
     visibility: visible;
-    /* Vertical alignment fix */
+    position: relative;
 }
 
-/* Hover: Subtle background hint */
+/* Frost underline — expands on activation */
+#snow-toggle::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #add8e6, transparent);
+    transition: width 0.4s ease;
+}
+
+/* Hover: subtle lighten */
 #snow-toggle:hover {
-    background: rgba(0, 0, 0, 0.05) !important;
-    color: #1a1a1a;
+    color: #bbb;
 }
 
-/* Active: Change text/icon color to Light Blue, no border */
+/* Active: ice-blue text + frost underline reveal */
 #snow-toggle.active {
     color: #add8e6 !important;
+}
+
+#snow-toggle.active::after {
+    width: 100%;
 }
 
 #snow-toggle svg {
@@ -358,9 +374,30 @@ nav a.active {
     height: 10px;
     flex-shrink: 0;
     stroke: currentColor;
-    /* Align with text center line - move up to match L */
     position: relative;
     top: -2px;
+    /* Align with midline of lowercase 'l' in 'let it snow' */
+    transition: transform 0.6s ease, filter 0.3s ease;
+}
+
+/* Active: icon micro-rotation + ice glow */
+#snow-toggle.active svg {
+    transform: rotate(60deg);
+    filter: drop-shadow(0 0 3px rgba(173, 216, 230, 0.3));
+}
+
+/* Snow canvas fade transitions */
+#snow-canvas {
+    transition: opacity 0.3s ease;
+    will-change: opacity;
+}
+
+#snow-canvas.fading-in {
+    opacity: 1;
+}
+
+#snow-canvas.fading-out {
+    opacity: 0;
 }
 
 @media screen and (min-width: 769px) {
@@ -816,7 +853,8 @@ body:not(.is-home) main {
     /* Base adjustments */
     body {
         font-size: 15px;
-        overscroll-behavior-y: none;
+        /* overscroll-behavior-y: none; REMOVED — was blocking scroll chain
+           from body to html on homepage where body has no overflow */
         -webkit-overflow-scrolling: touch;
     }
 
@@ -857,14 +895,14 @@ body:not(.is-home) main {
     #snow-toggle {
         order: unset;
         align-self: center;
-        position: static;
+        position: relative;
         margin: 3px 4px 0 0 !important;
-        /* 下移3px对齐brand底边 */
-        padding: 0 6px;
+        padding: 0 2px;
         width: auto;
         height: 20px;
         flex-shrink: 0;
         font-size: 10px;
+        letter-spacing: 0.05em;
         display: flex;
         align-items: center;
         gap: 4px;
@@ -992,9 +1030,18 @@ body:not(.is-home) main {
         padding: 12px 20px;
     }
 
-    /* Homepage Hero - Masonry layout using CSS Columns */
+    /* Homepage Mobile: Break the flex height chain to enable scrolling.
+       Desktop uses body{height:100%;display:flex} + #site-wrapper{min-height:100vh}
+       which makes html think there's no overflow. On mobile we need normal flow. */
     body.is-home {
         overflow: auto;
+        height: auto;
+        display: block;
+    }
+
+    body.is-home #site-wrapper {
+        display: block;
+        min-height: 0;
     }
 
     body.is-home main {
@@ -1002,7 +1049,7 @@ body:not(.is-home) main {
         min-height: auto;
         padding: 0;
         margin-top: 0;
-        /* Override the 160px margin from desktop */
+        overflow: visible;
     }
 
     .hero-container {
@@ -1031,8 +1078,7 @@ body:not(.is-home) main {
         height: auto;
         display: block;
         border-radius: 2px;
-        aspect-ratio: 3/4;
-        object-fit: cover;
+        /* No forced aspect-ratio — let each image keep its natural proportions */
         background-color: #f5f5f5;
         content-visibility: auto;
     }

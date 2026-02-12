@@ -5,3 +5,20 @@ __pycache__/
 *.pyc
 .venv
 *.log
+
+# Dev tools & scripts
+optimize_images.py
+requirements.txt
+server.py
+server.log
+*.code-workspace
+
+# Dev documentation (not for production)
+GEMINI.md
+PROJECT_LEARNINGS.md
+DEPLOY_GUIDE.md
+Kahlil Personal Web PRD.md
+
+# Playground / debug pages
+playground-*.html
+diag*.html

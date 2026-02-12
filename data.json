@@ -58,18 +58,18 @@
                 "mobile_width": 37,
                 "mobile_mt": 71,
                 "style": {},
-                "mobile_top": 31,
+                "mobile_top": 27,
                 "mobile_left": 3
             },
             {
                 "src": "images/2025.12.8- 14.webp",
                 "caption": "Kyoto\uff0cJapan",
-                "mobile_col": "left",
-                "mobile_width": 42,
+                "mobile_col": "right",
+                "mobile_width": 43,
                 "mobile_mt": -2,
                 "style": {},
-                "mobile_left": 59,
-                "mobile_top": 29
+                "mobile_left": 57,
+                "mobile_top": 23
             },
             {
                 "src": "images/2025.12.8- 19.webp",
@@ -79,7 +79,7 @@
                 "mobile_mt": 91,
                 "style": {},
                 "mobile_left": 45,
-                "mobile_top": 52
+                "mobile_top": 46
             },
             {
                 "src": "images/2026.1.10- 90.webp",
@@ -89,7 +89,7 @@
                 "mobile_mt": -100,
                 "style": {},
                 "mobile_left": 10,
-                "mobile_top": 74
+                "mobile_top": 69
             }
         ],
         "bio_layout": {},
@@ -250,7 +250,7 @@
                     "caption": "Shanghai\uff0cChina"
                 }
             ],
-            "_collapsed": false
+            "_collapsed": true
         },
         {
             "id": "new-1768987933974",

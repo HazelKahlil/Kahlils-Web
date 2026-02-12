@@ -1680,6 +1680,7 @@
 
                 if (!data.site.home_images) data.site.home_images = [];
                 while (data.site.home_images.length < 5) data.site.home_images.push("");
+                if (data.site.home_images.length > 5) data.site.home_images.length = 5;
                 renderHomeImagesEditor();
 
                 renderProjects();

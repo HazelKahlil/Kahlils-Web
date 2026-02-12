@@ -271,6 +271,7 @@ function populateHome(container, images, projects) {
 
             img.src = src;
             img.className = `hero-img img-${idx + 1}`;
+            img.loading = idx < 2 ? 'eager' : 'lazy';
             img.decoding = 'async';
 
             if (typeof item === 'object' && item.style) {
@@ -927,16 +928,20 @@ function initSnowSystem() {
         ctx = canvas.getContext('2d');
         ctx.scale(scale, scale);
 
+        let resizeTimer;
         window.addEventListener('resize', () => {
-            const s = Math.max(window.devicePixelRatio || 1, 2);
-            canvas.width = window.innerWidth * s;
-            canvas.height = window.innerHeight * s;
-            ctx.setTransform(1, 0, 0, 1, 0, 0);
-            ctx.scale(s, s);
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                const s = Math.max(window.devicePixelRatio || 1, 2);
+                canvas.width = window.innerWidth * s;
+                canvas.height = window.innerHeight * s;
+                ctx.setTransform(1, 0, 0, 1, 0, 0);
+                ctx.scale(s, s);
+            }, 150);
         });
 
         // Pre-generate all particles
-        const flakeCount = window.innerWidth <= 768 ? 450 : 650;
+        const flakeCount = window.innerWidth <= 768 ? 200 : 350;
         flakes = Array.from({ length: flakeCount }, () => {
             const r = Math.random() * 1 + 0.5;
             let speedFactor = 0.5;

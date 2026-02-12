@@ -526,6 +526,21 @@ function populateProjectDetail(container, projects) {
             </div>
         `;
 
+        // 5.5. Detect portrait images and tag slides
+        content.querySelectorAll('.gallery-slide img').forEach(img => {
+            const tagPortrait = () => {
+                if (img.naturalHeight > img.naturalWidth) {
+                    const slide = img.closest('.gallery-slide');
+                    if (slide) slide.classList.add('is-portrait');
+                }
+            };
+            if (img.complete && img.naturalWidth > 0) {
+                tagPortrait();
+            } else {
+                img.addEventListener('load', tagPortrait, { once: true });
+            }
+        });
+
         // 6. Slider Interactivity
         let currentSlide = 0;
         const totalSlides = images.length;

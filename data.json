@@ -42,19 +42,54 @@
         "header_social_email": "kahlils@163.com",
         "home_images": [
             {
-                "src": "images/2025.7.19 54.webp"
+                "src": "images/2025.7.19 54.webp",
+                "caption": "Kyoto\uff0cJapan",
+                "mobile_col": "left",
+                "mobile_width": 62,
+                "mobile_mt": -11,
+                "style": {},
+                "mobile_top": 0,
+                "mobile_left": 3
             },
             {
-                "src": "images/2026.1.10- 35.webp"
+                "src": "images/2026.1.10- 35.webp",
+                "caption": "Jeju Island, South Korea",
+                "mobile_col": "left",
+                "mobile_width": 37,
+                "mobile_mt": 71,
+                "style": {},
+                "mobile_top": 31,
+                "mobile_left": 3
             },
             {
-                "src": "images/2025.12.8- 14.webp"
+                "src": "images/2025.12.8- 14.webp",
+                "caption": "Kyoto\uff0cJapan",
+                "mobile_col": "left",
+                "mobile_width": 42,
+                "mobile_mt": -2,
+                "style": {},
+                "mobile_left": 59,
+                "mobile_top": 29
             },
             {
-                "src": "images/2025.12.8- 19.webp"
+                "src": "images/2025.12.8- 19.webp",
+                "caption": "Kyoto\uff0cJapan",
+                "mobile_col": "right",
+                "mobile_width": 52,
+                "mobile_mt": 91,
+                "style": {},
+                "mobile_left": 45,
+                "mobile_top": 52
             },
             {
-                "src": "images/2026.1.10- 90.webp"
+                "src": "images/2026.1.10- 90.webp",
+                "caption": "Jeju Island, South Korea",
+                "mobile_col": "left",
+                "mobile_width": 80,
+                "mobile_mt": -100,
+                "style": {},
+                "mobile_left": 10,
+                "mobile_top": 74
             }
         ],
         "bio_layout": {},

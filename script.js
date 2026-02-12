@@ -283,7 +283,8 @@ function populateHome(container, images, projects) {
         });
     }
 
-    // Mobile: Single-column curated images (CSS controls visibility via media query)
+    // Mobile: Scattered editorial layout (absolute positioning, WYSIWYG with admin editor)
+    // Layout reads from data.json per-image fields; falls back to defaults
     if (images && images.length > 0) {
         let mobileContainer = container.querySelector('.mobile-home-projects');
         if (!mobileContainer) {
@@ -293,27 +294,50 @@ function populateHome(container, images, projects) {
         }
         mobileContainer.innerHTML = '';
 
-        images.forEach((item) => {
+        // Default fallback layout (matching admin editor mobileDefs)
+        const defaultSlots = [
+            { col: 'left', w: 62, mt: 0, top: 0, left: 0 },
+            { col: 'right', w: 48, mt: 30, top: 16, left: 52 },
+            { col: 'left', w: 38, mt: -60, top: 28, left: 0 },
+            { col: 'right', w: 52, mt: 30, top: 48, left: 48 },
+            { col: 'left', w: 44, mt: -30, top: 60, left: 0 },
+        ];
+
+        // Track max bottom for container height
+        let maxBottom = 0;
+
+        images.forEach((item, idx) => {
+            const fallback = defaultSlots[idx % defaultSlots.length];
             const wrapper = document.createElement('div');
             wrapper.className = 'mobile-home-card';
+
+            // Read layout from data.json or use defaults
+            const col = (item && item.mobile_col) || fallback.col;
+            const w = (item && item.mobile_width) || fallback.w;
+            const topPct = (item && item.mobile_top !== undefined && item.mobile_top !== null) ? item.mobile_top : fallback.top;
+            const leftPct = (item && item.mobile_left !== undefined && item.mobile_left !== null) ? item.mobile_left : fallback.left;
+
+            wrapper.setAttribute('data-col', col);
+            wrapper.style.width = w + '%';
+            wrapper.style.top = topPct + '%';
+            wrapper.style.left = leftPct + '%';
+
+            // Animation delay
+            wrapper.style.animationDelay = (idx * 0.12) + 's';
+
+            // Track max extent for container sizing
+            maxBottom = Math.max(maxBottom, topPct + w * 0.75); // rough height estimate
 
             let rawSrc = typeof item === 'string' ? item : item.src;
             let src = rawSrc;
             if (src && !src.startsWith('http') && !src.startsWith('/')) src = '/' + src;
             if (src && !src.startsWith('http')) src = encodeURI(src);
 
-            // Try to extract date from filename (e.g. "2025.7.19 54.webp" → "2025.7.19")
-            const filename = rawSrc ? rawSrc.split('/').pop() : '';
-            const dateMatch = filename.match(/(\d{4}\.\d{1,2}\.\d{1,2})/);
-            const dateStr = (item && item.date) || (dateMatch ? dateMatch[1] : '');
-            const location = (item && item.location) || '';
-
+            // Caption: location only (no date)
+            const caption = (item && item.caption) || (item && item.location) || '';
             let captionHTML = '';
-            if (dateStr || location) {
-                captionHTML = `<div class="mobile-home-caption">`;
-                if (location) captionHTML += `<span class="caption-location">${location}</span>`;
-                if (dateStr) captionHTML += `<span class="caption-date">${dateStr}</span>`;
-                captionHTML += `</div>`;
+            if (caption) {
+                captionHTML = `<div class="mobile-home-caption"><span class="caption-text">${caption}</span></div>`;
             }
 
             wrapper.innerHTML = `
@@ -322,6 +346,39 @@ function populateHome(container, images, projects) {
             `;
             mobileContainer.appendChild(wrapper);
         });
+
+        // After images load, calculate accurate container height
+        const recalcHeight = () => {
+            let maxExtent = 0;
+            mobileContainer.querySelectorAll('.mobile-home-card').forEach(card => {
+                const bottom = card.offsetTop + card.offsetHeight;
+                if (bottom > maxExtent) maxExtent = bottom;
+            });
+            if (maxExtent > 0) {
+                mobileContainer.style.minHeight = (maxExtent + 40) + 'px';
+            }
+        };
+        // Recalculate once images load
+        const imgs = mobileContainer.querySelectorAll('img');
+        let loaded = 0;
+        imgs.forEach(img => {
+            if (img.complete) {
+                loaded++;
+                if (loaded === imgs.length) recalcHeight();
+            } else {
+                img.addEventListener('load', () => {
+                    loaded++;
+                    if (loaded === imgs.length) recalcHeight();
+                });
+                img.addEventListener('error', () => {
+                    loaded++;
+                    if (loaded === imgs.length) recalcHeight();
+                });
+            }
+        });
+        // Also do rough initial estimate
+        const containerHeight = Math.max(600, maxBottom * 8);
+        mobileContainer.style.minHeight = containerHeight + 'px';
     }
 }
 

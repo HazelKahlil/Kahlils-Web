@@ -464,10 +464,745 @@
             overflow-y: auto;
             scroll-behavior: smooth;
         }
+
+        /* ========== Visual Layout Editor ========== */
+        .ve-container {
+            margin-top: 10px;
+        }
+
+        .ve-tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 0;
+        }
+
+        .ve-tab {
+            padding: 10px 24px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            background: #f5f5f5;
+            color: #999;
+            cursor: pointer;
+            text-transform: uppercase;
+            border-radius: 8px 8px 0 0;
+            transition: all 0.2s;
+        }
+
+        .ve-tab.active {
+            background: #fff;
+            color: #333;
+            border-bottom: 1px solid #fff;
+            margin-bottom: -1px;
+            z-index: 1;
+        }
+
+        .ve-tab[data-mode="desktop"].active {
+            color: #3a7bd5;
+        }
+
+        .ve-tab[data-mode="mobile"].active {
+            color: #2e7d32;
+        }
+
+        .ve-workspace {
+            display: flex;
+            gap: 16px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 0 8px 8px 8px;
+            padding: 16px;
+            min-height: 400px;
+        }
+
+        /* Canvas area */
+        .ve-canvas-wrap {
+            flex: 1;
+            position: relative;
+            background: #f8f8f8;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        .ve-canvas {
+            position: relative;
+            width: 100%;
+            padding-bottom: 52.5%;
+            /* ~16:8.4 ratio matching actual 100vh - header */
+            background: #fff;
+            overflow: hidden;
+        }
+
+        /* Simulated header bar on Desktop canvas */
+        .ve-canvas::before {
+            content: 'Hazel Kahlil';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 36px;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            padding: 0 12px;
+            font-family: var(--font-serif, Georgia, serif);
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            color: #333;
+            pointer-events: none;
+        }
+
+        .ve-canvas.mobile-mode {
+            width: 320px;
+            padding-bottom: 0;
+            min-height: 560px;
+            height: 560px;
+            max-height: 560px;
+            margin: 0 auto;
+            background: #fff;
+            border: 2px solid #333;
+            border-radius: 28px;
+            padding: 44px 16px 32px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .ve-canvas.mobile-mode::before {
+            content: '';
+            position: absolute;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 5px;
+            background: #ddd;
+            border-radius: 3px;
+            z-index: 10;
+        }
+
+        .ve-canvas.mobile-mode::after {
+            content: 'Hazel Kahlil';
+            position: absolute;
+            top: 26px;
+            left: 16px;
+            font-family: var(--font-serif, Georgia, serif);
+            font-size: 9px;
+            color: #333;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* Desktop draggable images */
+        .ve-img {
+            position: absolute;
+            cursor: grab;
+            user-select: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: box-shadow 0.2s;
+            border: 2px solid transparent;
+            border-radius: 2px;
+        }
+
+        .ve-img:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .ve-img.selected {
+            border-color: #3a7bd5;
+            box-shadow: 0 0 0 2px rgba(58, 123, 213, 0.3);
+        }
+
+        .ve-img.dragging {
+            cursor: grabbing;
+            z-index: 100;
+            opacity: 0.9;
+        }
+
+        .ve-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+            display: block;
+        }
+
+        .ve-img-label {
+            position: absolute;
+            top: -20px;
+            left: 0;
+            font-size: 10px;
+            font-weight: 700;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 2px 6px;
+            border-radius: 3px;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        /* Resize handle */
+        .ve-resize {
+            position: absolute;
+            bottom: -4px;
+            right: -4px;
+            width: 12px;
+            height: 12px;
+            background: #3a7bd5;
+            border: 2px solid #fff;
+            border-radius: 2px;
+            cursor: nwse-resize;
+            z-index: 10;
+            display: none;
+        }
+
+        .ve-img.selected .ve-resize {
+            display: block;
+        }
+
+        /* Snap guide lines */
+        .ve-guide {
+            position: absolute;
+            z-index: 50;
+            pointer-events: none;
+            display: none;
+        }
+
+        .ve-guide.horizontal {
+            left: 0;
+            right: 0;
+            height: 0;
+            border-top: 1px dashed rgba(255, 50, 50, 0.6);
+        }
+
+        .ve-guide.vertical {
+            top: 0;
+            bottom: 0;
+            width: 0;
+            border-left: 1px dashed rgba(255, 50, 50, 0.6);
+        }
+
+        .ve-guide.active {
+            display: block;
+        }
+
+        .ve-guide-label {
+            position: absolute;
+            font-size: 9px;
+            color: #e53935;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1px 4px;
+            border-radius: 2px;
+            pointer-events: none;
+        }
+
+        .ve-guide.horizontal .ve-guide-label {
+            top: -1px;
+            right: 4px;
+        }
+
+        .ve-guide.vertical .ve-guide-label {
+            left: 2px;
+            top: 4px;
+        }
+
+        /* Fixed grid lines (faint) */
+        .ve-grid-line {
+            position: absolute;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .ve-grid-line.horizontal {
+            left: 0;
+            right: 0;
+            height: 0;
+            border-top: 1px dotted rgba(0, 0, 0, 0.06);
+        }
+
+        .ve-grid-line.vertical {
+            top: 0;
+            bottom: 0;
+            width: 0;
+            border-left: 1px dotted rgba(0, 0, 0, 0.06);
+        }
+
+        /* Properties Panel */
+        .ve-props {
+            width: 220px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .ve-props-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .ve-props-card {
+            background: #f8f9fa;
+            border: 1px solid #e8e8e8;
+            border-radius: 6px;
+            padding: 12px;
+        }
+
+        .ve-props-card label {
+            font-size: 10px;
+            color: #888;
+            margin-bottom: 2px;
+            display: block;
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .ve-props-card input[type="number"],
+        .ve-props-card input[type="text"],
+        .ve-props-card select {
+            width: 100%;
+            padding: 6px 8px;
+            font-size: 13px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            text-align: center;
+            font-family: var(--font-mono, monospace);
+        }
+
+        .ve-props-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 6px;
+        }
+
+        .ve-prop-hint {
+            font-size: 9px;
+            color: #aaa;
+            margin-top: 8px;
+        }
+
+        /* Image Strip */
+        .ve-strip {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+            padding: 12px;
+            background: #f8f8f8;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            align-items: flex-end;
+            flex-wrap: wrap;
+        }
+
+        .ve-strip-item {
+            width: 80px;
+            text-align: center;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 4px;
+            padding: 4px;
+            transition: all 0.2s;
+        }
+
+        .ve-strip-item:hover {
+            border-color: #ccc;
+        }
+
+        .ve-strip-item.selected {
+            border-color: #3a7bd5;
+            background: #eef4fc;
+        }
+
+        .ve-strip-item img {
+            width: 100%;
+            height: 56px;
+            object-fit: cover;
+            border-radius: 2px;
+            background: #eee;
+            display: block;
+        }
+
+        .ve-strip-item span {
+            display: block;
+            font-size: 9px;
+            color: #999;
+            margin-top: 3px;
+            font-weight: 700;
+        }
+
+        /* Mobile editor cards */
+        .ve-mobile-card {
+            position: absolute;
+            cursor: grab;
+            user-select: none;
+            border: 2px solid transparent;
+            border-radius: 4px;
+            transition: border-color 0.2s;
+        }
+
+        .ve-mobile-card:hover {
+            border-color: #b8dab8;
+        }
+
+        .ve-mobile-card.selected {
+            border-color: #2e7d32;
+        }
+
+        .ve-mobile-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 2px;
+            filter: grayscale(100%);
+            background: #eee;
+        }
+
+        .ve-mobile-card .ve-mobile-label {
+            position: absolute;
+            top: -16px;
+            font-size: 9px;
+            font-weight: 700;
+            color: #2e7d32;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1px 4px;
+            border-radius: 2px;
+        }
+
+        .ve-mobile-card[data-col="left"] {
+            /* positioned via JS */
+        }
+
+        .ve-mobile-card[data-col="right"] {
+            /* positioned via JS */
+        }
+
+        .ve-mobile-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: grayscale(100%);
+            border-radius: 1px;
+        }
+
+        .ve-mobile-caption {
+            font-size: 6px;
+            color: #999;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-top: 2px;
+            pointer-events: none;
+        }
+
+        .ve-mobile-card[data-col="left"] .ve-mobile-caption {
+            text-align: left;
+        }
+
+        .ve-mobile-card[data-col="right"] .ve-mobile-caption {
+            text-align: right;
+        }
+
+        /* Mobile resize handle (horizontal) */
+        .ve-mobile-resize {
+            position: absolute;
+            top: 50%;
+            right: -6px;
+            width: 8px;
+            height: 24px;
+            background: #2e7d32;
+            border: 2px solid #fff;
+            border-radius: 3px;
+            cursor: ew-resize;
+            transform: translateY(-50%);
+            z-index: 10;
+            display: none;
+        }
+
+        .ve-mobile-card.selected .ve-mobile-resize {
+            display: block;
+        }
+
+        /* Mobile alignment guides */
+        .ve-mobile-guide {
+            position: absolute;
+            z-index: 50;
+            pointer-events: none;
+            display: none;
+        }
+
+        .ve-mobile-guide.horizontal {
+            left: 0;
+            right: 0;
+            height: 0;
+            border-top: 1px dashed rgba(46, 125, 50, 0.6);
+        }
+
+        .ve-mobile-guide.vertical {
+            top: 0;
+            bottom: 0;
+            width: 0;
+            border-left: 1px dashed rgba(46, 125, 50, 0.6);
+        }
+
+        .ve-mobile-guide.active {
+            display: block;
+        }
+
+        .ve-mobile-guide-label {
+            position: absolute;
+            font-size: 8px;
+            color: #2e7d32;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1px 3px;
+            border-radius: 2px;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .ve-mobile-guide.horizontal .ve-mobile-guide-label {
+            top: -1px;
+            right: 2px;
+        }
+
+        .ve-mobile-guide.vertical .ve-mobile-guide-label {
+            left: 2px;
+            top: 2px;
+        }
+
+        .ve-mobile-card.dragging {
+            cursor: grabbing;
+            z-index: 100;
+            opacity: 0.85;
+        }
+
+        /* Toast Notification System */
+        .toast-container {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .toast {
+            padding: 12px 20px;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 6px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            animation: toastIn 0.3s ease, toastOut 0.3s ease 2.7s forwards;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 200px;
+        }
+
+        .toast.success {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .toast.error {
+            background: #c62828;
+            color: #fff;
+        }
+
+        .toast.info {
+            background: #fff;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        @keyframes toastIn {
+            from {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes toastOut {
+            to {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Keyboard hints */
+        .ve-keyboard-hint {
+            font-size: 10px;
+            color: #aaa;
+            padding: 8px 0;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .ve-keyboard-hint kbd {
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 1px 5px;
+            font-size: 10px;
+            font-family: var(--font-mono, monospace);
+        }
+
+        /* === Phase 1 Enhancements === */
+        .photo-count-badge {
+            font-size: 11px;
+            color: #999;
+            font-weight: 400;
+            font-family: var(--font-sans);
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: 8px;
+        }
+
+        .img-set-cover {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            border: none;
+            font-size: 8px;
+            padding: 3px 6px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            border-radius: 3px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-family: var(--font-sans);
+        }
+
+        .img-thumb-container:hover .img-set-cover {
+            opacity: 0.7;
+        }
+
+        .img-set-cover:hover {
+            opacity: 1 !important;
+            background: #3a7bd5;
+        }
+
+        .img-thumb-container.is-cover {
+            border-color: #3a7bd5;
+            box-shadow: 0 0 0 2px rgba(58, 123, 213, 0.3);
+        }
+
+        .img-thumb-container.is-cover::after {
+            content: '★ COVER';
+            position: absolute;
+            bottom: 36px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 8px;
+            font-weight: 700;
+            color: #3a7bd5;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1px 6px;
+            border-radius: 3px;
+            letter-spacing: 0.5px;
+            pointer-events: none;
+        }
+
+        .upload-progress {
+            position: fixed;
+            top: 0;
+            left: 300px;
+            right: 0;
+            height: 3px;
+            background: #eee;
+            z-index: 9999;
+            display: none;
+        }
+
+        .upload-progress.active {
+            display: block;
+        }
+
+        .upload-progress-bar {
+            height: 100%;
+            background: #000;
+            transition: width 0.3s ease;
+            border-radius: 0 2px 2px 0;
+            width: 0%;
+        }
+
+        .unsaved-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #ff4444;
+            border-radius: 50%;
+            margin-left: 8px;
+            animation: pulse-dot 1.5s ease-in-out infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes pulse-dot {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+        }
+
+        .shortcut-hint {
+            font-size: 9px;
+            color: #bbb;
+            margin-top: 6px;
+            text-align: center;
+        }
+
+        .shortcut-hint kbd {
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 0 4px;
+            font-size: 9px;
+            font-family: var(--font-mono, monospace);
+        }
+
+        .gallery-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .gallery-toolbar label {
+            margin: 0;
+        }
     </style>
 </head>
 
 <body>
+    <div class="upload-progress" id="upload-progress">
+        <div class="upload-progress-bar" id="upload-progress-bar"></div>
+    </div>
 
     <!-- LOGIN -->
     <div id="login-overlay">
@@ -555,12 +1290,7 @@
 
                     <div class="section-title"><span>Home Hero Images</span></div>
                     <div class="form-group">
-                        <label style="margin-bottom:20px;">Use the inputs below to fine-tune position (Top/Left) and
-                            Size
-                            (Width)</label>
-                        <div id="home-images-list"
-                            style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:20px;">
-                        </div>
+                        <div id="home-visual-editor"></div>
                     </div>
                 </div>
 
@@ -691,11 +1421,12 @@
 
         <!-- FOOTER -->
         <div class="sticky-actions">
-            <button class="btn btn-save-all" onclick="saveData()">SAVE CHANGES</button>
+            <button class="btn btn-save-all" id="btn-save" onclick="saveData()">SAVE CHANGES</button>
             <button class="btn btn-save-all" onclick="publishData()"
                 style="background: #fff; color: #000; border: 1px solid #000; margin-left:10px;">
                 PUBLISH TO LIVE
             </button>
+            <div class="shortcut-hint"><kbd>⌘S</kbd> Save &nbsp; <kbd>⌘⇧P</kbd> Publish</div>
         </div>
     </div>
 
@@ -719,13 +1450,13 @@
                 const result = await response.json();
 
                 if (result.status === 'success') {
-                    alert('✅ ' + result.message);
+                    showToast('✅ ' + result.message, 'success');
                 } else {
-                    alert('❌ Publish Failed: ' + result.message);
+                    showToast('❌ Publish Failed: ' + result.message, 'error');
                 }
             } catch (error) {
                 console.error('Error:', error);
-                alert('❌ Error publishing: ' + error.message);
+                showToast('❌ Error publishing: ' + error.message, 'error');
             } finally {
                 btn.textContent = originalText;
                 btn.disabled = false;
@@ -974,118 +1705,718 @@
             data.site.bio_layout[key] = val;
         }
 
-        // --- HOME IMAGES EDITOR ---
+        // --- HOME VISUAL LAYOUT EDITOR ---
 
-        function renderHomeImagesEditor() {
-            const container = document.getElementById('home-images-list');
-            container.innerHTML = '';
+        let veMode = 'desktop'; // 'desktop' | 'mobile'
+        let veSelected = 0; // selected image index
 
-            const defaults = [
-                { t: 2, l: 8, w: 35 },
-                { t: 25, l: 38, w: 22 },
-                { t: 6, l: 'Right 5%', w: 32 },
-                { t: 35, l: 12, w: 20 },
-                { t: 30, l: 65, w: 26 }
-            ];
+        const desktopDefs = [
+            { t: 2, l: 8, w: 35 },
+            { t: 25, l: 38, w: 22 },
+            { t: 6, l: 65, w: 32 },
+            { t: 35, l: 12, w: 20 },
+            { t: 30, l: 65, w: 26 }
+        ];
+        const mobileDefs = [
+            { col: 'left', w: 62, mt: 0, top: 0, left: 0 },
+            { col: 'right', w: 48, mt: 30, top: 16, left: 52 },
+            { col: 'left', w: 38, mt: -60, top: 28, left: 0 },
+            { col: 'right', w: 52, mt: 30, top: 48, left: 48 },
+            { col: 'left', w: 44, mt: -30, top: 60, left: 0 },
+        ];
+        const MOBILE_SNAP_THRESHOLD = 1.5; // percent
+        const SNAP_LINES = [0, 25, 50, 75, 100];
+        const SNAP_THRESHOLD = 2; // percent
 
-            data.site.home_images.forEach((item, i) => {
-                if (i >= 5) return;
-                const src = typeof item === 'string' ? item : item.src;
-                const style = (typeof item === 'object' && item.style) ? item.style : { top: '', left: '', width: '' };
-                const def = defaults[i] || { t: '', l: '', w: '' };
-
-                const div = document.createElement('div');
-                div.style.background = '#fff';
-                div.style.padding = '15px';
-                div.style.border = '1px solid #eee';
-                div.style.textAlign = 'center';
-                div.style.display = 'flex';
-                div.style.flexDirection = 'column';
-
-                // PREVIEW PATH FIX
-                let previewSrc = '';
-                if (src) {
-                    if (src.startsWith('http') || src.startsWith('/')) {
-                        previewSrc = src;
-                    } else if (src.startsWith('images/')) {
-                        previewSrc = '/' + src;
-                    } else {
-                        previewSrc = '/images/' + src;
-                    }
-                    previewSrc += '?t=' + Date.now();
-                }
-
-                div.innerHTML = `
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                        <span style="font-size:11px; color:#999; font-weight:700; letter-spacing:1px;">SLOT ${i + 1}</span>
-                        <div style="display:flex; gap:5px;">
-                            ${i > 0 ? `<button onclick="moveHomeImage(${i}, -1)" style="cursor:pointer; border:1px solid #ddd; background:#fff; padding:2px 6px;">←</button>` : ''}
-                            ${i < 4 ? `<button onclick="moveHomeImage(${i}, 1)" style="cursor:pointer; border:1px solid #ddd; background:#fff; padding:2px 6px;">→</button>` : ''}
-                        </div>
-                    </div>
-                    
-                    <div style="width:100%; aspect-ratio:1/1; background:#f9f9f9; margin-bottom:10px; overflow:hidden; border:1px solid #eee; position:relative; display:flex; align-items:center; justify-content:center;">
-                        ${previewSrc ?
-                        `<img src="${previewSrc}" style="width:100%; height:100%; object-fit:contain; background:#f0f0f0;">` :
-                        `<span style="color:#ccc; font-size:10px;">NO IMAGE</span>`
-                    }
-                    </div>
-                    
-                    <button class="btn" style="font-size:10px; width:100%; margin-bottom:10px;" onclick="document.getElementById('home-upload-${i}').click()">
-                        ${src ? 'REPLACE' : 'UPLOAD'}
-                    </button>
-                    <input type="file" id="home-upload-${i}" style="display:none" onchange="uploadFile(this, (path) => updateHomeImage(${i}, path))">
-                    
-                    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:5px; border-top:1px solid #eee; padding-top:10px; margin-top:auto;">
-                        <div>
-                            <label style="font-size:9px; color:#999; display:block;">TOP %</label>
-                            <input type="text" placeholder="Def: ${def.t}" value="${style.top || ''}" oninput="updateHomeStyle(${i}, 'top', this.value)" style="width:100%; padding:4px; font-size:11px; border:1px solid #ddd; text-align:center;">
-                        </div>
-                        <div>
-                            <label style="font-size:9px; color:#999; display:block;">LEFT %</label>
-                            <input type="text" placeholder="Def: ${def.l}" value="${style.left || ''}" oninput="updateHomeStyle(${i}, 'left', this.value)" style="width:100%; padding:4px; font-size:11px; border:1px solid #ddd; text-align:center;">
-                        </div>
-                        <div>
-                            <label style="font-size:9px; color:#999; display:block;">WIDTH %</label>
-                            <input type="text" placeholder="Def: ${def.w}" value="${style.width || ''}" oninput="updateHomeStyle(${i}, 'width', this.value)" style="width:100%; padding:4px; font-size:11px; border:1px solid #ddd; text-align:center;">
-                        </div>
-                    </div>
-                `;
-                container.appendChild(div);
-            });
+        function getImgSrc(item) {
+            let src = typeof item === 'string' ? item : item.src;
+            if (!src) return '';
+            if (!src.startsWith('http') && !src.startsWith('/')) src = '/' + src;
+            return src + '?t=' + Date.now();
         }
 
+        function ensureObj(index) {
+            let c = data.site.home_images[index];
+            if (typeof c === 'string') { c = { src: c, style: {} }; data.site.home_images[index] = c; }
+            if (!c.style) c.style = {};
+            return c;
+        }
+
+        function getDesktop(item, i) {
+            const d = desktopDefs[i] || { t: 0, l: 0, w: 30 };
+            const s = (typeof item === 'object' && item.style) || {};
+            return {
+                top: parseFloat(s.top) || d.t,
+                left: parseFloat(s.left) || d.l,
+                width: parseFloat(s.width) || d.w
+            };
+        }
+
+        function getMobile(item, i) {
+            const d = mobileDefs[i] || { col: 'left', w: 50, mt: 0, top: 0, left: 0 };
+            if (typeof item === 'string') return { col: d.col, width: d.w, mt: d.mt, top: d.top, left: d.left };
+            return {
+                col: item.mobile_col || d.col,
+                width: item.mobile_width || d.w,
+                mt: (item.mobile_mt !== undefined && item.mobile_mt !== null) ? item.mobile_mt : d.mt,
+                top: (item.mobile_top !== undefined && item.mobile_top !== null) ? item.mobile_top : d.top,
+                left: (item.mobile_left !== undefined && item.mobile_left !== null) ? item.mobile_left : d.left
+            };
+        }
+
+        // ---- MAIN RENDER ----
+        function renderHomeImagesEditor() {
+            const root = document.getElementById('home-visual-editor');
+            if (!root) return;
+            root.innerHTML = '';
+
+            // Tabs
+            const tabs = document.createElement('div');
+            tabs.className = 've-tabs';
+            tabs.innerHTML = `
+                <button class="ve-tab ${veMode === 'desktop' ? 'active' : ''}" data-mode="desktop" onclick="veMode='desktop'; renderHomeImagesEditor();">🖥 Desktop 桌面</button>
+                <button class="ve-tab ${veMode === 'mobile' ? 'active' : ''}" data-mode="mobile" onclick="veMode='mobile'; renderHomeImagesEditor();">📱 Mobile 移动</button>
+            `;
+            root.appendChild(tabs);
+
+            // Workspace
+            const ws = document.createElement('div');
+            ws.className = 've-workspace';
+            root.appendChild(ws);
+
+            if (veMode === 'desktop') {
+                renderDesktopCanvas(ws);
+            } else {
+                renderMobileCanvas(ws);
+            }
+
+            // Image strip
+            renderImageStrip(root);
+
+            // Keyboard hints
+            const hints = document.createElement('div');
+            hints.className = 've-keyboard-hint';
+            hints.innerHTML = `<span>拖拽图片调整位置</span> <span>拖拽角标缩放</span> <span><kbd>Shift</kbd> 禁用吸附</span> <span>点击图片选中 → 右侧精确调整</span>`;
+            root.appendChild(hints);
+        }
+
+        // ---- DESKTOP CANVAS ----
+        function renderDesktopCanvas(ws) {
+            const images = data.site.home_images || [];
+
+            // Canvas wrap
+            const canvasWrap = document.createElement('div');
+            canvasWrap.className = 've-canvas-wrap';
+            const canvas = document.createElement('div');
+            canvas.className = 've-canvas';
+            canvas.id = 've-desktop-canvas';
+            canvasWrap.appendChild(canvas);
+            ws.appendChild(canvasWrap);
+
+            // Grid lines (faint)
+            SNAP_LINES.forEach(pct => {
+                if (pct === 0 || pct === 100) return;
+                const hLine = document.createElement('div');
+                hLine.className = 've-grid-line horizontal';
+                hLine.style.top = pct + '%';
+                canvas.appendChild(hLine);
+                const vLine = document.createElement('div');
+                vLine.className = 've-grid-line vertical';
+                vLine.style.left = pct + '%';
+                canvas.appendChild(vLine);
+            });
+
+            // Snap guides (dynamic, hidden by default)
+            for (let g = 0; g < 10; g++) {
+                const guide = document.createElement('div');
+                guide.className = 've-guide ' + (g < 5 ? 'horizontal' : 'vertical');
+                guide.id = 've-guide-' + g;
+                guide.innerHTML = '<span class="ve-guide-label"></span>';
+                canvas.appendChild(guide);
+            }
+
+            // Render images — offset by header bar (36px = ~5% of canvas height)
+            images.forEach((item, i) => {
+                if (i >= 5) return;
+                const pos = getDesktop(item, i);
+                const src = getImgSrc(item);
+
+                const el = document.createElement('div');
+                el.className = 've-img' + (i === veSelected ? ' selected' : '');
+                // Offset top by simulated header (5%)
+                el.style.top = (pos.top + 5) + '%';
+                el.style.left = pos.left + '%';
+                el.style.width = pos.width + '%';
+                el.style.aspectRatio = '4/3';
+                el.dataset.idx = i;
+                el.innerHTML = `
+                    <span class="ve-img-label">#${i + 1}</span>
+                    ${src ? `<img src="${src}" draggable="false">` : '<div style="width:100%;height:100%;background:#ddd;display:flex;align-items:center;justify-content:center;color:#999;font-size:11px;">NO IMG</div>'}
+                    <div class="ve-resize"></div>
+                `;
+                canvas.appendChild(el);
+
+                // Click to select
+                el.addEventListener('mousedown', (e) => {
+                    if (e.target.classList.contains('ve-resize')) return;
+                    veSelected = i;
+                    document.querySelectorAll('.ve-img').forEach(v => v.classList.remove('selected'));
+                    el.classList.add('selected');
+                    document.querySelectorAll('.ve-strip-item').forEach((s, si) => s.classList.toggle('selected', si === i));
+                    updateDesktopProps();
+                    startDesktopDrag(e, el, i, canvas);
+                });
+
+                // Resize handle
+                el.querySelector('.ve-resize').addEventListener('mousedown', (e) => {
+                    e.stopPropagation();
+                    veSelected = i;
+                    startDesktopResize(e, el, i, canvas);
+                });
+            });
+
+            // Props panel
+            const props = document.createElement('div');
+            props.className = 've-props';
+            props.id = 've-desktop-props';
+            ws.appendChild(props);
+            updateDesktopProps();
+        }
+
+        function updateDesktopProps() {
+            const props = document.getElementById('ve-desktop-props');
+            if (!props) return;
+            const images = data.site.home_images || [];
+            const i = veSelected;
+            if (i >= images.length) return;
+            const item = images[i];
+            const pos = getDesktop(item, i);
+            const caption = (typeof item === 'object' && item.caption) || '';
+
+            props.innerHTML = `
+                <div class="ve-props-title">Image #${i + 1} 属性</div>
+                <div class="ve-props-card" style="border-color:#c4d9f2;">
+                    <div style="font-size:11px; font-weight:700; color:#3a7bd5; margin-bottom:8px;">🖥 DESKTOP</div>
+                    <div class="ve-props-row">
+                        <div><label>Top %</label><input type="number" value="${pos.top}" min="0" max="100" step="1" oninput="veSetDesktop(${i},'top',this.value)"></div>
+                        <div><label>Left %</label><input type="number" value="${pos.left}" min="0" max="100" step="1" oninput="veSetDesktop(${i},'left',this.value)"></div>
+                        <div><label>Width %</label><input type="number" value="${pos.width}" min="5" max="80" step="1" oninput="veSetDesktop(${i},'width',this.value)"></div>
+                    </div>
+                    <div class="ve-prop-hint">或直接在画布上拖拽图片</div>
+                </div>
+                <div class="ve-props-card">
+                    <label>📍 Caption</label>
+                    <input type="text" placeholder="例: Kyoto, Japan" value="${caption}" oninput="veSetCaption(${i}, this.value)">
+                </div>
+                <div class="ve-props-card">
+                    <label>上传/更换</label>
+                    <button class="btn" style="font-size:10px; padding:6px; width:100%; border-radius:4px;" onclick="document.getElementById('ve-upload-${i}').click()">
+                        ${(typeof item === 'object' && item.src) || typeof item === 'string' ? '更换图片' : '上传图片'}
+                    </button>
+                    <input type="file" id="ve-upload-${i}" style="display:none" onchange="uploadFile(this, (path) => { ensureObj(${i}).src = path; renderHomeImagesEditor(); })">
+                </div>
+            `;
+        }
+
+        function veSetDesktop(i, key, val) {
+            const obj = ensureObj(i);
+            obj.style[key] = val;
+            // Update canvas element
+            const el = document.querySelector(`.ve-img[data-idx="${i}"]`);
+            if (el) {
+                if (key === 'top') el.style.top = val + '%';
+                if (key === 'left') el.style.left = val + '%';
+                if (key === 'width') el.style.width = val + '%';
+            }
+        }
+
+        function veSetCaption(i, val) {
+            ensureObj(i).caption = val;
+        }
+
+        // ---- DESKTOP DRAG ----
+        function startDesktopDrag(e, el, idx, canvas) {
+            e.preventDefault();
+            el.classList.add('dragging');
+            const rect = canvas.getBoundingClientRect();
+            const startX = e.clientX, startY = e.clientY;
+            const startLeft = parseFloat(el.style.left), startTop = parseFloat(el.style.top);
+
+            function onMove(ev) {
+                const dx = ((ev.clientX - startX) / rect.width) * 100;
+                const dy = ((ev.clientY - startY) / rect.height) * 100;
+                let newLeft = Math.max(0, Math.min(95, startLeft + dx));
+                let newTop = Math.max(0, Math.min(95, startTop + dy));
+
+                // Snap (unless Shift held)
+                if (!ev.shiftKey) {
+                    const snapped = applySnap(newLeft, newTop, parseFloat(el.style.width), idx, canvas);
+                    newLeft = snapped.left; newTop = snapped.top;
+                } else {
+                    hideAllGuides();
+                }
+
+                el.style.left = newLeft + '%';
+                el.style.top = newTop + '%';
+                ensureObj(idx).style.left = Math.round(newLeft);
+                ensureObj(idx).style.top = Math.round(newTop);
+                updateDesktopProps();
+            }
+            function onUp() {
+                el.classList.remove('dragging');
+                hideAllGuides();
+                document.removeEventListener('mousemove', onMove);
+                document.removeEventListener('mouseup', onUp);
+            }
+            document.addEventListener('mousemove', onMove);
+            document.addEventListener('mouseup', onUp);
+        }
+
+        // ---- DESKTOP RESIZE ----
+        function startDesktopResize(e, el, idx, canvas) {
+            e.preventDefault();
+            const rect = canvas.getBoundingClientRect();
+            const startX = e.clientX;
+            const startW = parseFloat(el.style.width);
+
+            function onMove(ev) {
+                const dx = ((ev.clientX - startX) / rect.width) * 100;
+                let newW = Math.max(5, Math.min(80, startW + dx));
+                el.style.width = newW + '%';
+                ensureObj(idx).style.width = Math.round(newW);
+                updateDesktopProps();
+            }
+            function onUp() {
+                document.removeEventListener('mousemove', onMove);
+                document.removeEventListener('mouseup', onUp);
+            }
+            document.addEventListener('mousemove', onMove);
+            document.addEventListener('mouseup', onUp);
+        }
+
+        // ---- SNAP LOGIC ----
+        function applySnap(left, top, width, idx, canvas) {
+            let snappedLeft = left, snappedTop = top;
+            let guideIdx = 0;
+            hideAllGuides();
+
+            // Edges of this image
+            const right = left + width;
+            const centerX = left + width / 2;
+
+            // Check vertical snap lines
+            SNAP_LINES.forEach(line => {
+                // Left edge snap
+                if (Math.abs(left - line) < SNAP_THRESHOLD) {
+                    snappedLeft = line;
+                    showGuide(guideIdx++, 'vertical', line, line + '%');
+                }
+                // Right edge snap
+                if (Math.abs(right - line) < SNAP_THRESHOLD) {
+                    snappedLeft = line - width;
+                    showGuide(guideIdx++, 'vertical', line, line + '%');
+                }
+                // Center snap
+                if (Math.abs(centerX - line) < SNAP_THRESHOLD) {
+                    snappedLeft = line - width / 2;
+                    showGuide(guideIdx++, 'vertical', line, line + '%');
+                }
+            });
+
+            // Check horizontal snap lines
+            SNAP_LINES.forEach(line => {
+                if (Math.abs(top - line) < SNAP_THRESHOLD) {
+                    snappedTop = line;
+                    showGuide(guideIdx++, 'horizontal', line, line + '%');
+                }
+            });
+
+            // Dynamic: snap to other images
+            document.querySelectorAll('.ve-img').forEach(other => {
+                const oIdx = parseInt(other.dataset.idx);
+                if (oIdx === idx || guideIdx >= 10) return;
+                const oLeft = parseFloat(other.style.left);
+                const oTop = parseFloat(other.style.top);
+                // Align tops
+                if (Math.abs(top - oTop) < SNAP_THRESHOLD) {
+                    snappedTop = oTop;
+                    showGuide(guideIdx++, 'horizontal', oTop, 'align #' + (oIdx + 1));
+                }
+                // Align lefts
+                if (Math.abs(left - oLeft) < SNAP_THRESHOLD) {
+                    snappedLeft = oLeft;
+                    showGuide(guideIdx++, 'vertical', oLeft, 'align #' + (oIdx + 1));
+                }
+            });
+
+            return { left: snappedLeft, top: snappedTop };
+        }
+
+        function showGuide(idx, type, pct, label) {
+            const el = document.getElementById('ve-guide-' + idx);
+            if (!el) return;
+            el.className = 've-guide ' + type + ' active';
+            if (type === 'horizontal') el.style.top = pct + '%';
+            else el.style.left = pct + '%';
+            el.querySelector('.ve-guide-label').textContent = label;
+        }
+
+        function hideAllGuides() {
+            for (let i = 0; i < 10; i++) {
+                const el = document.getElementById('ve-guide-' + i);
+                if (el) el.classList.remove('active');
+            }
+        }
+
+        // ---- MOBILE CANVAS (Absolute Position Layout) ----
+        function renderMobileCanvas(ws) {
+            const images = data.site.home_images || [];
+
+            const canvasWrap = document.createElement('div');
+            canvasWrap.className = 've-canvas-wrap';
+            canvasWrap.style.display = 'flex'; canvasWrap.style.justifyContent = 'center'; canvasWrap.style.alignItems = 'flex-start'; canvasWrap.style.padding = '20px';
+            const canvas = document.createElement('div');
+            canvas.className = 've-canvas mobile-mode';
+            canvas.id = 've-mobile-canvas';
+            canvasWrap.appendChild(canvas);
+            ws.appendChild(canvasWrap);
+
+            // Alignment guides (max 12)
+            for (let g = 0; g < 12; g++) {
+                const guide = document.createElement('div');
+                guide.className = 've-mobile-guide ' + (g < 6 ? 'horizontal' : 'vertical');
+                guide.id = 've-mobile-guide-' + g;
+                guide.innerHTML = '<span class="ve-mobile-guide-label"></span>';
+                canvas.appendChild(guide);
+            }
+
+            // Render mobile cards with absolute positioning
+            images.forEach((item, i) => {
+                if (i >= 5) return;
+                const m = getMobile(item, i);
+                const src = getImgSrc(item);
+                const caption = (typeof item === 'object' && item.caption) || '';
+
+                const card = document.createElement('div');
+                card.className = 've-mobile-card' + (i === veSelected ? ' selected' : '');
+                card.dataset.col = m.col;
+                card.dataset.idx = i;
+                card.style.width = m.width + '%';
+                card.style.top = m.top + '%';
+                card.style.left = m.left + '%';
+
+                card.innerHTML = `
+                    <span class="ve-mobile-label">#${i + 1}</span>
+                    ${src ? `<img src="${src}" draggable="false">` : '<div style="height:60px;background:#ddd;display:flex;align-items:center;justify-content:center;color:#999;font-size:10px;">NO IMG</div>'}
+                    ${caption ? `<div class="ve-mobile-caption">${caption}</div>` : ''}
+                    <div class="ve-mobile-resize"></div>
+                `;
+                canvas.appendChild(card);
+
+                // Click to select + drag to move
+                card.addEventListener('mousedown', (e) => {
+                    if (e.target.classList.contains('ve-mobile-resize')) return;
+                    veSelected = i;
+                    document.querySelectorAll('.ve-mobile-card').forEach(c => c.classList.remove('selected'));
+                    card.classList.add('selected');
+                    document.querySelectorAll('.ve-strip-item').forEach((s, si) => s.classList.toggle('selected', si === i));
+                    updateMobileProps();
+                    startMobileDrag(e, card, i, canvas);
+                });
+
+                // Width resize handle
+                card.querySelector('.ve-mobile-resize').addEventListener('mousedown', (e) => {
+                    e.stopPropagation(); e.preventDefault();
+                    veSelected = i;
+                    const canvasRect = canvas.getBoundingClientRect();
+                    const startX = e.clientX;
+                    const startW = m.width;
+                    function onMove(ev) {
+                        const dx = ((ev.clientX - startX) / canvasRect.width) * 100;
+                        let newW = Math.max(15, Math.min(85, startW + dx));
+                        newW = Math.round(newW);
+                        card.style.width = newW + '%';
+                        ensureObj(i).mobile_width = newW;
+                        updateMobileProps();
+                        // Show alignment guides during resize
+                        const curLeft = parseFloat(card.style.left);
+                        applyMobileSnapGuides(curLeft, parseFloat(card.style.top), newW, i, canvas, false);
+                    }
+                    function onUp() {
+                        hideMobileGuides();
+                        document.removeEventListener('mousemove', onMove);
+                        document.removeEventListener('mouseup', onUp);
+                    }
+                    document.addEventListener('mousemove', onMove);
+                    document.addEventListener('mouseup', onUp);
+                });
+            });
+
+            // Props panel
+            const props = document.createElement('div');
+            props.className = 've-props';
+            props.id = 've-mobile-props';
+            ws.appendChild(props);
+            updateMobileProps();
+        }
+
+        // ---- MOBILE DRAG TO MOVE ----
+        function startMobileDrag(e, card, idx, canvas) {
+            e.preventDefault();
+            card.classList.add('dragging');
+            const rect = canvas.getBoundingClientRect();
+            const startX = e.clientX, startY = e.clientY;
+            const startLeft = parseFloat(card.style.left) || 0;
+            const startTop = parseFloat(card.style.top) || 0;
+            const cardW = parseFloat(card.style.width) || 50;
+
+            function onMove(ev) {
+                const dx = ((ev.clientX - startX) / rect.width) * 100;
+                const dy = ((ev.clientY - startY) / rect.height) * 100;
+                let newLeft = Math.max(0, Math.min(100 - cardW, startLeft + dx));
+                let newTop = Math.max(0, Math.min(90, startTop + dy));
+
+                // Snap to alignment guides (unless Shift)
+                if (!ev.shiftKey) {
+                    const snapped = applyMobileSnapGuides(newLeft, newTop, cardW, idx, canvas, true);
+                    newLeft = snapped.left;
+                    newTop = snapped.top;
+                } else {
+                    hideMobileGuides();
+                }
+
+                card.style.left = newLeft + '%';
+                card.style.top = newTop + '%';
+                ensureObj(idx).mobile_left = Math.round(newLeft);
+                ensureObj(idx).mobile_top = Math.round(newTop);
+                // Auto-detect col based on position
+                const col = newLeft + cardW / 2 > 50 ? 'right' : 'left';
+                ensureObj(idx).mobile_col = col;
+                card.dataset.col = col;
+                updateMobileProps();
+            }
+            function onUp() {
+                card.classList.remove('dragging');
+                hideMobileGuides();
+                document.removeEventListener('mousemove', onMove);
+                document.removeEventListener('mouseup', onUp);
+            }
+            document.addEventListener('mousemove', onMove);
+            document.addEventListener('mouseup', onUp);
+        }
+
+        // ---- MOBILE ALIGNMENT SNAP GUIDES ----
+        function applyMobileSnapGuides(left, top, width, idx, canvas, snap) {
+            let snappedLeft = left, snappedTop = top;
+            let guideIdx = 0;
+            hideMobileGuides();
+
+            // Current image edges
+            const right = left + width;
+
+            // Dynamic: snap to other images
+            document.querySelectorAll('.ve-mobile-card').forEach(other => {
+                const oIdx = parseInt(other.dataset.idx);
+                if (oIdx === idx || guideIdx >= 12) return;
+                const oLeft = parseFloat(other.style.left) || 0;
+                const oTop = parseFloat(other.style.top) || 0;
+                const oWidth = parseFloat(other.style.width) || 50;
+                const oRight = oLeft + oWidth;
+
+                // Vertical guides: Left edge alignment
+                if (Math.abs(left - oLeft) < MOBILE_SNAP_THRESHOLD) {
+                    if (snap) snappedLeft = oLeft;
+                    showMobileGuide(guideIdx++, 'vertical', oLeft, '← align #' + (oIdx + 1));
+                }
+                // Right edge alignment
+                if (Math.abs(right - oRight) < MOBILE_SNAP_THRESHOLD) {
+                    if (snap) snappedLeft = oRight - width;
+                    showMobileGuide(guideIdx++, 'vertical', oRight, '→ align #' + (oIdx + 1));
+                }
+                // Left to Right alignment (current left = other right)
+                if (Math.abs(left - oRight) < MOBILE_SNAP_THRESHOLD) {
+                    if (snap) snappedLeft = oRight;
+                    showMobileGuide(guideIdx++, 'vertical', oRight, '|← #' + (oIdx + 1));
+                }
+                // Right to Left alignment (current right = other left)
+                if (Math.abs(right - oLeft) < MOBILE_SNAP_THRESHOLD) {
+                    if (snap) snappedLeft = oLeft - width;
+                    showMobileGuide(guideIdx++, 'vertical', oLeft, '→| #' + (oIdx + 1));
+                }
+                // Horizontal guides: Top alignment
+                if (Math.abs(top - oTop) < MOBILE_SNAP_THRESHOLD) {
+                    if (snap) snappedTop = oTop;
+                    showMobileGuide(guideIdx++, 'horizontal', oTop, '↑ align #' + (oIdx + 1));
+                }
+            });
+
+            // Canvas edge snaps (0%, 50%, 100%)
+            [0, 50].forEach(line => {
+                if (Math.abs(left - line) < MOBILE_SNAP_THRESHOLD) {
+                    if (snap) snappedLeft = line;
+                    showMobileGuide(guideIdx++, 'vertical', line, line + '%');
+                }
+                if (Math.abs(right - line) < MOBILE_SNAP_THRESHOLD && line > 0) {
+                    if (snap) snappedLeft = line - width;
+                    showMobileGuide(guideIdx++, 'vertical', line, line + '%');
+                }
+            });
+
+            return { left: snappedLeft, top: snappedTop };
+        }
+
+        function showMobileGuide(idx, type, pct, label) {
+            const el = document.getElementById('ve-mobile-guide-' + idx);
+            if (!el) return;
+            el.className = 've-mobile-guide ' + type + ' active';
+            if (type === 'horizontal') el.style.top = pct + '%';
+            else el.style.left = pct + '%';
+            el.querySelector('.ve-mobile-guide-label').textContent = label;
+        }
+
+        function hideMobileGuides() {
+            for (let i = 0; i < 12; i++) {
+                const el = document.getElementById('ve-mobile-guide-' + i);
+                if (el) el.classList.remove('active');
+            }
+        }
+
+        function updateMobileProps() {
+            const props = document.getElementById('ve-mobile-props');
+            if (!props) return;
+            const images = data.site.home_images || [];
+            const i = veSelected;
+            if (i >= images.length) return;
+            const item = images[i];
+            const m = getMobile(item, i);
+            const caption = (typeof item === 'object' && item.caption) || '';
+
+            props.innerHTML = `
+                <div class="ve-props-title">Image #${i + 1} 属性</div>
+                <div class="ve-props-card" style="border-color:#b8dab8;">
+                    <div style="font-size:11px; font-weight:700; color:#2e7d32; margin-bottom:8px;">📱 MOBILE</div>
+                    <div style="margin-bottom:8px;">
+                        <label>↕ 上 Top %</label>
+                        <div style="display:flex; gap:6px; align-items:center;">
+                            <input type="range" min="0" max="90" value="${m.top}" oninput="this.nextElementSibling.value=this.value; veSetMobile(${i},'mobile_top',parseInt(this.value))" style="flex:1; accent-color:#2e7d32;">
+                            <input type="number" min="0" max="90" value="${m.top}" oninput="this.previousElementSibling.value=this.value; veSetMobile(${i},'mobile_top',parseInt(this.value))" style="width:48px; text-align:center; padding:4px; border:1px solid #b8dab8; border-radius:4px; font-size:12px;">
+                        </div>
+                    </div>
+                    <div style="margin-bottom:8px;">
+                        <label>↔ 左 Left %</label>
+                        <div style="display:flex; gap:6px; align-items:center;">
+                            <input type="range" min="0" max="85" value="${m.left}" oninput="this.nextElementSibling.value=this.value; veSetMobile(${i},'mobile_left',parseInt(this.value))" style="flex:1; accent-color:#2e7d32;">
+                            <input type="number" min="0" max="85" value="${m.left}" oninput="this.previousElementSibling.value=this.value; veSetMobile(${i},'mobile_left',parseInt(this.value))" style="width:48px; text-align:center; padding:4px; border:1px solid #b8dab8; border-radius:4px; font-size:12px;">
+                        </div>
+                    </div>
+                    <div style="margin-bottom:8px;">
+                        <label>⬌ 宽度 Width %</label>
+                        <div style="display:flex; gap:6px; align-items:center;">
+                            <input type="range" min="15" max="85" value="${m.width}" oninput="this.nextElementSibling.value=this.value; veSetMobile(${i},'mobile_width',parseInt(this.value))" style="flex:1; accent-color:#2e7d32;">
+                            <input type="number" min="15" max="85" value="${m.width}" oninput="this.previousElementSibling.value=this.value; veSetMobile(${i},'mobile_width',parseInt(this.value))" style="width:48px; text-align:center; padding:4px; border:1px solid #b8dab8; border-radius:4px; font-size:12px;">
+                        </div>
+                    </div>
+                    <div style="margin-bottom:8px;">
+                        <label>对齐 Align</label>
+                        <select onchange="veSetMobile(${i},'mobile_col',this.value)" style="background:#fff;">
+                            <option value="left" ${m.col === 'left' ? 'selected' : ''}>← 左对齐 Caption</option>
+                            <option value="right" ${m.col === 'right' ? 'selected' : ''}>→ 右对齐 Caption</option>
+                        </select>
+                    </div>
+                    <div class="ve-prop-hint">拖拽图片移动位置 · 拖拽手柄调宽度 · Shift 禁用吸附</div>
+                </div>
+                <div class="ve-props-card">
+                    <label>📍 Caption</label>
+                    <input type="text" placeholder="例: Kyoto, Japan" value="${caption}" oninput="veSetCaption(${i}, this.value)">
+                </div>
+                <div class="ve-props-card">
+                    <label>上传/更换</label>
+                    <button class="btn" style="font-size:10px; padding:6px; width:100%; border-radius:4px;" onclick="document.getElementById('ve-upload-m-${i}').click()">
+                        ${(typeof item === 'object' && item.src) || typeof item === 'string' ? '更换图片' : '上传图片'}
+                    </button>
+                    <input type="file" id="ve-upload-m-${i}" style="display:none" onchange="uploadFile(this, (path) => { ensureObj(${i}).src = path; renderHomeImagesEditor(); })">
+                </div>
+            `;
+        }
+
+        function veSetMobile(i, key, val) {
+            const obj = ensureObj(i);
+            obj[key] = val;
+            // Refresh mobile canvas card
+            const card = document.querySelector(`.ve-mobile-card[data-idx="${i}"]`);
+            if (card) {
+                if (key === 'mobile_col') card.dataset.col = val;
+                if (key === 'mobile_width') card.style.width = val + '%';
+                if (key === 'mobile_top') card.style.top = val + '%';
+                if (key === 'mobile_left') card.style.left = val + '%';
+            }
+        }
+
+        // ---- IMAGE STRIP ----
+        function renderImageStrip(root) {
+            const images = data.site.home_images || [];
+            const strip = document.createElement('div');
+            strip.className = 've-strip';
+            strip.id = 've-image-strip';
+
+            images.forEach((item, i) => {
+                if (i >= 5) return;
+                const src = getImgSrc(item);
+                const el = document.createElement('div');
+                el.className = 've-strip-item' + (i === veSelected ? ' selected' : '');
+                el.innerHTML = `
+                    ${src ? `<img src="${src}" draggable="false">` : '<div style="height:56px;background:#eee;display:flex;align-items:center;justify-content:center;font-size:9px;color:#ccc;">EMPTY</div>'}
+                    <span>#${i + 1}</span>
+                `;
+                el.addEventListener('click', () => {
+                    veSelected = i;
+                    document.querySelectorAll('.ve-strip-item').forEach((s, si) => s.classList.toggle('selected', si === i));
+                    // Also select on canvas
+                    if (veMode === 'desktop') {
+                        document.querySelectorAll('.ve-img').forEach(v => v.classList.toggle('selected', parseInt(v.dataset.idx) === i));
+                        updateDesktopProps();
+                    } else {
+                        document.querySelectorAll('.ve-mobile-card').forEach(c => c.classList.toggle('selected', parseInt(c.dataset.idx) === i));
+                        updateMobileProps();
+                    }
+                });
+                strip.appendChild(el);
+            });
+
+            // SortableJS for reordering
+            root.appendChild(strip);
+            if (typeof Sortable !== 'undefined') {
+                new Sortable(strip, {
+                    animation: 150,
+                    onEnd: (ev) => {
+                        const arr = data.site.home_images;
+                        const moved = arr.splice(ev.oldIndex, 1)[0];
+                        arr.splice(ev.newIndex, 0, moved);
+                        veSelected = ev.newIndex;
+                        renderHomeImagesEditor();
+                    }
+                });
+            }
+        }
+
+        // Legacy compat aliases
         function moveHomeImage(index, direction) {
             const newIndex = index + direction;
-            if (newIndex < 0 || newIndex >= data.site.home_images.length) return;
-            if (newIndex >= 5) return; // Keep it within 5 slots
-
-            // Swap
+            if (newIndex < 0 || newIndex >= data.site.home_images.length || newIndex >= 5) return;
             const temp = data.site.home_images[index];
             data.site.home_images[index] = data.site.home_images[newIndex];
             data.site.home_images[newIndex] = temp;
-
             renderHomeImagesEditor();
         }
-
         function updateHomeImage(index, path) {
-            let current = data.site.home_images[index];
-            if (typeof current === 'string') {
-                data.site.home_images[index] = { src: path, style: {} };
-            } else {
-                current.src = path;
-            }
+            ensureObj(index).src = path;
             renderHomeImagesEditor();
         }
-
         function updateHomeStyle(index, key, val) {
-            let current = data.site.home_images[index];
-            if (typeof current === 'string') {
-                current = { src: current, style: {} };
-                data.site.home_images[index] = current;
-            }
-            if (!current.style) current.style = {};
-            current.style[key] = val;
+            ensureObj(index).style[key] = val;
+        }
+        function updateHomeMobile(index, key, val) {
+            ensureObj(index)[key] = val;
         }
 
         // --- CONTACT LIST ---
@@ -1095,32 +2426,33 @@
             container.innerHTML = '';
             data.site.contact_items.forEach((item, i) => {
                 const div = document.createElement('div');
-                div.style.background = '#fff';
-                div.style.padding = '20px';
-                div.style.border = '1px solid #eee';
-                div.style.display = 'flex';
-                div.style.gap = '20px';
-                div.style.alignItems = 'center';
+                div.className = 'contact-list-item';
+                div.style.cssText = 'background:#fff;padding:16px 20px;border:1px solid #eee;display:flex;gap:16px;align-items:center;border-radius:4px;margin-bottom:4px;transition:all 0.2s;';
+                div.dataset.contactIdx = i;
                 div.innerHTML = `
-                    <div style="flex:1;">
-                        <input type="text" placeholder="Label" value="${item.label}" oninput="updateContactItem(${i}, 'label', this.value)" style="margin-bottom:10px;">
-                        <input type="text" placeholder="Value" value="${item.value}" oninput="updateContactItem(${i}, 'value', this.value)">
+                    <div style="cursor:grab;color:#ccc;font-size:16px;padding:0 4px;" class="drag-handle" title="拖拽排序">⠿</div>
+                    <div style="flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+                        <div><label style="font-size:9px;color:#999;text-transform:uppercase;">Label</label><input type="text" value="${item.label}" oninput="updateContactItem(${i}, 'label', this.value)" style="width:100%;padding:6px 0;border:none;border-bottom:1px solid #eee;font-size:13px;"></div>
+                        <div><label style="font-size:9px;color:#999;text-transform:uppercase;">Value</label><input type="text" value="${item.value}" oninput="updateContactItem(${i}, 'value', this.value)" style="width:100%;padding:6px 0;border:none;border-bottom:1px solid #eee;font-size:13px;"></div>
+                        <div><label style="font-size:9px;color:#999;text-transform:uppercase;">Link</label><input type="text" placeholder="Optional" value="${item.link || ''}" oninput="updateContactItem(${i}, 'link', this.value)" style="width:100%;padding:6px 0;border:none;border-bottom:1px solid #eee;font-size:13px;"></div>
                     </div>
-                    <div style="flex:1;">
-                        <input type="text" placeholder="Link (Optional)" value="${item.link || ''}" oninput="updateContactItem(${i}, 'link', this.value)">
-                    </div>
-                     <div style="display:flex; flex-direction:column; gap:4px;">
-                        <button class="btn" style="padding:4px 8px; background:#fff; color:#000; border:1px solid #000; display:flex; align-items:center; justify-content:center;" onclick="moveContactItem(${i}, -1)" title="Move Up">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
-                        </button>
-                        <button class="btn" style="padding:4px 8px; background:#fff; color:#000; border:1px solid #000; display:flex; align-items:center; justify-content:center;" onclick="moveContactItem(${i}, 1)" title="Move Down">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
-                        </button>
-                    </div>
-                    <button class="btn btn-danger" style="padding:8px 12px; font-family:Arial, sans-serif; font-weight:bold;" onclick="removeContactItem(${i})" title="Delete">DEL</button>
+                    <button class="btn btn-danger" style="padding:6px 10px;font-size:11px;font-weight:700;border-radius:3px;" onclick="removeContactItem(${i})" title="Delete">✕</button>
                 `;
                 container.appendChild(div);
             });
+
+            // SortableJS for contact items
+            if (typeof Sortable !== 'undefined') {
+                new Sortable(container, {
+                    animation: 200,
+                    handle: '.drag-handle',
+                    onEnd: (evt) => {
+                        const movedItem = data.site.contact_items.splice(evt.oldIndex, 1)[0];
+                        data.site.contact_items.splice(evt.newIndex, 0, movedItem);
+                        renderContactList();
+                    }
+                });
+            }
         }
         function addContactItem() {
             if (!data.site.contact_items) data.site.contact_items = [];
@@ -1161,23 +2493,20 @@
 
                 const div = document.createElement('div');
                 div.className = 'project-item';
+                div.dataset.projIndex = i;
                 div.innerHTML = `
                     <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #000; padding-bottom:15px;">
-                        <div style="display:flex; align-items:center; gap:12px; cursor:pointer; flex-grow:1;" onclick="toggleProject(${i})" title="Click to Expand/Collapse">
-                            <button class="btn" style="background:transparent; color:${iconColor}; padding:0; font-size:24px; font-family:monospace; width:24px; height:24px; display:flex; align-items:center; justify-content:center; border:none;">${toggleIcon}</button>
-                            <img src="${proj.image}" style="height:32px; width:32px; object-fit:cover; border-radius:4px; background:#f0f0f0;">
-                            <strong style="font-family:var(--font-serif); font-size:20px;">${proj.title || 'Untitled'}</strong>
+                        <div style="display:flex; align-items:center; gap:12px; flex-grow:1;">
+                            <div style="cursor:grab;color:#ccc;font-size:18px;padding:0 4px;" class="proj-drag-handle" title="拖拽排序">⠿</div>
+                            <div style="display:flex; align-items:center; gap:12px; cursor:pointer; flex-grow:1;" onclick="toggleProject(${i})" title="Click to Expand/Collapse">
+                                <button class="btn" style="background:transparent; color:${iconColor}; padding:0; font-size:24px; font-family:monospace; width:24px; height:24px; display:flex; align-items:center; justify-content:center; border:none;">${toggleIcon}</button>
+                                <img src="${proj.image}" style="height:32px; width:32px; object-fit:cover; border-radius:4px; background:#f0f0f0;">
+                                <strong style="font-family:var(--font-serif); font-size:20px;">${proj.title || 'Untitled'}</strong>
+                                <span class="photo-count-badge">${(proj.gallery || []).length} photos</span>
+                            </div>
                         </div>
                         
-                        <div style="display:flex; gap:8px;">
-                            <button class="btn" style="background:#fff; color:#000; border:1px solid #000; padding:6px 12px; display:flex; align-items:center; justify-content:center;" onclick="moveProject(${i}, -1)" title="Move Up">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
-                            </button>
-                            <button class="btn" style="background:#fff; color:#000; border:1px solid #000; padding:6px 12px; display:flex; align-items:center; justify-content:center;" onclick="moveProject(${i}, 1)" title="Move Down">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
-                            </button>
-                            <button class="btn btn-danger" style="padding:6px 12px; font-family:Arial, sans-serif; font-weight:bold;" onclick="deleteProject(${i})" title="Delete Project">DEL</button>
-                        </div>
+                        <button class="btn btn-danger" style="padding:6px 12px; font-size:11px; font-weight:700; border-radius:3px;" onclick="deleteProject(${i})" title="Delete Project">✕</button>
                     </div>
 
                     <div id="proj-content-${i}" style="display:${displayStyle};">
@@ -1216,9 +2545,15 @@
                             </div>
                         </div>
 
-                        <div style="margin-top:15px;"><label>Gallery Images (Detail View)</label>
+                        <div style="margin-top:15px;">
+                            <div class="gallery-toolbar">
+                                <label>Gallery Images</label>
+                                <div style="display:flex;gap:8px;align-items:center;">
+                                    <span style="font-size:11px;color:#999;">${(proj.gallery || []).length} photos</span>
+                                    <button class="btn" style="font-size:9px;padding:4px 10px;" onclick="document.getElementById('gallery-upload-${i}').click()">+ ADD</button>
+                                </div>
+                            </div>
                             <div class="gallery-grid" id="gallery-grid-${i}"></div>
-                            <button class="btn" style="margin-top:5px; font-size:10px;" onclick="document.getElementById('gallery-upload-${i}').click()">+ ADD PHOTO</button>
                             <input type="file" id="gallery-upload-${i}" style="display:none" multiple onchange="uploadFilesBatch(this, (paths) => addGalleryImagesBatch(${i}, paths))">
                         </div>
                     </div>
@@ -1239,11 +2574,21 @@
                     thumb.style.height = 'auto';
                     thumb.dataset.projIndex = i;
                     thumb.dataset.imgIndex = imgIndex;
+                    const isCover = src === proj.image;
                     thumb.innerHTML = `
                         <img src="${src}" draggable="false" loading="lazy">
                         <input type="text" class="image-caption-input" placeholder="输入照片描述..." value="${caption}">
+                        <button class="img-set-cover" title="设为封面">☆ COVER</button>
                         <button class="img-remove" data-proj="${i}" data-img="${imgIndex}">×</button>
                     `;
+                    if (isCover) thumb.classList.add('is-cover');
+
+                    // Set as cover button
+                    thumb.querySelector('.img-set-cover').addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const liveIndex = parseInt(thumb.dataset.imgIndex);
+                        setAsCoverByIndex(i, liveIndex);
+                    });
 
                     // Remove button click — use live dataset index (survives drag reorder)
                     thumb.querySelector('.img-remove').addEventListener('click', () => {
@@ -1279,6 +2624,21 @@
 
             // Performance: Batch append all projects at once
             container.appendChild(fragment);
+
+            // SortableJS for project-level reordering
+            if (typeof Sortable !== 'undefined') {
+                new Sortable(container, {
+                    animation: 200,
+                    handle: '.proj-drag-handle',
+                    filter: '.image-caption-input, input, textarea, select, button',
+                    preventOnFilter: false,
+                    onEnd: (evt) => {
+                        const movedProj = data.projects.splice(evt.oldIndex, 1)[0];
+                        data.projects.splice(evt.newIndex, 0, movedProj);
+                        renderProjects();
+                    }
+                });
+            }
         }
 
         function updateProject(index, key, val) {
@@ -1358,11 +2718,19 @@
         async function uploadFilesBatch(input, callback) {
             if (!input.files || input.files.length === 0) return;
 
+            const total = input.files.length;
+            const progressEl = document.getElementById('upload-progress');
+            const barEl = document.getElementById('upload-progress-bar');
+            if (progressEl) progressEl.classList.add('active');
+
             const paths = [];
             for (let i = 0; i < input.files.length; i++) {
                 const file = input.files[i];
                 const formData = new FormData();
                 formData.append('file', file);
+
+                const pct = Math.round(((i) / total) * 100);
+                if (barEl) barEl.style.width = pct + '%';
 
                 try {
                     const res = await fetch('/api/upload', { method: 'POST', body: formData });
@@ -1375,10 +2743,17 @@
                 }
             }
 
+            if (barEl) barEl.style.width = '100%';
+            setTimeout(() => {
+                if (progressEl) progressEl.classList.remove('active');
+                if (barEl) barEl.style.width = '0%';
+            }, 500);
+
             if (paths.length > 0) {
+                showToast(`✓ ${paths.length}/${total} 张图片上传成功`, 'success');
                 callback(paths);
             }
-            input.value = ''; // Reset
+            input.value = '';
         }
 
         function updateGalleryCaption(projIndex, imgIndex, val) {
@@ -1556,6 +2931,22 @@
             } catch (e) { alert('Error uploading'); }
         }
 
+        // --- Toast Notification System ---
+        function showToast(message, type = 'success') {
+            let container = document.querySelector('.toast-container');
+            if (!container) {
+                container = document.createElement('div');
+                container.className = 'toast-container';
+                document.body.appendChild(container);
+            }
+            const toast = document.createElement('div');
+            toast.className = 'toast ' + type;
+            const icons = { success: '✓', error: '✕', info: 'ℹ' };
+            toast.innerHTML = `<span>${icons[type] || ''}</span> ${message}`;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
         async function saveData() {
             try {
                 const res = await fetch('/api/save', {
@@ -1564,10 +2955,114 @@
                     body: JSON.stringify(data)
                 });
                 const json = await res.json();
-                if (json.status === 'success') alert('Saved!');
-                else alert('Error: ' + json.message);
-            } catch (e) { alert('Connection Error'); }
+                if (json.status === 'success') {
+                    showToast('✓ 已保存 Saved!', 'success');
+                    clearDirty();
+                }
+                else showToast('保存失败: ' + json.message, 'error');
+            } catch (e) { showToast('连接错误 Connection Error', 'error'); }
         }
+        // === PHASE 1 ENHANCEMENTS ===
+
+        // --- Dirty State Tracking ---
+        let isDirty = false;
+        let autoSaveTimer = null;
+
+        function markDirty() {
+            if (isDirty) return;
+            isDirty = true;
+            updateDirtyUI();
+            startAutoSaveTimer();
+        }
+
+        function clearDirty() {
+            isDirty = false;
+            updateDirtyUI();
+            if (autoSaveTimer) { clearInterval(autoSaveTimer); autoSaveTimer = null; }
+            localStorage.removeItem('admin_draft');
+            localStorage.removeItem('admin_draft_time');
+        }
+
+        function updateDirtyUI() {
+            const saveBtn = document.getElementById('btn-save');
+            if (!saveBtn) return;
+            const dot = saveBtn.querySelector('.unsaved-dot');
+            if (isDirty && !dot) {
+                const d = document.createElement('span');
+                d.className = 'unsaved-dot';
+                d.title = '有未保存的更改';
+                saveBtn.appendChild(d);
+            } else if (!isDirty && dot) {
+                dot.remove();
+            }
+        }
+
+        // --- Auto-Save Draft ---
+        function startAutoSaveTimer() {
+            if (autoSaveTimer) return;
+            autoSaveTimer = setInterval(() => {
+                if (isDirty && data) {
+                    try {
+                        localStorage.setItem('admin_draft', JSON.stringify(data));
+                        localStorage.setItem('admin_draft_time', new Date().toISOString());
+                        console.log('[AutoSave] Draft saved to localStorage');
+                    } catch (e) { console.warn('[AutoSave] Failed:', e); }
+                }
+            }, 60000);
+        }
+
+        // --- Set Gallery Image as Cover ---
+        function setAsCoverByIndex(projIndex, imgIndex) {
+            const gallery = data.projects[projIndex].gallery;
+            if (!gallery || !gallery[imgIndex]) return;
+            const item = gallery[imgIndex];
+            const src = typeof item === 'string' ? item : item.src;
+            data.projects[projIndex].image = src;
+            markDirty();
+            renderProjects();
+            showToast('✓ 封面已更新 Cover Updated', 'success');
+        }
+
+        // --- Keyboard Shortcuts ---
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+                e.preventDefault();
+                saveData();
+            }
+            if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'P' || e.key === 'p')) {
+                e.preventDefault();
+                publishData();
+            }
+        });
+
+        // --- Unsaved Changes Warning ---
+        window.addEventListener('beforeunload', (e) => {
+            if (isDirty) { e.preventDefault(); e.returnValue = ''; }
+        });
+
+        // --- Auto-detect Input Changes ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const main = document.querySelector('main');
+            if (main) {
+                main.addEventListener('input', () => markDirty(), true);
+                main.addEventListener('change', () => markDirty(), true);
+            }
+        });
+
+        // --- Patch Mutation Functions for Dirty Tracking ---
+        (function patchDirtyTracking() {
+            const fns = ['addNewProject', 'removeGalleryImage', 'addGalleryImagesBatch',
+                'addGalleryImage', 'addContactItem', 'removeContactItem',
+                'toggleContactImageMode', 'updateContactImage',
+                'veSetDesktop', 'veSetMobile', 'veSetCaption'];
+            fns.forEach(name => {
+                const orig = window[name];
+                if (orig) {
+                    window[name] = function (...args) { markDirty(); return orig.apply(this, args); };
+                }
+            });
+        })();
+
     </script>
 </body>
 

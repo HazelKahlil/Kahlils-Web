@@ -300,14 +300,6 @@
                     "caption": "Kyoto,Japan"
                 },
                 {
-                    "src": "images/2025.7.17 62.webp",
-                    "caption": "Kyoto,Japan"
-                },
-                {
-                    "src": "images/2.21-3.webp",
-                    "caption": "Shanghai,China"
-                },
-                {
                     "src": "images/2025 1.1 \u5143\u65e6-20.webp",
                     "caption": "Shanghai,China"
                 },
@@ -372,7 +364,7 @@
                     "caption": "Shanghai,China"
                 }
             ],
-            "_collapsed": true
+            "_collapsed": false
         },
         {
             "id": "amagatsu",

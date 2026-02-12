@@ -42,8 +42,10 @@
 }
 
 /* 暗色模式下雪花图标：非激活状态使用 invert，激活状态使用 inherit 保持颜色一致 */
+/* filter: invert 直接切换，无 transition，避免 WebKit compositing 抖动 */
 [data-theme="dark"] #snow-toggle:not(.active) svg {
     filter: invert(1);
+    transition: none;
 }
 
 [data-theme="dark"] .project-card .project-thumb {
@@ -127,7 +129,11 @@ body {
     line-height: 1.8;
     /* overflow: hidden; Removed global lock */
     height: 100%;
-    /* Smooth Theme Transition: Background and Text */
+    /* Theme transition: only applied during theme switch via JS class,
+       NOT permanent — permanent transition causes WebKit scroll jitter on mobile */
+}
+
+body.theme-transitioning {
     transition: background-color 0.6s ease, color 0.6s ease;
 }
 
@@ -205,7 +211,10 @@ header {
     background-color: rgba(255, 255, 255, 0.95);
     /* Original background */
     z-index: 100;
-    /* Smooth Theme Transition for Header BG */
+    /* Theme transition handled by body.theme-transitioning */
+}
+
+body.theme-transitioning header {
     transition: background-color 0.6s ease;
 }
 
@@ -375,9 +384,10 @@ nav a.active {
     flex-shrink: 0;
     stroke: currentColor;
     position: relative;
-    top: -2px;
-    /* Align with midline of lowercase 'l' in 'let it snow' */
-    transition: transform 0.6s ease, filter 0.3s ease;
+    top: 0px;
+    /* Vertically centered by flexbox; no manual offset needed */
+    transition: transform 0.6s ease;
+    /* filter transition removed: causes snow canvas compositing jitter on WebKit */
 }
 
 /* Active: icon micro-rotation + ice glow */

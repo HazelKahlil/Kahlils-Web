@@ -803,6 +803,10 @@ function initTheme() {
         toggleBtn.onclick = () => {
             const current = document.documentElement.getAttribute('data-theme');
             const next = current === 'dark' ? 'light' : 'dark';
+
+            // Enable transition class BEFORE change (so CSS transition kicks in)
+            document.body.classList.add('theme-transitioning');
+
             document.documentElement.setAttribute('data-theme', next);
             localStorage.setItem('theme', next);
 
@@ -811,6 +815,12 @@ function initTheme() {
 
             // Update Snow Color
             updateSnowColor();
+
+            // Remove transition class after animation completes
+            // This prevents permanent body transition from causing scroll jitter on mobile
+            setTimeout(() => {
+                document.body.classList.remove('theme-transitioning');
+            }, 700); // Slightly longer than 0.6s transition
         };
     }
 }

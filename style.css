@@ -338,7 +338,7 @@ nav a.active {
     margin-left: 20px;
     margin-right: auto;
     font-family: var(--font-serif);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 400;
     letter-spacing: 0.05em;
     color: #999;
@@ -356,7 +356,7 @@ nav a.active {
 #snow-toggle::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: 1px;
     left: 0;
     width: 0%;
     height: 1px;
@@ -384,8 +384,8 @@ nav a.active {
     flex-shrink: 0;
     stroke: currentColor;
     position: relative;
-    top: 0px;
-    /* Vertically centered by flexbox; no manual offset needed */
+    top: -2.5px;
+    /* Fine-tuned to align with midline of lowercase 'l' */
     transition: transform 0.6s ease;
     /* filter transition removed: causes snow canvas compositing jitter on WebKit */
 }

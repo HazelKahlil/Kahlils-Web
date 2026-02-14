@@ -35,23 +35,29 @@
 | 国际化 (Admin 中/英) | `admin.html` | ✅ 完成 |
 | FOUC 防闪烁 | 各 HTML `<head>` 内联脚本 | ✅ 完成 |
 
-### ❌ 未完成功能（参照 ITERATION_PLAN.md）
+### ✅ P1 功能（全部完成 — v9.7）
 
 | 功能 | 优先级 | 状态 |
 |------|--------|------|
-| 批量图片上传进度条 | P1 | ❌ 未开始 |
-| Gallery 批量操作 | P1 | ❌ 未开始 |
-| 封面图快速选择 | P1 | ❌ 未开始 |
-| 未保存更改提示 | P1 | ❌ 未开始 |
-| 撤销/重做 | P1 | ❌ 未开始 |
-| 自动保存草稿 | P1 | ❌ 未开始 |
-| 图片多尺寸生成 | P1 | ❌ 未开始 |
-| CSS/JS 压缩 | P1 | ❌ 未开始 |
+| 批量图片上传进度条 | P1 | ✅ uploadFilesBatch() |
+| Gallery 批量操作 | P1 | ✅ Select/All/Delete 批量模式 |
+| 封面图快速选择 | P1 | ✅ setAsCoverByIndex() |
+| 未保存更改提示 | P1 | ✅ markDirty() + beforeunload |
+| 撤销/重做 | P1 | ✅ Undo/Redo 栈(20步) + Ctrl+Z |
+| 自动保存草稿 | P1 | ✅ localStorage 60s 间隔 |
+| 图片多尺寸生成 | P1 | ✅ _md(960px) + _sm(480px) WebP |
+| CSS/JS 压缩 | P1 | ✅ build.sh → 46%/54% 压缩率 |
+
+### ❌ 未完成功能（P2）
+
+| 功能 | 优先级 | 状态 |
+|------|--------|------|
 | SEO 结构化数据 | P2 | ❌ 未开始 |
 | sitemap.xml | P2 | ❌ 未开始 |
 | robots.txt | P2 | ❌ 未开始 |
 | Admin 密码加密 | P2 | ❌ 未开始 |
 | API 认证 | P2 | ❌ 未开始 |
+
 
 ---
 

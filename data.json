@@ -92,7 +92,11 @@
                 "mobile_top": 69
             }
         ],
-        "contact_random_mode": true
+        "contact_random_mode": true,
+        "bio_layout": {},
+        "contact_info_layout": {},
+        "contact_gallery_layout": {},
+        "contact_fixed_images": []
     },
     "projects": [
         {
@@ -361,7 +365,7 @@
                     "caption": "Shanghai,China"
                 }
             ],
-            "_collapsed": false
+            "_collapsed": true
         },
         {
             "id": "amagatsu",

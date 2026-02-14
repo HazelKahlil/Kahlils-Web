@@ -1536,6 +1536,14 @@ body:not(.is-home) main {
         padding: 30px 28px;
         text-align: right;
     }
+
+    /* Contact Gallery - Mobile (consolidated from separate block) */
+    .contact-gallery-side {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 small images in a row */
+        gap: 8px;
+        padding-top: 24px;
+    }
 }
 
 /* Extra small devices (phones < 480px) */
@@ -1900,14 +1908,7 @@ body:not(.is-home) main {
     }
 }
 
-@media (max-width: 768px) {
-    .contact-gallery-side {
-        grid-template-columns: repeat(3, 1fr);
-        /* 3 small images in a row */
-        gap: 8px;
-        padding-top: 24px;
-    }
-}
+/* (Contact gallery mobile rules moved to main 768px block above) */
 
 .contact-random-img {
     width: 100%;
@@ -2067,8 +2068,8 @@ body.is-void #site-wrapper {
     }
 }
 
-/* Mobile: Horizontal Scroll-Snap Gallery (Replaces Vertical Stack) */
-@media screen and (max-width: 768px) {
+/* Mobile: Horizontal Scroll-Snap Gallery */
+@media (max-width: 768px) {
 
     /* 1. Project Split Layout - Full viewport slideshow */
     .project-split {

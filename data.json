@@ -43,20 +43,20 @@
         "home_images": [
             {
                 "src": "images/2025.11.28- 2.jpg",
-                "caption": "Kyoto Japan",
+                "caption": "Shanghai China Silence",
                 "mobile_col": "left",
                 "mobile_width": 62,
                 "mobile_mt": -11,
                 "style": {
                     "left": 8,
-                    "top": 7
+                    "top": 12
                 },
                 "mobile_top": 0,
                 "mobile_left": 3
             },
             {
                 "src": "images/2025.4.30-2.JPG",
-                "caption": "Shanghai China",
+                "caption": "Shanghai China Stars",
                 "mobile_col": "left",
                 "mobile_width": 37,
                 "mobile_mt": 71,
@@ -69,20 +69,20 @@
             },
             {
                 "src": "images/IMG_2874_VSCO.jpg",
-                "caption": "Shanghai China",
+                "caption": "Shanghai China Stillness",
                 "mobile_col": "left",
                 "mobile_width": 43,
                 "mobile_mt": -2,
                 "style": {
                     "left": 65,
-                    "top": 16
+                    "top": 21
                 },
                 "mobile_left": 57,
                 "mobile_top": 23
             },
             {
                 "src": "images/2025.11.28- 30.jpg",
-                "caption": "Shanghai China",
+                "caption": "Shanghai China Sculpture",
                 "mobile_col": "right",
                 "mobile_width": 52,
                 "mobile_mt": 91,
@@ -92,7 +92,7 @@
             },
             {
                 "src": "images/2026.1.11- 38.jpg",
-                "caption": "South Korea",
+                "caption": "South Korea bird",
                 "mobile_col": "left",
                 "mobile_width": 80,
                 "mobile_mt": -100,
@@ -463,7 +463,7 @@
                     "caption": "Shanghai, China"
                 }
             ],
-            "_collapsed": true
+            "_collapsed": false
         },
         {
             "id": "new-1770721055412",

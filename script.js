@@ -1,3 +1,22 @@
+// --- 0. UTILITY FUNCTIONS ---
+
+// XSS Protection: Escape HTML entities in user-sourced strings
+function escapeHTML(str) {
+    if (!str) return '';
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+}
+
+// Sound selectors (moved to top for code organization, BUG-6 fix)
+const soundSelectors = [
+    { sel: 'nav a, .social-icons a, a.contact-link, .tab-btn, #p-title, .project-info-side h1, .brand h1', type: 'click' },
+    { sel: '.hero-img, .project-card, .contact-img-wrapper, .contact-random-img, .project-thumb img', type: 'shutter' }
+];
+
+// Mobile detection helper — disable sounds on touch devices
+const isMobileDevice = () => window.matchMedia('(max-width: 768px)').matches || ('ontouchstart' in window && window.innerWidth <= 1024);
+
 // --- 1. GLOBAL INITIALIZATION (Runs Once) ---
 document.addEventListener('DOMContentLoaded', () => {
     beautifyURL(); // Clean up trailing slashes
@@ -127,10 +146,7 @@ function initBarba() {
         views: []
     });
 
-    // Fix: Barba.js sets inline `overflow: hidden` on wrapper during transitions.
-    // This persists after transition, blocking scroll on the homepage.
-    const wrapper = document.querySelector('[data-barba="wrapper"]');
-    if (wrapper) wrapper.style.overflow = '';
+    // Note: overflow reset is handled in barba.hooks.after below (BUG-5 fix)
 
     // Hooks
     barba.hooks.beforeEnter((data) => {
@@ -158,6 +174,8 @@ function initBarba() {
 
 // --- 3. PAGE CONTENT LOADER (Runs Every Transition) ---
 let cachedData = null; // Memory Cache
+let cacheTimestamp = 0; // Cache freshness tracker (BUG-3 fix)
+const CACHE_TTL = 60000; // 60 second stale-while-revalidate
 
 function loadPageContent(container) {
     // A. Fade-in Observer for new elements
@@ -238,17 +256,25 @@ function loadPageContent(container) {
         } else if (namespace === 'project' || window.location.pathname.includes('/project')) {
             populateProjectDetail(container, projects);
         }
+
+        // 404 Void Page: Inject random poetic message
+        if (document.body.classList.contains('is-void')) {
+            populateVoid(siteInfo);
+        }
+
         refreshGlobalSounds();
     };
 
-    // Use Cache if available, otherwise fetch
-    if (cachedData) {
+    // Use Cache if fresh, otherwise fetch (BUG-3 fix: cache invalidation)
+    const isCacheFresh = cachedData && (Date.now() - cacheTimestamp < CACHE_TTL);
+    if (isCacheFresh) {
         processData(cachedData);
     } else {
-        fetch('/data.json?v=' + new Date().getTime()) // Keep timestamp for First Load only
+        fetch('/data.json?v=' + new Date().getTime())
             .then(response => response.json())
             .then(data => {
-                cachedData = data; // Store in RAM
+                cachedData = data;
+                cacheTimestamp = Date.now();
                 processData(data);
             })
             .catch(err => console.error("Data load failed:", err));
@@ -398,11 +424,11 @@ function populateArchive(container, projects, observer) {
 
         card.innerHTML = `
             <div class="project-thumb">
-                <img src="${imagePath}" alt="${project.title}" loading="lazy">
+                <img src="${imagePath}" alt="${escapeHTML(project.title)}" loading="lazy">
             </div>
             <div class="project-info">
-                <h2>${project.title}</h2>
-                <span>${project.year}</span>
+                <h2>${escapeHTML(project.title)}</h2>
+                <span>${escapeHTML(project.year)}</span>
             </div>
         `;
 
@@ -413,11 +439,7 @@ function populateArchive(container, projects, observer) {
 
         grid.appendChild(card);
         observer.observe(card);
-
-        setTimeout(() => {
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-        }, 200 + (index * 100));
+        // BUG-13 fix: Removed duplicate setTimeout animation — IntersectionObserver handles fade-in
     });
 }
 
@@ -441,13 +463,19 @@ function populateContact(container, siteInfo, projects) {
 
     // 1. Info Side
     if (infoSide) {
-        infoSide.innerHTML = '';
+        // BUG-9 fix: Build HTML string first, then assign once (avoid repeated innerHTML +=)
+        let contactHTML = '';
         if (siteInfo.contact_items && Array.isArray(siteInfo.contact_items)) {
             siteInfo.contact_items.forEach(item => {
-                const val = item.link ? `<a href="${item.link}" target="_blank" class="contact-link">${item.value}</a>` : `<span class="contact-link">${item.value}</span>`;
-                infoSide.innerHTML += `<div class="contact-row"><span class="contact-label">${item.label}</span>${val}</div>`;
+                const safeLabel = escapeHTML(item.label);
+                const safeValue = escapeHTML(item.value);
+                const val = item.link
+                    ? `<a href="${escapeHTML(item.link)}" target="_blank" class="contact-link">${safeValue}</a>`
+                    : `<span class="contact-link">${safeValue}</span>`;
+                contactHTML += `<div class="contact-row"><span class="contact-label">${safeLabel}</span>${val}</div>`;
             });
         }
+        infoSide.innerHTML = contactHTML;
     }
 
     // 2. Gallery Side (Random Images)
@@ -494,6 +522,20 @@ function populateContact(container, siteInfo, projects) {
                 img.style.transitionDelay = '0s'; // 清除延迟
             }, entranceDelay);
         });
+    }
+}
+
+// --- 404 Void Page: Inject poetic message from data.json ---
+function populateVoid(siteInfo) {
+    const voidText = document.querySelector('.void-text');
+    if (!voidText) return;
+
+    const messages = siteInfo.void_messages;
+    if (messages && messages.length > 0) {
+        const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+        voidText.textContent = randomMsg; // textContent = safe, no XSS
+    } else {
+        voidText.textContent = 'The page you seek has dissolved into light.';
     }
 }
 
@@ -559,8 +601,8 @@ function populateProjectDetail(container, projects) {
         content.innerHTML = `
             <div class="project-split">
                 <div class="project-info-side" style="${infoStyle}">
-                    <h1 id="p-title">${project.title}</h1>
-                    <div class="meta" id="p-year">${project.year}</div>
+                    <h1 id="p-title">${escapeHTML(project.title)}</h1>
+                    <div class="meta" id="p-year">${escapeHTML(project.year)}</div>
                     ${descriptionHtml}
                 </div>
                 <div class="project-gallery-side">
@@ -830,6 +872,9 @@ function refreshGlobalSounds() {
 let soundAssets = {};
 
 function initSoundSystem() {
+    // Skip sound loading entirely on mobile devices
+    if (isMobileDevice()) return;
+
     soundAssets = {
         click: new Audio('assets/sounds/text_custom.mp3'),
         shutter: new Audio('assets/sounds/image_custom.mp3')
@@ -849,13 +894,10 @@ function playSound(type) {
     }
 }
 
-const soundSelectors = [
-    { sel: 'nav a, .social-icons a, .contact-link, .tab-btn, #p-title, .project-info-side h1, .brand h1', type: 'click' },
-    { sel: '.hero-img, .project-card, .contact-img-wrapper, .contact-random-img, .project-thumb img', type: 'shutter' }
-];
+// soundSelectors moved to top of file (see line 12)
 
 function bindSound(el) {
-    if (el.dataset.soundBound) return;
+    if (el.dataset.soundBound || isMobileDevice()) return;
     soundSelectors.forEach(({ sel, type }) => {
         if (el.matches(sel)) {
             el.addEventListener('mouseenter', () => playSound(type));

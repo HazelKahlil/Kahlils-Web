@@ -3,6 +3,23 @@
    Concept: Top Header, Irregular Gallery, Papyrus
 */
 
+/* Self-hosted Jost font (Futura-like geometric sans-serif, with Light weight) */
+@font-face {
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 300;
+    font-display: block;
+    src: url('/fonts/jost-300.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Jost';
+    font-style: italic;
+    font-weight: 300;
+    font-display: block;
+    src: url('/fonts/jost-300-italic.woff2') format('woff2');
+}
+
 :root {
     --bg-color: #ffffff;
     --text-color: #1a1a1a;
@@ -126,8 +143,11 @@ body {
     font-size: 13px;
     letter-spacing: 0.05em;
     line-height: 1.8;
-    /* overflow: hidden; Removed global lock */
     height: 100%;
+    /* Flex for sticky footer */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     /* Theme transition: only applied during theme switch via JS class,
        NOT permanent — permanent transition causes WebKit scroll jitter on mobile */
 }
@@ -151,11 +171,7 @@ a:hover {
     color: var(--nav-active);
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
+/* body flex is now in the merged body rule above */
 
 #site-wrapper {
     display: flex;
@@ -297,10 +313,7 @@ nav a.active {
     opacity: 1 !important;
 }
 
-/* 旧滑动指示器 — 隐藏但保留 DOM 兼容性 */
-.nav-indicator {
-    display: none;
-}
+/* nav-indicator removed — replaced by CSS ::after underlines */
 
 /* Social Icons (Right Side) */
 .social-icons {
@@ -476,20 +489,13 @@ body:not(.is-home) main {
 .hero-container {
     width: 100%;
     position: relative;
-    /* We'll use a spacious grid/flex or absolute mix */
-    width: 100%;
-    position: relative;
     height: 100%;
-
 }
 
 .hero-gallery {
     position: relative;
-    width: 105.263%;
-    /* Scale horizontally to fill the 5% right gap */
-    height: 105.263%;
-    /* Scale vertically to maintain aspect ratio */
-    /* Start images closer to look like a composition */
+    width: 100%;
+    height: 100%;
 }
 
 .hero-img {
@@ -656,7 +662,6 @@ body:not(.is-home) main {
     line-height: 1.8;
 }
 
-/* .bio-portrait removed */
 
 /* Contact */
 .contact-container {
@@ -674,13 +679,16 @@ body:not(.is-home) main {
 }
 
 .contact-label {
-    font-family: var(--font-serif);
+    font-family: "Futura", "Trebuchet MS", Arial, sans-serif;
+    font-weight: 500;
     font-style: italic;
     font-size: 1.2rem;
     color: #999;
 }
 
 .contact-link {
+    font-family: 'Jost', "Futura", "Trebuchet MS", Arial, sans-serif;
+    font-weight: 300;
     font-size: 1.1rem;
 }
 
@@ -1460,20 +1468,13 @@ body:not(.is-home) main {
     }
 
     .project-info h2 {
-        font-size: 0.85rem;
-    }
-
-    .project-info span {
-        font-size: 9px;
-    }
-
-    .project-info h2 {
         font-size: 1.1rem;
         opacity: 1;
         /* Always visible on mobile */
     }
 
     .project-info span {
+        font-size: 9px;
         opacity: 1;
     }
 
@@ -1733,10 +1734,6 @@ body:not(.is-home) main {
 /* Counter - Aligned with image bottom, right margin (MOVED BELOW) */
 
 
-/* Remove unused slide-counter-overlay */
-.slide-counter-overlay {
-    display: none;
-}
 
 /* Image Wrapper - Positioning context for precise alignment */
 .image-wrapper {

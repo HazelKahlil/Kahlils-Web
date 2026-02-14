@@ -10,14 +10,19 @@
                 "value": "Shanghai,China"
             },
             {
+                "label": "WeChat",
+                "value": "kahlils",
+                "link": ""
+            },
+            {
+                "label": "China",
+                "value": "+86 19180982975",
+                "link": ""
+            },
+            {
                 "label": "Commercial",
                 "value": "kahlils@163.com",
                 "link": "mailto:kahlils@163.com"
-            },
-            {
-                "label": "Commercial Inquiries",
-                "value": "phyllisgibran@gmail.com",
-                "link": "mailto:booking@agency.com"
             },
             {
                 "label": "Instagram",
@@ -64,7 +69,7 @@
             {
                 "src": "images/2025.12.8- 14.webp",
                 "caption": "Kyoto\uff0cJapan",
-                "mobile_col": "right",
+                "mobile_col": "left",
                 "mobile_width": 43,
                 "mobile_mt": -2,
                 "style": {},

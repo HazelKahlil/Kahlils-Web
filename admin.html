@@ -9,21 +9,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.6/Sortable.min.js"></script>
 
     <style>
-        /* ========== Swiss Editorial CMS Theme - Premium Design ========== */
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;700&display=swap');
+        /* ========== Warm Organic CMS Theme — 禅意有机风格 ========== */
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
         :root {
-            --bg: #ffffff;
-            --sidebar-bg: #fcfcfc;
-            --text: #000000;
-            --text-muted: #999999;
-            --border: #eeeeee;
-            --border-heavy: #000000;
-            --accent: #000000;
-            --danger: #ff0000;
-            --panel: #fdfdfd;
-            --font-serif: 'Cormorant Garamond', serif;
-            --font-sans: 'Space Grotesk', sans-serif;
+            --bg: #FAF8F5;
+            --sidebar-bg: #F0EDE8;
+            --text: #2D2A26;
+            --text-muted: #9E9A94;
+            --border: #E8E4DE;
+            --border-heavy: #3D3D3D;
+            --accent: #9CAF88;
+            --accent-hover: #8BA078;
+            --accent-burgundy: #8B6952;
+            --danger: #C0392B;
+            --panel: #F7F4F0;
+            --card-bg: #FFFFFF;
+            --card-shadow: 0 2px 12px rgba(45, 42, 38, 0.06);
+            --card-shadow-hover: 0 6px 24px rgba(45, 42, 38, 0.1);
+            --font-display: 'Futura', 'Futura-Medium', -apple-system, 'Trebuchet MS', sans-serif;
+            --font-sans: 'Futura', 'Futura-Medium', -apple-system, 'Trebuchet MS', sans-serif;
+            --font-serif: 'Cormorant Garamond', Georgia, serif;
+            --radius: 12px;
+            --radius-sm: 8px;
+            --radius-xs: 6px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -35,6 +45,7 @@
             background-color: var(--bg);
             color: var(--text);
             font-family: var(--font-sans);
+            font-weight: 300;
             margin: 0;
             padding: 0;
             line-height: 1.4;
@@ -48,34 +59,37 @@
 
         /* ===== Sidebar (Swiss Style) ===== */
         aside {
-            width: 300px;
+            width: 280px;
             background: var(--sidebar-bg);
             border-right: 1px solid var(--border);
-            padding: 60px 40px;
+            padding: 48px 32px;
             position: fixed;
             height: 100vh;
             display: flex;
             flex-direction: column;
-            gap: 60px;
+            gap: 48px;
+            border-radius: 0 var(--radius) var(--radius) 0;
         }
 
         .side-logo {
             font-family: var(--font-serif);
-            font-size: 36px;
-            font-weight: 700;
+            font-size: 32px;
+            font-weight: 400;
+            font-style: italic;
             line-height: 1;
             margin: 0;
+            color: var(--text);
         }
 
         .side-logo span {
             display: block;
-            font-size: 12px;
+            font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             color: var(--text-muted);
-            margin-top: 10px;
+            margin-top: 12px;
             font-family: var(--font-sans);
-            font-weight: 400;
+            font-weight: 300;
         }
 
         .nav-vertical {
@@ -88,87 +102,254 @@
             background: none;
             border: none;
             color: var(--text-muted);
-            font-family: var(--font-serif);
-            font-size: 24px;
+            font-family: var(--font-sans);
+            font-size: 15px;
+            font-weight: 300;
             text-align: left;
             cursor: pointer;
-            padding: 0;
-            transition: all 0.3s ease;
+            padding: 10px 16px;
+            transition: var(--transition);
             position: relative;
+            border-radius: var(--radius-sm);
+            letter-spacing: 0.5px;
         }
 
         .tab-btn:hover {
             color: var(--text);
-            transform: translateX(5px);
+            background: rgba(156, 175, 136, 0.08);
         }
 
         .tab-btn.active {
-            color: var(--text);
-            font-style: italic;
-            font-weight: 600;
+            color: var(--accent-burgundy);
+            font-weight: 400;
+            background: rgba(156, 175, 136, 0.12);
         }
 
         .tab-btn.active::before {
             content: '';
             position: absolute;
-            left: -20px;
-            top: 50%;
-            width: 10px;
-            height: 1px;
-            background: var(--text);
+            left: 0;
+            bottom: 4px;
+            width: 24px;
+            height: 2px;
+            background: var(--accent-burgundy);
+            border-radius: 1px;
         }
 
         /* ===== Main Content Area ===== */
         main {
             flex: 1;
-            margin-left: 300px;
-            padding: 80px 10%;
-            background: #ffffff;
+            margin-left: 280px;
+            padding: 60px 8%;
+            background: var(--bg);
         }
 
+        /* ===== Typography Hierarchy ===== */
+
+        /* H1 — Page Title (e.g. "Index", "Portfolios") */
         .page-title {
             font-family: var(--font-serif);
-            font-size: 64px;
+            font-size: 42px;
             font-weight: 400;
-            margin-bottom: 60px;
-            border-bottom: 2px solid var(--text);
-            padding-bottom: 20px;
+            font-style: italic;
+            margin-bottom: 40px;
+            border-bottom: none;
+            padding-bottom: 0;
+            color: var(--text);
         }
 
+        /* H2 — Section Title (e.g. "Global Settings", "Hero Images") */
         .section-title {
-            font-family: var(--font-serif);
-            font-size: 32px;
+            font-family: var(--font-sans);
+            font-size: 13px;
             font-weight: 600;
-            margin: 60px 0 30px;
+            font-style: normal;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            margin: 40px 0 16px;
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 12px;
+            color: var(--text);
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
         }
 
         .section-title span {
             font-family: var(--font-sans);
-            font-size: 11px;
-            font-weight: 700;
+            font-size: 10px;
+            font-weight: 300;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--text-muted);
         }
 
-        /* ===== Forms (Swiss Minimalist) ===== */
+        /* H3 — Subsection Title (smaller label style) */
+        .subsection-title {
+            font-family: var(--font-sans);
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin: 24px 0 12px;
+        }
+
+        /* ===== Collapsible Sections ===== */
+        details.admin-section {
+            margin-bottom: 8px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        details.admin-section>summary {
+            font-family: var(--font-sans);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--text);
+            cursor: pointer;
+            padding: 16px 20px;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--card-shadow);
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+            transition: var(--transition);
+        }
+
+        details.admin-section>summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details.admin-section>summary::after {
+            content: '＋';
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--text-muted);
+            transition: transform 0.3s ease;
+        }
+
+        details.admin-section[open]>summary::after {
+            content: '－';
+        }
+
+        details.admin-section>summary:hover {
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        details.admin-section[open]>summary {
+            border-radius: var(--radius) var(--radius) 0 0;
+            margin-bottom: 0;
+        }
+
+        details.admin-section>.section-body {
+            background: var(--card-bg);
+            padding: 20px 24px 24px;
+            border-radius: 0 0 var(--radius) var(--radius);
+            box-shadow: var(--card-shadow);
+            border-top: 1px solid var(--border);
+        }
+
+        /* Sub-collapsible (Layout Control, etc.) */
+        details.admin-sub {
+            margin-top: 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        details.admin-sub>summary {
+            font-family: var(--font-sans);
+            font-size: 10px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 12px 16px;
+            background: rgba(0, 0, 0, 0.02);
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+            transition: var(--transition);
+        }
+
+        details.admin-sub>summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details.admin-sub>summary::after {
+            content: '▾';
+            font-size: 12px;
+            color: var(--text-muted);
+            transition: transform 0.3s ease;
+        }
+
+        details.admin-sub[open]>summary::after {
+            transform: rotate(180deg);
+        }
+
+        details.admin-sub>summary:hover {
+            background: rgba(0, 0, 0, 0.04);
+        }
+
+        details.admin-sub>.sub-body {
+            padding: 16px;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ===== Section Divider ===== */
+        .section-divider {
+            height: 1px;
+            background: var(--border);
+            margin: 32px 0;
+        }
+
+        /* ===== Helper: Description text ===== */
+        .field-hint {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 8px;
+            line-height: 1.6;
+        }
+
+        /* ===== Forms (Warm Organic) ===== */
         .form-group {
-            margin-bottom: 40px;
-            background: var(--panel);
-            padding: 0px 0px 40px;
-            border-bottom: 1px solid var(--border);
+            margin-bottom: 32px;
+            background: var(--card-bg);
+            padding: 24px;
+            border-bottom: none;
+            border-radius: var(--radius);
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+
+        .form-group:hover {
+            box-shadow: var(--card-shadow-hover);
         }
 
         label {
             display: block;
-            font-size: 11px;
+            font-size: 10px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-weight: 700;
-            margin-bottom: 15px;
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-family: var(--font-sans);
         }
 
         input[type="text"],
@@ -176,93 +357,104 @@
         input[type="password"],
         textarea {
             width: 100%;
-            background: transparent;
+            background: var(--panel);
             border: 1px solid var(--border);
             color: var(--text);
-            padding: 15px 0;
-            border-left: none;
-            border-right: none;
-            border-top: none;
-            font-size: 18px;
-            font-family: var(--font-serif);
-            transition: all 0.3s ease;
+            padding: 14px 16px;
+            font-size: 15px;
+            font-family: var(--font-sans);
+            font-weight: 300;
+            transition: var(--transition);
+            border-radius: var(--radius-sm);
         }
 
         input:focus,
         textarea:focus {
             outline: none;
-            border-bottom-color: var(--text);
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(156, 175, 136, 0.15);
+            background: #FFFFFF;
         }
 
         /* ===== Buttons ===== */
         .btn {
-            background: var(--text);
+            background: var(--border-heavy);
             color: #fff;
             border: none;
-            padding: 18px 30px;
+            padding: 14px 28px;
             font-family: var(--font-sans);
-            font-weight: 700;
+            font-weight: 400;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             font-size: 11px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            border-radius: 100px;
         }
 
         .btn:hover {
-            background: #333;
-            letter-spacing: 4px;
+            background: var(--text);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(45, 42, 38, 0.2);
         }
 
         .btn-danger {
             background: transparent;
             color: var(--danger);
             border: 1px solid var(--danger);
+            border-radius: 100px;
         }
 
         .btn-danger:hover {
             background: var(--danger);
             color: #fff;
-            letter-spacing: 2px;
         }
 
         /* ===== Project List / Gallery ===== */
         .project-item {
-            border-bottom: 1px solid var(--text);
-            padding: 60px 0;
+            border-bottom: none;
+            padding: 0;
+            margin-bottom: 24px;
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 24px;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--card-shadow);
+            padding: 28px;
+            transition: var(--transition);
+        }
+
+        .project-item:hover {
+            box-shadow: var(--card-shadow-hover);
         }
 
         .img-thumb-container {
             border: 1px solid var(--border);
-            padding: 15px;
-            transition: all 0.3s ease;
+            padding: 10px;
+            transition: var(--transition);
             position: relative;
+            border-radius: var(--radius-sm);
+            background: var(--panel);
         }
 
         .img-thumb-container:hover {
-            border-color: var(--text);
+            border-color: var(--accent);
         }
 
         .img-thumb-container img {
             width: 100%;
             height: 120px;
-            /* Smaller height for dense grid */
             object-fit: contain;
-            /* Show full image, don't crop */
-            background: #f5f5f5;
-            /* Light bg for aspect ratio padding */
-            transition: all 0.3s ease;
+            background: var(--panel);
+            transition: var(--transition);
+            border-radius: var(--radius-xs);
         }
 
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            /* ~5-6 columns on desktop */
-            gap: 15px;
-            /* Tighter gap */
+            gap: 16px;
         }
 
         /* Drag & Drop States — SortableJS */
@@ -279,39 +471,44 @@
         .sortable-ghost {
             opacity: 0.15;
             transform: scale(0.95);
-            border: 2px dashed var(--text-muted) !important;
-            background: var(--border) !important;
+            border: 2px dashed var(--accent) !important;
+            background: var(--panel) !important;
+            border-radius: var(--radius-sm);
         }
 
         /* SortableJS: the dragged element under cursor */
         .sortable-drag {
             opacity: 1 !important;
             transform: scale(1.05);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+            box-shadow: var(--card-shadow-hover);
             z-index: 999;
-            border: 2px solid var(--text) !important;
+            border: 2px solid var(--accent) !important;
+            border-radius: var(--radius-sm);
         }
 
         /* SortableJS: the chosen element before drag starts */
         .sortable-chosen {
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--card-shadow);
         }
 
         /* Image Remove Button */
         .img-remove {
             position: absolute;
-            top: 8px;
-            right: 8px;
+            top: 6px;
+            right: 6px;
             background: var(--danger);
             color: #fff;
             border: none;
-            width: 24px;
-            height: 24px;
-            font-size: 14px;
+            width: 22px;
+            height: 22px;
+            font-size: 12px;
             cursor: pointer;
             opacity: 0;
             transition: opacity 0.2s ease;
-            border-radius: 4px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .img-thumb-container:hover .img-remove {
@@ -324,15 +521,16 @@
             background: transparent;
             border: none;
             border-bottom: 1px solid var(--border);
-            font-size: 12px;
-            padding: 8px 0;
-            margin-top: 10px;
+            font-size: 11px;
+            padding: 6px 0;
+            margin-top: 8px;
             font-family: var(--font-sans);
+            font-weight: 300;
         }
 
         .image-caption-input:focus {
             outline: none;
-            border-bottom-color: var(--text);
+            border-bottom-color: var(--accent);
         }
 
         /* Drag Hint */
@@ -359,23 +557,26 @@
             display: flex;
             border: 1px solid var(--border);
             overflow: hidden;
+            border-radius: 100px;
+            background: var(--card-bg);
+            box-shadow: var(--card-shadow);
         }
 
         .lang-toggle button {
             background: transparent;
             border: none;
             padding: 8px 16px;
-            font-size: 11px;
-            font-weight: 700;
+            font-size: 10px;
+            font-weight: 400;
             text-transform: uppercase;
             letter-spacing: 1px;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: var(--transition);
             font-family: var(--font-sans);
         }
 
         .lang-toggle button.active {
-            background: var(--text);
+            background: var(--accent);
             color: #fff;
         }
 
@@ -384,68 +585,80 @@
         }
 
         .lang-toggle button:not(.active):hover {
-            background: var(--border);
+            background: var(--panel);
         }
 
         /* ===== Sticky Footer Action ===== */
         .sticky-actions {
             position: fixed;
-            bottom: 40px;
-            right: 40px;
+            bottom: 32px;
+            right: 32px;
             z-index: 100;
+            display: flex;
+            gap: 12px;
         }
 
         .btn-save-all {
-            box-shadow: 20px 20px 0px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(45, 42, 38, 0.15);
         }
 
         /* ===== Login Overlay (Swiss Minimal) ===== */
         #login-overlay {
             position: fixed;
             inset: 0;
-            background: #fff;
+            background: var(--bg);
             z-index: 1000;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 40px;
+            gap: 32px;
         }
 
         #login-overlay h2 {
             font-family: var(--font-serif);
-            font-size: 80px;
+            font-size: 64px;
             font-weight: 400;
+            font-style: italic;
             margin: 0;
+            color: var(--text);
         }
 
         #login-overlay input {
-            width: 300px;
+            width: 280px;
             text-align: center;
-            font-size: 24px;
-            border-bottom: 2px solid #000;
+            font-size: 20px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            background: var(--card-bg);
         }
 
         /* ===== Scrollbar ===== */
         ::-webkit-scrollbar {
-            width: 5px;
+            width: 6px;
         }
 
         ::-webkit-scrollbar-track {
-            background: #fff;
+            background: var(--bg);
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #000;
+            background: var(--border);
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
         }
 
         /* FORCE SCROLL LAYOUT */
         .tab-content {
             display: block !important;
-            padding-top: 60px;
-            padding-bottom: 60px;
+            padding-top: 48px;
+            padding-bottom: 48px;
             scroll-margin-top: 40px;
-            border-top: 1px solid #eee;
+            border-top: 1px solid var(--border);
         }
 
         /* Override specific active tab logic since all are visible */
@@ -478,61 +691,62 @@
 
         .ve-tab {
             padding: 10px 24px;
-            font-size: 13px;
-            font-weight: 700;
+            font-size: 11px;
+            font-weight: 400;
             letter-spacing: 1px;
-            border: 1px solid #ddd;
+            border: 1px solid var(--border);
             border-bottom: none;
-            background: #f5f5f5;
-            color: #999;
+            background: var(--panel);
+            color: var(--text-muted);
             cursor: pointer;
             text-transform: uppercase;
-            border-radius: 8px 8px 0 0;
-            transition: all 0.2s;
+            border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+            transition: var(--transition);
+            font-family: var(--font-sans);
         }
 
         .ve-tab.active {
-            background: #fff;
-            color: #333;
-            border-bottom: 1px solid #fff;
+            background: var(--card-bg);
+            color: var(--text);
+            border-bottom: 1px solid var(--card-bg);
             margin-bottom: -1px;
             z-index: 1;
         }
 
         .ve-tab[data-mode="desktop"].active {
-            color: #3a7bd5;
+            color: var(--accent-burgundy);
         }
 
         .ve-tab[data-mode="mobile"].active {
-            color: #2e7d32;
+            color: var(--accent);
         }
 
         .ve-workspace {
             display: flex;
             gap: 16px;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 0 8px 8px 8px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 0 var(--radius) var(--radius) var(--radius);
             padding: 16px;
             min-height: 400px;
+            box-shadow: var(--card-shadow);
         }
 
         /* Canvas area */
         .ve-canvas-wrap {
             flex: 1;
             position: relative;
-            background: #f8f8f8;
-            border-radius: 6px;
+            background: var(--panel);
+            border-radius: var(--radius-sm);
             overflow: hidden;
-            border: 1px solid #eee;
+            border: 1px solid var(--border);
         }
 
         .ve-canvas {
             position: relative;
             width: 100%;
             padding-bottom: 52.5%;
-            /* ~16:8.4 ratio matching actual 100vh - header */
-            background: #fff;
+            background: var(--card-bg);
             overflow: hidden;
         }
 
@@ -544,16 +758,17 @@
             left: 0;
             right: 0;
             height: 36px;
-            background: #fff;
-            border-bottom: 1px solid #eee;
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
             z-index: 20;
             display: flex;
             align-items: center;
             padding: 0 12px;
-            font-family: var(--font-serif, Georgia, serif);
+            font-family: var(--font-serif);
             font-size: 11px;
+            font-style: italic;
             letter-spacing: 0.5px;
-            color: #333;
+            color: var(--text);
             pointer-events: none;
         }
 
@@ -564,8 +779,8 @@
             height: 560px;
             max-height: 560px;
             margin: 0 auto;
-            background: #fff;
-            border: 2px solid #333;
+            background: var(--card-bg);
+            border: 2px solid var(--border-heavy);
             border-radius: 28px;
             padding: 44px 16px 32px;
             box-sizing: border-box;
@@ -582,7 +797,7 @@
             transform: translateX(-50%);
             width: 60px;
             height: 5px;
-            background: #ddd;
+            background: var(--border);
             border-radius: 3px;
             z-index: 10;
         }
@@ -592,9 +807,10 @@
             position: absolute;
             top: 26px;
             left: 16px;
-            font-family: var(--font-serif, Georgia, serif);
+            font-family: var(--font-serif);
             font-size: 9px;
-            color: #333;
+            font-style: italic;
+            color: var(--text);
             pointer-events: none;
             z-index: 10;
         }
@@ -604,19 +820,19 @@
             position: absolute;
             cursor: grab;
             user-select: none;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            box-shadow: var(--card-shadow);
             transition: box-shadow 0.2s;
             border: 2px solid transparent;
-            border-radius: 2px;
+            border-radius: var(--radius-xs);
         }
 
         .ve-img:hover {
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            box-shadow: var(--card-shadow-hover);
         }
 
         .ve-img.selected {
-            border-color: #3a7bd5;
-            box-shadow: 0 0 0 2px rgba(58, 123, 213, 0.3);
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(156, 175, 136, 0.3);
         }
 
         .ve-img.dragging {
@@ -637,14 +853,15 @@
             position: absolute;
             top: -20px;
             left: 0;
-            font-size: 10px;
-            font-weight: 700;
+            font-size: 9px;
+            font-weight: 400;
             color: #fff;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 2px 6px;
-            border-radius: 3px;
+            background: rgba(45, 42, 38, 0.7);
+            padding: 2px 8px;
+            border-radius: 100px;
             pointer-events: none;
             white-space: nowrap;
+            font-family: var(--font-sans);
         }
 
         /* Resize handle */
@@ -654,9 +871,9 @@
             right: -4px;
             width: 12px;
             height: 12px;
-            background: #3a7bd5;
-            border: 2px solid #fff;
-            border-radius: 2px;
+            background: var(--accent);
+            border: 2px solid var(--card-bg);
+            border-radius: 50%;
             cursor: nwse-resize;
             z-index: 10;
             display: none;
@@ -678,14 +895,14 @@
             left: 0;
             right: 0;
             height: 0;
-            border-top: 1px dashed rgba(255, 50, 50, 0.6);
+            border-top: 1px dashed rgba(156, 175, 136, 0.7);
         }
 
         .ve-guide.vertical {
             top: 0;
             bottom: 0;
             width: 0;
-            border-left: 1px dashed rgba(255, 50, 50, 0.6);
+            border-left: 1px dashed rgba(156, 175, 136, 0.7);
         }
 
         .ve-guide.active {
@@ -695,10 +912,10 @@
         .ve-guide-label {
             position: absolute;
             font-size: 9px;
-            color: #e53935;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 1px 4px;
-            border-radius: 2px;
+            color: var(--accent);
+            background: rgba(250, 248, 245, 0.9);
+            padding: 1px 6px;
+            border-radius: 100px;
             pointer-events: none;
         }
 
@@ -743,17 +960,18 @@
         }
 
         .ve-props-title {
-            font-size: 11px;
-            font-weight: 700;
-            color: #999;
+            font-size: 10px;
+            font-weight: 400;
+            color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-family: var(--font-sans);
         }
 
         .ve-props-card {
-            background: #f8f9fa;
-            border: 1px solid #e8e8e8;
-            border-radius: 6px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
             padding: 12px;
         }
 
@@ -772,12 +990,13 @@
         .ve-props-card select {
             width: 100%;
             padding: 6px 8px;
-            font-size: 13px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            font-size: 12px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xs);
             box-sizing: border-box;
             text-align: center;
-            font-family: var(--font-mono, monospace);
+            font-family: var(--font-sans);
+            background: var(--card-bg);
         }
 
         .ve-props-row {
@@ -788,7 +1007,7 @@
 
         .ve-prop-hint {
             font-size: 9px;
-            color: #aaa;
+            color: var(--text-muted);
             margin-top: 8px;
         }
 
@@ -798,9 +1017,9 @@
             gap: 8px;
             margin-top: 12px;
             padding: 12px;
-            background: #f8f8f8;
-            border: 1px solid #eee;
-            border-radius: 6px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
             align-items: flex-end;
             flex-wrap: wrap;
         }
@@ -816,12 +1035,12 @@
         }
 
         .ve-strip-item:hover {
-            border-color: #ccc;
+            border-color: var(--border);
         }
 
         .ve-strip-item.selected {
-            border-color: #3a7bd5;
-            background: #eef4fc;
+            border-color: var(--accent);
+            background: rgba(156, 175, 136, 0.08);
         }
 
         .ve-strip-item img {
@@ -836,9 +1055,10 @@
         .ve-strip-item span {
             display: block;
             font-size: 9px;
-            color: #999;
+            color: var(--text-muted);
             margin-top: 3px;
-            font-weight: 700;
+            font-weight: 400;
+            font-family: var(--font-sans);
         }
 
         /* Mobile editor cards */
@@ -852,11 +1072,11 @@
         }
 
         .ve-mobile-card:hover {
-            border-color: #b8dab8;
+            border-color: rgba(156, 175, 136, 0.5);
         }
 
         .ve-mobile-card.selected {
-            border-color: #2e7d32;
+            border-color: var(--accent);
         }
 
         .ve-mobile-card img {
@@ -872,20 +1092,13 @@
             position: absolute;
             top: -16px;
             font-size: 9px;
-            font-weight: 700;
-            color: #2e7d32;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 1px 4px;
-            border-radius: 2px;
+            font-weight: 400;
+            color: var(--accent);
+            background: rgba(250, 248, 245, 0.9);
+            padding: 1px 6px;
+            border-radius: 100px;
         }
 
-        .ve-mobile-card[data-col="left"] {
-            /* positioned via JS */
-        }
-
-        .ve-mobile-card[data-col="right"] {
-            /* positioned via JS */
-        }
 
         .ve-mobile-card img {
             width: 100%;
@@ -897,7 +1110,7 @@
 
         .ve-mobile-caption {
             font-size: 6px;
-            color: #999;
+            color: var(--text-muted);
             letter-spacing: 0.5px;
             text-transform: uppercase;
             margin-top: 2px;
@@ -919,9 +1132,9 @@
             right: -6px;
             width: 8px;
             height: 24px;
-            background: #2e7d32;
-            border: 2px solid #fff;
-            border-radius: 3px;
+            background: var(--accent);
+            border: 2px solid var(--card-bg);
+            border-radius: 4px;
             cursor: ew-resize;
             transform: translateY(-50%);
             z-index: 10;
@@ -944,14 +1157,14 @@
             left: 0;
             right: 0;
             height: 0;
-            border-top: 1px dashed rgba(46, 125, 50, 0.6);
+            border-top: 1px dashed rgba(156, 175, 136, 0.6);
         }
 
         .ve-mobile-guide.vertical {
             top: 0;
             bottom: 0;
             width: 0;
-            border-left: 1px dashed rgba(46, 125, 50, 0.6);
+            border-left: 1px dashed rgba(156, 175, 136, 0.6);
         }
 
         .ve-mobile-guide.active {
@@ -961,10 +1174,10 @@
         .ve-mobile-guide-label {
             position: absolute;
             font-size: 8px;
-            color: #2e7d32;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 1px 3px;
-            border-radius: 2px;
+            color: var(--accent);
+            background: rgba(250, 248, 245, 0.9);
+            padding: 1px 5px;
+            border-radius: 100px;
             pointer-events: none;
             white-space: nowrap;
         }
@@ -997,32 +1210,33 @@
         }
 
         .toast {
-            padding: 12px 20px;
+            padding: 14px 20px;
             font-size: 12px;
-            font-weight: 600;
-            border-radius: 6px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            font-weight: 400;
+            border-radius: var(--radius-sm);
+            box-shadow: 0 8px 32px rgba(45, 42, 38, 0.15);
             animation: toastIn 0.3s ease, toastOut 0.3s ease 2.7s forwards;
             display: flex;
             align-items: center;
             gap: 8px;
             min-width: 200px;
+            font-family: var(--font-sans);
         }
 
         .toast.success {
-            background: #1a1a1a;
+            background: var(--accent);
             color: #fff;
         }
 
         .toast.error {
-            background: #c62828;
+            background: var(--danger);
             color: #fff;
         }
 
         .toast.info {
-            background: #fff;
-            color: #333;
-            border: 1px solid #ddd;
+            background: var(--card-bg);
+            color: var(--text);
+            border: 1px solid var(--border);
         }
 
         @keyframes toastIn {
@@ -1047,7 +1261,7 @@
         /* Keyboard hints */
         .ve-keyboard-hint {
             font-size: 10px;
-            color: #aaa;
+            color: var(--text-muted);
             padding: 8px 0;
             display: flex;
             gap: 16px;
@@ -1055,40 +1269,40 @@
         }
 
         .ve-keyboard-hint kbd {
-            background: #f0f0f0;
-            border: 1px solid #ddd;
-            border-radius: 3px;
-            padding: 1px 5px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xs);
+            padding: 1px 6px;
             font-size: 10px;
-            font-family: var(--font-mono, monospace);
+            font-family: var(--font-sans);
         }
 
         /* === Phase 1 Enhancements === */
         .photo-count-badge {
-            font-size: 11px;
-            color: #999;
+            font-size: 10px;
+            color: var(--text-muted);
             font-weight: 400;
             font-family: var(--font-sans);
-            background: #f0f0f0;
-            padding: 2px 8px;
-            border-radius: 10px;
+            background: var(--panel);
+            padding: 2px 10px;
+            border-radius: 100px;
             margin-left: 8px;
         }
 
         .img-set-cover {
             position: absolute;
-            top: 8px;
-            left: 8px;
-            background: rgba(0, 0, 0, 0.7);
+            top: 6px;
+            left: 6px;
+            background: rgba(45, 42, 38, 0.7);
             color: #fff;
             border: none;
             font-size: 8px;
-            padding: 3px 6px;
+            padding: 3px 8px;
             cursor: pointer;
             opacity: 0;
             transition: opacity 0.2s ease;
-            border-radius: 3px;
-            font-weight: 700;
+            border-radius: 100px;
+            font-weight: 400;
             letter-spacing: 0.5px;
             text-transform: uppercase;
             font-family: var(--font-sans);
@@ -1100,12 +1314,12 @@
 
         .img-set-cover:hover {
             opacity: 1 !important;
-            background: #3a7bd5;
+            background: var(--accent);
         }
 
         .img-thumb-container.is-cover {
-            border-color: #3a7bd5;
-            box-shadow: 0 0 0 2px rgba(58, 123, 213, 0.3);
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(156, 175, 136, 0.3);
         }
 
         .img-thumb-container.is-cover::after {
@@ -1115,22 +1329,23 @@
             left: 50%;
             transform: translateX(-50%);
             font-size: 8px;
-            font-weight: 700;
-            color: #3a7bd5;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 1px 6px;
-            border-radius: 3px;
+            font-weight: 400;
+            color: var(--accent);
+            background: rgba(250, 248, 245, 0.9);
+            padding: 2px 8px;
+            border-radius: 100px;
             letter-spacing: 0.5px;
             pointer-events: none;
+            font-family: var(--font-sans);
         }
 
         .upload-progress {
             position: fixed;
             top: 0;
-            left: 300px;
+            left: 280px;
             right: 0;
             height: 3px;
-            background: #eee;
+            background: var(--border);
             z-index: 9999;
             display: none;
         }
@@ -1141,7 +1356,7 @@
 
         .upload-progress-bar {
             height: 100%;
-            background: #000;
+            background: var(--accent);
             transition: width 0.3s ease;
             border-radius: 0 2px 2px 0;
             width: 0%;
@@ -1151,7 +1366,7 @@
             display: inline-block;
             width: 8px;
             height: 8px;
-            background: #ff4444;
+            background: var(--accent-burgundy);
             border-radius: 50%;
             margin-left: 8px;
             animation: pulse-dot 1.5s ease-in-out infinite;
@@ -1172,18 +1387,19 @@
 
         .shortcut-hint {
             font-size: 9px;
-            color: #bbb;
+            color: var(--text-muted);
             margin-top: 6px;
             text-align: center;
+            font-family: var(--font-sans);
         }
 
         .shortcut-hint kbd {
-            background: #f0f0f0;
-            border: 1px solid #ddd;
-            border-radius: 3px;
-            padding: 0 4px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xs);
+            padding: 0 5px;
             font-size: 9px;
-            font-family: var(--font-mono, monospace);
+            font-family: var(--font-sans);
         }
 
         .gallery-toolbar {
@@ -1207,10 +1423,78 @@
     <!-- LOGIN -->
     <div id="login-overlay">
         <h2>ACCESS</h2>
+
+        <!-- Touch ID / Biometric login -->
+        <div id="biometric-section" style="display:none; margin-bottom: 24px; text-align: center;">
+            <button class="btn" id="btn-biometric" onclick="biometricLogin()" style="
+                background: transparent;
+                border: 1px solid var(--border);
+                color: var(--text);
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                padding: 14px 32px;
+                font-size: 14px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            ">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 10v4" />
+                    <path d="M7.5 7.5C7.5 5 9.5 3 12 3s4.5 2 4.5 4.5" />
+                    <path d="M5 9.5C5 5.5 8 2 12 2s7 3.5 7 7.5" />
+                    <path d="M7.5 12.5c0 2.5 1.5 5.5 4.5 8" />
+                    <path d="M16.5 12.5c0 1.5-.5 3-1.5 4.5" />
+                    <path d="M4 14c0 2.5 1.5 6 3.5 8.5" />
+                    <path d="M20 14c0 1.5-.5 3.5-1.5 5.5" />
+                </svg>
+                使用 Touch ID 登录
+            </button>
+            <p
+                style="margin-top: 12px; font-size: 11px; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;">
+                已注册生物识别</p>
+        </div>
+
+        <!-- Divider (shown when both methods available) -->
+        <div id="biometric-divider" style="display:none; margin-bottom: 20px; text-align: center;">
+            <span
+                style="font-size: 11px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; position: relative; padding: 0 16px; background: var(--bg);">或使用密码</span>
+            <hr style="border: none; border-top: 1px solid var(--border); margin-top: -7px; margin-bottom: 0;">
+        </div>
+
         <input type="password" id="password-input" placeholder="Password"
             onkeypress="if(event.key==='Enter')checkAuth()">
         <button class="btn" onclick="checkAuth()">Enter Portal</button>
         <p id="login-error" style="display:none; color: red; font-size: 14px;">Access Denied</p>
+    </div>
+
+    <!-- Touch ID setup prompt (OUTSIDE login-overlay so it's visible after login) -->
+    <div id="biometric-setup"
+        style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); z-index: 10000; display: none; align-items: center; justify-content: center;">
+        <div
+            style="background: var(--bg, #FAF8F5); border-radius: var(--radius, 12px); padding: 40px; max-width: 380px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.15);">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent-burgundy, #8B6952)"
+                stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 16px;">
+                <path d="M12 10v4" />
+                <path d="M7.5 7.5C7.5 5 9.5 3 12 3s4.5 2 4.5 4.5" />
+                <path d="M5 9.5C5 5.5 8 2 12 2s7 3.5 7 7.5" />
+                <path d="M7.5 12.5c0 2.5 1.5 5.5 4.5 8" />
+                <path d="M16.5 12.5c0 1.5-.5 3-1.5 4.5" />
+                <path d="M4 14c0 2.5 1.5 6 3.5 8.5" />
+                <path d="M20 14c0 1.5-.5 3.5-1.5 5.5" />
+            </svg>
+            <h3
+                style="font-family: var(--font-serif, 'Cormorant Garamond'), serif; font-size: 24px; font-weight: 400; font-style: italic; margin: 0 0 8px;">
+                启用 Touch ID</h3>
+            <p style="font-size: 13px; color: var(--text-muted, #999); line-height: 1.6; margin-bottom: 24px;">
+                下次访问时使用指纹或面容快速登录，无需再输入密码。</p>
+            <div style="display: flex; gap: 12px; justify-content: center;">
+                <button onclick="setupBiometric()" class="btn"
+                    style="flex: 1; padding: 12px 20px; font-size: 13px;">启用</button>
+                <button onclick="skipBiometric()" class="btn"
+                    style="flex: 1; padding: 12px 20px; font-size: 13px; background: transparent; color: var(--text, #2D2A26); border: 1px solid var(--border, #E8E4DE);">暂不</button>
+            </div>
+        </div>
     </div>
 
     <!-- MAIN APP -->
@@ -1241,7 +1525,7 @@
 
             <div style="margin-top: auto;">
                 <a href="index.html" target="_blank"
-                    style="text-decoration: none; color: #000; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">View
+                    style="text-decoration: none; color: #8B6952; font-size: 10px; font-weight: 400; text-transform: uppercase; letter-spacing: 2px;">View
                     Live Site ↗</a>
             </div>
         </aside>
@@ -1252,68 +1536,90 @@
 
                 <!-- TAB: HOME -->
                 <div id="tab-home" class="tab-content active">
-                    <div class="section-title"><span>Global Settings</span></div>
-                    <div class="form-group">
-                        <div class="row-inputs">
-                            <div>
-                                <label>Site Main Title</label>
-                                <input type="text" id="site-title" oninput="updateSiteData('title', this.value)">
-                            </div>
-                            <div>
-                                <label>Footer Copyright</label>
-                                <input type="text" id="site-copyright"
-                                    oninput="updateSiteData('copyright', this.value)">
-                            </div>
-                        </div>
 
-                        <!-- New Header Socials -->
-                        <div class="row-inputs" style="margin-top:10px;">
-                            <div>
-                                <label>Header: Instagram URL</label>
-                                <input type="text" id="header-ig"
-                                    oninput="updateSiteData('header_social_instagram', this.value)">
+                    <!-- Section: Global Settings (collapsible, open by default) -->
+                    <details class="admin-section" id="sec-global" open>
+                        <summary>Global Settings</summary>
+                        <div class="section-body">
+                            <div class="subsection-title">Site Identity</div>
+                            <div class="row-inputs">
+                                <div>
+                                    <label>Site Main Title</label>
+                                    <input type="text" id="site-title" oninput="updateSiteData('title', this.value)">
+                                </div>
+                                <div>
+                                    <label>Footer Copyright</label>
+                                    <input type="text" id="site-copyright"
+                                        oninput="updateSiteData('copyright', this.value)">
+                                </div>
                             </div>
-                        </div>
-                        <div class="row-inputs" style="margin-top:10px;">
-                            <div>
-                                <label>Header: Link URL (Chain)</label>
-                                <input type="text" id="header-link"
-                                    oninput="updateSiteData('header_social_link', this.value)">
-                            </div>
-                            <div>
-                                <label>Header: Email Address</label>
-                                <input type="text" id="header-email"
-                                    oninput="updateSiteData('header_social_email', this.value)">
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="section-title"><span>Home Hero Images</span></div>
-                    <div class="form-group">
-                        <div id="home-visual-editor"></div>
-                    </div>
+                            <div class="subsection-title" style="margin-top: 28px;">Header Social Links</div>
+                            <div class="row-inputs">
+                                <div>
+                                    <label>Instagram URL</label>
+                                    <input type="text" id="header-ig"
+                                        oninput="updateSiteData('header_social_instagram', this.value)">
+                                </div>
+                            </div>
+                            <div class="row-inputs" style="margin-top:10px;">
+                                <div>
+                                    <label>Link URL (Chain Icon)</label>
+                                    <input type="text" id="header-link"
+                                        oninput="updateSiteData('header_social_link', this.value)">
+                                </div>
+                                <div>
+                                    <label>Email Address</label>
+                                    <input type="text" id="header-email"
+                                        oninput="updateSiteData('header_social_email', this.value)">
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Section: Home Hero Images (collapsible, open by default) -->
+                    <details class="admin-section" id="sec-hero" open>
+                        <summary>Home Hero Images</summary>
+                        <div class="section-body">
+                            <div id="home-visual-editor"></div>
+                        </div>
+                    </details>
+
                 </div>
 
                 <!-- TAB: PORTFOLIOS -->
                 <div id="tab-portfolios" class="tab-content">
-                    <button class="btn btn-block"
-                        style="margin-bottom:20px; border:1px dashed #666; background:transparent; color:#888;"
-                        onclick="addNewProject()">+ NEW PROJECT</button>
-                    <div id="projects-list"></div>
+
+                    <details class="admin-section" id="sec-projects" open>
+                        <summary>Project Management</summary>
+                        <div class="section-body">
+                            <button class="btn btn-block"
+                                style="margin-bottom:20px; border:1px dashed var(--text-muted); background:transparent; color: var(--text-muted); border-radius: var(--radius);"
+                                onclick="addNewProject()">+ NEW PROJECT</button>
+                            <div id="projects-list"></div>
+                        </div>
+                    </details>
+
                 </div>
 
                 <!-- TAB: INFO (BIO) -->
                 <div id="tab-info" class="tab-content">
-                    <div class="section-title"><span>Biography Content</span></div>
-                    <div class="form-group">
-                        <label>Main Text (Paragraphs are preserved)</label>
-                        <textarea id="site-bio" oninput="updateSiteData('bio', this.value)"></textarea>
-                    </div>
 
-                    <details>
-                        <summary class="section-title" style="cursor:pointer; user-select:none;">Layout Control ▼
-                        </summary>
-                        <div class="form-group">
+                    <!-- Section: Biography -->
+                    <details class="admin-section" id="sec-bio" open>
+                        <summary>Biography Content</summary>
+                        <div class="section-body">
+                            <label>Main Text</label>
+                            <p class="field-hint">Paragraphs are preserved. Each line break will create a new paragraph
+                                on the live site.</p>
+                            <textarea id="site-bio" oninput="updateSiteData('bio', this.value)"></textarea>
+                        </div>
+                    </details>
+
+                    <!-- Section: Layout Control (collapsed by default) -->
+                    <details class="admin-section" id="sec-bio-layout">
+                        <summary>Layout Control</summary>
+                        <div class="section-body">
                             <div class="row-inputs">
                                 <div>
                                     <label>Padding Top (px)</label>
@@ -1336,83 +1642,92 @@
                                         oninput="updateBioLayout('max_width', this.value)">
                                 </div>
                             </div>
-                            <p style="font-size:10px; color:#666; margin-top:10px;">Adjust these values to position the
-                                text block exactly where you want it. Clear to reset to defaults.</p>
+                            <p class="field-hint">Adjust these values to position the text block exactly where you want
+                                it. Clear fields to reset to defaults.</p>
                         </div>
                     </details>
+
                 </div>
 
                 <!-- TAB: CONTACT -->
                 <div id="tab-contact" class="tab-content">
-                    <div class="section-title"><span>Contact Details</span></div>
-                    <div class="form-group">
-                        <div id="contact-list-container" style="display:flex; flex-direction:column; gap:10px;"></div>
-                        <button class="btn" onclick="addContactItem()" style="margin-top:10px;">+ Add Contact
-                            Row</button>
-                    </div>
 
-                    <details>
-                        <summary class="section-title" style="cursor:pointer; user-select:none;">Layout Control ▼
-                        </summary>
-                        <div class="form-group" style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+                    <!-- Section: Contact Details -->
+                    <details class="admin-section" id="sec-contact" open>
+                        <summary>Contact Details</summary>
+                        <div class="section-body">
+                            <div id="contact-list-container" style="display:flex; flex-direction:column; gap:10px;">
+                            </div>
+                            <button class="btn" onclick="addContactItem()" style="margin-top:16px;">+ Add Contact
+                                Row</button>
+                        </div>
+                    </details>
+
+                    <!-- Section: Contact Images -->
+                    <details class="admin-section" id="sec-contact-img" open>
+                        <summary>Contact Images</summary>
+                        <div class="section-body">
+                            <!-- Mode Toggle -->
+                            <div
+                                style="margin-bottom:16px; padding:16px; background: rgba(0,0,0,0.02); border:1px solid var(--border); border-radius: 8px;">
+                                <label
+                                    style="display:flex; align-items:center; cursor:pointer; text-transform: none; letter-spacing: 0; font-size: 13px; font-weight: 500; color: var(--text);">
+                                    <input type="checkbox" id="contact-random-toggle"
+                                        onchange="toggleContactImageMode(this.checked)"
+                                        style="width:18px; height:18px; margin-right:12px; cursor:pointer; accent-color: var(--accent-sage);">
+                                    <span id="contact-mode-label">📷 Random Refresh Mode</span>
+                                </label>
+                                <div id="contact-mode-hint" class="field-hint" style="margin-left: 30px;">
+                                    Enable to show random images on each page load. Disable to use specific fixed images
+                                    below.
+                                </div>
+                            </div>
+
+                            <!-- Fixed Images Section -->
+                            <div id="contact-fixed-section">
+                                <div class="subsection-title">Fixed Images</div>
+                                <p class="field-hint" style="margin-top: 0; margin-bottom: 12px;">Only used when Random
+                                    Refresh Mode is disabled.</p>
+                                <div id="contact-images-list" style="display:flex; gap:10px;"></div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Section: Layout Control (collapsed by default) -->
+                    <details class="admin-section" id="sec-contact-layout">
+                        <summary>Layout Control</summary>
+                        <div class="section-body" style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
                             <div>
-                                <label style="color:#aaa;">Info Side (Left)</label>
-                                <div class="row-inputs" style="flex-direction:column; gap:5px;">
-                                    <div><label style="font-size:9px;">Top px</label><input type="number"
-                                            id="c-info-top" placeholder="Def: 40"
-                                            oninput="updateContactLayout('info', 'top', this.value)"
-                                            style="padding:4px; font-size:11px;"></div>
-                                    <div><label style="font-size:9px;">Left px</label><input type="number"
-                                            id="c-info-left" placeholder="Def: 0"
-                                            oninput="updateContactLayout('info', 'left', this.value)"
-                                            style="padding:4px; font-size:11px;"></div>
-                                    <div><label style="font-size:9px;">Width %</label><input type="number"
-                                            id="c-info-width" placeholder="Def: 45"
-                                            oninput="updateContactLayout('info', 'width', this.value)"
-                                            style="padding:4px; font-size:11px;"></div>
+                                <div class="subsection-title" style="margin-top: 0;">Info Side (Left)</div>
+                                <div class="row-inputs" style="flex-direction:column; gap:8px;">
+                                    <div><label>Top (px)</label><input type="number" id="c-info-top"
+                                            placeholder="Default: 40"
+                                            oninput="updateContactLayout('info', 'top', this.value)"></div>
+                                    <div><label>Left (px)</label><input type="number" id="c-info-left"
+                                            placeholder="Default: 0"
+                                            oninput="updateContactLayout('info', 'left', this.value)"></div>
+                                    <div><label>Width (%)</label><input type="number" id="c-info-width"
+                                            placeholder="Default: 45"
+                                            oninput="updateContactLayout('info', 'width', this.value)"></div>
                                 </div>
                             </div>
                             <div>
-                                <label style="color:#aaa;">Gallery Side (Right)</label>
-                                <div class="row-inputs" style="flex-direction:column; gap:5px;">
-                                    <div><label style="font-size:9px;">Top px</label><input type="number" id="c-gal-top"
-                                            placeholder="Def: 40"
-                                            oninput="updateContactLayout('gallery', 'top', this.value)"
-                                            style="padding:4px; font-size:11px;"></div>
-                                    <div><label style="font-size:9px;">Margin Left px</label><input type="number"
-                                            id="c-gal-left" placeholder="Def: 0"
-                                            oninput="updateContactLayout('gallery', 'left', this.value)"
-                                            style="padding:4px; font-size:11px;"></div>
-                                    <div><label style="font-size:9px;">Width %</label><input type="number"
-                                            id="c-gal-width" placeholder="Def: 50"
-                                            oninput="updateContactLayout('gallery', 'width', this.value)"
-                                            style="padding:4px; font-size:11px;"></div>
+                                <div class="subsection-title" style="margin-top: 0;">Gallery Side (Right)</div>
+                                <div class="row-inputs" style="flex-direction:column; gap:8px;">
+                                    <div><label>Top (px)</label><input type="number" id="c-gal-top"
+                                            placeholder="Default: 40"
+                                            oninput="updateContactLayout('gallery', 'top', this.value)"></div>
+                                    <div><label>Margin Left (px)</label><input type="number" id="c-gal-left"
+                                            placeholder="Default: 0"
+                                            oninput="updateContactLayout('gallery', 'left', this.value)"></div>
+                                    <div><label>Width (%)</label><input type="number" id="c-gal-width"
+                                            placeholder="Default: 50"
+                                            oninput="updateContactLayout('gallery', 'width', this.value)"></div>
                                 </div>
                             </div>
                         </div>
                     </details>
 
-                    <div class="section-title">Contact Images (Right Side)</div>
-                    <div class="form-group">
-                        <!-- Mode Toggle -->
-                        <div style="margin-bottom:15px; padding:15px; background:#fff; border:1px solid #eee;">
-                            <label style="display:flex; align-items:center; cursor:pointer;">
-                                <input type="checkbox" id="contact-random-toggle"
-                                    onchange="toggleContactImageMode(this.checked)"
-                                    style="width:18px; height:18px; margin-right:12px; cursor:pointer; accent-color:#000;">
-                                <span id="contact-mode-label" style="font-size:12px; font-weight:500;">📷 随机刷新模式</span>
-                            </label>
-                            <div id="contact-mode-hint" style="font-size:10px; color:#999; margin-top:8px;">
-                                开启后每次刷新页面显示随机图片；关闭后使用下方指定的固定图片
-                            </div>
-                        </div>
-
-                        <!-- Fixed Images Section (shown when random is off) -->
-                        <div id="contact-fixed-section">
-                            <label style="margin-bottom:10px; font-size:10px; color:#888;">固定图片设置（仅在关闭随机模式时生效）</label>
-                            <div id="contact-images-list" style="display:flex; gap:10px;"></div>
-                        </div>
-                    </div>
                 </div>
 
             </div>
@@ -1423,7 +1738,7 @@
         <div class="sticky-actions">
             <button class="btn btn-save-all" id="btn-save" onclick="saveData()">SAVE CHANGES</button>
             <button class="btn btn-save-all" onclick="publishData()"
-                style="background: #fff; color: #000; border: 1px solid #000; margin-left:10px;">
+                style="background: transparent; color: #2D2A26; border: 1px solid #E8E4DE;">
                 PUBLISH TO LIVE
             </button>
             <div class="shortcut-hint"><kbd>⌘S</kbd> Save &nbsp; <kbd>⌘⇧P</kbd> Publish</div>
@@ -1625,20 +1940,227 @@
             };
         }
 
+        // ══════════════════════════════════════════════
+        // Biometric Authentication (Touch ID / Face ID)
+        // ══════════════════════════════════════════════
+
+        const BIOMETRIC_KEY = 'hazel_admin_biometric';
+        const CREDENTIAL_KEY = 'hazel_admin_credential_id';
+
+        // Check if WebAuthn is supported
+        function isBiometricAvailable() {
+            return window.PublicKeyCredential !== undefined &&
+                typeof window.PublicKeyCredential === 'function';
+        }
+
+        // Check if biometric was previously registered
+        function isBiometricRegistered() {
+            return localStorage.getItem(BIOMETRIC_KEY) === 'registered' &&
+                localStorage.getItem(CREDENTIAL_KEY);
+        }
+
+        // Convert ArrayBuffer to Base64 and back
+        function bufferToBase64(buffer) {
+            return btoa(String.fromCharCode(...new Uint8Array(buffer)));
+        }
+        function base64ToBuffer(base64) {
+            const binaryStr = atob(base64);
+            const bytes = new Uint8Array(binaryStr.length);
+            for (let i = 0; i < binaryStr.length; i++) {
+                bytes[i] = binaryStr.charCodeAt(i);
+            }
+            return bytes.buffer;
+        }
+
+        // Setup: Register biometric credential after first password login
+        async function setupBiometric() {
+            try {
+                const challenge = crypto.getRandomValues(new Uint8Array(32));
+                const userId = new TextEncoder().encode('hazel-admin');
+
+                const createOptions = {
+                    publicKey: {
+                        challenge: challenge,
+                        rp: {
+                            name: 'Hazel Portfolio Admin',
+                            id: location.hostname
+                        },
+                        user: {
+                            id: userId,
+                            name: 'admin@hazel',
+                            displayName: 'Hazel Admin'
+                        },
+                        pubKeyCredParams: [
+                            { type: 'public-key', alg: -7 },   // ES256
+                            { type: 'public-key', alg: -257 }  // RS256
+                        ],
+                        authenticatorSelection: {
+                            authenticatorAttachment: 'platform',  // Force built-in (Touch ID / Face ID)
+                            userVerification: 'required',
+                            residentKey: 'preferred'
+                        },
+                        timeout: 60000,
+                        attestation: 'none'
+                    }
+                };
+
+                const credential = await navigator.credentials.create(createOptions);
+
+                // Save credential ID for future authentication
+                const credentialId = bufferToBase64(credential.rawId);
+                localStorage.setItem(CREDENTIAL_KEY, credentialId);
+                localStorage.setItem(BIOMETRIC_KEY, 'registered');
+
+                // Hide setup dialog
+                document.getElementById('biometric-setup').style.display = 'none';
+                showToast('✓ Touch ID 已启用，下次可直接使用指纹登录', 'success');
+            } catch (err) {
+                console.error('Biometric setup failed:', err);
+                document.getElementById('biometric-setup').style.display = 'none';
+                if (err.name !== 'NotAllowedError') {
+                    showToast('Touch ID 设置失败: ' + err.message, 'error');
+                }
+            }
+        }
+
+        // Skip biometric setup
+        function skipBiometric() {
+            document.getElementById('biometric-setup').style.display = 'none';
+            localStorage.setItem(BIOMETRIC_KEY, 'skipped');
+        }
+
+        // Login: Verify with biometric
+        async function biometricLogin() {
+            try {
+                const credentialId = localStorage.getItem(CREDENTIAL_KEY);
+                if (!credentialId) {
+                    showToast('未找到注册信息，请使用密码登录', 'error');
+                    return;
+                }
+
+                const challenge = crypto.getRandomValues(new Uint8Array(32));
+
+                const getOptions = {
+                    publicKey: {
+                        challenge: challenge,
+                        rpId: location.hostname,
+                        allowCredentials: [{
+                            type: 'public-key',
+                            id: base64ToBuffer(credentialId),
+                            transports: ['internal']
+                        }],
+                        userVerification: 'required',
+                        timeout: 60000
+                    }
+                };
+
+                const assertion = await navigator.credentials.get(getOptions);
+
+                if (assertion) {
+                    // Touch ID verified! Enter the app
+                    await enterApp();
+                    showToast('✓ Touch ID 验证成功', 'success');
+                }
+            } catch (err) {
+                console.error('Biometric login failed:', err);
+                if (err.name === 'NotAllowedError') {
+                    // User cancelled - do nothing
+                } else {
+                    showToast('验证失败，请使用密码登录', 'error');
+                }
+            }
+        }
+
+        // Shared enter-app logic
+        async function enterApp() {
+            document.getElementById('login-overlay').style.display = 'none';
+            document.getElementById('app').style.display = 'flex';
+
+            const savedLang = localStorage.getItem('adminLang') || 'en';
+            setLang(savedLang);
+
+            await loadData();
+        }
+
+        // Enhanced checkAuth with biometric setup prompt
         async function checkAuth() {
             if (document.getElementById('password-input').value === 'hazel2026') {
-                document.getElementById('login-overlay').style.display = 'none';
-                document.getElementById('app').style.display = 'flex';
+                await enterApp();
 
-                // Restore saved language
-                const savedLang = localStorage.getItem('adminLang') || 'en';
-                setLang(savedLang);
+                // After successful password login, offer to set up biometric
+                const bioAvailable = isBiometricAvailable();
+                const bioRegistered = isBiometricRegistered();
+                const bioSkipped = localStorage.getItem(BIOMETRIC_KEY) === 'skipped';
+                console.log('[TouchID] Available:', bioAvailable, '| Registered:', bioRegistered, '| Skipped:', bioSkipped);
+                console.log('[TouchID] PublicKeyCredential:', typeof window.PublicKeyCredential);
 
-                await loadData();
+                if (bioAvailable && !bioRegistered && !bioSkipped) {
+                    console.log('[TouchID] ✅ Showing setup prompt in 800ms...');
+                    setTimeout(() => {
+                        const setupEl = document.getElementById('biometric-setup');
+                        if (setupEl) {
+                            setupEl.style.display = 'flex';
+                            console.log('[TouchID] ✅ Setup dialog is now visible');
+                        } else {
+                            console.error('[TouchID] ❌ biometric-setup element not found!');
+                        }
+                    }, 800);
+                } else {
+                    console.log('[TouchID] ⏭️ Skipping setup prompt.');
+                }
             } else {
                 document.getElementById('login-error').style.display = 'block';
             }
         }
+
+        // On page load: show biometric button if registered
+        function initBiometricUI() {
+            if (isBiometricAvailable() && isBiometricRegistered()) {
+                document.getElementById('biometric-section').style.display = 'block';
+                document.getElementById('biometric-divider').style.display = 'block';
+
+                // Auto-trigger Touch ID after a short delay
+                setTimeout(() => {
+                    biometricLogin();
+                }, 500);
+            }
+        }
+
+        // Initialize biometric UI when page loads
+        document.addEventListener('DOMContentLoaded', initBiometricUI);
+
+        // ===== Collapsible Section State Persistence =====
+        const SECTION_STATE_KEY = 'hazel_admin_sections';
+
+        function saveSectionStates() {
+            const states = {};
+            document.querySelectorAll('details.admin-section[id]').forEach(d => {
+                states[d.id] = d.open;
+            });
+            localStorage.setItem(SECTION_STATE_KEY, JSON.stringify(states));
+        }
+
+        function restoreSectionStates() {
+            const saved = localStorage.getItem(SECTION_STATE_KEY);
+            if (!saved) return;
+            try {
+                const states = JSON.parse(saved);
+                Object.entries(states).forEach(([id, isOpen]) => {
+                    const el = document.getElementById(id);
+                    if (el) el.open = isOpen;
+                });
+            } catch (e) { /* ignore parse errors */ }
+        }
+
+        // Listen for toggle events on all collapsible sections
+        document.addEventListener('toggle', (e) => {
+            if (e.target.matches('details.admin-section[id]')) {
+                saveSectionStates();
+            }
+        }, true);
+
+        // Restore states on page load
+        document.addEventListener('DOMContentLoaded', restoreSectionStates);
 
         async function loadData() {
             try {
@@ -1896,8 +2418,8 @@
 
             props.innerHTML = `
                 <div class="ve-props-title">Image #${i + 1} 属性</div>
-                <div class="ve-props-card" style="border-color:#c4d9f2;">
-                    <div style="font-size:11px; font-weight:700; color:#3a7bd5; margin-bottom:8px;">🖥 DESKTOP</div>
+                <div class="ve-props-card" style="border-color:rgba(139,105,82,0.2);">
+                    <div style="font-size:11px; font-weight:400; color:#8B6952; margin-bottom:8px;">🖥 DESKTOP</div>
                     <div class="ve-props-row">
                         <div><label>Top %</label><input type="number" value="${pos.top}" min="0" max="100" step="1" oninput="veSetDesktop(${i},'top',this.value)"></div>
                         <div><label>Left %</label><input type="number" value="${pos.left}" min="0" max="100" step="1" oninput="veSetDesktop(${i},'left',this.value)"></div>
@@ -2294,27 +2816,27 @@
 
             props.innerHTML = `
                 <div class="ve-props-title">Image #${i + 1} 属性</div>
-                <div class="ve-props-card" style="border-color:#b8dab8;">
-                    <div style="font-size:11px; font-weight:700; color:#2e7d32; margin-bottom:8px;">📱 MOBILE</div>
+                <div class="ve-props-card" style="border-color:#b8c9ad;">
+                    <div style="font-size:11px; font-weight:400; color:#9CAF88; margin-bottom:8px;">📱 MOBILE</div>
                     <div style="margin-bottom:8px;">
                         <label>↕ 上 Top %</label>
                         <div style="display:flex; gap:6px; align-items:center;">
-                            <input type="range" min="0" max="90" value="${m.top}" oninput="this.nextElementSibling.value=this.value; veSetMobile(${i},'mobile_top',parseInt(this.value))" style="flex:1; accent-color:#2e7d32;">
-                            <input type="number" min="0" max="90" value="${m.top}" oninput="this.previousElementSibling.value=this.value; veSetMobile(${i},'mobile_top',parseInt(this.value))" style="width:48px; text-align:center; padding:4px; border:1px solid #b8dab8; border-radius:4px; font-size:12px;">
+                            <input type="range" min="0" max="90" value="${m.top}" oninput="this.nextElementSibling.value=this.value; veSetMobile(${i},'mobile_top',parseInt(this.value))" style="flex:1; accent-color:#9CAF88;">
+                            <input type="number" min="0" max="90" value="${m.top}" oninput="this.previousElementSibling.value=this.value; veSetMobile(${i},'mobile_top',parseInt(this.value))" style="width:48px; text-align:center; padding:4px; border:1px solid #b8c9ad; border-radius:4px; font-size:12px;">
                         </div>
                     </div>
                     <div style="margin-bottom:8px;">
                         <label>↔ 左 Left %</label>
                         <div style="display:flex; gap:6px; align-items:center;">
-                            <input type="range" min="0" max="85" value="${m.left}" oninput="this.nextElementSibling.value=this.value; veSetMobile(${i},'mobile_left',parseInt(this.value))" style="flex:1; accent-color:#2e7d32;">
-                            <input type="number" min="0" max="85" value="${m.left}" oninput="this.previousElementSibling.value=this.value; veSetMobile(${i},'mobile_left',parseInt(this.value))" style="width:48px; text-align:center; padding:4px; border:1px solid #b8dab8; border-radius:4px; font-size:12px;">
+                            <input type="range" min="0" max="85" value="${m.left}" oninput="this.nextElementSibling.value=this.value; veSetMobile(${i},'mobile_left',parseInt(this.value))" style="flex:1; accent-color:#9CAF88;">
+                            <input type="number" min="0" max="85" value="${m.left}" oninput="this.previousElementSibling.value=this.value; veSetMobile(${i},'mobile_left',parseInt(this.value))" style="width:48px; text-align:center; padding:4px; border:1px solid #b8c9ad; border-radius:4px; font-size:12px;">
                         </div>
                     </div>
                     <div style="margin-bottom:8px;">
                         <label>⬌ 宽度 Width %</label>
                         <div style="display:flex; gap:6px; align-items:center;">
-                            <input type="range" min="15" max="85" value="${m.width}" oninput="this.nextElementSibling.value=this.value; veSetMobile(${i},'mobile_width',parseInt(this.value))" style="flex:1; accent-color:#2e7d32;">
-                            <input type="number" min="15" max="85" value="${m.width}" oninput="this.previousElementSibling.value=this.value; veSetMobile(${i},'mobile_width',parseInt(this.value))" style="width:48px; text-align:center; padding:4px; border:1px solid #b8dab8; border-radius:4px; font-size:12px;">
+                            <input type="range" min="15" max="85" value="${m.width}" oninput="this.nextElementSibling.value=this.value; veSetMobile(${i},'mobile_width',parseInt(this.value))" style="flex:1; accent-color:#9CAF88;">
+                            <input type="number" min="15" max="85" value="${m.width}" oninput="this.previousElementSibling.value=this.value; veSetMobile(${i},'mobile_width',parseInt(this.value))" style="width:48px; text-align:center; padding:4px; border:1px solid #b8c9ad; border-radius:4px; font-size:12px;">
                         </div>
                     </div>
                     <div style="margin-bottom:8px;">

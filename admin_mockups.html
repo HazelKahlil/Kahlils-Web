@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel 重设计 — 方向选择</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@1&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 40px 60px;
+            background: linear-gradient(180deg, #111 0%, #0a0a0a 100%);
+        }
+
+        .hero h1 {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 56px;
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: #888;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .directions {
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+            padding: 60px 80px 120px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .direction {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 60px;
+            align-items: start;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        .direction:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .direction:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .direction:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .direction-img {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid #222;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: zoom-in;
+        }
+
+        .direction-img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .direction-info {
+            padding-top: 20px;
+        }
+
+        .direction-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 100px;
+            margin-bottom: 20px;
+        }
+
+        .badge-a {
+            background: #1a1a1a;
+            color: #fff;
+            border: 1px solid #333;
+        }
+
+        .badge-b {
+            background: #1a2a0a;
+            color: #c8ff00;
+            border: 1px solid #3a4a1a;
+        }
+
+        .badge-c {
+            background: #2a2018;
+            color: #d4a574;
+            border: 1px solid #3a3028;
+        }
+
+        .direction-info h2 {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 36px;
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .direction-info h3 {
+            font-size: 14px;
+            font-weight: 400;
+            color: #666;
+            margin-bottom: 24px;
+        }
+
+        .direction-info p {
+            font-size: 14px;
+            color: #999;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .traits {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .trait {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            color: #bbb;
+        }
+
+        .trait-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .dot-a {
+            background: #888;
+        }
+
+        .dot-b {
+            background: #c8ff00;
+        }
+
+        .dot-c {
+            background: #9caf88;
+        }
+
+        .color-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .color-swatch {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            border: 1px solid #333;
+            position: relative;
+            cursor: default;
+        }
+
+        .color-swatch::after {
+            content: attr(data-label);
+            position: absolute;
+            bottom: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 9px;
+            color: #555;
+            white-space: nowrap;
+        }
+
+        .pros {
+            background: #111;
+            border: 1px solid #1a1a1a;
+            border-radius: 8px;
+            padding: 16px 20px;
+        }
+
+        .pros-title {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .pros p {
+            font-size: 13px;
+            color: #999;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #222, transparent);
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 1000;
+            cursor: zoom-out;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            backdrop-filter: blur(20px);
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+        }
+
+        .footer-note {
+            text-align: center;
+            padding: 60px 40px;
+            font-size: 13px;
+            color: #444;
+            border-top: 1px solid #151515;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hero">
+        <h1>Admin Redesign</h1>
+        <p>三个设计方向 · 保留全部现有功能 · 选择你最喜欢的风格<br>点击图片可放大查看细节</p>
+    </div>
+
+    <div class="directions">
+
+        <!-- Direction A -->
+        <div class="direction">
+            <div>
+                <img class="direction-img" src="mockups/mockup_a.png" alt="方向A: Swiss Editorial"
+                    onclick="openLightbox(this.src)">
+            </div>
+            <div class="direction-info">
+                <span class="direction-badge badge-a">方向 A</span>
+                <h2>Swiss Editorial</h2>
+                <h3>瑞士编辑风格 — 现有设计的极致精炼</h3>
+                <div class="traits">
+                    <div class="trait">
+                        <div class="trait-dot dot-a"></div>纯黑白灰，零彩色点缀
+                    </div>
+                    <div class="trait">
+                        <div class="trait-dot dot-a"></div>Instrument Serif italic + Inter 双字体系统
+                    </div>
+                    <div class="trait">
+                        <div class="trait-dot dot-a"></div>编号导航 01 / 02 / 03 / 04
+                    </div>
+                    <div class="trait">
+                        <div class="trait-dot dot-a"></div>零圆角 · 出版物般的排版精度
+                    </div>
+                    <div class="trait">
+                        <div class="trait-dot dot-a"></div>白色卡片浮在柔灰背景上
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-swatch" style="background:#000" data-label="#000"></div>
+                    <div class="color-swatch" style="background:#333" data-label="#333"></div>
+                    <div class="color-swatch" style="background:#888" data-label="#888"></div>
+                    <div class="color-swatch" style="background:#F0F0F0" data-label="#F0F0F0"></div>
+                    <div class="color-swatch" style="background:#F5F5F5" data-label="#F5F5F5"></div>
+                    <div class="color-swatch" style="background:#FFF" data-label="#FFF"></div>
+                </div>
+                <div class="pros">
+                    <div class="pros-title">优势</div>
+                    <p>与现有设计基因一脉相承，改动最平滑。专业感极强，排版品质登峰造极。适合追求极致简约和克制美学的管理后台。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Direction B -->
+        <div class="direction">
+            <div>
+                <img class="direction-img" src="mockups/mockup_b.png" alt="方向B: Dark Command Center"
+                    onclick="openLightbox(this.src)">
+            </div>
+            <div class="direction-info">
+                <span class="direction-badge badge-b">方向 B</span>
+                <h2>Dark Command Center</h2>
+                <h3>暗色指挥中心 — 终端美学 · 数据驱动</h3>
+                <div class="traits">
+                    <div class="trait">
+                        <div class="trait-dot dot-b"></div>深炭色底 + 荧光绿活跃指示
+                    </div>
+                    <div class="trait">
+                        <div class="trait-dot dot-b"></div>等宽字体标签 + Inter Bold 大标题
+                    </div>
+                    <div class="trait">
+                        <div class="trait-dot dot-b"></div>图标导航 + 数据统计面板
+                    </div>
+                    <div class="trait">
+                        <div class="trait-dot dot-b"></div>高信息密度 · 终端/开发者工具感
+                    </div>
+                    <div class="trait">
+                        <div class="trait-dot dot-b"></div>暗色卡片 · 细边框 · 锐利直角
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-swatch" style="background:#141414" data-label="#141414"></div>
+                    <div class="color-swatch" style="background:#1A1A1A" data-label="#1A1A1A"></div>
+                    <div class="color-swatch" style="background:#1E1E1E" data-label="#1E1E1E"></div>
+                    <div class="color-swatch" style="background:#333" data-label="#333"></div>
+                    <div class="color-swatch" style="background:#C8FF00" data-label="#C8FF00"></div>
+                    <div class="color-swatch" style="background:#E0E0E0" data-label="#E0E0E0"></div>
+                </div>
+                <div class="pros">
+                    <div class="pros-title">优势</div>
+                    <p>暗色护眼模式适合长时间后台操作。信息密度高，一屏展示更多数据。开发者友好的终端美学，技术感品牌的最佳选择。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Direction C -->
+        <div class="direction">
+            <div>
+                <img class="direction-img" src="mockups/mockup_c.png" alt="方向C: Warm Organic"
+                    onclick="openLightbox(this.src)">
+            </div>
+            <div class="direction-info">
+                <span class="direction-badge badge-c">方向 C</span>
+                <h2>Warm Organic</h2>
+                <h3>温暖有机风格 — 日式禅意 · 纸质触感</h3>
+                <div class="traits">
+                    <div class="trait">
+                        <div class="trait-dot dot-c"></div>暖白底 + 鼠尾草绿 / 酒红点缀
+                    </div>
+                    <div class="trait">
+                        <div class="trait-dot dot-c"></div>Cormorant Garamond + DM Sans 优雅组合
+                    </div>
+                    <div class="trait">
+                        <div class="trait-dot dot-c"></div>衬线字体导航 + 酒红下划线指示
+                    </div>
+                    <div class="trait">
+                        <div class="trait-dot dot-c"></div>12px 圆角 · 微妙暖色阴影
+                    </div>
+                    <div class="trait">
+                        <div class="trait-dot dot-c"></div>充足呼吸空间 · 禅意留白
+                    </div>
+                </div>
+                <div class="color-row">
+                    <div class="color-swatch" style="background:#FAF8F5" data-label="#FAF8F5"></div>
+                    <div class="color-swatch" style="background:#F0EDE8" data-label="#F0EDE8"></div>
+                    <div class="color-swatch" style="background:#F5F2ED" data-label="#F5F2ED"></div>
+                    <div class="color-swatch" style="background:#9CAF88" data-label="#9CAF88"></div>
+                    <div class="color-swatch" style="background:#8B4513" data-label="#8B4513"></div>
+                    <div class="color-swatch" style="background:#3D3D3D" data-label="#3D3D3D"></div>
+                </div>
+                <div class="pros">
+                    <div class="pros-title">优势</div>
+                    <p>与摄影作品集的艺术调性最匹配。温暖柔和的配色减少视觉疲劳。创意工作者和视觉艺术家的管理工具首选。</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-note">
+        选择一个方向后告诉我 · 也可以混合搭配 · 比如 "A的排版 + C的配色"
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Enlarged mockup">
+    </div>
+
+    <script>
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').classList.add('active');
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+
+</body>
+
+</html>

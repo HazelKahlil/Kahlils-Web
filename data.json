@@ -100,6 +100,360 @@
     },
     "projects": [
         {
+            "id": "new-1768987933974",
+            "title": "facades",
+            "year": "2025",
+            "description": "Every city has a face. Facades focuses on building fa\u00e7ades\u2014the city's most public yet most overlooked interface.I don't seek out landmarks\u2014only the silent, anonymous skins that line everyday streets. Under direct light, they shed narrative and emotion, leaving only geometry, texture, and traces of time.We pass countless fa\u00e7ades daily, yet never truly see them. This is a slowed gaze\u2014pushing background into foreground, granting the ordinary the weight of attention. No explanation. Just an invitation to look.Selected works featured in Quadro Magazine and Marika Magazine.",
+            "image": "images/2025.7.17 69.webp",
+            "gallery": [
+                {
+                    "src": "images/2025.7.17 69.webp",
+                    "caption": "Kyoto,Japan"
+                },
+                {
+                    "src": "images/2.16 11.webp",
+                    "caption": "Shanghai,China"
+                },
+                {
+                    "src": "images/2025.3.30-6.webp",
+                    "caption": "Shanghai,China"
+                },
+                {
+                    "src": "images/2025.5.29-7.webp",
+                    "caption": "Shanghai,China"
+                },
+                {
+                    "src": "images/2025.7.16-12.webp",
+                    "caption": "Kyoto,Japan"
+                },
+                {
+                    "src": "images/2025.07 245.webp",
+                    "caption": "Kyoto,Japan"
+                },
+                {
+                    "src": "images/2025.7.20-45.webp",
+                    "caption": "Kyoto,Japan"
+                },
+                {
+                    "src": "images/2025 1.5 \u5916\u6ee9BFC \u5076\u9047\u97e6\u65af\u5b89\u5fb7\u68ee-1.webp",
+                    "caption": "Shanghai,China"
+                },
+                {
+                    "src": "images/2025.07 68.webp",
+                    "caption": "Kyoto,Japan"
+                },
+                {
+                    "src": "images/2025.07 254.webp",
+                    "caption": "Kyoto,Japan"
+                },
+                {
+                    "src": "images/2025.7.15-46.webp",
+                    "caption": "Kyoto,Japan"
+                },
+                {
+                    "src": "images/2025.7.17 58.webp",
+                    "caption": "Kyoto,Japan"
+                },
+                {
+                    "src": "images/2025 1.1 \u5143\u65e6-20.webp",
+                    "caption": "Shanghai,China"
+                },
+                {
+                    "src": "images/2025.1.11 \u6210\u90fd \u4e1c\u90ca\u8bb0\u5fc6-10.webp",
+                    "caption": "Chengdu,Sichuan,China"
+                },
+                {
+                    "src": "images/2025.5.29-3.webp",
+                    "caption": "Shanghai,China"
+                },
+                {
+                    "src": "images/2025.7.15-51.webp",
+                    "caption": "Kyoto,Japan"
+                },
+                {
+                    "src": "images/2025.7.16-8.webp",
+                    "caption": "Kyoto,Japan"
+                },
+                {
+                    "src": "images/2025.7.19 14.webp",
+                    "caption": "Kyoto,Japan"
+                },
+                {
+                    "src": "images/2025.7.20-63.webp",
+                    "caption": "Kyoto,Japan"
+                },
+                {
+                    "src": "images/2025.7.20-8.webp",
+                    "caption": "Kyoto,Japan"
+                },
+                {
+                    "src": "images/2025.7.20-64.webp",
+                    "caption": "Kyoto,Japan"
+                },
+                {
+                    "src": "images/Disney-1.webp",
+                    "caption": "Shanghai,China"
+                },
+                {
+                    "src": "images/L1001396.JPG",
+                    "caption": "Shanghai,China"
+                },
+                {
+                    "src": "images/L3760878.jpg",
+                    "caption": "Shanghai,China"
+                },
+                {
+                    "src": "images/2024-02-12 160728.jpg",
+                    "caption": "Suzhou,Jiangsu,China"
+                },
+                {
+                    "src": "images/2025.07 203.jpg",
+                    "caption": "Kyoto,Japan"
+                },
+                {
+                    "src": "images/2025.7.15-36.JPG",
+                    "caption": "Kyoto,Japan"
+                },
+                {
+                    "src": "images/2025.7.15-45.JPG",
+                    "caption": "Kyoto,Japan"
+                },
+                {
+                    "src": "images/2025.7.20-10.JPG",
+                    "caption": "Kyoto,Japan"
+                },
+                {
+                    "src": "images/2025.7.20-11.JPG",
+                    "caption": "Kyoto,Japan"
+                },
+                {
+                    "src": "images/2025.7.20-42.JPG",
+                    "caption": "Kyoto,Japan"
+                },
+                {
+                    "src": "images/2025.7.20-43.JPG",
+                    "caption": "Kyoto,Japan"
+                },
+                {
+                    "src": "images/DSC_9151.JPG",
+                    "caption": "Shanghai,China"
+                },
+                {
+                    "src": "images/2025.8.31 9.jpg",
+                    "caption": "Taizhou,Zhejiang,China"
+                },
+                {
+                    "src": "images/DSCF4675.jpg",
+                    "caption": "Hangzhou,Zhejiang,China"
+                },
+                {
+                    "src": "images/2024-02-11 143112.jpg",
+                    "caption": "Nanjing,Jiangsu,China"
+                }
+            ],
+            "_collapsed": true
+        },
+        {
+            "id": "amagatsu",
+            "title": "A flock of birds",
+            "year": "2023-2026",
+            "image": "images/2026.1.10- 90.webp",
+            "gallery": [
+                {
+                    "src": "images/2026.1.10- 90.webp",
+                    "caption": "Jeju Island, South Korea,2026"
+                },
+                {
+                    "src": "images/2026.1.10- 96.webp",
+                    "caption": "Jeju Island, South Korea,2026"
+                },
+                {
+                    "src": "images/2024-02-10 104550.webp",
+                    "caption": "Nanjing, Jiangsu, China"
+                },
+                {
+                    "src": "images/2026.1.10- 92.webp",
+                    "caption": "Jeju Island, South Korea,2026"
+                },
+                {
+                    "src": "images/2024-02-10 163658.webp",
+                    "caption": "Nanjing, Jiangsu, China"
+                },
+                {
+                    "src": "images/2.3 \u9f99\u9f9b\u65e5\u51fa \u65e0\u6c34\u5370-19.webp",
+                    "caption": "Dali, Yunnan, China"
+                },
+                {
+                    "src": "images/2.3 \u9f99\u9f9b\u65e5\u51fa \u65e0\u6c34\u5370-16.webp",
+                    "caption": "Dali, Yunnan, China"
+                },
+                {
+                    "src": "images/2026.1.25- 11.webp",
+                    "caption": "Shanghai,China"
+                },
+                {
+                    "src": "images/2.3 \u9f99\u9f9b\u65e5\u51fa \u65e0\u6c34\u5370-17.webp",
+                    "caption": "Dali, Yunnan, China"
+                },
+                {
+                    "src": "images/2026.1.25- 1.webp",
+                    "caption": "Shanghai,China"
+                },
+                {
+                    "src": "images/2024-02-10 163654.webp",
+                    "caption": "Nanjing, Jiangsu, China"
+                },
+                {
+                    "src": "images/2026.1.10- 122.webp",
+                    "caption": "Jeju Island, South Korea,2026"
+                },
+                {
+                    "src": "images/2026.1.10- 89.webp",
+                    "caption": "Jeju Island, South Korea,2026"
+                },
+                {
+                    "src": "images/2026.1.25- 4.webp",
+                    "caption": "Shanghai,China"
+                },
+                {
+                    "src": "images/2.3 \u9f99\u9f9b\u65e5\u51fa \u65e0\u6c34\u5370-40.webp",
+                    "caption": "Dali, Yunnan, China"
+                },
+                {
+                    "src": "images/2.3 \u9f99\u9f9b\u65e5\u51fa \u65e0\u6c34\u5370-14.webp",
+                    "caption": "Dali, Yunnan, China"
+                },
+                {
+                    "src": "images/2.3 \u9f99\u9f9b\u65e5\u51fa \u65e0\u6c34\u5370-25.webp",
+                    "caption": "Dali, Yunnan, China"
+                }
+            ],
+            "description": "Birds are the ancient inhabitants of the city, their presence predating any architecture. In this series, I focus on how these creatures reenact their timeless rituals of survival within these man-made spaces.Captured in these frames, they soar over heavy stone walls and tiled roofs, or rest upon the textured ground. This primitive vitality, contrasted against static architectural structures, creates a sense of \"Anachronism.\" Through high-contrast black and white imagery, I seek to erase the markers of the \"present,\" cultivating a timeless atmosphere of silence. Here, the flock is not merely a subject, but an eternal metaphor connecting the past and the future.",
+            "_collapsed": true
+        },
+        {
+            "id": "new-1771074318249",
+            "title": "Stillness & Silence",
+            "year": "2023-2026",
+            "description": "Stillness is not the absence of motion, but time held captive. Silence is not the void of sound, but the ear turned inward.\n\n\u5b9a\u975e\u6b62\u52a8\uff0c\u4e43\u65f6\u5149\u56da\u4e8e\u65b9\u5bf8\u3002\n\u9ed8\u975e\u7edd\u58f0\uff0c\u4e43\u4e07\u7c41\u9000\u800c\u81ea\u7701\u3002",
+            "image": "images/IMG_2874_VSCO.jpg",
+            "gallery": [
+                {
+                    "src": "images/2.2 \u4e91\u4e0a\u8349\u539f 10.jpg",
+                    "caption": "Dali\uff0cYunnan\uff0cChina"
+                },
+                {
+                    "src": "images/2025.3.15 \u8861\u5c71\u8def \u6c38\u5e73\u91cc-34.JPG",
+                    "caption": "Shanghai, China"
+                },
+                {
+                    "src": "images/2025.11.1- 14.JPG",
+                    "caption": "Shanghai, China"
+                },
+                {
+                    "src": "images/2.2 \u4e91\u4e0a\u8349\u539f 6.jpg",
+                    "caption": "Dali\uff0cYunnan\uff0cChina"
+                },
+                {
+                    "src": "images/2026.1.11Grain-11.jpg",
+                    "caption": "South Korea"
+                },
+                {
+                    "src": "images/IMG_2874_VSCO.jpg",
+                    "caption": "Shanghai, China"
+                },
+                {
+                    "src": "images/2025.11.7- 10.JPG",
+                    "caption": "Shanghai, China"
+                },
+                {
+                    "src": "images/2025.11.29- 25.JPG",
+                    "caption": "Shanghai, China"
+                },
+                {
+                    "src": "images/DSC_2768.jpg",
+                    "caption": "Shanghai, China"
+                },
+                {
+                    "src": "images/2025.4.30-2.JPG",
+                    "caption": "Shanghai, China"
+                },
+                {
+                    "src": "images/4b88246c9c8868573c227d9c55f87af3.jpg",
+                    "caption": "Shanghai, China"
+                },
+                {
+                    "src": "images/2025.4.25 Debbie-16.JPG",
+                    "caption": "Shanghai, China"
+                },
+                {
+                    "src": "images/2025.10.26- 1.JPG",
+                    "caption": "Shanghai, China"
+                },
+                {
+                    "src": "images/DSC_7228.JPG",
+                    "caption": "Shanghai, China"
+                },
+                {
+                    "src": "images/DSC_9003.JPG",
+                    "caption": "Taizhou\uff0cZhejiang\uff0cChina"
+                },
+                {
+                    "src": "images/DSC_8971.jpg",
+                    "caption": "Taizhou\uff0cZhejiang\uff0cChina"
+                },
+                {
+                    "src": "images/IMG_8004.JPG",
+                    "caption": "Shanghai, China"
+                },
+                {
+                    "src": "images/2025.11.28- 41.JPG",
+                    "caption": "Shanghai, China"
+                },
+                {
+                    "src": "images/2025.5.3 22.JPG",
+                    "caption": "Shanghai, China"
+                },
+                {
+                    "src": "images/DSC_2113.jpg",
+                    "caption": "Shanghai, China"
+                },
+                {
+                    "src": "images/2025.7.19 55.JPG",
+                    "caption": "Kyoto\uff0cJapan"
+                },
+                {
+                    "src": "images/2026.2.5 20.JPG",
+                    "caption": "Chengdu\uff0cSichuan\uff0cChina"
+                },
+                {
+                    "src": "images/\u7ec4\u56fe.JPG",
+                    "caption": "Chengdu\uff0cSichuan\uff0cChina"
+                },
+                {
+                    "src": "images/f4bc4a0449380d9ae3855462f38f1121.JPEG",
+                    "caption": "Shanghai, China"
+                },
+                {
+                    "src": "images/IMG_3765.jpg",
+                    "caption": "Shanghai, China"
+                },
+                {
+                    "src": "images/DSC_2746.jpg",
+                    "caption": "Shanghai, China"
+                },
+                {
+                    "src": "images/IMG_3768.jpg",
+                    "caption": "Shanghai, China"
+                },
+                {
+                    "src": "images/IMG_6367.JPG",
+                    "caption": "Shanghai, China"
+                }
+            ],
+            "_collapsed": true
+        },
+        {
             "id": "new-1770721055412",
             "title": "Principles",
             "year": "2024-2026",
@@ -123,15 +477,15 @@
                     "caption": "Dali\uff0cYunnan\uff0cChina"
                 },
                 {
-                    "src": "images/3.7 \u4e45\u4e8b\u7f8e\u672f\u9986 1.webp",
-                    "caption": "Shanghai\uff0cChina"
-                },
-                {
                     "src": "images/2025.5.19-28.webp",
                     "caption": "Shanghai\uff0cChina"
                 },
                 {
                     "src": "images/2025.4.4 K11 CJarte\u7b80\u7a7a\u95f4 25.webp",
+                    "caption": "Shanghai\uff0cChina"
+                },
+                {
+                    "src": "images/3.7 \u4e45\u4e8b\u7f8e\u672f\u9986 1.webp",
                     "caption": "Shanghai\uff0cChina"
                 },
                 {
@@ -167,10 +521,6 @@
                     "caption": "Shanghai\uff0cChina"
                 },
                 {
-                    "src": "images/2025.11.27- 2.webp",
-                    "caption": "Shanghai\uff0cChina"
-                },
-                {
                     "src": "images/3.7 \u4e45\u4e8b\u7f8e\u672f\u9986 2.webp",
                     "caption": "Shanghai\uff0cChina"
                 },
@@ -191,11 +541,19 @@
                     "caption": "Shanghai\uff0cChina"
                 },
                 {
+                    "src": "images/2026.1.25- 6.webp",
+                    "caption": "Shanghai\uff0cChina"
+                },
+                {
                     "src": "images/2025.11.27- 21.webp",
                     "caption": "Shanghai\uff0cChina"
                 },
                 {
-                    "src": "images/2026.1.25- 6.webp",
+                    "src": "images/2025.11.28- 22.webp",
+                    "caption": "Shanghai\uff0cChina"
+                },
+                {
+                    "src": "images/2025.11.27- 2.webp",
                     "caption": "Shanghai\uff0cChina"
                 },
                 {
@@ -204,10 +562,6 @@
                 },
                 {
                     "src": "images/2025.11.28- 19.webp",
-                    "caption": "Shanghai\uff0cChina"
-                },
-                {
-                    "src": "images/2025.11.28- 22.webp",
                     "caption": "Shanghai\uff0cChina"
                 },
                 {
@@ -254,230 +608,34 @@
             "_collapsed": true
         },
         {
-            "id": "new-1768987933974",
-            "title": "facades",
-            "year": "2025",
-            "description": "Every city has a face. Facades focuses on building fa\u00e7ades\u2014the city's most public yet most overlooked interface.I don't seek out landmarks\u2014only the silent, anonymous skins that line everyday streets. Under direct light, they shed narrative and emotion, leaving only geometry, texture, and traces of time.We pass countless fa\u00e7ades daily, yet never truly see them. This is a slowed gaze\u2014pushing background into foreground, granting the ordinary the weight of attention. No explanation. Just an invitation to look.Selected works featured in Quadro Magazine and Marika Magazine.",
-            "image": "images/2025.7.17 69.webp",
-            "gallery": [
-                {
-                    "src": "images/2025.7.17 69.webp",
-                    "caption": "Kyoto,Japan"
-                },
-                {
-                    "src": "images/2.16 11.webp",
-                    "caption": "Shanghai,China"
-                },
-                {
-                    "src": "images/2025.07 68.webp",
-                    "caption": "Kyoto,Japan"
-                },
-                {
-                    "src": "images/2025 1.5 \u5916\u6ee9BFC \u5076\u9047\u97e6\u65af\u5b89\u5fb7\u68ee-1.webp",
-                    "caption": "Shanghai,China"
-                },
-                {
-                    "src": "images/2025.5.29-7.webp",
-                    "caption": "Shanghai,China"
-                },
-                {
-                    "src": "images/2025.07 245.webp",
-                    "caption": "Kyoto,Japan"
-                },
-                {
-                    "src": "images/2025.3.30-6.webp",
-                    "caption": "Shanghai,China"
-                },
-                {
-                    "src": "images/2025.07 254.webp",
-                    "caption": "Kyoto,Japan"
-                },
-                {
-                    "src": "images/2025.7.15-46.webp",
-                    "caption": "Kyoto,Japan"
-                },
-                {
-                    "src": "images/2025.7.17 58.webp",
-                    "caption": "Kyoto,Japan"
-                },
-                {
-                    "src": "images/2025 1.1 \u5143\u65e6-20.webp",
-                    "caption": "Shanghai,China"
-                },
-                {
-                    "src": "images/2025.1.11 \u6210\u90fd \u4e1c\u90ca\u8bb0\u5fc6-10.webp",
-                    "caption": "Chengdu,Sichuan,China"
-                },
-                {
-                    "src": "images/2025.5.29-3.webp",
-                    "caption": "Shanghai,China"
-                },
-                {
-                    "src": "images/2025.7.15-51.webp",
-                    "caption": "Kyoto,Japan"
-                },
-                {
-                    "src": "images/2025.7.20-45.webp",
-                    "caption": "Kyoto,Japan"
-                },
-                {
-                    "src": "images/2025.7.16-5.webp",
-                    "caption": "Kyoto,Japan"
-                },
-                {
-                    "src": "images/2025.7.16-6.webp",
-                    "caption": "Kyoto,Japan"
-                },
-                {
-                    "src": "images/2025.7.16-15.webp",
-                    "caption": "Kyoto,Japan"
-                },
-                {
-                    "src": "images/2025.7.16-12.webp",
-                    "caption": "Kyoto,Japan"
-                },
-                {
-                    "src": "images/2025.7.16-8.webp",
-                    "caption": "Kyoto,Japan"
-                },
-                {
-                    "src": "images/2025.7.20-63.webp",
-                    "caption": "Kyoto,Japan"
-                },
-                {
-                    "src": "images/2025.7.16-1.webp",
-                    "caption": "Kyoto,Japan"
-                },
-                {
-                    "src": "images/2025.7.19 14.webp",
-                    "caption": "Kyoto,Japan"
-                },
-                {
-                    "src": "images/2025.7.20-8.webp",
-                    "caption": "Kyoto,Japan"
-                },
-                {
-                    "src": "images/2025.7.20-64.webp",
-                    "caption": "Kyoto,Japan"
-                },
-                {
-                    "src": "images/Disney-1.webp",
-                    "caption": "Shanghai,China"
-                }
-            ],
-            "_collapsed": true
-        },
-        {
-            "id": "amagatsu",
-            "title": "A flock of birds",
-            "year": "2023-2026",
-            "image": "images/2026.1.10- 90.webp",
-            "gallery": [
-                {
-                    "src": "images/2026.1.10- 90.webp",
-                    "caption": "Jeju Island, South Korea,2026"
-                },
-                {
-                    "src": "images/2026.1.10- 96.webp",
-                    "caption": "Jeju Island, South Korea,2026"
-                },
-                {
-                    "src": "images/2024-02-10 104550.webp",
-                    "caption": "Nanjing, Jiangsu, China"
-                },
-                {
-                    "src": "images/2026.1.10- 89.webp",
-                    "caption": "Jeju Island, South Korea,2026"
-                },
-                {
-                    "src": "images/2024-02-10 163658.webp",
-                    "caption": "Nanjing, Jiangsu, China"
-                },
-                {
-                    "src": "images/2026.1.10- 92.webp",
-                    "caption": "Jeju Island, South Korea,2026"
-                },
-                {
-                    "src": "images/2026.1.10- 122.webp",
-                    "caption": "Jeju Island, South Korea,2026"
-                },
-                {
-                    "src": "images/2.3 \u9f99\u9f9b\u65e5\u51fa \u65e0\u6c34\u5370-17.webp",
-                    "caption": "Dali, Yunnan, China"
-                },
-                {
-                    "src": "images/2.3 \u9f99\u9f9b\u65e5\u51fa \u65e0\u6c34\u5370-40.webp",
-                    "caption": "Dali, Yunnan, China"
-                },
-                {
-                    "src": "images/2.3 \u9f99\u9f9b\u65e5\u51fa \u65e0\u6c34\u5370-14.webp",
-                    "caption": "Dali, Yunnan, China"
-                },
-                {
-                    "src": "images/2026.1.25- 4.webp",
-                    "caption": "Shanghai,China"
-                },
-                {
-                    "src": "images/2.3 \u9f99\u9f9b\u65e5\u51fa \u65e0\u6c34\u5370-19.webp",
-                    "caption": "Dali, Yunnan, China"
-                },
-                {
-                    "src": "images/2.3 \u9f99\u9f9b\u65e5\u51fa \u65e0\u6c34\u5370-16.webp",
-                    "caption": "Dali, Yunnan, China"
-                },
-                {
-                    "src": "images/2.3 \u9f99\u9f9b\u65e5\u51fa \u65e0\u6c34\u5370-25.webp",
-                    "caption": "Dali, Yunnan, China"
-                },
-                {
-                    "src": "images/2024-02-10 163654.webp",
-                    "caption": "Nanjing, Jiangsu, China"
-                },
-                {
-                    "src": "images/2026.1.25- 1.webp",
-                    "caption": "Shanghai,China"
-                },
-                {
-                    "src": "images/2026.1.25- 11.webp",
-                    "caption": "Shanghai,China"
-                }
-            ],
-            "description": "Birds are the ancient inhabitants of the city, their presence predating any architecture. In this series, I focus on how these creatures reenact their timeless rituals of survival within these man-made spaces.Captured in these frames, they soar over heavy stone walls and tiled roofs, or rest upon the textured ground. This primitive vitality, contrasted against static architectural structures, creates a sense of \"Anachronism.\" Through high-contrast black and white imagery, I seek to erase the markers of the \"present,\" cultivating a timeless atmosphere of silence. Here, the flock is not merely a subject, but an eternal metaphor connecting the past and the future.",
-            "_collapsed": true
-        },
-        {
             "id": "after-the-rain",
             "title": "Lifestyle",
             "year": "2025-2026",
-            "image": "images/2025.8.31 18.webp",
+            "image": "images/2025.8.31 18.jpg",
             "gallery": [
                 {
                     "src": "images/2026.1.10- 46.webp",
                     "caption": "Jeju Island, South Korea,2026"
                 },
                 {
-                    "src": "images/2026.1.10- 56.webp",
+                    "src": "images/2026.1.10- 51.webp",
                     "caption": "Jeju Island, South Korea,2026"
                 },
                 {
-                    "src": "images/2026.1.10- 28.webp",
-                    "caption": "Jeju Island, South Korea,2026"
+                    "src": "images/2025.8.31 18.jpg",
+                    "caption": "Taizhou\uff0cZhejiang\uff0cChina"
                 },
                 {
-                    "src": "images/2026.1.10- 35.webp",
-                    "caption": "Jeju Island, South Korea,2026"
+                    "src": "images/2.5 16.webp",
+                    "caption": "Dali, Yunnan, China"
                 },
                 {
-                    "src": "images/2026.1.10- 34.webp",
-                    "caption": "Jeju Island, South Korea,2026"
+                    "src": "images/2025.07 274.webp",
+                    "caption": "Taizhou\uff0cZhejiang\uff0cChina"
                 },
                 {
-                    "src": "images/2026.1.10- 37.webp",
-                    "caption": "Jeju Island, South Korea,2026"
-                },
-                {
-                    "src": "images/2026.1.10- 42.webp",
-                    "caption": "Jeju Island, South Korea,2026"
+                    "src": "images/2025.4.26 july-15.webp",
+                    "caption": "Shanghai, China"
                 },
                 {
                     "src": "images/2026.1.10- 43.webp",
@@ -488,7 +646,7 @@
                     "caption": "Jeju Island, South Korea,2026"
                 },
                 {
-                    "src": "images/2026.1.10- 51.webp",
+                    "src": "images/2026.1.10- 56.webp",
                     "caption": "Jeju Island, South Korea,2026"
                 },
                 {
@@ -496,16 +654,20 @@
                     "caption": "Chengdu,China"
                 },
                 {
-                    "src": "images/2026.2.6-.webp",
-                    "caption": "Chengdu,China"
-                },
-                {
                     "src": "images/2.1 \u5927\u7406\u6dd1\u56ed 38.webp",
                     "caption": "Dali, Yunnan, China"
                 },
                 {
-                    "src": "images/2.1 \u5927\u7406\u6dd1\u56ed 70.webp",
-                    "caption": "Dali, Yunnan, China"
+                    "src": "images/2026.2.6-.webp",
+                    "caption": "Chengdu,China"
+                },
+                {
+                    "src": "images/2025.6.28 3.webp",
+                    "caption": "Shanghai, China"
+                },
+                {
+                    "src": "images/3.8 \u591a\u5566 37.webp",
+                    "caption": "Shanghai, China"
                 },
                 {
                     "src": "images/2.1 \u5927\u7406\u6dd1\u56ed 75.webp",
@@ -516,20 +678,64 @@
                     "caption": "Dali, Yunnan, China"
                 },
                 {
-                    "src": "images/2.2 \u4e91\u4e0a\u8349\u539f 10.webp",
+                    "src": "images/2026.1.10- 35.webp",
+                    "caption": "Jeju Island, South Korea,2026"
+                },
+                {
+                    "src": "images/2025.6.14 21.webp",
+                    "caption": "Hangzhou\uff0cZhejiang\uff0cChina"
+                },
+                {
+                    "src": "images/2025.6.1-2.webp",
+                    "caption": "Shanghai, China"
+                },
+                {
+                    "src": "images/2025.07 102.webp",
+                    "caption": "Kyoto\uff0cJapan"
+                },
+                {
+                    "src": "images/2.9-34.webp",
                     "caption": "Dali, Yunnan, China"
                 },
                 {
-                    "src": "images/2.2 \u4e91\u4e0a\u8349\u539f 11.webp",
-                    "caption": "Dali, Yunnan, China"
+                    "src": "images/2025.07 107.webp",
+                    "caption": "Kyoto\uff0cJapan"
                 },
                 {
-                    "src": "images/2.5 16.webp",
-                    "caption": "Dali, Yunnan, China"
+                    "src": "images/2025.07 105.webp",
+                    "caption": "Kyoto\uff0cJapan"
                 },
                 {
-                    "src": "images/2.5 23.webp",
-                    "caption": "Dali, Yunnan, China"
+                    "src": "images/2025.6.7-10.webp",
+                    "caption": "Shanghai, China"
+                },
+                {
+                    "src": "images/2025.07 106.webp",
+                    "caption": "Kyoto\uff0cJapan"
+                },
+                {
+                    "src": "images/2025.6.1-22.webp",
+                    "caption": "Shanghai, China"
+                },
+                {
+                    "src": "images/2025.6.28 7.webp",
+                    "caption": "Shanghai, China"
+                },
+                {
+                    "src": "images/2025.4.4 K11 CJarte\u7b80\u7a7a\u95f4 33.webp",
+                    "caption": "Shanghai, China"
+                },
+                {
+                    "src": "images/2025.07 29.webp",
+                    "caption": "Kyoto\uff0cJapan"
+                },
+                {
+                    "src": "images/2025.6.28 1.webp",
+                    "caption": "Shanghai, China"
+                },
+                {
+                    "src": "images/2025.07 22.webp",
+                    "caption": "Kyoto\uff0cJapan"
                 },
                 {
                     "src": "images/2.5 38.webp",
@@ -540,103 +746,7 @@
                     "caption": "Dali, Yunnan, China"
                 },
                 {
-                    "src": "images/2.9-34.webp",
-                    "caption": "Dali, Yunnan, China"
-                },
-                {
-                    "src": "images/2.16 5.webp",
-                    "caption": "Shanghai, China"
-                },
-                {
-                    "src": "images/3.8 \u591a\u5566 37.webp",
-                    "caption": "Shanghai, China"
-                },
-                {
-                    "src": "images/2025 1.1 \u5143\u65e6-43.webp",
-                    "caption": "Shanghai, China"
-                },
-                {
-                    "src": "images/2025.1.11 \u6210\u90fd \u4e1c\u90ca\u8bb0\u5fc6-1.webp",
-                    "caption": "Chengdu\uff0cSichuan\uff0cChina"
-                },
-                {
-                    "src": "images/2025.4.4 K11 CJarte\u7b80\u7a7a\u95f4 33.webp",
-                    "caption": "Shanghai, China"
-                },
-                {
-                    "src": "images/2025.4.26 july-15.webp",
-                    "caption": "Shanghai, China"
-                },
-                {
-                    "src": "images/2025.4.30-2.webp",
-                    "caption": "Shanghai, China"
-                },
-                {
-                    "src": "images/2025.6.1-2.webp",
-                    "caption": "Shanghai, China"
-                },
-                {
-                    "src": "images/2025.6.1-22.webp",
-                    "caption": "Shanghai, China"
-                },
-                {
-                    "src": "images/2025.6.7-10.webp",
-                    "caption": "Shanghai, China"
-                },
-                {
-                    "src": "images/2025.6.14 21.webp",
-                    "caption": "Hangzhou\uff0cZhejiang\uff0cChina"
-                },
-                {
-                    "src": "images/2025.6.28 1.webp",
-                    "caption": "Shanghai, China"
-                },
-                {
-                    "src": "images/2025.6.28 3.webp",
-                    "caption": "Shanghai, China"
-                },
-                {
-                    "src": "images/2025.6.28 7.webp",
-                    "caption": "Shanghai, China"
-                },
-                {
-                    "src": "images/2025.07 1.webp",
-                    "caption": "Kyoto\uff0cJapan"
-                },
-                {
-                    "src": "images/2025.07 22.webp",
-                    "caption": "Kyoto\uff0cJapan"
-                },
-                {
-                    "src": "images/2025.07 29.webp",
-                    "caption": "Kyoto\uff0cJapan"
-                },
-                {
-                    "src": "images/2025.07 102.webp",
-                    "caption": "Kyoto\uff0cJapan"
-                },
-                {
-                    "src": "images/2025.07 105.webp",
-                    "caption": "Kyoto\uff0cJapan"
-                },
-                {
-                    "src": "images/2025.07 106.webp",
-                    "caption": "Kyoto\uff0cJapan"
-                },
-                {
-                    "src": "images/2025.07 107.webp",
-                    "caption": "Kyoto\uff0cJapan"
-                },
-                {
-                    "src": "images/2025.07 261.webp",
-                    "caption": "Taizhou\uff0cZhejiang\uff0cChina"
-                },
-                {
                     "src": "images/2025.07 263.webp",
-                    "caption": "Taizhou\uff0cZhejiang\uff0cChina"
-                },
-                {
-                    "src": "images/2025.07 264.webp",
                     "caption": "Taizhou\uff0cZhejiang\uff0cChina"
                 },
                 {
@@ -644,43 +754,54 @@
                     "caption": "Taizhou\uff0cZhejiang\uff0cChina"
                 },
                 {
-                    "src": "images/2025.07 267.webp",
-                    "caption": "Taizhou\uff0cZhejiang\uff0cChina"
-                },
-                {
-                    "src": "images/2025.07 274.webp",
-                    "caption": "Taizhou\uff0cZhejiang\uff0cChina"
-                },
-                {
-                    "src": "images/2025.07 280.webp",
-                    "caption": "Taizhou\uff0cZhejiang\uff0cChina"
-                },
-                {
-                    "src": "images/2025.7.19 5.webp",
-                    "caption": "Kyoto\uff0cJapan"
-                },
-                {
                     "src": "images/2025.10 10.webp",
-                    "caption": "Shanghai, China"
-                },
-                {
-                    "src": "images/Disney-6.webp",
-                    "caption": "Shanghai, China"
-                },
-                {
-                    "src": "images/Disney-51.webp",
-                    "caption": "Shanghai, China"
-                },
-                {
-                    "src": "images/Disney-79.webp",
-                    "caption": "Shanghai, China"
-                },
-                {
-                    "src": "images/Disney-109.webp",
                     "caption": "Shanghai, China"
                 }
             ],
             "description": "Life is more than a grand narrative; it is composed of these small, light-kissed moments. This page serves as a continuous observation of the everyday\u2014whether on foreign streets, in quiet interiors, or within forgotten corners. I seek to capture the 'Arrangements' often overlooked in the rush, freezing the fluid into a state of eternal stillness. These images are my dialogue with the world.",
+            "_collapsed": true
+        },
+        {
+            "id": "new-1771075955107",
+            "title": "65x24",
+            "year": "2023-2026",
+            "description": "65x24",
+            "image": "images/43d41db63t87e8dce3684f728bb58463.JPG",
+            "gallery": [
+                "images/43d41db63t87e8dce3684f728bb58463.JPG",
+                "images/2025.4.5-4.JPG",
+                "images/2025.07 103.jpg",
+                "images/DSC_9305.JPG",
+                "images/2025.7.20-68.JPG",
+                "images/2025.3.30-3.JPG",
+                "images/2025.11.7- 6.jpg",
+                "images/2025.11.1- 6.jpg",
+                "images/2025.3.30-2.JPG",
+                "images/2.5 31.jpg",
+                "images/2025.07 259.jpg",
+                "images/2025.4.5-6.JPG",
+                "images/2025.11.1- 7.jpg",
+                "images/2025.11.7- 5.jpg",
+                "images/2025.11.1- 19.jpg",
+                "images/DSC_9095.JPG",
+                "images/2025.11.15- 25.jpg",
+                "images/2025.07 33.jpg",
+                "images/2025.07 47.jpg",
+                "images/2025.07 258.jpg",
+                "images/2025.11.15- 9.jpg",
+                "images/2025.11.19- 3.jpg",
+                "images/2025.11.27- 33.jpg",
+                "images/2025.12.14- 10.jpg",
+                "images/2024.12.1 \u4e1c\u5e73\u8defCity Walk 1.JPG",
+                "images/2026.1.10- 14.jpg",
+                "images/2026.1.11- 35.jpg",
+                "images/2025.11.1- 17.JPG",
+                "images/2025.8.31.jpg",
+                "images/2025.12.14- 10.JPG",
+                "images/DSC_9286.JPG",
+                "images/DSC_9396.JPG",
+                "images/DSC_9299.JPG"
+            ],
             "_collapsed": true
         },
         {
@@ -694,6 +815,10 @@
                     "caption": "Kyoto Japan"
                 },
                 {
+                    "src": "images/2025.07 69.webp",
+                    "caption": "Kyoto Japan"
+                },
+                {
                     "src": "images/2025.7.20-42.webp",
                     "caption": "Kyoto Japan"
                 },
@@ -702,7 +827,7 @@
                     "caption": "Kyoto Japan"
                 },
                 {
-                    "src": "images/2025.07 69.webp",
+                    "src": "images/2025.07 243.webp",
                     "caption": "Kyoto Japan"
                 },
                 {
@@ -710,19 +835,11 @@
                     "caption": "Kyoto Japan"
                 },
                 {
-                    "src": "images/2025.07 243.webp",
-                    "caption": "Kyoto Japan"
-                },
-                {
-                    "src": "images/2025.7.16-14.webp",
+                    "src": "images/2025.7.20-9.webp",
                     "caption": "Kyoto Japan"
                 },
                 {
                     "src": "images/2025.7.20-11.webp",
-                    "caption": "Kyoto Japan"
-                },
-                {
-                    "src": "images/2025.07 192.webp",
                     "caption": "Kyoto Japan"
                 },
                 {
@@ -734,15 +851,27 @@
                     "caption": "Kyoto Japan"
                 },
                 {
-                    "src": "images/2025.07 88.webp",
+                    "src": "images/2025.07 229.webp",
                     "caption": "Kyoto Japan"
                 },
                 {
-                    "src": "images/2025.7.20-9.webp",
+                    "src": "images/2025.7.15-36.webp",
                     "caption": "Kyoto Japan"
                 },
                 {
                     "src": "images/2025.7.20-8.webp",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.7.20-43.webp",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.7.16-14.webp",
+                    "caption": "Kyoto Japan"
+                },
+                {
+                    "src": "images/2025.07 192.webp",
                     "caption": "Kyoto Japan"
                 },
                 {
@@ -754,7 +883,7 @@
                     "caption": "Kyoto Japan"
                 },
                 {
-                    "src": "images/2025.07 229.webp",
+                    "src": "images/2025.07 88.webp",
                     "caption": "Kyoto Japan"
                 },
                 {
@@ -762,23 +891,11 @@
                     "caption": "Kyoto Japan"
                 },
                 {
-                    "src": "images/2025.7.20-43.webp",
-                    "caption": "Kyoto Japan"
-                },
-                {
-                    "src": "images/2025.7.15-36.webp",
-                    "caption": "Kyoto Japan"
-                },
-                {
-                    "src": "images/2025.7.18 1.webp",
-                    "caption": "Kyoto Japan"
-                },
-                {
                     "src": "images/2025.7.15-45.webp",
                     "caption": "Kyoto Japan"
                 },
                 {
-                    "src": "images/2025.7.20-20.webp",
+                    "src": "images/2025.7.18 1.webp",
                     "caption": "Kyoto Japan"
                 }
             ],

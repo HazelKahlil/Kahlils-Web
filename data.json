@@ -2,7 +2,7 @@
     "site": {
         "title": "Hazel Kahlil",
         "description": "Photographer based in Somewhere.",
-        "bio": "It has been occupied.\n\nKahlil Gibran (1883\u20131931) was a titan of art and a philosopher of the soul who transcended the cultural boundaries between East and West. Born in 1883 to a destitute family in the mountainous reaches of Northern Lebanon, his early spirit was forged by the splendor of nature and the profound religious atmosphere of Maronite Catholicism.\n\nAt the age of twelve, he immigrated to Boston with his mother, where his extraordinary talent for painting began to blossom in the tension between the city\u2019s slums and the avant-garde art scene. Gibran\u2019s life was defined by hardship; as a young man, he returned to Lebanon to deepen his study of Arabic literature, only to lose his mother and two siblings in the span of a single year. This profound bereavement infused his later work with a foundation of melancholy and compassion. With the support of his lifelong patron, Mary Haskell, he traveled to Paris to study art, eventually earning the admiration of the master sculptor Auguste Rodin.\n\nAfter settling in New York, Gibran entered his creative prime. He founded \"The Pen League,\" spearheading a reform movement in Arabic literature that shattered traditional constraints. In 1923, he published his magnum opus, The Prophet, in English. Through its rhythmic, poetic prose, the book explores eternal themes of love, life, freedom, and death, achieving a seamless fusion of Eastern mystical wisdom and the modern Western spirit. In 1931, this \"Artistic Prophet\" who had long wandered between cultures passed away from liver disease in New York at age 48. In accordance with his final wishes, his body was returned to his homeland and laid to rest in the heart of Lebanon\u2019s cedar forests, leaving behind a literary legacy that has resonated globally for over a century.",
+        "bio": "It has been occupied.\n\nKahlil Gibran (1883–1931) was a titan of art and a philosopher of the soul who transcended the cultural boundaries between East and West. Born in 1883 to a destitute family in the mountainous reaches of Northern Lebanon, his early spirit was forged by the splendor of nature and the profound religious atmosphere of Maronite Catholicism.\n\nAt the age of twelve, he immigrated to Boston with his mother, where his extraordinary talent for painting began to blossom in the tension between the city’s slums and the avant-garde art scene. Gibran’s life was defined by hardship; as a young man, he returned to Lebanon to deepen his study of Arabic literature, only to lose his mother and two siblings in the span of a single year. This profound bereavement infused his later work with a foundation of melancholy and compassion. With the support of his lifelong patron, Mary Haskell, he traveled to Paris to study art, eventually earning the admiration of the master sculptor Auguste Rodin.\n\nAfter settling in New York, Gibran entered his creative prime. He founded \"The Pen League,\" spearheading a reform movement in Arabic literature that shattered traditional constraints. In 1923, he published his magnum opus, The Prophet, in English. Through its rhythmic, poetic prose, the book explores eternal themes of love, life, freedom, and death, achieving a seamless fusion of Eastern mystical wisdom and the modern Western spirit. In 1931, this \"Artistic Prophet\" who had long wandered between cultures passed away from liver disease in New York at age 48. In accordance with his final wishes, his body was returned to his homeland and laid to rest in the heart of Lebanon’s cedar forests, leaving behind a literary legacy that has resonated globally for over a century.",
         "copyright": "all photographs copyright hazelkahlil 2026",
         "contact_items": [
             {
@@ -43,7 +43,7 @@
         "home_images": [
             {
                 "src": "images/2025.7.19 54.webp",
-                "caption": "Kyoto\uff0cJapan",
+                "caption": "Kyoto，Japan",
                 "mobile_col": "left",
                 "mobile_width": 62,
                 "mobile_mt": -11,
@@ -63,7 +63,7 @@
             },
             {
                 "src": "images/2025.12.8- 14.webp",
-                "caption": "Kyoto\uff0cJapan",
+                "caption": "Kyoto，Japan",
                 "mobile_col": "left",
                 "mobile_width": 43,
                 "mobile_mt": -2,
@@ -73,7 +73,7 @@
             },
             {
                 "src": "images/2025.12.8- 19.webp",
-                "caption": "Kyoto\uff0cJapan",
+                "caption": "Kyoto，Japan",
                 "mobile_col": "right",
                 "mobile_width": 52,
                 "mobile_mt": 91,
@@ -103,7 +103,7 @@
             "id": "new-1768987933974",
             "title": "facades",
             "year": "2025",
-            "description": "Every city has a face. Facades focuses on building fa\u00e7ades\u2014the city's most public yet most overlooked interface.I don't seek out landmarks\u2014only the silent, anonymous skins that line everyday streets. Under direct light, they shed narrative and emotion, leaving only geometry, texture, and traces of time.We pass countless fa\u00e7ades daily, yet never truly see them. This is a slowed gaze\u2014pushing background into foreground, granting the ordinary the weight of attention. No explanation. Just an invitation to look.Selected works featured in Quadro Magazine and Marika Magazine.",
+            "description": "Every city has a face. Facades focuses on building façades—the city's most public yet most overlooked interface.I don't seek out landmarks—only the silent, anonymous skins that line everyday streets. Under direct light, they shed narrative and emotion, leaving only geometry, texture, and traces of time.We pass countless façades daily, yet never truly see them. This is a slowed gaze—pushing background into foreground, granting the ordinary the weight of attention. No explanation. Just an invitation to look.Selected works featured in Quadro Magazine and Marika Magazine.",
             "image": "images/2025.7.17 69.webp",
             "gallery": [
                 {
@@ -135,7 +135,7 @@
                     "caption": "Kyoto,Japan"
                 },
                 {
-                    "src": "images/2025 1.5 \u5916\u6ee9BFC \u5076\u9047\u97e6\u65af\u5b89\u5fb7\u68ee-1.webp",
+                    "src": "images/2025 1.5 外滩BFC 偶遇韦斯安德森-1.webp",
                     "caption": "Shanghai,China"
                 },
                 {
@@ -155,11 +155,11 @@
                     "caption": "Kyoto,Japan"
                 },
                 {
-                    "src": "images/2025 1.1 \u5143\u65e6-20.webp",
+                    "src": "images/2025 1.1 元旦-20.webp",
                     "caption": "Shanghai,China"
                 },
                 {
-                    "src": "images/2025.1.11 \u6210\u90fd \u4e1c\u90ca\u8bb0\u5fc6-10.webp",
+                    "src": "images/2025.1.11 成都 东郊记忆-10.webp",
                     "caption": "Chengdu,Sichuan,China"
                 },
                 {
@@ -280,11 +280,11 @@
                     "caption": "Nanjing, Jiangsu, China"
                 },
                 {
-                    "src": "images/2.3 \u9f99\u9f9b\u65e5\u51fa \u65e0\u6c34\u5370-19.webp",
+                    "src": "images/2.3 龙龛日出 无水印-19.webp",
                     "caption": "Dali, Yunnan, China"
                 },
                 {
-                    "src": "images/2.3 \u9f99\u9f9b\u65e5\u51fa \u65e0\u6c34\u5370-16.webp",
+                    "src": "images/2.3 龙龛日出 无水印-16.webp",
                     "caption": "Dali, Yunnan, China"
                 },
                 {
@@ -292,7 +292,7 @@
                     "caption": "Shanghai,China"
                 },
                 {
-                    "src": "images/2.3 \u9f99\u9f9b\u65e5\u51fa \u65e0\u6c34\u5370-17.webp",
+                    "src": "images/2.3 龙龛日出 无水印-17.webp",
                     "caption": "Dali, Yunnan, China"
                 },
                 {
@@ -316,15 +316,15 @@
                     "caption": "Shanghai,China"
                 },
                 {
-                    "src": "images/2.3 \u9f99\u9f9b\u65e5\u51fa \u65e0\u6c34\u5370-40.webp",
+                    "src": "images/2.3 龙龛日出 无水印-40.webp",
                     "caption": "Dali, Yunnan, China"
                 },
                 {
-                    "src": "images/2.3 \u9f99\u9f9b\u65e5\u51fa \u65e0\u6c34\u5370-14.webp",
+                    "src": "images/2.3 龙龛日出 无水印-14.webp",
                     "caption": "Dali, Yunnan, China"
                 },
                 {
-                    "src": "images/2.3 \u9f99\u9f9b\u65e5\u51fa \u65e0\u6c34\u5370-25.webp",
+                    "src": "images/2.3 龙龛日出 无水印-25.webp",
                     "caption": "Dali, Yunnan, China"
                 }
             ],
@@ -335,15 +335,15 @@
             "id": "new-1771074318249",
             "title": "Stillness & Silence",
             "year": "2023-2026",
-            "description": "Stillness is not the absence of motion, but time held captive. Silence is not the void of sound, but the ear turned inward.\n\n\u5b9a\u975e\u6b62\u52a8\uff0c\u4e43\u65f6\u5149\u56da\u4e8e\u65b9\u5bf8\u3002\n\u9ed8\u975e\u7edd\u58f0\uff0c\u4e43\u4e07\u7c41\u9000\u800c\u81ea\u7701\u3002",
+            "description": "Stillness is not the absence of motion, but time held captive. Silence is not the void of sound, but the ear turned inward.\n\n定非止动，乃时光囚于方寸。\n默非绝声，乃万籁退而自省。",
             "image": "images/IMG_2874_VSCO.webp",
             "gallery": [
                 {
-                    "src": "images/2.2 \u4e91\u4e0a\u8349\u539f 10.jpg",
-                    "caption": "Dali\uff0cYunnan\uff0cChina"
+                    "src": "images/2.2 云上草原 10.webp",
+                    "caption": "Dali，Yunnan，China"
                 },
                 {
-                    "src": "images/2025.3.15 \u8861\u5c71\u8def \u6c38\u5e73\u91cc-34.JPG",
+                    "src": "images/2025.3.15 衡山路 永平里-34.webp",
                     "caption": "Shanghai, China"
                 },
                 {
@@ -351,8 +351,8 @@
                     "caption": "Shanghai, China"
                 },
                 {
-                    "src": "images/2.2 \u4e91\u4e0a\u8349\u539f 6.jpg",
-                    "caption": "Dali\uff0cYunnan\uff0cChina"
+                    "src": "images/2.2 云上草原 6.webp",
+                    "caption": "Dali，Yunnan，China"
                 },
                 {
                     "src": "images/2026.1.11Grain-11.webp",
@@ -396,11 +396,11 @@
                 },
                 {
                     "src": "images/DSC_9003.webp",
-                    "caption": "Taizhou\uff0cZhejiang\uff0cChina"
+                    "caption": "Taizhou，Zhejiang，China"
                 },
                 {
                     "src": "images/DSC_8971.webp",
-                    "caption": "Taizhou\uff0cZhejiang\uff0cChina"
+                    "caption": "Taizhou，Zhejiang，China"
                 },
                 {
                     "src": "images/IMG_8004.webp",
@@ -420,15 +420,15 @@
                 },
                 {
                     "src": "images/2025.7.19 55.webp",
-                    "caption": "Kyoto\uff0cJapan"
+                    "caption": "Kyoto，Japan"
                 },
                 {
                     "src": "images/2026.2.5 20.webp",
-                    "caption": "Chengdu\uff0cSichuan\uff0cChina"
+                    "caption": "Chengdu，Sichuan，China"
                 },
                 {
-                    "src": "images/\u7ec4\u56fe.JPG",
-                    "caption": "Chengdu\uff0cSichuan\uff0cChina"
+                    "src": "images/组图.webp",
+                    "caption": "Chengdu，Sichuan，China"
                 },
                 {
                     "src": "images/f4bc4a0449380d9ae3855462f38f1121.webp",
@@ -457,144 +457,144 @@
             "id": "new-1770721055412",
             "title": "Principles",
             "year": "2024-2026",
-            "description": "\"Principles\" is a collection of visual slices concerning order. I focus my lens on overlooked geometric details\u2014a shadow cast upon a wall, a landscape framed by a window, or the rigorous grid of a floor. These fragmented images collectively build an archive of \"principles,\" narrating the eternal dialogue between light and form within stillness.",
+            "description": "\"Principles\" is a collection of visual slices concerning order. I focus my lens on overlooked geometric details—a shadow cast upon a wall, a landscape framed by a window, or the rigorous grid of a floor. These fragmented images collectively build an archive of \"principles,\" narrating the eternal dialogue between light and form within stillness.",
             "image": "images/2025.11.27- 21.webp",
             "gallery": [
                 {
-                    "src": "images/2.2 \u4e91\u4e0a\u8349\u539f.webp",
-                    "caption": "Dali\uff0cYunnan\uff0cChina"
+                    "src": "images/2.2 云上草原.webp",
+                    "caption": "Dali，Yunnan，China"
                 },
                 {
                     "src": "images/2025.5.11-2.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2025.11.27- 31.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2.5 30.webp",
-                    "caption": "Dali\uff0cYunnan\uff0cChina"
+                    "caption": "Dali，Yunnan，China"
                 },
                 {
                     "src": "images/2025.5.19-28.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
-                    "src": "images/2025.4.4 K11 CJarte\u7b80\u7a7a\u95f4 25.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "src": "images/2025.4.4 K11 CJarte简空间 25.webp",
+                    "caption": "Shanghai，China"
                 },
                 {
-                    "src": "images/3.7 \u4e45\u4e8b\u7f8e\u672f\u9986 1.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "src": "images/3.7 久事美术馆 1.webp",
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2025.5.29-2.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2025.6.7-14.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2025.5.29-10.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2025.6.18 14.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2025.6.18 12.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2025.10 13.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2025.10.26- 2.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2025.11.27- 1.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
-                    "src": "images/3.7 \u4e45\u4e8b\u7f8e\u672f\u9986 2.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "src": "images/3.7 久事美术馆 2.webp",
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2025.3.21 F1 2.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2025.5.24-20.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2025.11.27- 3.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2025.11.27- 4.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2026.1.25- 6.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2025.11.27- 21.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2025.11.28- 22.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2025.11.27- 2.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2025.11.27- 32.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2025.11.28- 19.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2025.11.28- 24.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2025.11.29- 30.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2025.12.7- 11.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2025.12.8- 8.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2025.12.8- 9.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2025.12.8- 13.webp",
-                    "caption": "Kyoto\uff0cJapan"
+                    "caption": "Kyoto，Japan"
                 },
                 {
                     "src": "images/2025.12.8- 14.webp",
-                    "caption": "Kyoto\uff0cJapan"
+                    "caption": "Kyoto，Japan"
                 },
                 {
                     "src": "images/2025.12.8- 15.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 },
                 {
                     "src": "images/2026.1.11- 7.webp",
@@ -602,7 +602,7 @@
                 },
                 {
                     "src": "images/2026.1.25- 14.webp",
-                    "caption": "Shanghai\uff0cChina"
+                    "caption": "Shanghai，China"
                 }
             ],
             "_collapsed": true
@@ -623,7 +623,7 @@
                 },
                 {
                     "src": "images/2025.8.31 18.webp",
-                    "caption": "Taizhou\uff0cZhejiang\uff0cChina"
+                    "caption": "Taizhou，Zhejiang，China"
                 },
                 {
                     "src": "images/2.5 16.webp",
@@ -631,7 +631,7 @@
                 },
                 {
                     "src": "images/2025.07 274.webp",
-                    "caption": "Taizhou\uff0cZhejiang\uff0cChina"
+                    "caption": "Taizhou，Zhejiang，China"
                 },
                 {
                     "src": "images/2025.4.26 july-15.webp",
@@ -654,7 +654,7 @@
                     "caption": "Chengdu,China"
                 },
                 {
-                    "src": "images/2.1 \u5927\u7406\u6dd1\u56ed 38.webp",
+                    "src": "images/2.1 大理淑园 38.webp",
                     "caption": "Dali, Yunnan, China"
                 },
                 {
@@ -666,15 +666,15 @@
                     "caption": "Shanghai, China"
                 },
                 {
-                    "src": "images/3.8 \u591a\u5566 37.webp",
+                    "src": "images/3.8 多啦 37.webp",
                     "caption": "Shanghai, China"
                 },
                 {
-                    "src": "images/2.1 \u5927\u7406\u6dd1\u56ed 75.webp",
+                    "src": "images/2.1 大理淑园 75.webp",
                     "caption": "Dali, Yunnan, China"
                 },
                 {
-                    "src": "images/2.1 \u5927\u7406\u6dd1\u56ed 77.webp",
+                    "src": "images/2.1 大理淑园 77.webp",
                     "caption": "Dali, Yunnan, China"
                 },
                 {
@@ -683,7 +683,7 @@
                 },
                 {
                     "src": "images/2025.6.14 21.webp",
-                    "caption": "Hangzhou\uff0cZhejiang\uff0cChina"
+                    "caption": "Hangzhou，Zhejiang，China"
                 },
                 {
                     "src": "images/2025.6.1-2.webp",
@@ -691,7 +691,7 @@
                 },
                 {
                     "src": "images/2025.07 102.webp",
-                    "caption": "Kyoto\uff0cJapan"
+                    "caption": "Kyoto，Japan"
                 },
                 {
                     "src": "images/2.9-34.webp",
@@ -699,11 +699,11 @@
                 },
                 {
                     "src": "images/2025.07 107.webp",
-                    "caption": "Kyoto\uff0cJapan"
+                    "caption": "Kyoto，Japan"
                 },
                 {
                     "src": "images/2025.07 105.webp",
-                    "caption": "Kyoto\uff0cJapan"
+                    "caption": "Kyoto，Japan"
                 },
                 {
                     "src": "images/2025.6.7-10.webp",
@@ -711,7 +711,7 @@
                 },
                 {
                     "src": "images/2025.07 106.webp",
-                    "caption": "Kyoto\uff0cJapan"
+                    "caption": "Kyoto，Japan"
                 },
                 {
                     "src": "images/2025.6.1-22.webp",
@@ -722,12 +722,12 @@
                     "caption": "Shanghai, China"
                 },
                 {
-                    "src": "images/2025.4.4 K11 CJarte\u7b80\u7a7a\u95f4 33.webp",
+                    "src": "images/2025.4.4 K11 CJarte简空间 33.webp",
                     "caption": "Shanghai, China"
                 },
                 {
                     "src": "images/2025.07 29.webp",
-                    "caption": "Kyoto\uff0cJapan"
+                    "caption": "Kyoto，Japan"
                 },
                 {
                     "src": "images/2025.6.28 1.webp",
@@ -735,7 +735,7 @@
                 },
                 {
                     "src": "images/2025.07 22.webp",
-                    "caption": "Kyoto\uff0cJapan"
+                    "caption": "Kyoto，Japan"
                 },
                 {
                     "src": "images/2.5 38.webp",
@@ -747,18 +747,18 @@
                 },
                 {
                     "src": "images/2025.07 263.webp",
-                    "caption": "Taizhou\uff0cZhejiang\uff0cChina"
+                    "caption": "Taizhou，Zhejiang，China"
                 },
                 {
                     "src": "images/2025.07 265.webp",
-                    "caption": "Taizhou\uff0cZhejiang\uff0cChina"
+                    "caption": "Taizhou，Zhejiang，China"
                 },
                 {
                     "src": "images/2025.10 10.webp",
                     "caption": "Shanghai, China"
                 }
             ],
-            "description": "Life is more than a grand narrative; it is composed of these small, light-kissed moments. This page serves as a continuous observation of the everyday\u2014whether on foreign streets, in quiet interiors, or within forgotten corners. I seek to capture the 'Arrangements' often overlooked in the rush, freezing the fluid into a state of eternal stillness. These images are my dialogue with the world.",
+            "description": "Life is more than a grand narrative; it is composed of these small, light-kissed moments. This page serves as a continuous observation of the everyday—whether on foreign streets, in quiet interiors, or within forgotten corners. I seek to capture the 'Arrangements' often overlooked in the rush, freezing the fluid into a state of eternal stillness. These images are my dialogue with the world.",
             "_collapsed": true
         },
         {
@@ -792,12 +792,12 @@
                 "images/2025.11.19- 3.webp",
                 "images/2025.11.27- 33.webp",
                 "images/2025.12.14- 10.webp",
-                "images/2024.12.1 \u4e1c\u5e73\u8defCity Walk 1.JPG",
+                "images/2024.12.1 东平路City Walk 1.webp",
                 "images/2026.1.10- 14.webp",
                 "images/2026.1.11- 35.webp",
-                "images/2025.11.1- 17.JPG",
+                "images/2025.11.1- 17.webp",
                 "images/2025.8.31.webp",
-                "images/2025.12.14- 10.JPG",
+                "images/2025.12.14- 10.webp",
                 "images/DSC_9286.webp",
                 "images/DSC_9396.webp",
                 "images/DSC_9299.webp"
@@ -899,7 +899,7 @@
                     "caption": "Kyoto Japan"
                 }
             ],
-            "description": "Once the clamour is stripped away, Kyoto\u2019s essential bones are laid bare. I find myself captivated by the inherent order within these frames: where the sharp white planes of modern architecture slice through the sky, held in a silent stalemate with the brooding eaves of antiquity. The geometric lines of a car park find a curious kinship with the rhythmic tiles of a distant roof, creating a strange parallel world. Even the mundane\u2014a bicycle or a drape of fabric in a garage\u2014assumes a sculptural presence. Here, light does not exist merely to illuminate; it serves to delineate the silent geometry of objects existing within the void.",
+            "description": "Once the clamour is stripped away, Kyoto’s essential bones are laid bare. I find myself captivated by the inherent order within these frames: where the sharp white planes of modern architecture slice through the sky, held in a silent stalemate with the brooding eaves of antiquity. The geometric lines of a car park find a curious kinship with the rhythmic tiles of a distant roof, creating a strange parallel world. Even the mundane—a bicycle or a drape of fabric in a garage—assumes a sculptural presence. Here, light does not exist merely to illuminate; it serves to delineate the silent geometry of objects existing within the void.",
             "_collapsed": true
         }
     ]
